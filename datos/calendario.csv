@@ -1,0 +1,381 @@
+jornada,local,visitante
+1,Alavés,Getafe
+1,Atlético,Málaga
+1,Celta,Osasuna
+1,Deportivo,Elche
+1,Espanyol,Levante
+1,Barcelona,Athletic
+1,Racing,Villarreal
+1,Real Madrid,Real Sociedad
+1,Sevilla,Rayo
+1,Valencia,Betis
+2,Athletic,Sevilla
+2,Atlético,Villarreal
+2,Betis,Real Sociedad
+2,Elche,Barcelona
+2,Espanyol,Real Madrid
+2,Getafe,Racing
+2,Málaga,Deportivo
+2,Osasuna,Levante
+2,Rayo,Alavés
+2,Valencia,Celta
+3,Alavés,Villarreal
+3,Celta,Athletic
+3,Deportivo,Valencia
+3,Barcelona,Rayo
+3,Levante,Betis
+3,Osasuna,Getafe
+3,Racing,Elche
+3,Real Madrid,Málaga
+3,Real Sociedad,Espanyol
+3,Sevilla,Atlético
+4,Alavés,Osasuna
+4,Athletic,Atlético
+4,Betis,Real Madrid
+4,Elche,Real Sociedad
+4,Espanyol,Sevilla
+4,Getafe,Celta
+4,Málaga,Levante
+4,Rayo,Racing
+4,Valencia,Barcelona
+4,Villarreal,Deportivo
+5,Athletic,Elche
+5,Celta,Málaga
+5,Getafe,Deportivo
+5,Levante,Barcelona
+5,Osasuna,Espanyol
+5,Racing,Alavés
+5,Real Madrid,Rayo
+5,Real Sociedad,Atlético
+5,Sevilla,Valencia
+5,Villarreal,Betis
+6,Alavés,Valencia
+6,Atlético,Osasuna
+6,Betis,Getafe
+6,Deportivo,Sevilla
+6,Elche,Real Madrid
+6,Barcelona,Racing
+6,Levante,Athletic
+6,Málaga,Villarreal
+6,Rayo,Espanyol
+6,Real Sociedad,Celta
+7,Athletic,Alavés
+7,Atlético,Real Madrid
+7,Celta,Racing
+7,Deportivo,Betis
+7,Espanyol,Elche
+7,Getafe,Málaga
+7,Osasuna,Rayo
+7,Sevilla,Barcelona
+7,Valencia,Real Sociedad
+7,Villarreal,Levante
+8,Alavés,Atlético
+8,Betis,Osasuna
+8,Elche,Celta
+8,Barcelona,Getafe
+8,Levante,Sevilla
+8,Málaga,Espanyol
+8,Racing,Valencia
+8,Rayo,Athletic
+8,Real Madrid,Villarreal
+8,Real Sociedad,Deportivo
+9,Betis,Barcelona
+9,Celta,Alavés
+9,Deportivo,Levante
+9,Espanyol,Atlético
+9,Getafe,Rayo
+9,Málaga,Real Sociedad
+9,Osasuna,Racing
+9,Real Madrid,Sevilla
+9,Valencia,Athletic
+9,Villarreal,Elche
+10,Alavés,Málaga
+10,Athletic,Getafe
+10,Atlético,Deportivo
+10,Celta,Betis
+10,Barcelona,Real Madrid
+10,Racing,Espanyol
+10,Rayo,Elche
+10,Real Sociedad,Levante
+10,Sevilla,Osasuna
+10,Valencia,Villarreal
+11,Athletic,Real Sociedad
+11,Betis,Málaga
+11,Deportivo,Osasuna
+11,Elche,Valencia
+11,Barcelona,Alavés
+11,Getafe,Sevilla
+11,Levante,Atlético
+11,Racing,Real Madrid
+11,Rayo,Celta
+11,Villarreal,Espanyol
+12,Atlético,Barcelona
+12,Celta,Levante
+12,Elche,Betis
+12,Espanyol,Deportivo
+12,Málaga,Racing
+12,Osasuna,Athletic
+12,Real Sociedad,Rayo
+12,Sevilla,Alavés
+12,Valencia,Real Madrid
+12,Villarreal,Getafe
+13,Alavés,Deportivo
+13,Athletic,Espanyol
+13,Barcelona,Villarreal
+13,Getafe,Atlético
+13,Levante,Elche
+13,Osasuna,Málaga
+13,Racing,Real Sociedad
+13,Rayo,Valencia
+13,Real Madrid,Celta
+13,Sevilla,Betis
+14,Betis,Rayo
+14,Celta,Villarreal
+14,Deportivo,Barcelona
+14,Elche,Atlético
+14,Espanyol,Getafe
+14,Levante,Racing
+14,Málaga,Athletic
+14,Real Madrid,Alavés
+14,Real Sociedad,Sevilla
+14,Valencia,Osasuna
+15,Alavés,Espanyol
+15,Athletic,Real Madrid
+15,Atlético,Betis
+15,Barcelona,Celta
+15,Getafe,Valencia
+15,Osasuna,Elche
+15,Racing,Deportivo
+15,Rayo,Levante
+15,Sevilla,Málaga
+15,Villarreal,Real Sociedad
+16,Atlético,Valencia
+16,Betis,Racing
+16,Deportivo,Athletic
+16,Elche,Sevilla
+16,Espanyol,Celta
+16,Levante,Alavés
+16,Málaga,Barcelona
+16,Real Madrid,Osasuna
+16,Real Sociedad,Getafe
+16,Villarreal,Rayo
+17,Alavés,Elche
+17,Athletic,Betis
+17,Celta,Atlético
+17,Deportivo,Real Madrid
+17,Barcelona,Real Sociedad
+17,Getafe,Levante
+17,Osasuna,Villarreal
+17,Rayo,Málaga
+17,Sevilla,Racing
+17,Valencia,Espanyol
+18,Betis,Alavés
+18,Celta,Deportivo
+18,Espanyol,Barcelona
+18,Levante,Valencia
+18,Málaga,Elche
+18,Racing,Athletic
+18,Rayo,Atlético
+18,Real Madrid,Getafe
+18,Real Sociedad,Osasuna
+18,Villarreal,Sevilla
+19,Alavés,Real Sociedad
+19,Athletic,Villarreal
+19,Atlético,Racing
+19,Deportivo,Rayo
+19,Elche,Getafe
+19,Espanyol,Betis
+19,Osasuna,Barcelona
+19,Real Madrid,Levante
+19,Sevilla,Celta
+19,Valencia,Málaga
+20,Atlético,Real Sociedad
+20,Betis,Deportivo
+20,Celta,Valencia
+20,Barcelona,Elche
+20,Getafe,Athletic
+20,Levante,Espanyol
+20,Málaga,Real Madrid
+20,Racing,Osasuna
+20,Rayo,Sevilla
+20,Villarreal,Alavés
+21,Alavés,Barcelona
+21,Athletic,Levante
+21,Deportivo,Atlético
+21,Elche,Rayo
+21,Espanyol,Villarreal
+21,Getafe,Osasuna
+21,Racing,Celta
+21,Real Madrid,Betis
+21,Real Sociedad,Málaga
+21,Valencia,Sevilla
+22,Atlético,Espanyol
+22,Betis,Elche
+22,Celta,Getafe
+22,Barcelona,Valencia
+22,Levante,Real Sociedad
+22,Málaga,Alavés
+22,Osasuna,Deportivo
+22,Rayo,Real Madrid
+22,Sevilla,Athletic
+22,Villarreal,Racing
+23,Alavés,Celta
+23,Athletic,Osasuna
+23,Betis,Sevilla
+23,Deportivo,Málaga
+23,Elche,Levante
+23,Espanyol,Rayo
+23,Barcelona,Atlético
+23,Getafe,Villarreal
+23,Real Sociedad,Real Madrid
+23,Valencia,Racing
+24,Celta,Rayo
+24,Elche,Deportivo
+24,Levante,Málaga
+24,Osasuna,Atlético
+24,Racing,Getafe
+24,Real Madrid,Athletic
+24,Real Sociedad,Betis
+24,Sevilla,Espanyol
+24,Valencia,Alavés
+24,Villarreal,Barcelona
+25,Alavés,Racing
+25,Athletic,Celta
+25,Atlético,Elche
+25,Deportivo,Real Sociedad
+25,Espanyol,Osasuna
+25,Barcelona,Levante
+25,Málaga,Betis
+25,Rayo,Getafe
+25,Sevilla,Real Madrid
+25,Villarreal,Valencia
+26,Athletic,Barcelona
+26,Betis,Villarreal
+26,Celta,Espanyol
+26,Getafe,Alavés
+26,Levante,Deportivo
+26,Málaga,Atlético
+26,Osasuna,Sevilla
+26,Racing,Rayo
+26,Real Madrid,Valencia
+26,Real Sociedad,Elche
+27,Alavés,Athletic
+27,Atlético,Celta
+27,Deportivo,Getafe
+27,Elche,Málaga
+27,Espanyol,Racing
+27,Barcelona,Betis
+27,Rayo,Osasuna
+27,Sevilla,Real Sociedad
+27,Valencia,Levante
+27,Villarreal,Real Madrid
+28,Alavés,Sevilla
+28,Athletic,Valencia
+28,Betis,Levante
+28,Elche,Villarreal
+28,Barcelona,Deportivo
+28,Getafe,Real Sociedad
+28,Málaga,Rayo
+28,Osasuna,Celta
+28,Racing,Atlético
+28,Real Madrid,Espanyol
+29,Atlético,Getafe
+29,Celta,Real Madrid
+29,Espanyol,Athletic
+29,Levante,Osasuna
+29,Racing,Betis
+29,Rayo,Barcelona
+29,Real Sociedad,Alavés
+29,Sevilla,Elche
+29,Valencia,Deportivo
+29,Villarreal,Málaga
+30,Athletic,Racing
+30,Betis,Celta
+30,Deportivo,Villarreal
+30,Elche,Alavés
+30,Barcelona,Sevilla
+30,Getafe,Espanyol
+30,Levante,Rayo
+30,Málaga,Osasuna
+30,Real Madrid,Atlético
+30,Real Sociedad,Valencia
+31,Alavés,Betis
+31,Atlético,Levante
+31,Celta,Elche
+31,Espanyol,Málaga
+31,Osasuna,Real Madrid
+31,Racing,Barcelona
+31,Rayo,Real Sociedad
+31,Sevilla,Deportivo
+31,Valencia,Getafe
+31,Villarreal,Athletic
+32,Alavés,Rayo
+32,Atlético,Sevilla
+32,Betis,Athletic
+32,Deportivo,Celta
+32,Elche,Osasuna
+32,Barcelona,Espanyol
+32,Getafe,Real Madrid
+32,Levante,Villarreal
+32,Málaga,Valencia
+32,Real Sociedad,Racing
+33,Athletic,Deportivo
+33,Celta,Barcelona
+33,Espanyol,Real Sociedad
+33,Getafe,Betis
+33,Osasuna,Alavés
+33,Racing,Málaga
+33,Real Madrid,Elche
+33,Sevilla,Levante
+33,Valencia,Rayo
+33,Villarreal,Atlético
+34,Atlético,Alavés
+34,Betis,Valencia
+34,Celta,Sevilla
+34,Deportivo,Racing
+34,Elche,Espanyol
+34,Barcelona,Osasuna
+34,Levante,Real Madrid
+34,Málaga,Getafe
+34,Rayo,Villarreal
+34,Real Sociedad,Athletic
+35,Alavés,Levante
+35,Athletic,Málaga
+35,Betis,Espanyol
+35,Getafe,Elche
+35,Osasuna,Real Sociedad
+35,Racing,Sevilla
+35,Rayo,Deportivo
+35,Real Madrid,Barcelona
+35,Valencia,Atlético
+35,Villarreal,Celta
+36,Atlético,Rayo
+36,Deportivo,Alavés
+36,Elche,Athletic
+36,Espanyol,Valencia
+36,Levante,Getafe
+36,Málaga,Celta
+36,Osasuna,Betis
+36,Real Madrid,Racing
+36,Real Sociedad,Barcelona
+36,Sevilla,Villarreal
+37,Alavés,Real Madrid
+37,Atlético,Athletic
+37,Celta,Real Sociedad
+37,Deportivo,Espanyol
+37,Barcelona,Málaga
+37,Racing,Levante
+37,Rayo,Betis
+37,Sevilla,Getafe
+37,Valencia,Elche
+37,Villarreal,Osasuna
+38,Athletic,Rayo
+38,Betis,Atlético
+38,Elche,Racing
+38,Espanyol,Alavés
+38,Getafe,Barcelona
+38,Levante,Celta
+38,Málaga,Sevilla
+38,Osasuna,Valencia
+38,Real Madrid,Deportivo
+38,Real Sociedad,Villarreal
