@@ -15,6 +15,13 @@ FUENTES = {
 SALIDA = "datos/puntos.csv"
 CABECERA = ["fuente", "jornada", "jugador", "equipo", "puntos", "jugo", "capturado"]
 
+EQUIPOS = [
+    "Real Madrid", "Real Sociedad", "Athletic", "Atlético", "Barcelona",
+    "Betis", "Celta", "Deportivo", "Elche", "Espanyol", "Getafe",
+    "Levante", "Málaga", "Osasuna", "Racing", "Rayo", "Sevilla",
+    "Valencia", "Villarreal", "Alavés",
+]
+
 
 def numero(t):
     t = t.strip()
@@ -36,13 +43,18 @@ def procesar(nombre_fuente, url, cabeceras, hoy):
         celdas = [c.get_text(" ", strip=True) for c in fila.select("td")]
         if len(celdas) < 6:
             continue
-
-        partes = celdas[0].split()
-        if len(partes) < 2:
+            
+        texto = celdas[0]
+        equipo = None
+        for nombre_equipo in EQUIPOS:
+            if texto.endswith(" " + nombre_equipo):
+                equipo = nombre_equipo
+                jugador = texto[: -len(nombre_equipo)].strip()
+                break
+        if equipo is None:
+            print(f"  equipo no reconocido en: {texto[:60]}")
             continue
-        equipo = partes[-1]
-        jugador = " ".join(partes[:-1])
-
+            
         racha = celdas[2].split()
         if not racha:
             continue
