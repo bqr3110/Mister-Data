@@ -4,8 +4,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://www.futbolfantasy.com/laliga/calendario"
-SALIDA = "datos/partidos_urls.csv"
+URL = "https://www.futbolfantasy.com/partidos/22453-athletic-atletico"
 
 
 def main():
@@ -16,33 +15,34 @@ def main():
         return
 
     sopa = BeautifulSoup(r.text, "html.parser")
+    for basura in sopa(["script", "style"]):
+        basura.decompose()
 
-    encontrados = {}
-    for a in sopa.select("a[href]"):
-        href = a["href"]
-        m = re.search(r"/partidos/(\d+)-([a-z0-9-]+)", href)
-        if not m:
-            continue
-        id_partido = m.group(1)
-        if id_partido in encontrados:
-            continue
-        if href.startswith("//"):
-            href = "https:" + href
-        elif href.startswith("/"):
-            href = "https://www.futbolfantasy.com" + href
-        encontrados[id_partido] = (m.group(2), href)
+    lineas = [l.strip() for l in sopa.get_text("\n", strip=True).split("\n") if l.strip()]
 
-    print(f"Partidos encontrados: {len(encontrados)}")
+    # Jornada
+    jornada = None
+    for l in lineas[:120]:
+        m = re.search(r"Jornada (\d+)", l)
+        if m:
+            jornada = int(m.group(1))
+            break
+    print(f"Jornada: {jornada}")
 
-    os.makedirs("datos", exist_ok=True)
-    with open(SALIDA, "w", newline="", encoding="utf-8") as f:
-        escritor = csv.writer(f)
-        escritor.writerow(["id", "slug", "url"])
-        for id_partido, (slug, href) in sorted(encontrados.items(), key=lambda x: int(x[0])):
-            escritor.writerow([id_partido, slug, href])
+    # Goleadores: nombre seguido de (46')
+    goles = []
+    for i, l in enumerate(lineas[:140]):
+        if re.fullmatch(r"\(\d{1,3}'?\)", l) and i > 0:
+            goles.append((lineas[i - 1], l.strip("()'")))
+    print(f"Goles detectados: {goles}")
 
-    for id_partido, (slug, href) in list(sorted(encontrados.items(), key=lambda x: int(x[0])))[:5]:
-        print(f"  {id_partido}  {slug}")
+    # Buscamos rastros de tarjetas en todo el texto
+    print("\nRASTROS DE TARJETA:")
+    for i, l in enumerate(lineas):
+        if re.search(r"[Aa]marilla|[Rr]oja|[Tt]arjeta", l):
+            print(f"  {i}: {l[:120]}")
+            if i > 400:
+                break
 
 
 if __name__ == "__main__":
