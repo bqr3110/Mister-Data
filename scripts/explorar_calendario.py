@@ -1,8 +1,11 @@
+import csv
 import os
+import re
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://www.futbolfantasy.com/partidos/22453-athletic-atletico"
+URL = "https://www.futbolfantasy.com/laliga/calendario"
+SALIDA = "datos/partidos_urls.csv"
 
 
 def main():
@@ -12,24 +15,34 @@ def main():
     if r.status_code != 200:
         return
 
-    os.makedirs("datos/explorar", exist_ok=True)
     sopa = BeautifulSoup(r.text, "html.parser")
 
-    for basura in sopa(["script", "style"]):
-        basura.decompose()
+    encontrados = {}
+    for a in sopa.select("a[href]"):
+        href = a["href"]
+        m = re.search(r"/partidos/(\d+)-([a-z0-9-]+)", href)
+        if not m:
+            continue
+        id_partido = m.group(1)
+        if id_partido in encontrados:
+            continue
+        if href.startswith("//"):
+            href = "https:" + href
+        elif href.startswith("/"):
+            href = "https://www.futbolfantasy.com" + href
+        encontrados[id_partido] = (m.group(2), href)
 
-    lineas = [l.strip() for l in sopa.get_text("\n", strip=True).split("\n") if l.strip()]
+    print(f"Partidos encontrados: {len(encontrados)}")
 
-    with open("datos/explorar/cabecera.txt", "w", encoding="utf-8") as f:
-        f.write("\n".join(lineas[:180]))
+    os.makedirs("datos", exist_ok=True)
+    with open(SALIDA, "w", newline="", encoding="utf-8") as f:
+        escritor = csv.writer(f)
+        escritor.writerow(["id", "slug", "url"])
+        for id_partido, (slug, href) in sorted(encontrados.items(), key=lambda x: int(x[0])):
+            escritor.writerow([id_partido, slug, href])
 
-    print("Guardado datos/explorar/cabecera.txt")
-
-    # Buscamos donde aparece el minuto de gol, tipo 34'
-    import re
-    for i, l in enumerate(lineas[:300]):
-        if re.fullmatch(r"\d{1,3}'", l) or "'" in l and len(l) < 8:
-            print(f"  linea {i}: {l}   (contexto: {lineas[max(0,i-2):i+2]})")
+    for id_partido, (slug, href) in list(sorted(encontrados.items(), key=lambda x: int(x[0])))[:5]:
+        print(f"  {id_partido}  {slug}")
 
 
 if __name__ == "__main__":
