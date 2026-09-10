@@ -1,4 +1,3 @@
-import csv
 import os
 import requests
 from bs4 import BeautifulSoup
@@ -16,18 +15,21 @@ def main():
     os.makedirs("datos/explorar", exist_ok=True)
     sopa = BeautifulSoup(r.text, "html.parser")
 
-    for i, tabla in enumerate(sopa.select("table")):
-        filas = []
-        for fila in tabla.select("tr"):
-            celdas = [c.get_text(" ", strip=True) for c in fila.select("th, td")]
-            if celdas:
-                filas.append(celdas)
+    for basura in sopa(["script", "style"]):
+        basura.decompose()
 
-        ancho = max((len(f) for f in filas), default=0)
-        print(f"tabla {i}: {len(filas)} filas, hasta {ancho} columnas")
+    lineas = [l.strip() for l in sopa.get_text("\n", strip=True).split("\n") if l.strip()]
 
-        with open(f"datos/explorar/tabla_{i}.csv", "w", newline="", encoding="utf-8") as f:
-            csv.writer(f).writerows(filas[:6])
+    with open("datos/explorar/cabecera.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(lineas[:180]))
+
+    print("Guardado datos/explorar/cabecera.txt")
+
+    # Buscamos donde aparece el minuto de gol, tipo 34'
+    import re
+    for i, l in enumerate(lineas[:300]):
+        if re.fullmatch(r"\d{1,3}'", l) or "'" in l and len(l) < 8:
+            print(f"  linea {i}: {l}   (contexto: {lineas[max(0,i-2):i+2]})")
 
 
 if __name__ == "__main__":
