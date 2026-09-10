@@ -1,31 +1,37 @@
-import re
-from collections import Counter
+import os
+import requests
 from bs4 import BeautifulSoup
 
-ENTRADA = "datos/puntos_ultimo.html"
+URLS = {
+    "estad_puntos": "https://www.futbolfantasy.com/laliga/estadisticas-puntos/jugador",
+    "equipo_athletic": "https://www.futbolfantasy.com/analytics/athletic",
+    "equipo_athletic_lg": "https://www.futbolfantasy.com/laliga/equipos/athletic",
+}
 
 
 def main():
-    with open(ENTRADA, encoding="utf-8") as f:
-        sopa = BeautifulSoup(f.read(), "html.parser")
+    cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
+    os.makedirs("datos/explorar", exist_ok=True)
 
-    enlaces = [a["href"] for a in sopa.select("a[href]")]
-    print(f"Enlaces totales: {len(enlaces)}\n")
+    for nombre, url in URLS.items():
+        try:
+            r = requests.get(url, headers=cabeceras, timeout=30)
+            print(f"{nombre}: HTTP {r.status_code}")
+            if r.status_code != 200:
+                continue
 
-    patrones = Counter()
-    for h in enlaces:
-        limpio = re.sub(r"\d+", "N", h)
-        limpio = re.sub(r"/[a-z0-9-]{6,}$", "/SLUG", limpio)
-        patrones[limpio] += 1
+            sopa = BeautifulSoup(r.text, "html.parser")
+            for basura in sopa(["script", "style"]):
+                basura.decompose()
 
-    print("PATRONES DE URL MAS FRECUENTES")
-    for patron, veces in patrones.most_common(25):
-        print(f"  {veces:5}  {patron}")
+            texto = sopa.get_text("\n", strip=True)
+            with open(f"datos/explorar/{nombre}.txt", "w", encoding="utf-8") as f:
+                f.write(texto[:3000])
 
-    print("\nEJEMPLOS CON 'jugador' O 'player'")
-    ejemplos = [h for h in enlaces if "jugador" in h or "player" in h]
-    for h in sorted(set(ejemplos))[:10]:
-        print(f"  {h}")
+            print(f"  guardado, {len(texto)} caracteres")
+
+        except Exception as e:
+            print(f"{nombre}: ERROR {e}")
 
 
 if __name__ == "__main__":
