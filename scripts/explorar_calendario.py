@@ -1,45 +1,31 @@
-import os
-import requests
+import re
+from collections import Counter
 from bs4 import BeautifulSoup
 
-URLS = {
-    "ff_partidos": "https://www.futbolfantasy.com/analytics/laliga/partidos",
-    "ff_jornada5": "https://www.futbolfantasy.com/laliga/jornada/5",
-    "fbref_liga": "https://fbref.com/es/comps/12/horario/Resultados-y-partidos-en-La-Liga",
-}
+ENTRADA = "datos/puntos_ultimo.html"
 
 
 def main():
-    cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
-    os.makedirs("datos/explorar", exist_ok=True)
+    with open(ENTRADA, encoding="utf-8") as f:
+        sopa = BeautifulSoup(f.read(), "html.parser")
 
-    for nombre, url in URLS.items():
-        try:
-            r = requests.get(url, headers=cabeceras, timeout=30)
-            print(f"{nombre}: HTTP {r.status_code}")
-            if r.status_code != 200:
-                continue
+    enlaces = [a["href"] for a in sopa.select("a[href]")]
+    print(f"Enlaces totales: {len(enlaces)}\n")
 
-            sopa = BeautifulSoup(r.text, "html.parser")
-            for basura in sopa(["script", "style"]):
-                basura.decompose()
+    patrones = Counter()
+    for h in enlaces:
+        limpio = re.sub(r"\d+", "N", h)
+        limpio = re.sub(r"/[a-z0-9-]{6,}$", "/SLUG", limpio)
+        patrones[limpio] += 1
 
-            enlaces = []
-            for a in sopa.select("a[href]"):
-                h = a["href"]
-                if any(p in h for p in ["partido", "match", "informe", "enfrentamiento"]):
-                    enlaces.append(h)
+    print("PATRONES DE URL MAS FRECUENTES")
+    for patron, veces in patrones.most_common(25):
+        print(f"  {veces:5}  {patron}")
 
-            print(f"  enlaces de partido encontrados: {len(enlaces)}")
-            with open(f"datos/explorar/{nombre}_enlaces.txt", "w", encoding="utf-8") as f:
-                f.write("\n".join(sorted(set(enlaces))[:40]))
-
-            texto = sopa.get_text("\n", strip=True)
-            with open(f"datos/explorar/{nombre}_texto.txt", "w", encoding="utf-8") as f:
-                f.write(texto[:2500])
-
-        except Exception as e:
-            print(f"{nombre}: ERROR {e}")
+    print("\nEJEMPLOS CON 'jugador' O 'player'")
+    ejemplos = [h for h in enlaces if "jugador" in h or "player" in h]
+    for h in sorted(set(ejemplos))[:10]:
+        print(f"  {h}")
 
 
 if __name__ == "__main__":
