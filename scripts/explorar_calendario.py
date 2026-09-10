@@ -1,73 +1,42 @@
 import csv
 import os
-import time
 import requests
 from bs4 import BeautifulSoup
 
-BASE = "https://futbolweb.net/calendario-laliga-2026-2027/jornada/"
-SALIDA = "datos/calendario.csv"
-
-TRADUCE = {
-    "Atl. Madrid": "Atlético",
-    "Dépor": "Deportivo",
+URLS = {
+    "stats_1": "https://www.futbolfantasy.com/analytics/laliga/estadisticas",
+    "stats_2": "https://www.futbolfantasy.com/laliga/estadisticas/jugadores",
+    "stats_3": "https://www.futbolfantasy.com/analytics/laliga/estadisticas-jugadores",
 }
-
-EQUIPOS = [
-    "Real Madrid", "Real Sociedad", "Athletic", "Atlético", "Barcelona",
-    "Betis", "Celta", "Deportivo", "Elche", "Espanyol", "Getafe",
-    "Levante", "Málaga", "Osasuna", "Racing", "Rayo", "Sevilla",
-    "Valencia", "Villarreal", "Alavés",
-]
-
-
-def limpiar(nombre):
-    return TRADUCE.get(nombre, nombre)
-
-
-def jornada(numero, cabeceras):
-    r = requests.get(BASE + str(numero), headers=cabeceras, timeout=30)
-    r.raise_for_status()
-
-    sopa = BeautifulSoup(r.text, "html.parser")
-    for basura in sopa(["script", "style"]):
-        basura.decompose()
-
-    lineas = [l.strip() for l in sopa.get_text("\n", strip=True).split("\n") if l.strip()]
-
-    partidos = []
-    for i, linea in enumerate(lineas):
-        if linea != "vs":
-            continue
-        if i == 0 or i + 1 >= len(lineas):
-            continue
-        local = limpiar(lineas[i - 1])
-        visitante = limpiar(lineas[i + 1])
-        if local in EQUIPOS and visitante in EQUIPOS:
-            partidos.append([numero, local, visitante])
-
-    return partidos
 
 
 def main():
     cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
-    todos = []
+    os.makedirs("datos/explorar", exist_ok=True)
 
-    for n in range(1, 39):
+    for nombre, url in URLS.items():
         try:
-            partidos = jornada(n, cabeceras)
-            print(f"J{n}: {len(partidos)} partidos")
-            todos.extend(partidos)
+            r = requests.get(url, headers=cabeceras, timeout=30)
+            print(f"{nombre}: HTTP {r.status_code} ({url})")
+            if r.status_code != 200:
+                continue
+
+            sopa = BeautifulSoup(r.text, "html.parser")
+            for basura in sopa(["script", "style"]):
+                basura.decompose()
+
+            filas = []
+            for fila in sopa.select("tr"):
+                celdas = [c.get_text(" ", strip=True) for c in fila.select("th, td")]
+                if celdas:
+                    filas.append(celdas)
+
+            print(f"  filas: {len(filas)}")
+            with open(f"datos/explorar/{nombre}.csv", "w", newline="", encoding="utf-8") as f:
+                csv.writer(f).writerows(filas[:8])
+
         except Exception as e:
-            print(f"J{n}: ERROR {e}")
-        time.sleep(1)
-
-    os.makedirs("datos", exist_ok=True)
-    with open(SALIDA, "w", newline="", encoding="utf-8") as f:
-        escritor = csv.writer(f)
-        escritor.writerow(["jornada", "local", "visitante"])
-        escritor.writerows(todos)
-
-    print(f"Total: {len(todos)} partidos (esperados 380)")
+            print(f"{nombre}: ERROR {e}")
 
 
 if __name__ == "__main__":
