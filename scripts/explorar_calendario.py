@@ -2,36 +2,39 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-URLS = {
-    "estad_puntos": "https://www.futbolfantasy.com/laliga/estadisticas-puntos/jugador",
-    "equipo_athletic": "https://www.futbolfantasy.com/analytics/athletic",
-    "equipo_athletic_lg": "https://www.futbolfantasy.com/laliga/equipos/athletic",
-}
+URL = "https://www.futbolfantasy.com/partidos/22453-athletic-atletico"
 
 
 def main():
     cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
+    r = requests.get(URL, headers=cabeceras, timeout=30)
+    print(f"HTTP {r.status_code}")
+    if r.status_code != 200:
+        return
+
     os.makedirs("datos/explorar", exist_ok=True)
+    sopa = BeautifulSoup(r.text, "html.parser")
 
-    for nombre, url in URLS.items():
-        try:
-            r = requests.get(url, headers=cabeceras, timeout=30)
-            print(f"{nombre}: HTTP {r.status_code}")
-            if r.status_code != 200:
-                continue
+    for basura in sopa(["script", "style", "nav", "header", "footer"]):
+        basura.decompose()
 
-            sopa = BeautifulSoup(r.text, "html.parser")
-            for basura in sopa(["script", "style"]):
-                basura.decompose()
+    texto = sopa.get_text("\n", strip=True)
+    lineas = [l for l in texto.split("\n") if l.strip()]
 
-            texto = sopa.get_text("\n", strip=True)
-            with open(f"datos/explorar/{nombre}.txt", "w", encoding="utf-8") as f:
-                f.write(texto[:3000])
+    # Nos saltamos el menu, que ocupa las primeras lineas
+    recorte = "\n".join(lineas[120:520])
 
-            print(f"  guardado, {len(texto)} caracteres")
+    with open("datos/explorar/partido.txt", "w", encoding="utf-8") as f:
+        f.write(recorte)
 
-        except Exception as e:
-            print(f"{nombre}: ERROR {e}")
+    print(f"Lineas totales: {len(lineas)}")
+    print("Guardado datos/explorar/partido.txt")
+
+    tablas = sopa.select("table")
+    print(f"Tablas encontradas: {len(tablas)}")
+    for i, t in enumerate(tablas[:6]):
+        filas = t.select("tr")
+        print(f"  tabla {i}: {len(filas)} filas")
 
 
 if __name__ == "__main__":
