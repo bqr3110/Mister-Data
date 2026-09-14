@@ -1,16 +1,47 @@
-data-tooltip,data-posicion-mister-mixto-2,data-valor,data-totalpartidosjugados,data-totalgoles,data-totalasistencias,data-totalamarillas,data-totalrojas,data-edad,data-lesion,data-probabilidad,data-onceff,texto
-,,,4,0,0,0,0,29,-1,Titular,,1.90
-,,,4,0,2,0,0,32,-1,Titular,,1 1.86
-,,,3,2,0,1,0,24,-1,Titular,,1 C 2 2 FC 0 1 1.78
-,,,3,0,1,0,0,31,-1,Titular,,1.82
-,,,4,0,0,0,0,32,-1,Titular,,1.91
-,,,4,0,0,0,0,23,-1,Titular,,1.73
-,,,4,1,0,0,0,26,-1,Titular,,1 1.88
-,,,3,0,0,1,1,36,-1,Titular,,C 0 1 1.81
-,,,4,1,0,0,0,24,-1,Titular,,1 1.81
-,,,3,0,1,1,0,33,-1,Titular,,1.75
-,,,3,0,0,0,0,27,-1,Titular,,1.82
-,,,4,1,1,0,0,23,-1,Titular,,1.74
-,,,4,1,1,1,0,25,-1,Titular,,1.74
-,,,4,0,1,1,0,28,-1,Titular,,1.88
-,,,3,1,0,1,0,23,-1,Titular,,1.91
+id,nombre,href,onceff,partidosjugados,goles,asistencias,amarillas,rojas,edad
+3693,Unai Simón,https://www.futbolfantasy.com/jugadores/unai-simon,titular,4,0,0,0,0,29
+1934,Iñaki Williams,https://www.futbolfantasy.com/jugadores/inaki-williams,titular,4,0,2,0,0,32
+7293,Robert Navarro,https://www.futbolfantasy.com/jugadores/robert-navarro,titular,3,2,0,1,0,24
+1972,Yeray Álvarez,https://www.futbolfantasy.com/jugadores/yeray-alvarez,titular,3,0,1,0,0,31
+697,Aymeric Laporte,https://www.futbolfantasy.com/jugadores/aymeric-laporte,titular,4,0,0,0,0,32
+10213,Beñat Gerenabarrena,https://www.futbolfantasy.com/jugadores/benat-gerenabarrena,titular,4,0,0,0,0,23
+7006,Oihan Sancet,https://www.futbolfantasy.com/jugadores/oihan-sancet,titular,4,1,0,0,0,26
+735,Yuri Berchiche,https://www.futbolfantasy.com/jugadores/yuri-berchiche,titular,3,0,0,1,1,36
+8693,Nico Williams,https://www.futbolfantasy.com/jugadores/nico-williams,titular,4,1,0,0,0,24
+44,Íñigo Ruiz de Galarreta,ps://www.futbolfantasy.com/jugadores/inigo-ruiz-de-galarreta,titular,3,0,1,1,0,33
+7638,Jesús Areso,https://www.futbolfantasy.com/jugadores/jesus-areso,titular,3,0,0,0,0,27
+9276,Giuliano Simeone,https://www.futbolfantasy.com/jugadores/giuliano-simeone,titular,4,1,1,0,0,23
+6337,Kang-In Lee,https://www.futbolfantasy.com/jugadores/lee-kang-in,titular,4,1,1,1,0,25
+5995,David Hancko,https://www.futbolfantasy.com/jugadores/david-hancko,titular,4,0,1,1,0,28
+9823,Marc Pubill,https://www.futbolfantasy.com/jugadores/marc-pubill,titular,3,1,0,1,0,23
+1826,Jan Oblak,https://www.futbolfantasy.com/jugadores/jan-oblak,titular,4,0,0,0,0,33
+1931,Marcos Llorente,https://www.futbolfantasy.com/jugadores/marcos-llorente,titular,4,0,1,1,0,31
+4434,Ademola Lookman,https://www.futbolfantasy.com/jugadores/ademola-lookman,titular,4,1,0,0,0,28
+10005,Pablo Barrios,https://www.futbolfantasy.com/jugadores/pablo-barrios,titular,4,0,1,0,0,23
+7645,Álex Baena,https://www.futbolfantasy.com/jugadores/lex-baena,titular,4,3,1,1,0,25
+2771,Álex Grimaldo,https://www.futbolfantasy.com/jugadores/alex-grimaldo,titular,3,0,0,0,0,30
+10393,Morten Hjulmand,https://www.futbolfantasy.com/jugadores/morten-hjulmand,titular,4,0,0,1,0,27
+7916,Aitor Paredes,https://www.futbolfantasy.com/jugadores/aitor-paredes,suplente,3,1,0,0,0,26
+12605,Mikel Jauregizar,https://www.futbolfantasy.com/jugadores/mikel-jauregizar,suplente,3,0,0,0,0,22
+16229,Johaneko Louis-Jean,https://www.futbolfantasy.com/jugadores/johaneko-louis-jean,suplente,3,0,0,1,0,22
+3204,Álex Berenguer,https://www.futbolfantasy.com/jugadores/alex-berenguer,suplente,4,1,0,0,0,31
+5859,Gorka Guruzeta,https://www.futbolfantasy.com/jugadores/gorka-guruzeta,suplente,4,0,0,2,0,29
+10214,Alex Padilla,https://www.futbolfantasy.com/jugadores/alex-padilla,suplente,0,0,0,0,0,23
+16350,Iker Monreal,https://www.futbolfantasy.com/jugadores/iker-monreal,suplente,0,0,0,0,0,21
+11677,Hugo Rincón,https://www.futbolfantasy.com/jugadores/hugo-rincon,suplente,2,0,0,0,0,23
+15409,Alejandro Rego,https://www.futbolfantasy.com/jugadores/alejandro-rego,suplente,0,0,0,0,0,23
+7917,Beñat Prados,https://www.futbolfantasy.com/jugadores/benat-prados,suplente,0,0,0,0,0,25
+16810,Selton Sánchez,https://www.futbolfantasy.com/jugadores/selton-sanchez,suplente,0,0,0,0,0,19
+13830,Maroan Sannadi,https://www.futbolfantasy.com/jugadores/maroan-sannadi,suplente,1,0,0,0,0,25
+6310,Cristian Romero,https://www.futbolfantasy.com/jugadores/cristian-romero,suplente,1,0,0,0,0,28
+63,Koke Resurrección,https://www.futbolfantasy.com/jugadores/koke-resurreccion,suplente,4,0,0,0,0,34
+11579,Arnau Ortiz,https://www.futbolfantasy.com/jugadores/arnau-ortiz,suplente,3,0,0,0,0,24
+10287,Julián Álvarez,https://www.futbolfantasy.com/jugadores/julian-lvarez,suplente,2,0,0,0,0,26
+12647,Johnny Cardoso,https://www.futbolfantasy.com/jugadores/johnny-cardoso,suplente,2,0,0,0,0,24
+5942,Juan Musso,https://www.futbolfantasy.com/jugadores/juan-musso,suplente,0,0,0,0,0,32
+11861,Dani Martínez,https://www.futbolfantasy.com/jugadores/dani-martinez,suplente,1,0,0,0,0,22
+6002,Robin Le Normand,https://www.futbolfantasy.com/jugadores/robin-le-normand,suplente,2,0,0,0,1,29
+18213,Jorge Domínguez,https://www.futbolfantasy.com/jugadores/jorge-dominguez,suplente,1,0,0,1,0,16
+10237,Rodrigo Mendoza,https://www.futbolfantasy.com/jugadores/rodrigo-mendoza,suplente,3,0,0,0,0,21
+18214,Jorge Castillo,https://www.futbolfantasy.com/jugadores/jorge-castillo,suplente,0,0,0,0,0,20
+9573,Jonathan David,https://www.futbolfantasy.com/jugadores/jonathan-david,suplente,0,0,0,0,0,26
