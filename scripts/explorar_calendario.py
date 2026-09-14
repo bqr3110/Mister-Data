@@ -1,7 +1,13 @@
+import csv
+import os
+import re
 import requests
 from bs4 import BeautifulSoup
 
 URL = "https://www.futbolfantasy.com/partidos/22453-athletic-atletico"
+
+CAMPOS = ["data-totalpartidosjugados", "data-totalgoles", "data-totalasistencias",
+          "data-totalamarillas", "data-totalrojas", "data-edad"]
 
 
 def main():
@@ -9,25 +15,42 @@ def main():
     r = requests.get(URL, headers=cabeceras, timeout=30)
     sopa = BeautifulSoup(r.text, "html.parser")
 
-    elementos = [t for t in sopa.find_all(True) if "data-totalgoles" in t.attrs]
-    print(f"Elementos: {len(elementos)}\n")
-
-    for tag in elementos[:3]:
-        print("=" * 50)
-        print(f"ETIQUETA: <{tag.name}> clases={tag.get('class')}")
-        print(f"ATRIBUTOS: {sorted(tag.attrs.keys())}")
+    filas = []
+    for tag in sopa.select("a.camiseta"):
+        if "data-totalgoles" not in tag.attrs:
+            continue
 
         padre = tag.parent
-        print(f"\nPADRE: <{padre.name}> clases={padre.get('class')}")
-        print(f"  texto padre: {padre.get_text(' ', strip=True)[:150]}")
-        print(f"  atributos padre: {sorted(padre.attrs.keys())}")
+        clases = padre.get("class", [])
+        id_jugador = next((c.replace("jugador_", "") for c in clases if c.startswith("jugador_")), "")
 
-        abuelo = padre.parent
-        print(f"\nABUELO texto: {abuelo.get_text(' ', strip=True)[:200]}")
+        nombre = ""
+        for im in tag.select("img"):
+            if im.get("alt"):
+                nombre = im["alt"]
+                break
 
-        imgs = tag.select("img")
-        for im in imgs[:3]:
-            print(f"  IMG alt={im.get('alt')} title={im.get('title')}")
+        fila = {
+            "id": id_jugador,
+            "nombre": nombre,
+            "href": tag.get("href", "")[-60:],
+            "onceff": padre.get("data-onceff", ""),
+        }
+        for c in CAMPOS:
+            fila[c.replace("data-total", "").replace("data-", "")] = tag.attrs.get(c, "")
+        filas.append(fila)
+
+    print(f"Jugadores: {len(filas)}")
+
+    os.makedirs("datos/explorar", exist_ok=True)
+    if filas:
+        with open("datos/explorar/jugadores_partido.csv", "w", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, fieldnames=list(filas[0].keys()))
+            w.writeheader()
+            w.writerows(filas)
+
+    for f in filas[:8]:
+        print(f"  {f['id']:6} {f['nombre'][:20]:22} G{f['goles']} A{f['asistencias']} Am{f['amarillas']} R{f['rojas']}  {f['href'][-30:]}")
 
 
 if __name__ == "__main__":
