@@ -1,46 +1,33 @@
-import csv
-import os
 import requests
 from bs4 import BeautifulSoup
 
 URL = "https://www.futbolfantasy.com/partidos/22453-athletic-atletico"
 
-CAMPOS = [
-    "data-tooltip", "data-posicion-mister-mixto-2", "data-valor",
-    "data-totalpartidosjugados", "data-totalgoles", "data-totalasistencias",
-    "data-totalamarillas", "data-totalrojas", "data-edad", "data-lesion",
-    "data-probabilidad", "data-onceff",
-]
-
 
 def main():
     cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
     r = requests.get(URL, headers=cabeceras, timeout=30)
-    print(f"HTTP {r.status_code}")
     sopa = BeautifulSoup(r.text, "html.parser")
 
-    filas = []
-    for tag in sopa.find_all(True):
-        if "data-totalgoles" not in tag.attrs:
-            continue
-        fila = {c: tag.attrs.get(c, "") for c in CAMPOS}
-        fila["texto"] = tag.get_text(" ", strip=True)[:40]
-        filas.append(fila)
+    elementos = [t for t in sopa.find_all(True) if "data-totalgoles" in t.attrs]
+    print(f"Elementos: {len(elementos)}\n")
 
-    print(f"Elementos con data-totalgoles: {len(filas)}")
+    for tag in elementos[:3]:
+        print("=" * 50)
+        print(f"ETIQUETA: <{tag.name}> clases={tag.get('class')}")
+        print(f"ATRIBUTOS: {sorted(tag.attrs.keys())}")
 
-    equipos = {}
-    for f in filas:
-        equipos[f["data-tooltip"]] = equipos.get(f["data-tooltip"], 0) + 1
-    print(f"Equipos presentes: {equipos}")
+        padre = tag.parent
+        print(f"\nPADRE: <{padre.name}> clases={padre.get('class')}")
+        print(f"  texto padre: {padre.get_text(' ', strip=True)[:150]}")
+        print(f"  atributos padre: {sorted(padre.attrs.keys())}")
 
-    os.makedirs("datos/explorar", exist_ok=True)
-    with open("datos/explorar/jugadores_partido.csv", "w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=CAMPOS + ["texto"])
-        w.writeheader()
-        w.writerows(filas[:15])
+        abuelo = padre.parent
+        print(f"\nABUELO texto: {abuelo.get_text(' ', strip=True)[:200]}")
 
-    print("Guardado datos/explorar/jugadores_partido.csv")
+        imgs = tag.select("img")
+        for im in imgs[:3]:
+            print(f"  IMG alt={im.get('alt')} title={im.get('title')}")
 
 
 if __name__ == "__main__":
