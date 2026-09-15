@@ -1,4 +1,3 @@
-import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,34 +9,21 @@ def main():
     r = requests.get(URL, headers=cabeceras, timeout=30)
     sopa = BeautifulSoup(r.text, "html.parser")
 
-    objetivos = ["Minutos jugados", "Gol", "Tarjeta"]
-    vistos = 0
+    bloques = sopa.select("div.estadistica")
+    print(f"Bloques 'estadistica': {len(bloques)}\n")
 
-    for tag in sopa.find_all(True):
-        if tag.find_all(True):
-            continue
-        texto = tag.get_text(" ", strip=True)
-        if not any(o in texto for o in objetivos):
-            continue
-        if len(texto) > 40:
-            continue
-
-        ancestro = tag
-        id_jug = ""
-        for _ in range(8):
-            ancestro = ancestro.parent
-            if ancestro is None:
+    for b in bloques[:3]:
+        print("=" * 60)
+        print(f"TEXTO: {b.get_text(' ', strip=True)}")
+        nodo = b
+        for nivel in range(10):
+            nodo = nodo.parent
+            if nodo is None:
                 break
-            clases = ancestro.get("class", []) or []
-            enc = [c for c in clases if c.startswith("jugador_")]
-            if enc:
-                id_jug = enc[0]
-                break
-
-        print(f"[{id_jug or 'sin id'}] <{tag.name} class={tag.get('class')}> {texto}")
-        vistos += 1
-        if vistos > 40:
-            break
+            print(f"  nivel {nivel}: <{nodo.name}> class={nodo.get('class')} id={nodo.get('id')}")
+            atrs = {k: v for k, v in nodo.attrs.items() if k.startswith("data-")}
+            if atrs:
+                print(f"     data: {list(atrs.items())[:5]}")
 
 
 if __name__ == "__main__":
