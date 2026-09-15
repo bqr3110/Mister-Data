@@ -1,35 +1,43 @@
+import re
 import requests
 from bs4 import BeautifulSoup
 
-PARTIDOS = {
-    "J4_athletic_atletico": "https://www.futbolfantasy.com/partidos/22453-athletic-atletico",
-    "J1_alaves_getafe": "https://www.futbolfantasy.com/partidos/22421-alaves-getafe",
-}
+URL = "https://www.futbolfantasy.com/partidos/22453-athletic-atletico"
 
 
 def main():
     cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
+    r = requests.get(URL, headers=cabeceras, timeout=30)
+    sopa = BeautifulSoup(r.text, "html.parser")
 
-    for nombre, url in PARTIDOS.items():
-        r = requests.get(url, headers=cabeceras, timeout=30)
-        print(f"\n===== {nombre}  HTTP {r.status_code}")
-        if r.status_code != 200:
+    objetivos = ["Minutos jugados", "Gol", "Tarjeta"]
+    vistos = 0
+
+    for tag in sopa.find_all(True):
+        if tag.find_all(True):
+            continue
+        texto = tag.get_text(" ", strip=True)
+        if not any(o in texto for o in objetivos):
+            continue
+        if len(texto) > 40:
             continue
 
-        sopa = BeautifulSoup(r.text, "html.parser")
-        tags = [t for t in sopa.select("a.camiseta") if "data-totalgoles" in t.attrs]
-        print(f"jugadores: {len(tags)}")
+        ancestro = tag
+        id_jug = ""
+        for _ in range(8):
+            ancestro = ancestro.parent
+            if ancestro is None:
+                break
+            clases = ancestro.get("class", []) or []
+            enc = [c for c in clases if c.startswith("jugador_")]
+            if enc:
+                id_jug = enc[0]
+                break
 
-        if tags:
-            t = tags[0]
-            nom = next((im["alt"] for im in t.select("img") if im.get("alt")), "?")
-            print(f"PRIMER JUGADOR: {nom}")
-            print("TODOS SUS ATRIBUTOS:")
-            for k in sorted(t.attrs):
-                print(f"   {k} = {str(t.attrs[k])[:50]}")
-            print("ATRIBUTOS DEL PADRE:")
-            for k in sorted(t.parent.attrs):
-                print(f"   {k} = {str(t.parent.attrs[k])[:50]}")
+        print(f"[{id_jug or 'sin id'}] <{tag.name} class={tag.get('class')}> {texto}")
+        vistos += 1
+        if vistos > 40:
+            break
 
 
 if __name__ == "__main__":
