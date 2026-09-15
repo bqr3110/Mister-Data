@@ -9,21 +9,28 @@ def main():
     r = requests.get(URL, headers=cabeceras, timeout=30)
     sopa = BeautifulSoup(r.text, "html.parser")
 
-    bloques = sopa.select("div.estadistica")
-    print(f"Bloques 'estadistica': {len(bloques)}\n")
+    tabla = sopa.select_one("div.stats-local table.tablestats")
+    if tabla is None:
+        print("no encuentro la tabla")
+        return
 
-    for b in bloques[:3]:
-        print("=" * 60)
-        print(f"TEXTO: {b.get_text(' ', strip=True)}")
-        nodo = b
-        for nivel in range(10):
-            nodo = nodo.parent
-            if nodo is None:
-                break
-            print(f"  nivel {nivel}: <{nodo.name}> class={nodo.get('class')} id={nodo.get('id')}")
-            atrs = {k: v for k, v in nodo.attrs.items() if k.startswith("data-")}
-            if atrs:
-                print(f"     data: {list(atrs.items())[:5]}")
+    filas = tabla.select("tr")
+    print(f"Filas: {len(filas)}\n")
+
+    for fila in filas[:6]:
+        clases = fila.get("class") or []
+        if "desglose" in clases:
+            print("   DESGLOSE:")
+            for d in fila.select("div.desg"):
+                sistema = " ".join(c for c in d.get("class", []) if c != "desg")
+                eventos = [e.get_text(" ", strip=True) for e in d.select("div.estadistica")]
+                print(f"     [{sistema}] {eventos}")
+        else:
+            celdas = [c.get_text(" ", strip=True) for c in fila.select("th, td")]
+            print(f"FILA: {celdas[:6]}")
+            enlace = fila.select_one("a[href*='/jugadores/']")
+            if enlace:
+                print(f"   jugador: {enlace['href'].split('/')[-1]}")
 
 
 if __name__ == "__main__":
