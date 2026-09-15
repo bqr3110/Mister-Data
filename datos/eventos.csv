@@ -1,0 +1,166 @@
+jornada,lado,jugador,slug,evento,cantidad,puntos_lf,partido
+1,local,Sivera,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,local,Sivera,,Goles en contra,0.0,4.0,22421-alaves-getafe
+1,local,Jonny,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,local,Jonny,,Goles en contra,0.0,3.0,22421-alaves-getafe
+1,local,Tenaglia,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,local,Tenaglia,,Goles,1.0,6.0,22421-alaves-getafe
+1,local,Tenaglia,,Goles en contra,0.0,3.0,22421-alaves-getafe
+1,local,Ángel Pérez 64',,Minutos jugados,65.0,2.0,22421-alaves-getafe
+1,local,Ángel Pérez 64',,Goles en contra,0.0,1.0,22421-alaves-getafe
+1,local,Koski,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,local,Koski,,Goles en contra,0.0,3.0,22421-alaves-getafe
+1,local,Denis Suárez 56',,Minutos jugados,57.0,1.0,22421-alaves-getafe
+1,local,Denis Suárez 56',,Tarjetas amarillas,1.0,-1.0,22421-alaves-getafe
+1,local,Blanco 93',,Minutos jugados,89.0,2.0,22421-alaves-getafe
+1,local,Blanco 93',,Goles en contra,0.0,2.0,22421-alaves-getafe
+1,local,Blanco 93',,Tarjetas amarillas,1.0,-1.0,22421-alaves-getafe
+1,local,Ibáñez,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,local,Ibáñez,,Goles en contra,0.0,2.0,22421-alaves-getafe
+1,local,Rebbach 93',,Minutos jugados,89.0,2.0,22421-alaves-getafe
+1,local,Rebbach 93',,Goles en contra,0.0,1.0,22421-alaves-getafe
+1,local,Rebbach 93',,Tarjetas amarillas,1.0,-1.0,22421-alaves-getafe
+1,local,Toni Martinez,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,local,Toni Martinez,,Goles en contra,0.0,1.0,22421-alaves-getafe
+1,local,Aitor Mañas 56',,Minutos jugados,57.0,1.0,22421-alaves-getafe
+1,local,Youssef 64',,Minutos jugados,25.0,1.0,22421-alaves-getafe
+1,local,Aleñá 93',,Minutos jugados,1.0,1.0,22421-alaves-getafe
+1,local,Guevara 93',,Minutos jugados,1.0,1.0,22421-alaves-getafe
+1,local,Mikel Rodriguez 56',,Minutos jugados,33.0,1.0,22421-alaves-getafe
+1,local,Mikel Rodriguez 56',,Goles,1.0,5.0,22421-alaves-getafe
+1,local,Mariano 56',,Minutos jugados,33.0,1.0,22421-alaves-getafe
+1,local,Mariano 56',,Goles,1.0,4.0,22421-alaves-getafe
+1,local,Mariano 56',,Tarjetas amarillas,1.0,-1.0,22421-alaves-getafe
+1,visitante,Soria,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,visitante,Soria,,Goles en contra,3.0,-2.0,22421-alaves-getafe
+1,visitante,Femenia 41',,Minutos jugados,42.0,1.0,22421-alaves-getafe
+1,visitante,Femenia 41',,Tarjetas rojas,1.0,-3.0,22421-alaves-getafe
+1,visitante,Djené 80',,Minutos jugados,81.0,2.0,22421-alaves-getafe
+1,visitante,Djené 80',,Tarjetas amarillas,1.0,-1.0,22421-alaves-getafe
+1,visitante,Abqar,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,visitante,Abqar,,Goles en contra,3.0,-2.0,22421-alaves-getafe
+1,visitante,Andrés García 80',,Minutos jugados,81.0,2.0,22421-alaves-getafe
+1,visitante,Romero,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,visitante,Romero,,Goles en contra,3.0,-2.0,22421-alaves-getafe
+1,visitante,Davinchi 45',,Minutos jugados,45.0,1.0,22421-alaves-getafe
+1,visitante,Davinchi 45',,Tarjetas amarillas,1.0,-1.0,22421-alaves-getafe
+1,visitante,Terrats,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,visitante,Terrats,,Goles en contra,3.0,-1.0,22421-alaves-getafe
+1,visitante,Mangala,,Minutos jugados,90.0,2.0,22421-alaves-getafe
+1,visitante,Mangala,,Goles en contra,3.0,-1.0,22421-alaves-getafe
+1,visitante,Mario Martín 65',,Minutos jugados,66.0,2.0,22421-alaves-getafe
+1,visitante,Mario Martín 65',,Goles en contra,0.0,2.0,22421-alaves-getafe
+1,visitante,Mario Martín 65',,Tarjetas amarillas,1.0,-1.0,22421-alaves-getafe
+1,visitante,Satriano 72',,Minutos jugados,73.0,2.0,22421-alaves-getafe
+1,visitante,Satriano 72',,Goles en contra,0.0,1.0,22421-alaves-getafe
+1,visitante,Sazonov 80',,Minutos jugados,9.0,1.0,22421-alaves-getafe
+1,visitante,Sazonov 80',,Goles en contra,2.0,-2.0,22421-alaves-getafe
+1,visitante,Valou 72',,Minutos jugados,17.0,1.0,22421-alaves-getafe
+1,visitante,Valou 72',,Goles en contra,3.0,-2.0,22421-alaves-getafe
+1,visitante,Boselli 80',,Minutos jugados,9.0,1.0,22421-alaves-getafe
+1,visitante,Boselli 80',,Goles en contra,2.0,-2.0,22421-alaves-getafe
+1,visitante,Risco 65',,Minutos jugados,24.0,1.0,22421-alaves-getafe
+1,visitante,Risco 65',,Goles en contra,3.0,-1.0,22421-alaves-getafe
+1,visitante,Enes Ünal 45',,Minutos jugados,45.0,1.0,22421-alaves-getafe
+1,visitante,Enes Ünal 45',,Goles en contra,3.0,-1.0,22421-alaves-getafe
+1,local,Oblak,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,local,Oblak,,Goles en contra,0.0,4.0,22422-atletico-malaga
+1,local,Hancko,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,local,Hancko,,Goles en contra,0.0,3.0,22422-atletico-malaga
+1,local,Hancko,,Tarjetas amarillas,1.0,-1.0,22422-atletico-malaga
+1,local,Le Normand,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,local,Le Normand,,Goles en contra,0.0,3.0,22422-atletico-malaga
+1,local,Dani Martínez,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,local,Dani Martínez,,Goles en contra,0.0,3.0,22422-atletico-malaga
+1,local,Koke 77',,Minutos jugados,78.0,2.0,22422-atletico-malaga
+1,local,Koke 77',,Goles en contra,0.0,2.0,22422-atletico-malaga
+1,local,Barrios,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,local,Barrios,,Goles en contra,0.0,2.0,22422-atletico-malaga
+1,local,Mendoza 56',,Minutos jugados,57.0,1.0,22422-atletico-malaga
+1,local,Lookman,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,local,Lookman,,Goles en contra,0.0,1.0,22422-atletico-malaga
+1,local,Carlos Martín 56',,Minutos jugados,57.0,1.0,22422-atletico-malaga
+1,local,Ortiz 56',,Minutos jugados,57.0,1.0,22422-atletico-malaga
+1,local,M. Llorente 45',,Minutos jugados,45.0,1.0,22422-atletico-malaga
+1,local,Kang-In Lee 56',,Minutos jugados,33.0,1.0,22422-atletico-malaga
+1,local,Kang-In Lee 56',,Goles,1.0,5.0,22422-atletico-malaga
+1,local,Baena 56',,Minutos jugados,33.0,1.0,22422-atletico-malaga
+1,local,Baena 56',,Goles,1.0,5.0,22422-atletico-malaga
+1,local,Giuliano 56',,Minutos jugados,33.0,1.0,22422-atletico-malaga
+1,local,Hjulmand 77',,Minutos jugados,12.0,1.0,22422-atletico-malaga
+1,visitante,Herrero,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,visitante,Herrero,,Goles en contra,2.0,-2.0,22422-atletico-malaga
+1,visitante,Galilea 79',,Minutos jugados,80.0,2.0,22422-atletico-malaga
+1,visitante,Puga 71',,Minutos jugados,72.0,2.0,22422-atletico-malaga
+1,visitante,Puga 71',,Tarjetas amarillas,1.0,-1.0,22422-atletico-malaga
+1,visitante,Rafita,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,visitante,Rafita,,Goles en contra,2.0,-2.0,22422-atletico-malaga
+1,visitante,Recio,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,visitante,Recio,,Goles en contra,2.0,-2.0,22422-atletico-malaga
+1,visitante,Joaquín 66',,Minutos jugados,67.0,2.0,22422-atletico-malaga
+1,visitante,Joaquín 66',,Goles en contra,0.0,1.0,22422-atletico-malaga
+1,visitante,Larrubia,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,visitante,Larrubia,,Goles en contra,2.0,-1.0,22422-atletico-malaga
+1,visitante,Dotor 66',,Minutos jugados,67.0,2.0,22422-atletico-malaga
+1,visitante,Dotor 66',,Goles en contra,0.0,2.0,22422-atletico-malaga
+1,visitante,Merino,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,visitante,Merino,,Goles en contra,2.0,-1.0,22422-atletico-malaga
+1,visitante,Lorenzo 79',,Minutos jugados,80.0,2.0,22422-atletico-malaga
+1,visitante,Chupete,,Minutos jugados,90.0,2.0,22422-atletico-malaga
+1,visitante,Chupete,,Goles en contra,2.0,-1.0,22422-atletico-malaga
+1,visitante,Salinas 71',,Minutos jugados,18.0,1.0,22422-atletico-malaga
+1,visitante,Enríquez 79',,Minutos jugados,10.0,1.0,22422-atletico-malaga
+1,visitante,Enríquez 79',,Tarjetas amarillas,1.0,-1.0,22422-atletico-malaga
+1,visitante,Juan Cruz 66',,Minutos jugados,23.0,1.0,22422-atletico-malaga
+1,visitante,Juan Cruz 66',,Goles en contra,2.0,-1.0,22422-atletico-malaga
+1,visitante,Juan Cruz 66',,Tarjetas amarillas,1.0,-1.0,22422-atletico-malaga
+1,visitante,Rafa Rodríguez 66',,Minutos jugados,23.0,1.0,22422-atletico-malaga
+1,visitante,Rafa Rodríguez 66',,Goles en contra,2.0,-1.0,22422-atletico-malaga
+1,visitante,Jauregi 79',,Minutos jugados,10.0,1.0,22422-atletico-malaga
+1,local,Radu,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,local,Radu,,Goles en contra,2.0,-2.0,22423-celta-osasuna
+1,local,M. Alonso 50',,Minutos jugados,51.0,1.0,22423-celta-osasuna
+1,local,M. Alonso 50',,Tarjetas rojas,1.0,-3.0,22423-celta-osasuna
+1,local,Galán 64',,Minutos jugados,65.0,2.0,22423-celta-osasuna
+1,local,Galán 64',,Goles en contra,2.0,-2.0,22423-celta-osasuna
+1,local,Javi Rodríguez,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,local,Javi Rodríguez,,Goles en contra,2.0,-2.0,22423-celta-osasuna
+1,local,Rueda 64',,Minutos jugados,65.0,2.0,22423-celta-osasuna
+1,local,Rueda 64',,Goles en contra,2.0,-2.0,22423-celta-osasuna
+1,local,Lago,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,local,Lago,,Goles en contra,2.0,-2.0,22423-celta-osasuna
+1,local,Moriba,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,local,Moriba,,Goles en contra,2.0,-1.0,22423-celta-osasuna
+1,local,Swedberg 64',,Minutos jugados,65.0,2.0,22423-celta-osasuna
+1,local,Swedberg 64',,Goles en contra,2.0,-1.0,22423-celta-osasuna
+1,local,Román,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,local,Román,,Goles en contra,2.0,-1.0,22423-celta-osasuna
+1,local,Aspas 51',,Minutos jugados,52.0,1.0,22423-celta-osasuna
+1,local,Aspas 51',,Goles,1.0,4.0,22423-celta-osasuna
+1,local,Durán 78',,Minutos jugados,79.0,2.0,22423-celta-osasuna
+1,local,Durán 78',,Goles en contra,2.0,-1.0,22423-celta-osasuna
+1,local,Carreira 64',,Minutos jugados,25.0,1.0,22423-celta-osasuna
+1,local,Starfelt 51',,Minutos jugados,38.0,1.0,22423-celta-osasuna
+1,local,Starfelt 51',,Goles en contra,2.0,-2.0,22423-celta-osasuna
+1,local,Hugo Álvarez 64',,Minutos jugados,25.0,1.0,22423-celta-osasuna
+1,local,El-Abdellaoui 64',,Minutos jugados,25.0,1.0,22423-celta-osasuna
+1,local,Jutglà 78',,Minutos jugados,11.0,1.0,22423-celta-osasuna
+1,visitante,Herrera,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,visitante,Catena,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,visitante,Herrando 57',,Minutos jugados,58.0,1.0,22423-celta-osasuna
+1,visitante,Bretones,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,visitante,Arguibide,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,visitante,Torró,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,visitante,Kike Barja 73',,Minutos jugados,74.0,2.0,22423-celta-osasuna
+1,visitante,Kike Barja 73',,Goles,1.0,4.0,22423-celta-osasuna
+1,visitante,Moncayola 45',,Minutos jugados,45.0,1.0,22423-celta-osasuna
+1,visitante,Moncayola 45',,Tarjetas amarillas,1.0,-1.0,22423-celta-osasuna
+1,visitante,Dubasin 57',,Minutos jugados,58.0,1.0,22423-celta-osasuna
+1,visitante,Osambela,,Minutos jugados,90.0,2.0,22423-celta-osasuna
+1,visitante,Raúl García 81',,Minutos jugados,82.0,2.0,22423-celta-osasuna
+1,visitante,Rubén G. 57',,Minutos jugados,32.0,1.0,22423-celta-osasuna
+1,visitante,Moi Gómez 73',,Minutos jugados,16.0,1.0,22423-celta-osasuna
+1,visitante,Oroz 81',,Minutos jugados,8.0,1.0,22423-celta-osasuna
+1,visitante,Iker Muñoz 45',,Minutos jugados,45.0,1.0,22423-celta-osasuna
+1,visitante,Budimir 57',,Minutos jugados,32.0,1.0,22423-celta-osasuna
+1,visitante,Budimir 57',,Goles,1.0,4.0,22423-celta-osasuna
