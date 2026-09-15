@@ -5,7 +5,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-LIMITE = 3          # partidos a procesar; lo subiremos cuando valide
+LIMITE = 429
 ENTRADA = "datos/partidos_urls.csv"
 SALIDA = "datos/eventos.csv"
 
@@ -56,6 +56,7 @@ def procesar(url, cabeceras):
                 celdas = [c.get_text(" ", strip=True) for c in fila.select("th, td")]
                 if celdas and celdas[0] and celdas[0] not in ("Titulares", "Suplentes"):
                     nombre = celdas[0]
+                    nombre = re.sub(r"\s*\d{1,3}'\s*$", "", nombre).strip()
                     enlace = fila.select_one("a[href*='/jugadores/']")
                     id_jug = enlace["href"].split("/")[-1] if enlace else ""
                 continue
