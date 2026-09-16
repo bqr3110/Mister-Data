@@ -2595,6 +2595,173 @@ jornada,lado,jugador,slug,evento,cantidad,puntos_lf,partido
 5,visitante,Deossa,,Minutos jugados,23.0,1.0,22472-villarreal-betis
 5,visitante,Bernal,,Minutos jugados,6.0,1.0,22472-villarreal-betis
 5,visitante,Antony,,Minutos jugados,24.0,1.0,22472-villarreal-betis
+6,local,Sivera,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,local,Tenaglia,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,local,Valentini,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,local,Ángel Pérez,,Minutos jugados,85.0,2.0,22474-alaves-valencia
+6,local,Koski,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,local,Denis Suárez,,Minutos jugados,67.0,2.0,22474-alaves-valencia
+6,local,Denis Suárez,,Goles en contra,0.0,2.0,22474-alaves-valencia
+6,local,Blanco,,Minutos jugados,85.0,2.0,22474-alaves-valencia
+6,local,Blanco,,Tarjetas amarillas,1.0,-1.0,22474-alaves-valencia
+6,local,Ibáñez,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,local,Rebbach,,Minutos jugados,85.0,2.0,22474-alaves-valencia
+6,local,Toni Martinez,,Minutos jugados,67.0,2.0,22474-alaves-valencia
+6,local,Toni Martinez,,Goles en contra,0.0,1.0,22474-alaves-valencia
+6,local,Boyé,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,local,Youssef,,Minutos jugados,23.0,1.0,22474-alaves-valencia
+6,local,Aleñá,,Minutos jugados,5.0,1.0,22474-alaves-valencia
+6,local,Guevara,,Minutos jugados,5.0,1.0,22474-alaves-valencia
+6,local,Mariano,,Minutos jugados,23.0,1.0,22474-alaves-valencia
+6,local,Miguel,,Minutos jugados,5.0,1.0,22474-alaves-valencia
+6,visitante,Dimitrievski,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,visitante,Dimitrievski,,Goles en contra,0.0,4.0,22474-alaves-valencia
+6,visitante,Gayà,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,visitante,Gayà,,Goles en contra,0.0,3.0,22474-alaves-valencia
+6,visitante,Maffeo,,Minutos jugados,82.0,2.0,22474-alaves-valencia
+6,visitante,Maffeo,,Goles en contra,0.0,3.0,22474-alaves-valencia
+6,visitante,De Haas,,Minutos jugados,82.0,2.0,22474-alaves-valencia
+6,visitante,De Haas,,Goles en contra,0.0,3.0,22474-alaves-valencia
+6,visitante,Pepelu,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,visitante,Pepelu,,Goles en contra,0.0,2.0,22474-alaves-valencia
+6,visitante,Pepelu,,Tarjetas amarillas,1.0,-1.0,22474-alaves-valencia
+6,visitante,Guido,,Minutos jugados,70.0,2.0,22474-alaves-valencia
+6,visitante,Guido,,Goles en contra,0.0,2.0,22474-alaves-valencia
+6,visitante,Guido,,Tarjetas amarillas,1.0,-1.0,22474-alaves-valencia
+6,visitante,Javi Guerra,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,visitante,Javi Guerra,,Goles en contra,0.0,2.0,22474-alaves-valencia
+6,visitante,Javi Guerra,,Tarjetas amarillas,1.0,-1.0,22474-alaves-valencia
+6,visitante,Ugrinic,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,visitante,Ugrinic,,Goles en contra,0.0,2.0,22474-alaves-valencia
+6,visitante,Duro,,Minutos jugados,63.0,2.0,22474-alaves-valencia
+6,visitante,Duro,,Goles en contra,0.0,1.0,22474-alaves-valencia
+6,visitante,Danjuma,,Minutos jugados,90.0,2.0,22474-alaves-valencia
+6,visitante,Danjuma,,Goles en contra,0.0,1.0,22474-alaves-valencia
+6,visitante,Jesús Vázquez,,Minutos jugados,8.0,1.0,22474-alaves-valencia
+6,visitante,Arnau,,Minutos jugados,8.0,1.0,22474-alaves-valencia
+6,visitante,Córdoba,,Minutos jugados,8.0,1.0,22474-alaves-valencia
+6,visitante,Rioja 62',,Minutos jugados,19.0,1.0,22474-alaves-valencia
+6,visitante,Rioja 62',,Goles,1.0,5.0,22474-alaves-valencia
+6,visitante,Otorbi,,Minutos jugados,20.0,1.0,22474-alaves-valencia
+6,local,Dituro,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,local,Dituro,,Goles en contra,3.0,-2.0,22476-elche-real-madrid
+6,local,Chust,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,local,Chust,,Goles en contra,3.0,-2.0,22476-elche-real-madrid
+6,local,Sangaré,,Minutos jugados,68.0,2.0,22476-elche-real-madrid
+6,local,Sangaré,,Goles en contra,2.0,-2.0,22476-elche-real-madrid
+6,local,Revivo,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,local,Revivo,,Goles en contra,3.0,-2.0,22476-elche-real-madrid
+6,local,Villar,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,local,Villar,,Goles en contra,3.0,-1.0,22476-elche-real-madrid
+6,local,Villar,,Tarjetas amarillas,1.0,-1.0,22476-elche-real-madrid
+6,local,Tete Morente,,Minutos jugados,80.0,2.0,22476-elche-real-madrid
+6,local,Tete Morente,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,local,Valera,,Minutos jugados,58.0,1.0,22476-elche-real-madrid
+6,local,Valera,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,local,Aguado,,Minutos jugados,58.0,1.0,22476-elche-real-madrid
+6,local,Aguado,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,local,Aguado,,Tarjetas amarillas,1.0,-1.0,22476-elche-real-madrid
+6,local,Martim Neto,,Minutos jugados,68.0,2.0,22476-elche-real-madrid
+6,local,Martim Neto,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,local,Redondo,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,local,Redondo,,Goles en contra,3.0,-1.0,22476-elche-real-madrid
+6,local,Osorio,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,local,Osorio,,Goles,1.0,4.0,22476-elche-real-madrid
+6,local,Osorio,,Goles en contra,3.0,-1.0,22476-elche-real-madrid
+6,local,Rubén Sánchez,,Minutos jugados,22.0,1.0,22476-elche-real-madrid
+6,local,Josan,,Minutos jugados,10.0,1.0,22476-elche-real-madrid
+6,local,Josan,,Tarjetas amarillas,1.0,-1.0,22476-elche-real-madrid
+6,local,Lemar,,Minutos jugados,32.0,1.0,22476-elche-real-madrid
+6,local,Cepeda,,Minutos jugados,32.0,1.0,22476-elche-real-madrid
+6,local,Cepeda,,Tarjetas amarillas,1.0,-1.0,22476-elche-real-madrid
+6,local,Fer Niño,,Minutos jugados,22.0,1.0,22476-elche-real-madrid
+6,local,Fer Niño,,Goles,1.0,4.0,22476-elche-real-madrid
+6,visitante,Courtois,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,visitante,Courtois,,Goles en contra,2.0,-2.0,22476-elche-real-madrid
+6,visitante,Alexander-Arnold,,Minutos jugados,87.0,2.0,22476-elche-real-madrid
+6,visitante,Alexander-Arnold,,Goles en contra,2.0,-2.0,22476-elche-real-madrid
+6,visitante,Konaté,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,visitante,Konaté,,Goles en contra,2.0,-2.0,22476-elche-real-madrid
+6,visitante,Konaté,,Tarjetas amarillas,1.0,-1.0,22476-elche-real-madrid
+6,visitante,Cucurella,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,visitante,Cucurella,,Goles en contra,2.0,-2.0,22476-elche-real-madrid
+6,visitante,Huijsen,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,visitante,Huijsen,,Goles en contra,2.0,-2.0,22476-elche-real-madrid
+6,visitante,Valverde,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,visitante,Valverde,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,visitante,Tchouaméni,,Minutos jugados,86.0,2.0,22476-elche-real-madrid
+6,visitante,Tchouaméni,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,visitante,Güler,,Minutos jugados,68.0,2.0,22476-elche-real-madrid
+6,visitante,Güler,,Goles en contra,0.0,2.0,22476-elche-real-madrid
+6,visitante,Mbappé,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
+6,visitante,Mbappé,,Goles,1.0,4.0,22476-elche-real-madrid
+6,visitante,Mbappé,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,visitante,Vinicius,,Minutos jugados,68.0,2.0,22476-elche-real-madrid
+6,visitante,Vinicius,,Goles en contra,0.0,1.0,22476-elche-real-madrid
+6,visitante,Y. Diomande,,Minutos jugados,89.0,2.0,22476-elche-real-madrid
+6,visitante,Y. Diomande,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,visitante,Y. Diomande,,Tarjetas amarillas,1.0,-1.0,22476-elche-real-madrid
+6,visitante,Dumfries,,Minutos jugados,1.0,1.0,22476-elche-real-madrid
+6,visitante,Brahim,,Minutos jugados,22.0,1.0,22476-elche-real-madrid
+6,visitante,Brahim,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,visitante,Bellingham,,Minutos jugados,22.0,1.0,22476-elche-real-madrid
+6,visitante,Bellingham,,Goles en contra,2.0,-1.0,22476-elche-real-madrid
+6,visitante,Carlos Espí,,Minutos jugados,3.0,1.0,22476-elche-real-madrid
+6,visitante,Carlos Espí,,Goles,1.0,4.0,22476-elche-real-madrid
+6,visitante,Endrick,,Minutos jugados,4.0,1.0,22476-elche-real-madrid
+6,local,Audero,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,local,Lejeune,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,local,Mujaid,,Minutos jugados,61.0,2.0,22480-rayo-espanyol
+6,local,Pedrosa,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,local,Pedrosa,,Goles,1.0,6.0,22480-rayo-espanyol
+6,local,Ratiu,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,local,Álvaro García,,Minutos jugados,84.0,2.0,22480-rayo-espanyol
+6,local,Álvaro García,,Goles,1.0,5.0,22480-rayo-espanyol
+6,local,Unai López,,Minutos jugados,61.0,2.0,22480-rayo-espanyol
+6,local,Unai López,,Tarjetas amarillas,1.0,-1.0,22480-rayo-espanyol
+6,local,Pedro Díaz,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,local,Pathé Ciss,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,local,Pathé Ciss,,Tarjetas amarillas,1.0,-1.0,22480-rayo-espanyol
+6,local,Tsitaishvili,,Minutos jugados,76.0,2.0,22480-rayo-espanyol
+6,local,Tsitaishvili,,Tarjetas amarillas,1.0,-1.0,22480-rayo-espanyol
+6,local,Camello,,Minutos jugados,76.0,2.0,22480-rayo-espanyol
+6,local,Balliu,,Minutos jugados,6.0,1.0,22480-rayo-espanyol
+6,local,Valentín,,Minutos jugados,29.0,1.0,22480-rayo-espanyol
+6,local,Fran Pérez,,Minutos jugados,14.0,1.0,22480-rayo-espanyol
+6,local,Bouare,,Minutos jugados,29.0,1.0,22480-rayo-espanyol
+6,local,Bouare,,Tarjetas amarillas,1.0,-1.0,22480-rayo-espanyol
+6,local,Alemão,,Minutos jugados,14.0,1.0,22480-rayo-espanyol
+6,local,Alemão,,Tarjetas amarillas,1.0,-1.0,22480-rayo-espanyol
+6,visitante,Dmitrovic,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,visitante,Dmitrovic,,Goles en contra,2.0,-2.0,22480-rayo-espanyol
+6,visitante,Cabrera,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,visitante,Cabrera,,Goles en contra,2.0,-2.0,22480-rayo-espanyol
+6,visitante,El Hilali,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,visitante,El Hilali,,Goles en contra,2.0,-2.0,22480-rayo-espanyol
+6,visitante,El Hilali,,Tarjetas rojas,1.0,-3.0,22480-rayo-espanyol
+6,visitante,Hartman,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,visitante,Hartman,,Goles en contra,2.0,-2.0,22480-rayo-espanyol
+6,visitante,Hinojo,,Minutos jugados,45.0,1.0,22480-rayo-espanyol
+6,visitante,Hinojo,,Goles en contra,2.0,-2.0,22480-rayo-espanyol
+6,visitante,Riedel,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,visitante,Riedel,,Goles en contra,2.0,-2.0,22480-rayo-espanyol
+6,visitante,Urko,,Minutos jugados,84.0,2.0,22480-rayo-espanyol
+6,visitante,Urko,,Goles en contra,2.0,-1.0,22480-rayo-espanyol
+6,visitante,Bauzà,,Minutos jugados,45.0,1.0,22480-rayo-espanyol
+6,visitante,Bauzà,,Goles en contra,2.0,-1.0,22480-rayo-espanyol
+6,visitante,Javier Hernández,,Minutos jugados,74.0,2.0,22480-rayo-espanyol
+6,visitante,Javier Hernández,,Goles en contra,2.0,-1.0,22480-rayo-espanyol
+6,visitante,Moscardo,,Minutos jugados,45.0,1.0,22480-rayo-espanyol
+6,visitante,Moscardo,,Goles en contra,2.0,-1.0,22480-rayo-espanyol
+6,visitante,Roberto,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
+6,visitante,Roberto,,Goles,1.0,4.0,22480-rayo-espanyol
+6,visitante,Roberto,,Goles en contra,2.0,-1.0,22480-rayo-espanyol
+6,visitante,Edu Expósito,,Minutos jugados,45.0,1.0,22480-rayo-espanyol
+6,visitante,Lozano,,Minutos jugados,6.0,1.0,22480-rayo-espanyol
+6,visitante,Bryan,,Minutos jugados,45.0,1.0,22480-rayo-espanyol
+6,visitante,Calatrava,,Minutos jugados,16.0,1.0,22480-rayo-espanyol
+6,visitante,Marcos,,Minutos jugados,45.0,1.0,22480-rayo-espanyol
+6,visitante,Marcos,,Tarjetas amarillas,1.0,-1.0,22480-rayo-espanyol
 6,local,Remiro,,Minutos jugados,90.0,2.0,22482-real-sociedad-celta
 6,local,Remiro,,Goles en contra,0.0,4.0,22482-real-sociedad-celta
 6,local,Zubeldia,,Minutos jugados,90.0,2.0,22482-real-sociedad-celta
