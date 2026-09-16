@@ -26,6 +26,9 @@ jobs:
       - name: Ejecutar el script de puntos
         run: python scripts/puntos.py
 
+      - name: Ejecutar el script de eventos
+        run: python scripts/eventos.py
+
       - name: Guardar los datos en el repositorio
         run: |
           git config user.name "github-actions"
