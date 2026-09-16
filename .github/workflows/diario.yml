@@ -26,6 +26,9 @@ jobs:
       - name: Ejecutar el script de puntos
         run: python scripts/puntos.py
 
+      - name: Actualizar urls de partidos
+        run: python scripts/partidos_urls.py
+
       - name: Ejecutar el script de eventos
         run: python scripts/eventos.py
 
