@@ -5,110 +5,146 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-ENTRADA = "datos/partidos_urls.csv"
+PARTIDOS = "datos/partidos.csv"
 SALIDA = "datos/eventos.csv"
+CABECERA = ["partido", "jornada", "fecha", "equipo", "lado", "jugador", "slug",
+            "posicion", "evento", "cantidad"]
 
-ID_MIN, ID_MAX = 22421, 22829   # rango de LaLiga; fuera de ahi son otras competiciones
+INTERESAN = {
+    "Minutos jugados": "min",
+    "Goles": "goles",
+    "Asistencias de gol": "asis",
+    "Asistencias sin gol": "asis_sg",
+    "Tarjetas amarillas": "amarillas",
+    "Tarjetas rojas": "rojas",
+    "Tiros a puerta": "tiros",
+    "Ocasiones claras creadas": "ocasiones",
+}
 
-INTERESAN = ["Goles", "Asistencias", "Minutos jugados",
-             "Tarjetas amarillas", "Tarjetas rojas", "Goles en contra"]
+MESES = {"enero":1,"febrero":2,"marzo":3,"abril":4,"mayo":5,"junio":6,
+         "julio":7,"agosto":8,"septiembre":9,"octubre":10,"noviembre":11,"diciembre":12}
 
 
-def partes_evento(texto):
-    t = texto.strip()
+def limpia(t):
+    return t.replace("\xa0", " ").strip()
+
+
+def cantidad_y_evento(texto):
+    t = limpia(texto)
     if not t:
-        return None
-
-    m = re.search(r"(-?[\d.]+)\s*p$", t)
-    puntos = float(m.group(1)) if m else None
+        return None, None
+    t = re.sub(r"\s*-?[\d.]+\s*p$", "", t).strip()
+    m = re.match(r"^(-?\d+)\s+(.*)$", t)
     if m:
-        t = t[: m.start()].strip()
-
-    m2 = re.match(r"^(-?\d+)\s+(.*)$", t)
-    if m2:
-        return float(m2.group(1)), m2.group(2).strip(), puntos
-    return None, t, puntos
+        return float(m.group(1)), m.group(2).strip()
+    return 1.0, t
 
 
-def procesar(url, cabeceras):
-    r = requests.get(url, headers=cabeceras, timeout=30)
+def fecha_de(sopa):
+    for l in sopa.get_text("\n", strip=True).split("\n")[:150]:
+        m = re.search(r"(\d{1,2}) de (\w+) del (\d{4})(?:.*?(\d{1,2}):(\d{2}))?", l)
+        if m and m.group(2).lower() in MESES:
+            h = f" {m.group(4)}:{m.group(5)}" if m.group(4) else ""
+            return f"{m.group(3)}-{MESES[m.group(2).lower()]:02d}-{int(m.group(1)):02d}{h}"
+    return ""
+
+
+def ficha_jugadores(sopa):
+    """Del campograma: nombre -> (slug, posicion)"""
+    fichas = {}
+    for a in sopa.select("a.camiseta"):
+        href = a.get("href", "")
+        slug = href.split("/")[-1] if "/jugadores/" in href else ""
+        nombre = next((im.get("alt") for im in a.select("img") if im.get("alt")), "")
+        pos = a.attrs.get("data-posicion-mister-mixto-2", "")
+        if nombre:
+            fichas[limpia(nombre)] = (slug, pos)
+    return fichas
+
+
+def procesar(fila, cabeceras):
+    r = requests.get(fila["url"], headers=cabeceras, timeout=30)
     r.raise_for_status()
     sopa = BeautifulSoup(r.text, "html.parser")
 
-    jornada = None
-    for l in sopa.get_text("\n", strip=True).split("\n")[:150]:
-        m = re.search(r"Jornada (\d+)", l)
-        if m:
-            jornada = int(m.group(1))
-            break
+    fecha = fecha_de(sopa)
+    fichas = ficha_jugadores(sopa)
 
     filas = []
-    for lado in ["stats-local", "stats-visitante"]:
-        tabla = sopa.select_one(f"div.{lado} table.tablestats")
+    for lado in ["local", "visitante"]:
+        tabla = sopa.select_one(f"div.stats-{lado} table.tablestats")
         if tabla is None:
             continue
+        equipo = fila[lado]
 
-        nombre, id_jug = None, ""
-        for fila in tabla.select("tr"):
-            clases = fila.get("class") or []
-
-            if "desglose" not in clases:
-                celdas = [c.get_text(" ", strip=True) for c in fila.select("th, td")]
+        nombre = None
+        for tr in tabla.select("tr"):
+            if "desglose" not in (tr.get("class") or []):
+                celdas = [c.get_text(" ", strip=True) for c in tr.select("th, td")]
                 if celdas and celdas[0] and celdas[0] not in ("Titulares", "Suplentes"):
-                    nombre = re.sub(r"\s*\d{1,3}'\s*$", "", celdas[0]).strip()
-                    enlace = fila.select_one("a[href*='/jugadores/']")
-                    id_jug = enlace["href"].split("/")[-1] if enlace else ""
+                    nombre = re.sub(r"\s*\d{1,3}'\s*$", "", limpia(celdas[0])).strip()
                 continue
-
             if not nombre:
                 continue
 
-            bloque = fila.select_one("div.desg.laliga-fantasy")
+            bloque = tr.select_one("div.desg.laliga-fantasy")
             if bloque is None:
                 continue
 
-            for e in bloque.select("div.estadistica"):
-                p = partes_evento(e.get_text(" ", strip=True))
-                if not p:
-                    continue
-                cantidad, evento, puntos = p
-                if evento not in INTERESAN:
-                    continue
-                filas.append([jornada, lado.replace("stats-", ""), nombre,
-                              id_jug, evento, cantidad, puntos, url.split("/")[-1]])
+            slug, pos = "", ""
+            for n, (s, p) in fichas.items():
+                if n == nombre or n.endswith(" " + nombre) or nombre.endswith(" " + n):
+                    slug, pos = s, p
+                    break
 
+            for d in bloque.select("div.estadistica"):
+                cant, ev = cantidad_y_evento(d.get_text(" ", strip=True))
+                clave = INTERESAN.get(ev)
+                if clave is None:
+                    continue
+                filas.append([fila["id"], fila["jornada"], fecha, equipo, lado,
+                              nombre, slug, pos, clave, cant])
     return filas
 
 
 def main():
     cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
 
-    with open(ENTRADA, encoding="utf-8") as f:
-        urls = []
-        for fila in csv.DictReader(f):
-            if ID_MIN <= int(fila["id"]) <= ID_MAX:
-                urls.append(fila["url"])
+    partidos = list(csv.DictReader(open(PARTIDOS, encoding="utf-8")))
+    terminados = [p for p in partidos if p["terminado"] == "1"]
 
-    print(f"Partidos de LaLiga a procesar: {len(urls)}")
+    previas, ya = [], set()
+    if os.path.exists(SALIDA):
+        for f in csv.DictReader(open(SALIDA, encoding="utf-8")):
+            previas.append(f)
+            ya.add(f["partido"])
 
-    todas = []
-    for i, url in enumerate(urls):
+    faltan = [p for p in terminados if p["id"] not in ya]
+    print(f"Terminados: {len(terminados)}   ya guardados: {len(ya)}   a pedir: {len(faltan)}")
+
+    nuevas = []
+    for i, p in enumerate(faltan):
         try:
-            filas = procesar(url, cabeceras)
-            if filas:
-                print(f"{i+1}/{len(urls)} {url.split('/')[-1]}: {len(filas)} eventos")
-            todas.extend(filas)
+            f = procesar(p, cabeceras)
+            print(f"  {i+1}/{len(faltan)} J{p['jornada']} {p['local']}-{p['visitante']}: {len(f)}")
+            nuevas.extend(f)
         except Exception as e:
-            print(f"ERROR en {url}: {e}")
+            print(f"  ERROR {p['id']}: {e}")
         time.sleep(1)
+
+    if not nuevas and previas:
+        print("Sin partidos nuevos.")
+        return
 
     os.makedirs("datos", exist_ok=True)
     with open(SALIDA, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["jornada", "lado", "jugador", "slug", "evento", "cantidad", "puntos_lf", "partido"])
-        w.writerows(todas)
+        w.writerow(CABECERA)
+        for p in previas:
+            w.writerow([p.get(c, "") for c in CABECERA])
+        w.writerows(nuevas)
 
-    print(f"\nTotal: {len(todas)} eventos")
+    print(f"Total en fichero: {len(previas) + len(nuevas)}")
 
 
 if __name__ == "__main__":
