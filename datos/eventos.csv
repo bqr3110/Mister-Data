@@ -1,0 +1,2538 @@
+partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad
+22421,1,2026-08-15 19:30,Alavés,local,Sivera,antonio-sivera,,min,90.0
+22421,1,2026-08-15 19:30,Alavés,local,Jonny,,,min,90.0
+22421,1,2026-08-15 19:30,Alavés,local,Tenaglia,nahuel-tenaglia,,min,90.0
+22421,1,2026-08-15 19:30,Alavés,local,Tenaglia,nahuel-tenaglia,,goles,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Ángel Pérez,angel-perez-1,,min,65.0
+22421,1,2026-08-15 19:30,Alavés,local,Koski,ville-koski,,min,90.0
+22421,1,2026-08-15 19:30,Alavés,local,Denis Suárez,denis-suarez,,min,57.0
+22421,1,2026-08-15 19:30,Alavés,local,Denis Suárez,denis-suarez,,amarillas,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Blanco,antonio-blanco,,min,89.0
+22421,1,2026-08-15 19:30,Alavés,local,Blanco,antonio-blanco,,amarillas,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Ibáñez,pablo-ibanez,,min,90.0
+22421,1,2026-08-15 19:30,Alavés,local,Rebbach,abde-rebbach,,min,89.0
+22421,1,2026-08-15 19:30,Alavés,local,Rebbach,abde-rebbach,,amarillas,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Toni Martinez,antonio-martinez,,min,90.0
+22421,1,2026-08-15 19:30,Alavés,local,Toni Martinez,antonio-martinez,,asis_sg,2.0
+22421,1,2026-08-15 19:30,Alavés,local,Aitor Mañas,aitor-manas,,min,57.0
+22421,1,2026-08-15 19:30,Alavés,local,Youssef,,,min,25.0
+22421,1,2026-08-15 19:30,Alavés,local,Aleñá,carles-alena,,min,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Guevara,ander-guevara,,min,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Mikel Rodriguez,mikel-rodriguez,,min,33.0
+22421,1,2026-08-15 19:30,Alavés,local,Mikel Rodriguez,mikel-rodriguez,,goles,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Mariano,,,min,33.0
+22421,1,2026-08-15 19:30,Alavés,local,Mariano,,,goles,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Mariano,,,asis,2.0
+22421,1,2026-08-15 19:30,Alavés,local,Mariano,,,asis_sg,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Mariano,,,amarillas,1.0
+22421,1,2026-08-15 19:30,Alavés,local,Mariano,,,tiros,2.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Soria,david-soria,,min,90.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Femenia,kiko-femenia,,min,42.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Femenia,kiko-femenia,,rojas,1.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Djené,dakonam-djene,,min,81.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Djené,dakonam-djene,,amarillas,1.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Abqar,abdel-abqar,,min,90.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Andrés García,andres-garcia,,min,81.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Romero,zaid-romero,,min,90.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Davinchi,davinchi,,min,45.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Davinchi,davinchi,,amarillas,1.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Terrats,terrats,,min,90.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Mangala,orel-mangala,,min,90.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Mario Martín,mario-martin,,min,66.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Mario Martín,mario-martin,,amarillas,1.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Satriano,martin-satriano,,min,73.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Sazonov,saba-sazonov,,min,9.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Valou,jean-ives-valou,,min,17.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Boselli,sebastian-boselli,,min,9.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Risco,alberto-risco,,min,24.0
+22421,1,2026-08-15 19:30,Getafe,visitante,Enes Ünal,enes-unal,,min,45.0
+22422,1,2026-08-19 21:00,Atlético,local,Oblak,jan-oblak,,min,90.0
+22422,1,2026-08-19 21:00,Atlético,local,Hancko,david-hancko,,min,90.0
+22422,1,2026-08-19 21:00,Atlético,local,Hancko,david-hancko,,asis,1.0
+22422,1,2026-08-19 21:00,Atlético,local,Hancko,david-hancko,,amarillas,1.0
+22422,1,2026-08-19 21:00,Atlético,local,Le Normand,robin-le-normand,,min,90.0
+22422,1,2026-08-19 21:00,Atlético,local,Dani Martínez,dani-martinez,,min,90.0
+22422,1,2026-08-19 21:00,Atlético,local,Koke,,,min,78.0
+22422,1,2026-08-19 21:00,Atlético,local,Barrios,pablo-barrios,,min,90.0
+22422,1,2026-08-19 21:00,Atlético,local,Mendoza,rodrigo-mendoza,,min,57.0
+22422,1,2026-08-19 21:00,Atlético,local,Mendoza,rodrigo-mendoza,,tiros,2.0
+22422,1,2026-08-19 21:00,Atlético,local,Lookman,ademola-lookman,,min,90.0
+22422,1,2026-08-19 21:00,Atlético,local,Lookman,ademola-lookman,,tiros,2.0
+22422,1,2026-08-19 21:00,Atlético,local,Carlos Martín,laliga-26-27,,min,57.0
+22422,1,2026-08-19 21:00,Atlético,local,Ortiz,arnau-ortiz,,min,57.0
+22422,1,2026-08-19 21:00,Atlético,local,M. Llorente,,,min,45.0
+22422,1,2026-08-19 21:00,Atlético,local,Kang-In Lee,lee-kang-in,,min,33.0
+22422,1,2026-08-19 21:00,Atlético,local,Kang-In Lee,lee-kang-in,,goles,1.0
+22422,1,2026-08-19 21:00,Atlético,local,Kang-In Lee,lee-kang-in,,asis_sg,1.0
+22422,1,2026-08-19 21:00,Atlético,local,Baena,lex-baena,,min,33.0
+22422,1,2026-08-19 21:00,Atlético,local,Baena,lex-baena,,goles,1.0
+22422,1,2026-08-19 21:00,Atlético,local,Giuliano,,,min,33.0
+22422,1,2026-08-19 21:00,Atlético,local,Hjulmand,morten-hjulmand,,min,12.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Herrero,alfonso-herrero,,min,90.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Galilea,einar-galilea,,min,80.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Puga,carlos-puga,,min,72.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Puga,carlos-puga,,amarillas,1.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Rafita,,,min,90.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Recio,angel-recio,,min,90.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Joaquín,,,min,67.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Larrubia,david-larrubia,,min,90.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Dotor,carlos-dotor,,min,67.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Merino,izan-merino,,min,90.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Lorenzo,dani-lorenzo-1,,min,80.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Chupete,chupete,,min,90.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Salinas,jose-salinas,,min,18.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Enríquez,ramon-enriquez,,min,10.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Enríquez,ramon-enriquez,,amarillas,1.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Juan Cruz,juan-cruz-2,,min,23.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Juan Cruz,juan-cruz-2,,amarillas,1.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Rafa Rodríguez,rafa-rodriguez,,min,23.0
+22422,1,2026-08-19 21:00,Málaga,visitante,Jauregi,eneko-jauregi,,min,10.0
+22423,1,2026-08-27 20:30,Celta,local,Radu,andrei-radu,,min,90.0
+22423,1,2026-08-27 20:30,Celta,local,M. Alonso,,,min,51.0
+22423,1,2026-08-27 20:30,Celta,local,M. Alonso,,,rojas,1.0
+22423,1,2026-08-27 20:30,Celta,local,Galán,javi-galan,,min,65.0
+22423,1,2026-08-27 20:30,Celta,local,Javi Rodríguez,javi-rodriguez,,min,90.0
+22423,1,2026-08-27 20:30,Celta,local,Rueda,javi-rueda,,min,65.0
+22423,1,2026-08-27 20:30,Celta,local,Lago,yoel-lago,,min,90.0
+22423,1,2026-08-27 20:30,Celta,local,Moriba,ilaix-moriba,,min,90.0
+22423,1,2026-08-27 20:30,Celta,local,Swedberg,williot-swedberg,,min,65.0
+22423,1,2026-08-27 20:30,Celta,local,Román,miguel-roman,,min,90.0
+22423,1,2026-08-27 20:30,Celta,local,Román,miguel-roman,,asis,1.0
+22423,1,2026-08-27 20:30,Celta,local,Aspas,iago-aspas,,min,52.0
+22423,1,2026-08-27 20:30,Celta,local,Aspas,iago-aspas,,goles,1.0
+22423,1,2026-08-27 20:30,Celta,local,Durán,pablo-duran,,min,79.0
+22423,1,2026-08-27 20:30,Celta,local,Carreira,sergio-carreira,,min,25.0
+22423,1,2026-08-27 20:30,Celta,local,Starfelt,carl-starfelt,,min,38.0
+22423,1,2026-08-27 20:30,Celta,local,Hugo Álvarez,hugo-lvarez-,,min,25.0
+22423,1,2026-08-27 20:30,Celta,local,El-Abdellaoui,jones-el-abdellaoui,,min,25.0
+22423,1,2026-08-27 20:30,Celta,local,Jutglà,ferran-jutgla,,min,11.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Herrera,sergio-herrera,,min,90.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Catena,alejandro-catena,,min,90.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Herrando,jorge-herrando,,min,58.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Bretones,abel-bretones,,min,90.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Arguibide,inigo-arguibide,,min,90.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Torró,lucas-torro,,min,90.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Kike Barja,kike-barja,,min,74.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Kike Barja,kike-barja,,goles,1.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Moncayola,jon-moncayola,,min,45.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Moncayola,jon-moncayola,,amarillas,1.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Dubasin,jonathan-dubasin,,min,58.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Osambela,asier-osambela,,min,90.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Raúl García,raul-garcia-1,,min,82.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Raúl García,raul-garcia-1,,asis,1.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Raúl García,raul-garcia-1,,asis_sg,1.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Raúl García,raul-garcia-1,,tiros,2.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Rubén G.,,,min,32.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Moi Gómez,moi-gomez,,min,16.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Oroz,aimar-oroz,,min,8.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Iker Muñoz,iker-munoz,,min,45.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Budimir,ante-budimir,,min,32.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Budimir,ante-budimir,,goles,1.0
+22423,1,2026-08-27 20:30,Osasuna,visitante,Budimir,ante-budimir,,tiros,2.0
+22424,1,2026-08-17 21:00,Deportivo,local,Leo Román,leo-roman,,min,90.0
+22424,1,2026-08-17 21:00,Deportivo,local,Ximo,,,min,90.0
+22424,1,2026-08-17 21:00,Deportivo,local,Ximo,,,amarillas,1.0
+22424,1,2026-08-17 21:00,Deportivo,local,Altimira,adria-altimira,,min,71.0
+22424,1,2026-08-17 21:00,Deportivo,local,Quagliata,giacomo-quagliata,,min,90.0
+22424,1,2026-08-17 21:00,Deportivo,local,Noubi,lucas-noubi,,min,90.0
+22424,1,2026-08-17 21:00,Deportivo,local,Ede,bright-ede,,min,90.0
+22424,1,2026-08-17 21:00,Deportivo,local,Mario,,,min,71.0
+22424,1,2026-08-17 21:00,Deportivo,local,Amatucci,lorenzo-amatucci,,min,90.0
+22424,1,2026-08-17 21:00,Deportivo,local,Amatucci,lorenzo-amatucci,,asis,1.0
+22424,1,2026-08-17 21:00,Deportivo,local,Amatucci,lorenzo-amatucci,,amarillas,1.0
+22424,1,2026-08-17 21:00,Deportivo,local,Asp Jensen,jonathan-asp-jensen,,min,60.0
+22424,1,2026-08-17 21:00,Deportivo,local,Aubameyang,pierre-emerick-aubameyang,,min,85.0
+22424,1,2026-08-17 21:00,Deportivo,local,Aubameyang,pierre-emerick-aubameyang,,goles,1.0
+22424,1,2026-08-17 21:00,Deportivo,local,Aubameyang,pierre-emerick-aubameyang,,tiros,2.0
+22424,1,2026-08-17 21:00,Deportivo,local,Bil Nsongo,bil-nsongo,,min,60.0
+22424,1,2026-08-17 21:00,Deportivo,local,Luismi,,,min,19.0
+22424,1,2026-08-17 21:00,Deportivo,local,Villares,diego-villares,,min,30.0
+22424,1,2026-08-17 21:00,Deportivo,local,Mella,david-mella,,min,19.0
+22424,1,2026-08-17 21:00,Deportivo,local,Eddahchouri,zakaria-eddahchouri,,min,30.0
+22424,1,2026-08-17 21:00,Elche,visitante,Dituro,matias-dituro,,min,90.0
+22424,1,2026-08-17 21:00,Elche,visitante,Chust,victor-chust,,min,90.0
+22424,1,2026-08-17 21:00,Elche,visitante,Affengruber,laliga-26-27,,min,90.0
+22424,1,2026-08-17 21:00,Elche,visitante,Sangaré,buba-sangare,,min,90.0
+22424,1,2026-08-17 21:00,Elche,visitante,Villar,gonzalo-villar,,min,90.0
+22424,1,2026-08-17 21:00,Elche,visitante,Villar,gonzalo-villar,,asis,1.0
+22424,1,2026-08-17 21:00,Elche,visitante,Villar,gonzalo-villar,,amarillas,1.0
+22424,1,2026-08-17 21:00,Elche,visitante,Villar,gonzalo-villar,,tiros,2.0
+22424,1,2026-08-17 21:00,Elche,visitante,Valera,german-valera,,min,81.0
+22424,1,2026-08-17 21:00,Elche,visitante,Aguado,marc-aguado,,min,90.0
+22424,1,2026-08-17 21:00,Elche,visitante,Aguado,marc-aguado,,goles,1.0
+22424,1,2026-08-17 21:00,Elche,visitante,Martim Neto,martim-neto,,min,60.0
+22424,1,2026-08-17 21:00,Elche,visitante,Redondo,federico-redondo,,min,60.0
+22424,1,2026-08-17 21:00,Elche,visitante,Redondo,federico-redondo,,asis_sg,1.0
+22424,1,2026-08-17 21:00,Elche,visitante,Fer Niño,,,min,69.0
+22424,1,2026-08-17 21:00,Elche,visitante,Tete Morente,tete-morente,,min,30.0
+22424,1,2026-08-17 21:00,Elche,visitante,Cepeda,lucas-cepeda,,min,30.0
+22425,1,2026-08-16 19:00,Espanyol,local,Dmitrovic,marko-dmitrovic,,min,90.0
+22425,1,2026-08-16 19:00,Espanyol,local,U. Núñez,,,min,90.0
+22425,1,2026-08-16 19:00,Espanyol,local,El Hilali,omar-el-hilali,,min,90.0
+22425,1,2026-08-16 19:00,Espanyol,local,Riedel,clemens-riedel,,min,90.0
+22425,1,2026-08-16 19:00,Espanyol,local,Edu Expósito,edu-exposito,,min,86.0
+22425,1,2026-08-16 19:00,Espanyol,local,Urko,,,min,72.0
+22425,1,2026-08-16 19:00,Espanyol,local,Urko,,,amarillas,1.0
+22425,1,2026-08-16 19:00,Espanyol,local,Calatrava,lex-calatrava,,min,72.0
+22425,1,2026-08-16 19:00,Espanyol,local,Calatrava,lex-calatrava,,amarillas,1.0
+22425,1,2026-08-16 19:00,Espanyol,local,Calatrava,lex-calatrava,,tiros,2.0
+22425,1,2026-08-16 19:00,Espanyol,local,Roberto,,,min,90.0
+22425,1,2026-08-16 19:00,Espanyol,local,Roberto,,,goles,2.0
+22425,1,2026-08-16 19:00,Espanyol,local,Roberto,,,tiros,2.0
+22425,1,2026-08-16 19:00,Espanyol,local,Dolan,tyrhys-dolan,,min,81.0
+22425,1,2026-08-16 19:00,Espanyol,local,Dolan,tyrhys-dolan,,goles,1.0
+22425,1,2026-08-16 19:00,Espanyol,local,Pere Milla,pere-milla,,min,8.0
+22425,1,2026-08-16 19:00,Espanyol,local,Lozano,pol-lozano,,min,18.0
+22425,1,2026-08-16 19:00,Espanyol,local,Jofre,,,min,9.0
+22425,1,2026-08-16 19:00,Espanyol,local,Marcos,,,min,4.0
+22425,1,2026-08-16 19:00,Levante,visitante,Ryan,mat-ryan,,min,90.0
+22425,1,2026-08-16 19:00,Levante,visitante,De la Fuente,,,min,90.0
+22425,1,2026-08-16 19:00,Levante,visitante,Manu Sánchez,manu-sanchez,,min,90.0
+22425,1,2026-08-16 19:00,Levante,visitante,Víctor García,victor-garcia-1,,min,76.0
+22425,1,2026-08-16 19:00,Levante,visitante,Nacho Pérez,nacho-perez-1,,min,76.0
+22425,1,2026-08-16 19:00,Levante,visitante,Oriol Rey,oriol-rey,,min,90.0
+22425,1,2026-08-16 19:00,Levante,visitante,C. Álvarez,,,min,45.0
+22425,1,2026-08-16 19:00,Levante,visitante,Olasagasti,jon-ander-olasagasti,,min,90.0
+22425,1,2026-08-16 19:00,Levante,visitante,Cortés,paco-cortes,,min,45.0
+22425,1,2026-08-16 19:00,Levante,visitante,Iván Romero,ivan-romero,,min,64.0
+22425,1,2026-08-16 19:00,Levante,visitante,Toljan,jeremy-toljan,,min,14.0
+22425,1,2026-08-16 19:00,Levante,visitante,Tunde,kareem-tunde,,min,14.0
+22425,1,2026-08-16 19:00,Levante,visitante,Etta Eyong,etta-eyong,,min,45.0
+22426,1,2026-08-27 21:00,Barcelona,local,Joan Garcia,joan-garcia,,min,90.0
+22426,1,2026-08-27 21:00,Barcelona,local,Eric Garcia,eric-garcia,,min,80.0
+22426,1,2026-08-27 21:00,Barcelona,local,Cubarsí,pau-cubarsi,,min,90.0
+22426,1,2026-08-27 21:00,Barcelona,local,Martín,gerard-martin,,min,90.0
+22426,1,2026-08-27 21:00,Barcelona,local,Espart,xavi-espart,,min,90.0
+22426,1,2026-08-27 21:00,Barcelona,local,Espart,xavi-espart,,asis_sg,1.0
+22426,1,2026-08-27 21:00,Barcelona,local,Espart,xavi-espart,,amarillas,1.0
+22426,1,2026-08-27 21:00,Barcelona,local,Pedri,,,min,85.0
+22426,1,2026-08-27 21:00,Barcelona,local,Pedri,,,asis,1.0
+22426,1,2026-08-27 21:00,Barcelona,local,Pedri,,,asis_sg,1.0
+22426,1,2026-08-27 21:00,Barcelona,local,Fermín,,,min,90.0
+22426,1,2026-08-27 21:00,Barcelona,local,Fermín,,,goles,1.0
+22426,1,2026-08-27 21:00,Barcelona,local,Fermín,,,tiros,3.0
+22426,1,2026-08-27 21:00,Barcelona,local,Bernal,marc-bernal,,min,63.0
+22426,1,2026-08-27 21:00,Barcelona,local,Bernal,marc-bernal,,asis_sg,1.0
+22426,1,2026-08-27 21:00,Barcelona,local,Raphinha,raphinha,,min,63.0
+22426,1,2026-08-27 21:00,Barcelona,local,Raphinha,raphinha,,goles,1.0
+22426,1,2026-08-27 21:00,Barcelona,local,Raphinha,raphinha,,asis_sg,1.0
+22426,1,2026-08-27 21:00,Barcelona,local,Raphinha,raphinha,,tiros,2.0
+22426,1,2026-08-27 21:00,Barcelona,local,Gordon,anthony-gordon,,min,80.0
+22426,1,2026-08-27 21:00,Barcelona,local,Yamal,lamine-yamal,,min,90.0
+22426,1,2026-08-27 21:00,Barcelona,local,Yamal,lamine-yamal,,asis_sg,1.0
+22426,1,2026-08-27 21:00,Barcelona,local,Yamal,lamine-yamal,,tiros,3.0
+22426,1,2026-08-27 21:00,Barcelona,local,Cancelo,joao-cancelo,,min,5.0
+22426,1,2026-08-27 21:00,Barcelona,local,Koundé,jules-kounde,,min,10.0
+22426,1,2026-08-27 21:00,Barcelona,local,Olmo,dani-olmo,,min,27.0
+22426,1,2026-08-27 21:00,Barcelona,local,Rodri,,,min,27.0
+22426,1,2026-08-27 21:00,Barcelona,local,Adeyemi,karim-adeyemi,,min,10.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Unai Simón,unai-simon,,min,90.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Laporte,aymeric-laporte,,min,90.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Yeray,,,min,90.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Rincón,hugo-rincon,,min,90.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Johaneko,,,min,70.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Johaneko,,,amarillas,1.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Sancet,oihan-sancet,,min,90.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Jauregizar,mikel-jauregizar,,min,70.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Canales,peio-canales,,min,90.0
+22426,1,2026-08-27 21:00,Athletic,visitante,I. Williams,,,min,60.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Guruzeta,gorka-guruzeta,,min,81.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Guruzeta,gorka-guruzeta,,amarillas,1.0
+22426,1,2026-08-27 21:00,Athletic,visitante,N. Williams,,,min,60.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Boiro,adama-boiro,,min,20.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Berenguer,alex-berenguer,,min,30.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Navarro,robert-navarro,,min,30.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Gerenabarrena,benat-gerenabarrena,,min,20.0
+22426,1,2026-08-27 21:00,Athletic,visitante,Djaló,lvaro-djalo,,min,9.0
+22427,1,2026-08-16 17:00,Racing,local,Agirrezabala,julen-agirrezabala,,min,90.0
+22427,1,2026-08-16 17:00,Racing,local,Pablo Ramón,pablo-ramon,,min,77.0
+22427,1,2026-08-16 17:00,Racing,local,Pablo Ramón,pablo-ramon,,amarillas,1.0
+22427,1,2026-08-16 17:00,Racing,local,Mantilla,lvaro-mantilla,,min,90.0
+22427,1,2026-08-16 17:00,Racing,local,Salinas,jorge-salinas,,min,90.0
+22427,1,2026-08-16 17:00,Racing,local,Pedro Felipe,pedro-felipe,,min,16.0
+22427,1,2026-08-16 17:00,Racing,local,Canales,sergio-canales,,min,77.0
+22427,1,2026-08-16 17:00,Racing,local,Iñigo Vicente,inigo-vicente,,min,90.0
+22427,1,2026-08-16 17:00,Racing,local,Puerta,gustavo-puerta,,min,90.0
+22427,1,2026-08-16 17:00,Racing,local,Puerta,gustavo-puerta,,asis_sg,1.0
+22427,1,2026-08-16 17:00,Racing,local,Puerta,gustavo-puerta,,amarillas,1.0
+22427,1,2026-08-16 17:00,Racing,local,Sergio Martínez,sergio-martinez,,min,69.0
+22427,1,2026-08-16 17:00,Racing,local,Sergio Martínez,sergio-martinez,,goles,1.0
+22427,1,2026-08-16 17:00,Racing,local,Villalibre,asier-villalibre,,min,69.0
+22427,1,2026-08-16 17:00,Racing,local,Andrés Martín,andres-martin,,min,90.0
+22427,1,2026-08-16 17:00,Racing,local,Andrés Martín,andres-martin,,goles,1.0
+22427,1,2026-08-16 17:00,Racing,local,Hernando,manu-hernando,,min,74.0
+22427,1,2026-08-16 17:00,Racing,local,Facu González,,,min,13.0
+22427,1,2026-08-16 17:00,Racing,local,Maguette,,,min,21.0
+22427,1,2026-08-16 17:00,Racing,local,Diego Diaz,laliga-26-27,,min,13.0
+22427,1,2026-08-16 17:00,Racing,local,Zabiri,yassir-zabiri,,min,21.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Luiz Junior,luiz-junior,,min,90.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Foyth,juan-foyth,,min,90.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Foyth,juan-foyth,,amarillas,1.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Veiga,renato-veiga,,min,90.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Romero,carlos-romero,,min,90.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Romero,carlos-romero,,amarillas,1.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Mouriño,santiago-mourino,,min,88.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Mouriño,santiago-mourino,,amarillas,1.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Comesaña,santi-comesana,,min,56.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Pape Gueye,pape-gueye,,min,90.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Pape Gueye,pape-gueye,,goles,1.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Pape Gueye,pape-gueye,,amarillas,1.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Moleiro,alberto-moleiro,,min,56.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Moleiro,alberto-moleiro,,asis,1.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Ayoze,,,min,56.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Pépé,nicolas-pepe,,min,77.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Pépé,nicolas-pepe,,goles,1.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Pépé,nicolas-pepe,,tiros,2.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Mikautadze,georges-mikautadze,,min,90.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Mikautadze,georges-mikautadze,,asis,1.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Mikautadze,georges-mikautadze,,tiros,2.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Freeman,alex-freeman,,min,2.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Akhomach,ilias-akhomach,,min,13.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Buchanan,tajon-buchanan,,min,34.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Carlos Macià,carlos-macia,,min,34.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Gerard,,,min,34.0
+22427,1,2026-08-16 17:00,Villarreal,visitante,Gerard,,,asis_sg,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Courtois,thibaut-courtois,,min,90.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Konaté,ibrahima-konate,,min,90.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Konaté,ibrahima-konate,,amarillas,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Dumfries,denzel-dumfries,,min,90.0
+22428,1,2026-08-26 21:00,Real Madrid,local,A. F. Carreras,,,min,45.0
+22428,1,2026-08-26 21:00,Real Madrid,local,A. F. Carreras,,,amarillas,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Huijsen,dean-huijsen,,min,90.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Bernardo Silva,bernardo-silva,,min,86.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Valverde,federico-valverde,,min,90.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Valverde,federico-valverde,,asis,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Bellingham,jude-bellingham,,min,78.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Bellingham,jude-bellingham,,asis,2.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Bellingham,jude-bellingham,,asis_sg,2.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Güler,arda-gler,,min,78.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Güler,arda-gler,,asis_sg,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Mbappé,kylian-mbappe,,min,90.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Mbappé,kylian-mbappe,,goles,3.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Mbappé,kylian-mbappe,,asis_sg,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Mbappé,kylian-mbappe,,tiros,7.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Vinicius,,,min,84.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Vinicius,,,goles,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Vinicius,,,asis,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Vinicius,,,asis_sg,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Vinicius,,,tiros,2.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Cucurella,marc-cucurella,,min,45.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Brahim,,,min,12.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Camavinga,eduardo-camavinga,,min,12.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Camavinga,eduardo-camavinga,,amarillas,1.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Carlos Espí,carlos-espi,,min,4.0
+22428,1,2026-08-26 21:00,Real Madrid,local,Y. Diomande,,,min,6.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Remiro,alex-remiro,,min,90.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Sergio Gómez,sergio-gomez,,min,90.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Jon Martín,jon-martin,,min,90.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Aramburu,jon-aramburu,,min,57.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Aramburu,jon-aramburu,,amarillas,1.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Beitia,luken-beitia,,min,90.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Beitia,luken-beitia,,amarillas,1.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Herrera,yangel-herrera,,min,66.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Herrera,yangel-herrera,,amarillas,1.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Kubo,takefusa-kubo,,min,74.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,L. Sucic,,,min,90.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,L. Sucic,,,goles,1.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Turrientes,benat-turrientes,,min,90.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Ochieng,job-ochieng,,min,66.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Oyarzabal,mikel-oyarzabal,,min,57.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Zubeldia,igor-zubeldia,,min,33.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Carlos Soler,carlos-soler,,min,24.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Barrenetxea,ander-barrenetxea,,min,24.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Guedes,goncalo-guedes,,min,16.0
+22428,1,2026-08-26 21:00,Real Sociedad,visitante,Óskarsson,orri-steinn-skarsson,,min,33.0
+22429,1,2026-08-15 21:30,Sevilla,local,Vlachodimos,odysseas-vlachodimos,,min,90.0
+22429,1,2026-08-15 21:30,Sevilla,local,Iglesias,juan-iglesias,,min,90.0
+22429,1,2026-08-15 21:30,Sevilla,local,Kike Salas,kike-salas,,min,88.0
+22429,1,2026-08-15 21:30,Sevilla,local,Kike Salas,kike-salas,,rojas,1.0
+22429,1,2026-08-15 21:30,Sevilla,local,Suazo,gabriel-suazo,,min,90.0
+22429,1,2026-08-15 21:30,Sevilla,local,Suazo,gabriel-suazo,,amarillas,1.0
+22429,1,2026-08-15 21:30,Sevilla,local,Oso,joaquin-oso,,min,78.0
+22429,1,2026-08-15 21:30,Sevilla,local,Sangante,arouna-sangante,,min,90.0
+22429,1,2026-08-15 21:30,Sevilla,local,Guridi,jon-guridi,,min,82.0
+22429,1,2026-08-15 21:30,Sevilla,local,Guridi,jon-guridi,,goles,1.0
+22429,1,2026-08-15 21:30,Sevilla,local,Guridi,jon-guridi,,amarillas,1.0
+22429,1,2026-08-15 21:30,Sevilla,local,Guridi,jon-guridi,,tiros,2.0
+22429,1,2026-08-15 21:30,Sevilla,local,Agoume,lucien-agoume,,min,90.0
+22429,1,2026-08-15 21:30,Sevilla,local,Agoume,lucien-agoume,,amarillas,1.0
+22429,1,2026-08-15 21:30,Sevilla,local,Sierra,miguel-sierra,,min,70.0
+22429,1,2026-08-15 21:30,Sevilla,local,Romero,isaac-romero,,min,45.0
+22429,1,2026-08-15 21:30,Sevilla,local,Romero,isaac-romero,,amarillas,1.0
+22429,1,2026-08-15 21:30,Sevilla,local,Manu Bueno,manu-bueno,,min,8.0
+22429,1,2026-08-15 21:30,Sevilla,local,Ejuke,chidera-ejuke,,min,12.0
+22429,1,2026-08-15 21:30,Sevilla,local,Vargas,ruben-vargas,,min,20.0
+22429,1,2026-08-15 21:30,Sevilla,local,Peque,peque,,min,45.0
+22429,1,2026-08-15 21:30,Sevilla,local,Peque,peque,,goles,1.0
+22429,1,2026-08-15 21:30,Sevilla,local,Peque,peque,,tiros,2.0
+22429,1,2026-08-15 21:30,Sevilla,local,Ure,robbie-ure,,min,45.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Batalla,augusto-batalla,,min,90.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Lejeune,florian-lejeune,,min,90.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Ratiu,andrei-florin,,min,90.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Ratiu,andrei-florin,,asis_sg,1.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Balliu,ivan-balliu,,min,90.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Álvaro García,alvaro-garcia,,min,70.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Álvaro García,alvaro-garcia,,goles,1.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Álvaro García,alvaro-garcia,,asis_sg,1.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Álvaro García,alvaro-garcia,,amarillas,1.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Unai López,unai-lopez,,min,78.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Unai López,unai-lopez,,amarillas,1.0
+22429,1,2026-08-15 21:30,Rayo,visitante,De Frutos,,,min,90.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Valentín,scar-valentin,,min,78.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Isi,,,min,64.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Pathé Ciss,pathe-ciss,,min,90.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Nteka,randy-nteka,,min,65.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Pelayo,,,min,12.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Pedro Díaz,pedro-diaz,,min,12.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Fran Pérez,fran-perez,,min,20.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Fran Pérez,fran-perez,,amarillas,1.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Camello,sergio-camello,,min,26.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Alemão,alemo,,min,25.0
+22429,1,2026-08-15 21:30,Rayo,visitante,Alemão,alemo,,amarillas,1.0
+22430,1,2026-08-25 21:00,Valencia,local,Dimitrievski,stole-dimitrievski,,min,90.0
+22430,1,2026-08-25 21:00,Valencia,local,Maffeo,pablo-maffeo,,min,55.0
+22430,1,2026-08-25 21:00,Valencia,local,Diakhaby,mouctar-diakhaby,,min,90.0
+22430,1,2026-08-25 21:00,Valencia,local,Diakhaby,mouctar-diakhaby,,amarillas,1.0
+22430,1,2026-08-25 21:00,Valencia,local,Jesús Vázquez,jesus-vazquez-1,,min,90.0
+22430,1,2026-08-25 21:00,Valencia,local,Tárrega,cesar-tarrega,,min,90.0
+22430,1,2026-08-25 21:00,Valencia,local,Pepelu,pepelu,,min,88.0
+22430,1,2026-08-25 21:00,Valencia,local,Guido,,,min,88.0
+22430,1,2026-08-25 21:00,Valencia,local,Javi Guerra,javi-guerra-1,,min,90.0
+22430,1,2026-08-25 21:00,Valencia,local,Javi Guerra,javi-guerra-1,,asis_sg,1.0
+22430,1,2026-08-25 21:00,Valencia,local,Sato,ryunosuke-sato,,min,90.0
+22430,1,2026-08-25 21:00,Valencia,local,Sato,ryunosuke-sato,,amarillas,1.0
+22430,1,2026-08-25 21:00,Valencia,local,Duro,hugo-duro,,min,55.0
+22430,1,2026-08-25 21:00,Valencia,local,Danjuma,arnaut-danjuma,,min,55.0
+22430,1,2026-08-25 21:00,Valencia,local,Rioja,luis-rioja,,min,35.0
+22430,1,2026-08-25 21:00,Valencia,local,Ugrinic,filip-ugrinic,,min,35.0
+22430,1,2026-08-25 21:00,Valencia,local,Dieng,aliou-dieng,,min,2.0
+22430,1,2026-08-25 21:00,Valencia,local,Sadiq,umar-sadiq,,min,35.0
+22430,1,2026-08-25 21:00,Betis,visitante,Valles,alvaro-valles,,min,90.0
+22430,1,2026-08-25 21:00,Betis,visitante,D. Llorente,,,min,90.0
+22430,1,2026-08-25 21:00,Betis,visitante,Junior,,,min,59.0
+22430,1,2026-08-25 21:00,Betis,visitante,Junior,,,amarillas,1.0
+22430,1,2026-08-25 21:00,Betis,visitante,Ortiz,ngel-ortiz,,min,71.0
+22430,1,2026-08-25 21:00,Betis,visitante,Valentín Gómez,valentin-gomez,,min,90.0
+22430,1,2026-08-25 21:00,Betis,visitante,Fornals,pablo-fornals,,min,79.0
+22430,1,2026-08-25 21:00,Betis,visitante,Riquelme,rodrigo-riquelme,,min,59.0
+22430,1,2026-08-25 21:00,Betis,visitante,Deossa,nelson-deossa,,min,90.0
+22430,1,2026-08-25 21:00,Betis,visitante,Bernal,facundo-bernal,,min,90.0
+22430,1,2026-08-25 21:00,Betis,visitante,Cucho,,,min,71.0
+22430,1,2026-08-25 21:00,Betis,visitante,Antony,antony,,min,90.0
+22430,1,2026-08-25 21:00,Betis,visitante,Bellerín,hector-bellerin,,min,19.0
+22430,1,2026-08-25 21:00,Betis,visitante,Bellerín,hector-bellerin,,asis_sg,1.0
+22430,1,2026-08-25 21:00,Betis,visitante,Fran García,fran-garcia,,min,31.0
+22430,1,2026-08-25 21:00,Betis,visitante,Fran García,fran-garcia,,asis,1.0
+22430,1,2026-08-25 21:00,Betis,visitante,Fran García,fran-garcia,,asis_sg,1.0
+22430,1,2026-08-25 21:00,Betis,visitante,Isco,,,min,31.0
+22430,1,2026-08-25 21:00,Betis,visitante,Parrott,troy-parrott,,min,19.0
+22430,1,2026-08-25 21:00,Betis,visitante,Pablo García,pablo-garcia-1,,min,11.0
+22430,1,2026-08-25 21:00,Betis,visitante,Pablo García,pablo-garcia-1,,goles,1.0
+22433,2,2026-08-22 17:00,Athletic,local,Unai Simón,unai-simon,,min,90.0
+22433,2,2026-08-22 17:00,Athletic,local,Yuri,,,min,11.0
+22433,2,2026-08-22 17:00,Athletic,local,Yuri,,,rojas,1.0
+22433,2,2026-08-22 17:00,Athletic,local,Yeray,,,min,90.0
+22433,2,2026-08-22 17:00,Athletic,local,Yeray,,,asis,1.0
+22433,2,2026-08-22 17:00,Athletic,local,Yeray,,,asis_sg,1.0
+22433,2,2026-08-22 17:00,Athletic,local,Areso,jesus-areso,,min,58.0
+22433,2,2026-08-22 17:00,Athletic,local,Paredes,aitor-paredes,,min,74.0
+22433,2,2026-08-22 17:00,Athletic,local,Paredes,aitor-paredes,,goles,1.0
+22433,2,2026-08-22 17:00,Athletic,local,Berenguer,alex-berenguer,,min,90.0
+22433,2,2026-08-22 17:00,Athletic,local,Sancet,oihan-sancet,,min,90.0
+22433,2,2026-08-22 17:00,Athletic,local,Gerenabarrena,benat-gerenabarrena,,min,83.0
+22433,2,2026-08-22 17:00,Athletic,local,Canales,peio-canales,,min,90.0
+22433,2,2026-08-22 17:00,Athletic,local,Canales,peio-canales,,tiros,2.0
+22433,2,2026-08-22 17:00,Athletic,local,I. Williams,,,min,58.0
+22433,2,2026-08-22 17:00,Athletic,local,I. Williams,,,tiros,2.0
+22433,2,2026-08-22 17:00,Athletic,local,Guruzeta,gorka-guruzeta,,min,58.0
+22433,2,2026-08-22 17:00,Athletic,local,Guruzeta,gorka-guruzeta,,amarillas,1.0
+22433,2,2026-08-22 17:00,Athletic,local,Laporte,aymeric-laporte,,min,32.0
+22433,2,2026-08-22 17:00,Athletic,local,Rincón,hugo-rincon,,min,16.0
+22433,2,2026-08-22 17:00,Athletic,local,R. de Galarreta,,,min,7.0
+22433,2,2026-08-22 17:00,Athletic,local,R. de Galarreta,,,amarillas,1.0
+22433,2,2026-08-22 17:00,Athletic,local,N. Williams,,,min,32.0
+22433,2,2026-08-22 17:00,Athletic,local,Sannadi,maroan-sannadi,,min,32.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Vlachodimos,odysseas-vlachodimos,,min,90.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Iglesias,juan-iglesias,,min,90.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Suazo,gabriel-suazo,,min,90.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Oso,joaquin-oso,,min,78.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Oso,joaquin-oso,,goles,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Oso,joaquin-oso,,asis,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Castrín,andres-castrin,,min,90.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Sangante,arouna-sangante,,min,68.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Guridi,jon-guridi,,min,45.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Guridi,jon-guridi,,amarillas,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Agoume,lucien-agoume,,min,90.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Sierra,miguel-sierra,,min,45.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Sierra,miguel-sierra,,amarillas,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Peque,peque,,min,45.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Peque,peque,,amarillas,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Ure,robbie-ure,,min,90.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Carmona,jose-ngel-carmona,,min,22.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Julio Díaz,julio-diaz,,min,12.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Ejuke,chidera-ejuke,,min,45.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Ejuke,chidera-ejuke,,goles,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Guillén,nico-guillen,,min,45.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Guillén,nico-guillen,,amarillas,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Romero,isaac-romero,,min,45.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Romero,isaac-romero,,goles,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Romero,isaac-romero,,asis,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Romero,isaac-romero,,asis_sg,1.0
+22433,2,2026-08-22 17:00,Sevilla,visitante,Romero,isaac-romero,,amarillas,1.0
+22434,2,2026-08-23 17:00,Atlético,local,Oblak,jan-oblak,,min,90.0
+22434,2,2026-08-23 17:00,Atlético,local,Grimaldo,alex-grimaldo,,min,90.0
+22434,2,2026-08-23 17:00,Atlético,local,Hancko,david-hancko,,min,90.0
+22434,2,2026-08-23 17:00,Atlético,local,Le Normand,robin-le-normand,,min,76.0
+22434,2,2026-08-23 17:00,Atlético,local,Le Normand,robin-le-normand,,rojas,1.0
+22434,2,2026-08-23 17:00,Atlético,local,Pubill,marc-pubill,,min,66.0
+22434,2,2026-08-23 17:00,Atlético,local,Pubill,marc-pubill,,goles,1.0
+22434,2,2026-08-23 17:00,Atlético,local,Koke,,,min,66.0
+22434,2,2026-08-23 17:00,Atlético,local,Kang-In Lee,lee-kang-in,,min,66.0
+22434,2,2026-08-23 17:00,Atlético,local,Giuliano,,,min,90.0
+22434,2,2026-08-23 17:00,Atlético,local,Giuliano,,,goles,1.0
+22434,2,2026-08-23 17:00,Atlético,local,Giuliano,,,asis,1.0
+22434,2,2026-08-23 17:00,Atlético,local,Mendoza,rodrigo-mendoza,,min,45.0
+22434,2,2026-08-23 17:00,Atlético,local,Hjulmand,morten-hjulmand,,min,90.0
+22434,2,2026-08-23 17:00,Atlético,local,Hjulmand,morten-hjulmand,,amarillas,1.0
+22434,2,2026-08-23 17:00,Atlético,local,Lookman,ademola-lookman,,min,79.0
+22434,2,2026-08-23 17:00,Atlético,local,Giménez,jose-maria-gimenez,,min,11.0
+22434,2,2026-08-23 17:00,Atlético,local,Giménez,jose-maria-gimenez,,amarillas,1.0
+22434,2,2026-08-23 17:00,Atlético,local,M. Llorente,,,min,24.0
+22434,2,2026-08-23 17:00,Atlético,local,Baena,lex-baena,,min,45.0
+22434,2,2026-08-23 17:00,Atlético,local,Baena,lex-baena,,asis,1.0
+22434,2,2026-08-23 17:00,Atlético,local,Baena,lex-baena,,amarillas,1.0
+22434,2,2026-08-23 17:00,Atlético,local,Barrios,pablo-barrios,,min,24.0
+22434,2,2026-08-23 17:00,Atlético,local,Alvarez,,,min,24.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Luiz Junior,luiz-junior,,min,90.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Foyth,juan-foyth,,min,90.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Foyth,juan-foyth,,asis_sg,1.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Foyth,juan-foyth,,amarillas,1.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Veiga,renato-veiga,,min,90.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Romero,carlos-romero,,min,90.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Mouriño,santiago-mourino,,min,90.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Mouriño,santiago-mourino,,asis_sg,1.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Mouriño,santiago-mourino,,amarillas,1.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Comesaña,santi-comesana,,min,85.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Pape Gueye,pape-gueye,,min,90.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Moleiro,alberto-moleiro,,min,61.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Ayoze,,,min,61.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Pépé,nicolas-pepe,,min,79.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Pépé,nicolas-pepe,,asis_sg,1.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Mikautadze,georges-mikautadze,,min,79.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Mikautadze,georges-mikautadze,,goles,1.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Mikautadze,georges-mikautadze,,asis_sg,1.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Mikautadze,georges-mikautadze,,tiros,2.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Akhomach,ilias-akhomach,,min,11.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Buchanan,tajon-buchanan,,min,29.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Carlos Macià,carlos-macia,,min,11.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Gerard,,,min,29.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Gerard,,,goles,1.0
+22434,2,2026-08-23 17:00,Villarreal,visitante,Oluwaseyi,tani-oluwaseyi,,min,5.0
+22435,2,2026-08-23 21:30,Elche,local,Dituro,matias-dituro,,min,90.0
+22435,2,2026-08-23 21:30,Elche,local,Chust,victor-chust,,min,90.0
+22435,2,2026-08-23 21:30,Elche,local,Affengruber,laliga-26-27,,min,90.0
+22435,2,2026-08-23 21:30,Elche,local,Sangaré,buba-sangare,,min,90.0
+22435,2,2026-08-23 21:30,Elche,local,Villar,gonzalo-villar,,min,90.0
+22435,2,2026-08-23 21:30,Elche,local,Villar,gonzalo-villar,,asis_sg,2.0
+22435,2,2026-08-23 21:30,Elche,local,Tete Morente,tete-morente,,min,64.0
+22435,2,2026-08-23 21:30,Elche,local,Valera,german-valera,,min,90.0
+22435,2,2026-08-23 21:30,Elche,local,Aguado,marc-aguado,,min,64.0
+22435,2,2026-08-23 21:30,Elche,local,Ali Houary,-ali-houary,,min,64.0
+22435,2,2026-08-23 21:30,Elche,local,Ali Houary,-ali-houary,,amarillas,1.0
+22435,2,2026-08-23 21:30,Elche,local,Redondo,federico-redondo,,min,81.0
+22435,2,2026-08-23 21:30,Elche,local,Fer Niño,,,min,69.0
+22435,2,2026-08-23 21:30,Elche,local,Bigas,pedro-bigas,,min,9.0
+22435,2,2026-08-23 21:30,Elche,local,Buonanotte,facundo-buonanotte,,min,26.0
+22435,2,2026-08-23 21:30,Elche,local,Buonanotte,facundo-buonanotte,,tiros,2.0
+22435,2,2026-08-23 21:30,Elche,local,Martim Neto,martim-neto,,min,26.0
+22435,2,2026-08-23 21:30,Elche,local,Cepeda,lucas-cepeda,,min,26.0
+22435,2,2026-08-23 21:30,Elche,local,Ponce,ezequiel-ponce,,min,21.0
+22435,2,2026-08-23 21:30,Elche,local,Ponce,ezequiel-ponce,,asis_sg,1.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Joan Garcia,joan-garcia,,min,90.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,A. Christensen,,,min,90.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Eric Garcia,eric-garcia,,min,90.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Eric Garcia,eric-garcia,,asis_sg,1.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Martín,gerard-martin,,min,90.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Espart,xavi-espart,,min,90.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Espart,xavi-espart,,asis,1.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Espart,xavi-espart,,asis_sg,1.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Gavi,pablo-gavi,,min,44.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Fermín,,,min,90.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Fermín,,,goles,2.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Fermín,,,asis_sg,1.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Fermín,,,tiros,2.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Bernal,marc-bernal,,min,80.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Raphinha,raphinha,,min,80.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Raphinha,raphinha,,goles,2.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Raphinha,raphinha,,asis,1.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Raphinha,raphinha,,asis_sg,2.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Raphinha,raphinha,,tiros,3.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Adeyemi,karim-adeyemi,,min,65.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Adeyemi,karim-adeyemi,,goles,1.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Yamal,lamine-yamal,,min,65.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Yamal,lamine-yamal,,asis_sg,1.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Cancelo,joao-cancelo,,min,10.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Koundé,jules-kounde,,min,10.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Olmo,dani-olmo,,min,25.0
+22435,2,2026-08-23 21:30,Barcelona,visitante,Pedri,,,min,46.0
+22436,2,2026-08-22 21:30,Espanyol,local,Dmitrovic,marko-dmitrovic,,min,90.0
+22436,2,2026-08-22 21:30,Espanyol,local,U. Núñez,,,min,90.0
+22436,2,2026-08-22 21:30,Espanyol,local,El Hilali,omar-el-hilali,,min,90.0
+22436,2,2026-08-22 21:30,Espanyol,local,Hinojo,roger-hinojo,,min,90.0
+22436,2,2026-08-22 21:30,Espanyol,local,Riedel,clemens-riedel,,min,66.0
+22436,2,2026-08-22 21:30,Espanyol,local,Riedel,clemens-riedel,,amarillas,1.0
+22436,2,2026-08-22 21:30,Espanyol,local,Edu Expósito,edu-exposito,,min,88.0
+22436,2,2026-08-22 21:30,Espanyol,local,Edu Expósito,edu-exposito,,amarillas,1.0
+22436,2,2026-08-22 21:30,Espanyol,local,Urko,,,min,75.0
+22436,2,2026-08-22 21:30,Espanyol,local,Calatrava,lex-calatrava,,min,66.0
+22436,2,2026-08-22 21:30,Espanyol,local,Calatrava,lex-calatrava,,goles,1.0
+22436,2,2026-08-22 21:30,Espanyol,local,Calatrava,lex-calatrava,,amarillas,1.0
+22436,2,2026-08-22 21:30,Espanyol,local,Javier Hernández,javier-hernandez,,min,75.0
+22436,2,2026-08-22 21:30,Espanyol,local,Javier Hernández,javier-hernandez,,asis,1.0
+22436,2,2026-08-22 21:30,Espanyol,local,Javier Hernández,javier-hernandez,,asis_sg,1.0
+22436,2,2026-08-22 21:30,Espanyol,local,Roberto,,,min,90.0
+22436,2,2026-08-22 21:30,Espanyol,local,Dolan,tyrhys-dolan,,min,90.0
+22436,2,2026-08-22 21:30,Espanyol,local,Drkusic,vanja-drkusic,,min,24.0
+22436,2,2026-08-22 21:30,Espanyol,local,Pere Milla,pere-milla,,min,15.0
+22436,2,2026-08-22 21:30,Espanyol,local,Pere Milla,pere-milla,,amarillas,1.0
+22436,2,2026-08-22 21:30,Espanyol,local,Lozano,pol-lozano,,min,15.0
+22436,2,2026-08-22 21:30,Espanyol,local,Lozano,pol-lozano,,amarillas,1.0
+22436,2,2026-08-22 21:30,Espanyol,local,Jofre,,,min,2.0
+22436,2,2026-08-22 21:30,Espanyol,local,Bauzà,rafel-bauza,,min,24.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Courtois,thibaut-courtois,,min,90.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Konaté,ibrahima-konate,,min,90.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Dumfries,denzel-dumfries,,min,80.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,A. F. Carreras,,,min,64.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,A. F. Carreras,,,asis_sg,1.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Huijsen,dean-huijsen,,min,90.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Bernardo Silva,bernardo-silva,,min,80.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Valverde,federico-valverde,,min,90.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Bellingham,jude-bellingham,,min,80.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Bellingham,jude-bellingham,,goles,1.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Bellingham,jude-bellingham,,tiros,2.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Güler,arda-gler,,min,64.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Güler,arda-gler,,asis,1.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Mbappé,kylian-mbappe,,min,90.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Mbappé,kylian-mbappe,,tiros,3.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Vinicius,,,min,90.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Vinicius,,,amarillas,1.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Alexander-Arnold,trent-alexander-arnold,,min,10.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Cucurella,marc-cucurella,,min,26.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Camavinga,eduardo-camavinga,,min,10.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Carlos Espí,carlos-espi,,min,10.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Carlos Espí,carlos-espi,,goles,1.0
+22436,2,2026-08-22 21:30,Real Madrid,visitante,Y. Diomande,,,min,26.0
+22437,2,2026-08-23 19:30,Getafe,local,Soria,david-soria,,min,90.0
+22437,2,2026-08-23 19:30,Getafe,local,Mojica,johan-mojica,,min,90.0
+22437,2,2026-08-23 19:30,Getafe,local,Djené,dakonam-djene,,min,90.0
+22437,2,2026-08-23 19:30,Getafe,local,Sazonov,saba-sazonov,,min,90.0
+22437,2,2026-08-23 19:30,Getafe,local,Sazonov,saba-sazonov,,amarillas,1.0
+22437,2,2026-08-23 19:30,Getafe,local,Andrés García,andres-garcia,,min,85.0
+22437,2,2026-08-23 19:30,Getafe,local,Romero,zaid-romero,,min,90.0
+22437,2,2026-08-23 19:30,Getafe,local,Francho,,,min,90.0
+22437,2,2026-08-23 19:30,Getafe,local,Terrats,terrats,,min,89.0
+22437,2,2026-08-23 19:30,Getafe,local,Mangala,orel-mangala,,min,89.0
+22437,2,2026-08-23 19:30,Getafe,local,Enes Ünal,enes-unal,,min,90.0
+22437,2,2026-08-23 19:30,Getafe,local,Enes Ünal,enes-unal,,goles,1.0
+22437,2,2026-08-23 19:30,Getafe,local,Satriano,martin-satriano,,min,89.0
+22437,2,2026-08-23 19:30,Getafe,local,Abqar,abdel-abqar,,min,1.0
+22437,2,2026-08-23 19:30,Getafe,local,Boselli,sebastian-boselli,,min,5.0
+22437,2,2026-08-23 19:30,Getafe,local,Risco,alberto-risco,,min,1.0
+22437,2,2026-08-23 19:30,Getafe,local,Mayoral,borja-mayoral,,min,1.0
+22437,2,2026-08-23 19:30,Racing,visitante,Agirrezabala,julen-agirrezabala,,min,90.0
+22437,2,2026-08-23 19:30,Racing,visitante,Hernando,manu-hernando,,min,88.0
+22437,2,2026-08-23 19:30,Racing,visitante,Hernando,manu-hernando,,amarillas,1.0
+22437,2,2026-08-23 19:30,Racing,visitante,Pablo Ramón,pablo-ramon,,min,90.0
+22437,2,2026-08-23 19:30,Racing,visitante,Mantilla,lvaro-mantilla,,min,90.0
+22437,2,2026-08-23 19:30,Racing,visitante,Mantilla,lvaro-mantilla,,amarillas,1.0
+22437,2,2026-08-23 19:30,Racing,visitante,Salinas,jorge-salinas,,min,90.0
+22437,2,2026-08-23 19:30,Racing,visitante,Salinas,jorge-salinas,,amarillas,1.0
+22437,2,2026-08-23 19:30,Racing,visitante,Canales,sergio-canales,,min,64.0
+22437,2,2026-08-23 19:30,Racing,visitante,Iñigo Vicente,inigo-vicente,,min,90.0
+22437,2,2026-08-23 19:30,Racing,visitante,Iñigo Vicente,inigo-vicente,,asis_sg,1.0
+22437,2,2026-08-23 19:30,Racing,visitante,Puerta,gustavo-puerta,,min,88.0
+22437,2,2026-08-23 19:30,Racing,visitante,Sergio Martínez,sergio-martinez,,min,45.0
+22437,2,2026-08-23 19:30,Racing,visitante,Villalibre,asier-villalibre,,min,64.0
+22437,2,2026-08-23 19:30,Racing,visitante,Andrés Martín,andres-martin,,min,90.0
+22437,2,2026-08-23 19:30,Racing,visitante,Andrés Martín,andres-martin,,tiros,2.0
+22437,2,2026-08-23 19:30,Racing,visitante,Facu González,,,min,2.0
+22437,2,2026-08-23 19:30,Racing,visitante,Iván Martín,ivan-martin,,min,45.0
+22437,2,2026-08-23 19:30,Racing,visitante,Maguette,,,min,26.0
+22437,2,2026-08-23 19:30,Racing,visitante,Arana,juan-carlos-arana,,min,2.0
+22437,2,2026-08-23 19:30,Racing,visitante,Zabiri,,,min,26.0
+22438,2,2026-08-24 21:30,Málaga,local,Herrero,alfonso-herrero,,min,90.0
+22438,2,2026-08-24 21:30,Málaga,local,Galilea,einar-galilea,,min,90.0
+22438,2,2026-08-24 21:30,Málaga,local,Puga,carlos-puga,,min,90.0
+22438,2,2026-08-24 21:30,Málaga,local,Rafita,,,min,90.0
+22438,2,2026-08-24 21:30,Málaga,local,Recio,angel-recio,,min,90.0
+22438,2,2026-08-24 21:30,Málaga,local,Joaquín,,,min,73.0
+22438,2,2026-08-24 21:30,Málaga,local,Juan Cruz,juan-cruz-2,,min,56.0
+22438,2,2026-08-24 21:30,Málaga,local,Dotor,carlos-dotor,,min,73.0
+22438,2,2026-08-24 21:30,Málaga,local,Merino,izan-merino,,min,85.0
+22438,2,2026-08-24 21:30,Málaga,local,Lorenzo,dani-lorenzo-1,,min,85.0
+22438,2,2026-08-24 21:30,Málaga,local,Chupete,chupete,,min,90.0
+22438,2,2026-08-24 21:30,Málaga,local,Chupete,chupete,,goles,1.0
+22438,2,2026-08-24 21:30,Málaga,local,Chupete,chupete,,tiros,2.0
+22438,2,2026-08-24 21:30,Málaga,local,Enríquez,ramon-enriquez,,min,5.0
+22438,2,2026-08-24 21:30,Málaga,local,Larrubia,david-larrubia,,min,34.0
+22438,2,2026-08-24 21:30,Málaga,local,Larrubia,david-larrubia,,amarillas,1.0
+22438,2,2026-08-24 21:30,Málaga,local,Rafa Rodríguez,rafa-rodriguez,,min,17.0
+22438,2,2026-08-24 21:30,Málaga,local,Lobete,julen-lobete,,min,5.0
+22438,2,2026-08-24 21:30,Málaga,local,Haitam,,,min,17.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Leo Román,leo-roman,,min,90.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Ximo,,,min,90.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Ximo,,,amarillas,1.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Altimira,adria-altimira,,min,62.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Quagliata,giacomo-quagliata,,min,90.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Quagliata,giacomo-quagliata,,amarillas,1.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Loureiro,miguel-loureiro,,min,74.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Noubi,lucas-noubi,,min,90.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Mario,,,min,85.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Mario,,,amarillas,1.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Luismi,,,min,73.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Luismi,,,asis,1.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Luismi,,,asis_sg,1.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Amatucci,lorenzo-amatucci,,min,90.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Asp Jensen,jonathan-asp-jensen,,min,62.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,min,90.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,goles,1.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,tiros,2.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Ede,bright-ede,,min,16.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Villares,diego-villares,,min,28.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Yeremay,,,min,17.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Mella,david-mella,,min,28.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Bil Nsongo,bil-nsongo,,min,5.0
+22438,2,2026-08-24 21:30,Deportivo,visitante,Bil Nsongo,bil-nsongo,,amarillas,1.0
+22439,2,2026-08-24 19:30,Osasuna,local,Herrera,sergio-herrera,,min,90.0
+22439,2,2026-08-24 19:30,Osasuna,local,Herrera,sergio-herrera,,amarillas,1.0
+22439,2,2026-08-24 19:30,Osasuna,local,Catena,alejandro-catena,,min,90.0
+22439,2,2026-08-24 19:30,Osasuna,local,Herrando,jorge-herrando,,min,90.0
+22439,2,2026-08-24 19:30,Osasuna,local,Herrando,jorge-herrando,,tiros,2.0
+22439,2,2026-08-24 19:30,Osasuna,local,Bretones,abel-bretones,,min,90.0
+22439,2,2026-08-24 19:30,Osasuna,local,Bretones,abel-bretones,,asis_sg,1.0
+22439,2,2026-08-24 19:30,Osasuna,local,Arguibide,inigo-arguibide,,min,81.0
+22439,2,2026-08-24 19:30,Osasuna,local,Rubén G.,,,min,72.0
+22439,2,2026-08-24 19:30,Osasuna,local,Rubén G.,,,tiros,2.0
+22439,2,2026-08-24 19:30,Osasuna,local,Moi Gómez,moi-gomez,,min,87.0
+22439,2,2026-08-24 19:30,Osasuna,local,Oroz,aimar-oroz,,min,72.0
+22439,2,2026-08-24 19:30,Osasuna,local,Moncayola,jon-moncayola,,min,90.0
+22439,2,2026-08-24 19:30,Osasuna,local,Iker Muñoz,iker-munoz,,min,90.0
+22439,2,2026-08-24 19:30,Osasuna,local,Budimir,ante-budimir,,min,80.0
+22439,2,2026-08-24 19:30,Osasuna,local,Budimir,ante-budimir,,tiros,3.0
+22439,2,2026-08-24 19:30,Osasuna,local,Torró,lucas-torro,,min,9.0
+22439,2,2026-08-24 19:30,Osasuna,local,Kike Barja,kike-barja,,min,3.0
+22439,2,2026-08-24 19:30,Osasuna,local,Kike Barja,kike-barja,,amarillas,1.0
+22439,2,2026-08-24 19:30,Osasuna,local,Raul Moro,raul-moro,,min,18.0
+22439,2,2026-08-24 19:30,Osasuna,local,Dubasin,jonathan-dubasin,,min,10.0
+22439,2,2026-08-24 19:30,Osasuna,local,Raúl García,raul-garcia-1,,min,18.0
+22439,2,2026-08-24 19:30,Levante,visitante,Ryan,mat-ryan,,min,90.0
+22439,2,2026-08-24 19:30,Levante,visitante,Mandi,aissa-mandi,,min,90.0
+22439,2,2026-08-24 19:30,Levante,visitante,De la Fuente,,,min,90.0
+22439,2,2026-08-24 19:30,Levante,visitante,Manu Sánchez,manu-sanchez,,min,90.0
+22439,2,2026-08-24 19:30,Levante,visitante,Nacho Pérez,nacho-perez-1,,min,78.0
+22439,2,2026-08-24 19:30,Levante,visitante,Oriol Rey,oriol-rey,,min,89.0
+22439,2,2026-08-24 19:30,Levante,visitante,Olasagasti,jon-ander-olasagasti,,min,90.0
+22439,2,2026-08-24 19:30,Levante,visitante,Olasagasti,jon-ander-olasagasti,,asis_sg,1.0
+22439,2,2026-08-24 19:30,Levante,visitante,Bardeli,,,min,90.0
+22439,2,2026-08-24 19:30,Levante,visitante,Bardeli,,,asis_sg,1.0
+22439,2,2026-08-24 19:30,Levante,visitante,Iván Romero,ivan-romero,,min,89.0
+22439,2,2026-08-24 19:30,Levante,visitante,Iván Romero,ivan-romero,,amarillas,1.0
+22439,2,2026-08-24 19:30,Levante,visitante,Brugui,,,min,90.0
+22439,2,2026-08-24 19:30,Levante,visitante,Toljan,jeremy-toljan,,min,12.0
+22439,2,2026-08-24 19:30,Levante,visitante,Víctor García,victor-garcia-1,,min,12.0
+22439,2,2026-08-24 19:30,Levante,visitante,Sotelo,hugo-sotelo,,min,1.0
+22439,2,2026-08-24 19:30,Levante,visitante,Etta Eyong,etta-eyong,,min,1.0
+22440,2,2026-08-20 21:00,Rayo,local,Batalla,augusto-batalla,,min,60.0
+22440,2,2026-08-20 21:00,Rayo,local,Lejeune,florian-lejeune,,min,90.0
+22440,2,2026-08-20 21:00,Rayo,local,Ratiu,andrei-florin,,min,90.0
+22440,2,2026-08-20 21:00,Rayo,local,Pelayo,,,min,55.0
+22440,2,2026-08-20 21:00,Rayo,local,Vertrouwd,jozhua-vertrouwd,,min,90.0
+22440,2,2026-08-20 21:00,Rayo,local,Unai López,unai-lopez,,min,90.0
+22440,2,2026-08-20 21:00,Rayo,local,Unai López,unai-lopez,,asis_sg,1.0
+22440,2,2026-08-20 21:00,Rayo,local,De Frutos,,,min,90.0
+22440,2,2026-08-20 21:00,Rayo,local,De Frutos,,,asis,1.0
+22440,2,2026-08-20 21:00,Rayo,local,Isi,,,min,17.0
+22440,2,2026-08-20 21:00,Rayo,local,Pathé Ciss,pathe-ciss,,min,90.0
+22440,2,2026-08-20 21:00,Rayo,local,Fran Pérez,fran-perez,,min,55.0
+22440,2,2026-08-20 21:00,Rayo,local,Camello,sergio-camello,,min,90.0
+22440,2,2026-08-20 21:00,Rayo,local,Camello,sergio-camello,,goles,1.0
+22440,2,2026-08-20 21:00,Rayo,local,Camello,sergio-camello,,amarillas,1.0
+22440,2,2026-08-20 21:00,Rayo,local,Camello,sergio-camello,,tiros,2.0
+22440,2,2026-08-20 21:00,Rayo,local,Cárdenas,dani-cardenas,,min,30.0
+22440,2,2026-08-20 21:00,Rayo,local,Álvaro García,alvaro-garcia,,min,35.0
+22440,2,2026-08-20 21:00,Rayo,local,Valentín,scar-valentin,,min,35.0
+22440,2,2026-08-20 21:00,Rayo,local,Nteka,randy-nteka,,min,73.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Sivera,antonio-sivera,,min,90.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Jonny,,,min,70.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Tenaglia,nahuel-tenaglia,,min,90.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Tenaglia,nahuel-tenaglia,,amarillas,1.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Ángel Pérez,angel-perez-1,,min,80.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Ángel Pérez,angel-perez-1,,asis_sg,1.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Koski,ville-koski,,min,80.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Blanco,antonio-blanco,,min,90.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Ibáñez,pablo-ibanez,,min,90.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Rebbach,abde-rebbach,,min,90.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Mikel Rodriguez,mikel-rodriguez,,min,62.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Toni Martinez,antonio-martinez,,min,90.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Boyé,lucas-boye,,min,62.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Boyé,lucas-boye,,asis_sg,1.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Youssef,,,min,20.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Valentini,nicolas-valentini,,min,10.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Valentini,nicolas-valentini,,amarillas,1.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Denis Suárez,denis-suarez,,min,28.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Aleñá,carles-alena,,min,10.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Aleñá,carles-alena,,asis_sg,1.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Mariano,,,min,28.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Mariano,,,goles,1.0
+22440,2,2026-08-20 21:00,Alavés,visitante,Mariano,,,tiros,2.0
+22441,2,2026-08-21 21:00,Betis,local,Valles,alvaro-valles,,min,90.0
+22441,2,2026-08-21 21:00,Betis,local,Bartra,marc-bartra,,min,90.0
+22441,2,2026-08-21 21:00,Betis,local,Bellerín,hector-bellerin,,min,90.0
+22441,2,2026-08-21 21:00,Betis,local,Bellerín,hector-bellerin,,amarillas,1.0
+22441,2,2026-08-21 21:00,Betis,local,Fran García,fran-garcia,,min,90.0
+22441,2,2026-08-21 21:00,Betis,local,Fran García,fran-garcia,,amarillas,1.0
+22441,2,2026-08-21 21:00,Betis,local,Natan,natan,,min,90.0
+22441,2,2026-08-21 21:00,Betis,local,Natan,natan,,amarillas,1.0
+22441,2,2026-08-21 21:00,Betis,local,Fornals,pablo-fornals,,min,90.0
+22441,2,2026-08-21 21:00,Betis,local,Marc Roca,marc-roca,,min,90.0
+22441,2,2026-08-21 21:00,Betis,local,Riquelme,rodrigo-riquelme,,min,73.0
+22441,2,2026-08-21 21:00,Betis,local,Riquelme,rodrigo-riquelme,,goles,1.0
+22441,2,2026-08-21 21:00,Betis,local,Bernal,facundo-bernal,,min,58.0
+22441,2,2026-08-21 21:00,Betis,local,Cucho,,,min,80.0
+22441,2,2026-08-21 21:00,Betis,local,Cucho,,,asis,1.0
+22441,2,2026-08-21 21:00,Betis,local,Cucho,,,asis_sg,1.0
+22441,2,2026-08-21 21:00,Betis,local,Antony,antony,,min,90.0
+22441,2,2026-08-21 21:00,Betis,local,Antony,antony,,tiros,2.0
+22441,2,2026-08-21 21:00,Betis,local,Isco,,,min,32.0
+22441,2,2026-08-21 21:00,Betis,local,Isco,,,tiros,2.0
+22441,2,2026-08-21 21:00,Betis,local,Deossa,nelson-deossa,,min,10.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Remiro,alex-remiro,,min,90.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Zubeldia,igor-zubeldia,,min,90.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Zubeldia,igor-zubeldia,,amarillas,1.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Sergio Gómez,sergio-gomez,,min,72.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Sergio Gómez,sergio-gomez,,amarillas,1.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Aramburu,jon-aramburu,,min,90.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Aramburu,jon-aramburu,,amarillas,1.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Carlos Soler,carlos-soler,,min,90.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Barrenetxea,ander-barrenetxea,,min,58.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Herrera,yangel-herrera,,min,72.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Herrera,yangel-herrera,,asis_sg,1.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Kubo,takefusa-kubo,,min,58.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,L. Sucic,,,min,87.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,L. Sucic,,,tiros,2.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Óskarsson,orri-steinn-skarsson,,min,90.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Aihen,,,min,18.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Turrientes,benat-turrientes,,min,18.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Zakharyan,arsen-zakharyan,,min,3.0
+22441,2,2026-08-21 21:00,Real Sociedad,visitante,Oyarzabal,mikel-oyarzabal,,min,32.0
+22442,2,2026-08-22 19:30,Valencia,local,Dimitrievski,stole-dimitrievski,,min,90.0
+22442,2,2026-08-22 19:30,Valencia,local,Dimitrievski,stole-dimitrievski,,amarillas,1.0
+22442,2,2026-08-22 19:30,Valencia,local,Gayà,jose-gaya,,min,69.0
+22442,2,2026-08-22 19:30,Valencia,local,Jesús Vázquez,jesus-vazquez-1,,min,90.0
+22442,2,2026-08-22 19:30,Valencia,local,Tárrega,cesar-tarrega,,min,90.0
+22442,2,2026-08-22 19:30,Valencia,local,De Haas,,,min,45.0
+22442,2,2026-08-22 19:30,Valencia,local,De Haas,,,amarillas,1.0
+22442,2,2026-08-22 19:30,Valencia,local,Pepelu,pepelu,,min,90.0
+22442,2,2026-08-22 19:30,Valencia,local,Guido,,,min,90.0
+22442,2,2026-08-22 19:30,Valencia,local,Javi Guerra,javi-guerra-1,,min,90.0
+22442,2,2026-08-22 19:30,Valencia,local,Ugrinic,filip-ugrinic,,min,69.0
+22442,2,2026-08-22 19:30,Valencia,local,Danjuma,arnaut-danjuma,,min,83.0
+22442,2,2026-08-22 19:30,Valencia,local,Maffeo,pablo-maffeo,,min,21.0
+22442,2,2026-08-22 19:30,Valencia,local,Diakhaby,mouctar-diakhaby,,min,45.0
+22442,2,2026-08-22 19:30,Valencia,local,Dieng,aliou-dieng,,min,21.0
+22442,2,2026-08-22 19:30,Valencia,local,Duro,hugo-duro,,min,7.0
+22442,2,2026-08-22 19:30,Valencia,local,Sadiq,umar-sadiq,,min,33.0
+22442,2,2026-08-22 19:30,Celta,visitante,Radu,andrei-radu,,min,90.0
+22442,2,2026-08-22 19:30,Celta,visitante,Radu,andrei-radu,,amarillas,1.0
+22442,2,2026-08-22 19:30,Celta,visitante,M. Alonso,,,min,90.0
+22442,2,2026-08-22 19:30,Celta,visitante,Galán,javi-galan,,min,64.0
+22442,2,2026-08-22 19:30,Celta,visitante,Carreira,sergio-carreira,,min,90.0
+22442,2,2026-08-22 19:30,Celta,visitante,Carreira,sergio-carreira,,amarillas,1.0
+22442,2,2026-08-22 19:30,Celta,visitante,Javi Rodríguez,javi-rodriguez,,min,90.0
+22442,2,2026-08-22 19:30,Celta,visitante,Febas,aleix-febas,,min,77.0
+22442,2,2026-08-22 19:30,Celta,visitante,Hugo Álvarez,hugo-lvarez-,,min,57.0
+22442,2,2026-08-22 19:30,Celta,visitante,Hugo Álvarez,hugo-lvarez-,,asis_sg,1.0
+22442,2,2026-08-22 19:30,Celta,visitante,Román,miguel-roman,,min,90.0
+22442,2,2026-08-22 19:30,Celta,visitante,Jutglà,ferran-jutgla,,min,64.0
+22442,2,2026-08-22 19:30,Celta,visitante,Rueda,javi-rueda,,min,26.0
+22442,2,2026-08-22 19:30,Celta,visitante,Rueda,javi-rueda,,amarillas,1.0
+22442,2,2026-08-22 19:30,Celta,visitante,Moriba,ilaix-moriba,,min,13.0
+22442,2,2026-08-22 19:30,Celta,visitante,Swedberg,williot-swedberg,,min,33.0
+22442,2,2026-08-22 19:30,Celta,visitante,Aspas,iago-aspas,,min,26.0
+22442,2,2026-08-22 19:30,Celta,visitante,Durán,pablo-duran,,min,26.0
+22443,3,2026-08-30 21:30,Celta,local,Radu,andrei-radu,,min,90.0
+22443,3,2026-08-30 21:30,Celta,local,Carreira,sergio-carreira,,min,90.0
+22443,3,2026-08-30 21:30,Celta,local,Starfelt,carl-starfelt,,min,90.0
+22443,3,2026-08-30 21:30,Celta,local,Á. Núñez,,,min,90.0
+22443,3,2026-08-30 21:30,Celta,local,Faye,abdoulaye-faye,,min,45.0
+22443,3,2026-08-30 21:30,Celta,local,Javi Rodríguez,javi-rodriguez,,min,45.0
+22443,3,2026-08-30 21:30,Celta,local,Febas,aleix-febas,,min,90.0
+22443,3,2026-08-30 21:30,Celta,local,Moriba,ilaix-moriba,,min,45.0
+22443,3,2026-08-30 21:30,Celta,local,Hugo González,hugo-gonzalez,,min,45.0
+22443,3,2026-08-30 21:30,Celta,local,Swedberg,williot-swedberg,,min,57.0
+22443,3,2026-08-30 21:30,Celta,local,Swedberg,williot-swedberg,,tiros,2.0
+22443,3,2026-08-30 21:30,Celta,local,Jutglà,ferran-jutgla,,min,90.0
+22443,3,2026-08-30 21:30,Celta,local,Jutglà,ferran-jutgla,,asis_sg,1.0
+22443,3,2026-08-30 21:30,Celta,local,Rueda,javi-rueda,,min,45.0
+22443,3,2026-08-30 21:30,Celta,local,Lago,yoel-lago,,min,45.0
+22443,3,2026-08-30 21:30,Celta,local,Hugo Álvarez,hugo-lvarez-,,min,33.0
+22443,3,2026-08-30 21:30,Celta,local,Román,miguel-roman,,min,45.0
+22443,3,2026-08-30 21:30,Celta,local,Román,miguel-roman,,asis_sg,1.0
+22443,3,2026-08-30 21:30,Celta,local,Aspas,iago-aspas,,min,45.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Unai Simón,unai-simon,,min,90.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Laporte,aymeric-laporte,,min,90.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Yuri,,,min,90.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Yuri,,,asis_sg,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Yuri,,,amarillas,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Areso,jesus-areso,,min,86.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Paredes,aitor-paredes,,min,90.0
+22443,3,2026-08-30 21:30,Athletic,visitante,R. de Galarreta,,,min,65.0
+22443,3,2026-08-30 21:30,Athletic,visitante,R. de Galarreta,,,asis,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,R. de Galarreta,,,asis_sg,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Berenguer,alex-berenguer,,min,90.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Berenguer,alex-berenguer,,goles,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Berenguer,alex-berenguer,,asis_sg,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Sancet,oihan-sancet,,min,65.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Sancet,oihan-sancet,,tiros,2.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Navarro,robert-navarro,,min,74.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Navarro,robert-navarro,,goles,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Navarro,robert-navarro,,amarillas,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Navarro,robert-navarro,,tiros,2.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Gerenabarrena,benat-gerenabarrena,,min,90.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Gerenabarrena,benat-gerenabarrena,,amarillas,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,I. Williams,,,min,65.0
+22443,3,2026-08-30 21:30,Athletic,visitante,I. Williams,,,asis,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,I. Williams,,,tiros,2.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Johaneko,,,min,4.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Jauregizar,mikel-jauregizar,,min,25.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Canales,peio-canales,,min,25.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Guruzeta,gorka-guruzeta,,min,25.0
+22443,3,2026-08-30 21:30,Athletic,visitante,Guruzeta,gorka-guruzeta,,asis_sg,1.0
+22443,3,2026-08-30 21:30,Athletic,visitante,N. Williams,,,min,16.0
+22444,3,2026-08-28 21:30,Alavés,local,Sivera,antonio-sivera,,min,90.0
+22444,3,2026-08-28 21:30,Alavés,local,Sivera,antonio-sivera,,amarillas,1.0
+22444,3,2026-08-28 21:30,Alavés,local,Jonny,,,min,90.0
+22444,3,2026-08-28 21:30,Alavés,local,Tenaglia,nahuel-tenaglia,,min,90.0
+22444,3,2026-08-28 21:30,Alavés,local,Ángel Pérez,angel-perez-1,,min,71.0
+22444,3,2026-08-28 21:30,Alavés,local,Ángel Pérez,angel-perez-1,,asis,1.0
+22444,3,2026-08-28 21:30,Alavés,local,Ángel Pérez,angel-perez-1,,asis_sg,1.0
+22444,3,2026-08-28 21:30,Alavés,local,Koski,ville-koski,,min,90.0
+22444,3,2026-08-28 21:30,Alavés,local,Blanco,antonio-blanco,,min,90.0
+22444,3,2026-08-28 21:30,Alavés,local,Ibáñez,pablo-ibanez,,min,90.0
+22444,3,2026-08-28 21:30,Alavés,local,Rebbach,abde-rebbach,,min,71.0
+22444,3,2026-08-28 21:30,Alavés,local,Rebbach,abde-rebbach,,amarillas,1.0
+22444,3,2026-08-28 21:30,Alavés,local,Mikel Rodriguez,mikel-rodriguez,,min,54.0
+22444,3,2026-08-28 21:30,Alavés,local,Toni Martinez,antonio-martinez,,min,54.0
+22444,3,2026-08-28 21:30,Alavés,local,Boyé,lucas-boye,,min,82.0
+22444,3,2026-08-28 21:30,Alavés,local,Boyé,lucas-boye,,goles,1.0
+22444,3,2026-08-28 21:30,Alavés,local,Boyé,lucas-boye,,tiros,2.0
+22444,3,2026-08-28 21:30,Alavés,local,Youssef,,,min,36.0
+22444,3,2026-08-28 21:30,Alavés,local,Denis Suárez,denis-suarez,,min,19.0
+22444,3,2026-08-28 21:30,Alavés,local,Protesoni,,,min,19.0
+22444,3,2026-08-28 21:30,Alavés,local,Mariano,,,min,36.0
+22444,3,2026-08-28 21:30,Alavés,local,Mariano,,,amarillas,1.0
+22444,3,2026-08-28 21:30,Alavés,local,Aitor Mañas,aitor-manas,,min,8.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Luiz Junior,luiz-junior,,min,90.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Foyth,juan-foyth,,min,90.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Foyth,juan-foyth,,tiros,2.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Veiga,renato-veiga,,min,90.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Veiga,renato-veiga,,amarillas,1.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Romero,carlos-romero,,min,90.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Mouriño,santiago-mourino,,min,62.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Comesaña,santi-comesana,,min,62.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Pape Gueye,pape-gueye,,min,90.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Buchanan,tajon-buchanan,,min,63.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Gerard,,,min,70.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Pépé,nicolas-pepe,,min,90.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Pépé,nicolas-pepe,,amarillas,1.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Pépé,nicolas-pepe,,tiros,2.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Mikautadze,georges-mikautadze,,min,82.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Freeman,alex-freeman,,min,28.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Akhomach,ilias-akhomach,,min,20.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Moleiro,alberto-moleiro,,min,27.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Ayoze,,,min,28.0
+22444,3,2026-08-28 21:30,Villarreal,visitante,Oluwaseyi,tani-oluwaseyi,,min,8.0
+22445,3,2026-08-30 19:30,Deportivo,local,Leo Román,leo-roman,,min,90.0
+22445,3,2026-08-30 19:30,Deportivo,local,Ximo,,,min,83.0
+22445,3,2026-08-30 19:30,Deportivo,local,Quagliata,giacomo-quagliata,,min,90.0
+22445,3,2026-08-30 19:30,Deportivo,local,Noubi,lucas-noubi,,min,90.0
+22445,3,2026-08-30 19:30,Deportivo,local,Ede,bright-ede,,min,90.0
+22445,3,2026-08-30 19:30,Deportivo,local,Riki,,,min,64.0
+22445,3,2026-08-30 19:30,Deportivo,local,Mario,,,min,73.0
+22445,3,2026-08-30 19:30,Deportivo,local,Mario,,,asis,1.0
+22445,3,2026-08-30 19:30,Deportivo,local,Mario,,,asis_sg,1.0
+22445,3,2026-08-30 19:30,Deportivo,local,Luismi,,,min,73.0
+22445,3,2026-08-30 19:30,Deportivo,local,Amatucci,lorenzo-amatucci,,min,90.0
+22445,3,2026-08-30 19:30,Deportivo,local,Aubameyang,pierre-emerick-aubameyang,,min,90.0
+22445,3,2026-08-30 19:30,Deportivo,local,Aubameyang,pierre-emerick-aubameyang,,goles,1.0
+22445,3,2026-08-30 19:30,Deportivo,local,Aubameyang,pierre-emerick-aubameyang,,tiros,3.0
+22445,3,2026-08-30 19:30,Deportivo,local,Bil Nsongo,bil-nsongo,,min,83.0
+22445,3,2026-08-30 19:30,Deportivo,local,Bil Nsongo,bil-nsongo,,asis_sg,1.0
+22445,3,2026-08-30 19:30,Deportivo,local,Altimira 72',,,min,17.0
+22445,3,2026-08-30 19:30,Deportivo,local,Loureiro,miguel-loureiro,,min,7.0
+22445,3,2026-08-30 19:30,Deportivo,local,Asp Jensen,jonathan-asp-jensen,,min,7.0
+22445,3,2026-08-30 19:30,Deportivo,local,Gijselhart,teun-gijselhart,,min,26.0
+22445,3,2026-08-30 19:30,Deportivo,local,Yeremay,,,min,17.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Dimitrievski,stole-dimitrievski,,min,90.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Diakhaby,mouctar-diakhaby,,min,90.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Diakhaby,mouctar-diakhaby,,amarillas,1.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Jesús Vázquez,jesus-vazquez-1,,min,90.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Arnau,,,min,82.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Tárrega,cesar-tarrega,,min,90.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Pepelu,pepelu,,min,66.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Rioja,luis-rioja,,min,60.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Javi Guerra,javi-guerra-1,,min,60.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Ugrinic,filip-ugrinic,,min,90.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Sato,ryunosuke-sato,,min,60.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Sadiq,umar-sadiq,,min,90.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Sadiq,umar-sadiq,,goles,1.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Sadiq,umar-sadiq,,tiros,2.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Dieng,aliou-dieng,,min,24.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Raba,daniel-raba,,min,8.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Duro,hugo-duro,,min,30.0
+22445,3,2026-08-30 19:30,Valencia,visitante,Danjuma,arnaut-danjuma,,min,30.0
+22446,3,2026-08-31 21:30,Barcelona,local,Joan Garcia,joan-garcia,,min,90.0
+22446,3,2026-08-31 21:30,Barcelona,local,A. Christensen,,,min,90.0
+22446,3,2026-08-31 21:30,Barcelona,local,Koundé,jules-kounde,,min,90.0
+22446,3,2026-08-31 21:30,Barcelona,local,Cubarsí,pau-cubarsi,,min,90.0
+22446,3,2026-08-31 21:30,Barcelona,local,Espart,xavi-espart,,min,90.0
+22446,3,2026-08-31 21:30,Barcelona,local,Espart,xavi-espart,,asis,1.0
+22446,3,2026-08-31 21:30,Barcelona,local,Espart,xavi-espart,,asis_sg,1.0
+22446,3,2026-08-31 21:30,Barcelona,local,Olmo,dani-olmo,,min,64.0
+22446,3,2026-08-31 21:30,Barcelona,local,Olmo,dani-olmo,,asis_sg,1.0
+22446,3,2026-08-31 21:30,Barcelona,local,Pedri,,,min,77.0
+22446,3,2026-08-31 21:30,Barcelona,local,Bernal,marc-bernal,,min,64.0
+22446,3,2026-08-31 21:30,Barcelona,local,Bernal,marc-bernal,,asis,1.0
+22446,3,2026-08-31 21:30,Barcelona,local,Raphinha,raphinha,,min,86.0
+22446,3,2026-08-31 21:30,Barcelona,local,Raphinha,raphinha,,goles,2.0
+22446,3,2026-08-31 21:30,Barcelona,local,Raphinha,raphinha,,tiros,3.0
+22446,3,2026-08-31 21:30,Barcelona,local,Gordon,anthony-gordon,,min,77.0
+22446,3,2026-08-31 21:30,Barcelona,local,Gordon,anthony-gordon,,asis,1.0
+22446,3,2026-08-31 21:30,Barcelona,local,Gordon,anthony-gordon,,asis_sg,1.0
+22446,3,2026-08-31 21:30,Barcelona,local,Gordon,anthony-gordon,,tiros,2.0
+22446,3,2026-08-31 21:30,Barcelona,local,Yamal,lamine-yamal,,min,90.0
+22446,3,2026-08-31 21:30,Barcelona,local,Yamal,lamine-yamal,,goles,2.0
+22446,3,2026-08-31 21:30,Barcelona,local,Yamal,lamine-yamal,,asis_sg,1.0
+22446,3,2026-08-31 21:30,Barcelona,local,Yamal,lamine-yamal,,tiros,2.0
+22446,3,2026-08-31 21:30,Barcelona,local,Cancelo,joao-cancelo,,min,13.0
+22446,3,2026-08-31 21:30,Barcelona,local,Rodri,,,min,26.0
+22446,3,2026-08-31 21:30,Barcelona,local,Fermín,,,min,26.0
+22446,3,2026-08-31 21:30,Barcelona,local,Adeyemi,karim-adeyemi,,min,13.0
+22446,3,2026-08-31 21:30,Barcelona,local,Adeyemi,karim-adeyemi,,asis,1.0
+22446,3,2026-08-31 21:30,Barcelona,local,Abdelkarim,hamza-abdelkarim,,min,4.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Cárdenas,dani-cardenas,,min,90.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Lejeune,florian-lejeune,,min,90.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Balliu,ivan-balliu,,min,90.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Vertrouwd,jozhua-vertrouwd,,min,32.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Álvaro García,alvaro-garcia,,min,90.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Álvaro García,alvaro-garcia,,asis,1.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Unai López,unai-lopez,,min,75.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Unai López,unai-lopez,,asis,1.0
+22446,3,2026-08-31 21:30,Rayo,visitante,De Frutos,,,min,57.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Valentín,scar-valentin,,min,90.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Pathé Ciss,pathe-ciss,,min,90.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Camello,sergio-camello,,min,75.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Camello,sergio-camello,,goles,2.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Camello,sergio-camello,,tiros,2.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Pedrosa,adria-pedrosa,,min,58.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Pedrosa,adria-pedrosa,,amarillas,1.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Pedro Díaz,pedro-diaz,,min,33.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Fran Pérez,fran-perez,,min,33.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Nteka,randy-nteka,,min,15.0
+22446,3,2026-08-31 21:30,Rayo,visitante,Alemão,alemo,,min,15.0
+22447,3,2026-08-29 17:00,Levante,local,Ryan,mat-ryan,,min,90.0
+22447,3,2026-08-29 17:00,Levante,local,Mandi,aissa-mandi,,min,90.0
+22447,3,2026-08-29 17:00,Levante,local,De la Fuente,,,min,90.0
+22447,3,2026-08-29 17:00,Levante,local,De la Fuente,,,goles,1.0
+22447,3,2026-08-29 17:00,Levante,local,De la Fuente,,,asis_sg,1.0
+22447,3,2026-08-29 17:00,Levante,local,Manu Sánchez,manu-sanchez,,min,90.0
+22447,3,2026-08-29 17:00,Levante,local,Nacho Pérez,nacho-perez-1,,min,45.0
+22447,3,2026-08-29 17:00,Levante,local,Oriol Rey,oriol-rey,,min,90.0
+22447,3,2026-08-29 17:00,Levante,local,Olasagasti,jon-ander-olasagasti,,min,90.0
+22447,3,2026-08-29 17:00,Levante,local,Olasagasti,jon-ander-olasagasti,,goles,1.0
+22447,3,2026-08-29 17:00,Levante,local,Olasagasti,jon-ander-olasagasti,,asis,1.0
+22447,3,2026-08-29 17:00,Levante,local,Olasagasti,jon-ander-olasagasti,,asis_sg,2.0
+22447,3,2026-08-29 17:00,Levante,local,Olasagasti,jon-ander-olasagasti,,tiros,2.0
+22447,3,2026-08-29 17:00,Levante,local,Thiago,,,min,72.0
+22447,3,2026-08-29 17:00,Levante,local,Bardeli,,,min,65.0
+22447,3,2026-08-29 17:00,Levante,local,Bardeli,,,goles,1.0
+22447,3,2026-08-29 17:00,Levante,local,Bardeli,,,asis,1.0
+22447,3,2026-08-29 17:00,Levante,local,Iván Romero,ivan-romero,,min,72.0
+22447,3,2026-08-29 17:00,Levante,local,Iván Romero,ivan-romero,,tiros,3.0
+22447,3,2026-08-29 17:00,Levante,local,Brugui,,,min,84.0
+22447,3,2026-08-29 17:00,Levante,local,Brugui,,,goles,2.0
+22447,3,2026-08-29 17:00,Levante,local,Brugui,,,tiros,2.0
+22447,3,2026-08-29 17:00,Levante,local,Toljan,jeremy-toljan,,min,45.0
+22447,3,2026-08-29 17:00,Levante,local,Toljan,jeremy-toljan,,amarillas,1.0
+22447,3,2026-08-29 17:00,Levante,local,Víctor García,victor-garcia-1,,min,18.0
+22447,3,2026-08-29 17:00,Levante,local,Sotelo,hugo-sotelo,,min,25.0
+22447,3,2026-08-29 17:00,Levante,local,Cortés,paco-cortes,,min,6.0
+22447,3,2026-08-29 17:00,Levante,local,Etta Eyong,etta-eyong,,min,18.0
+22447,3,2026-08-29 17:00,Levante,local,Etta Eyong,etta-eyong,,asis,1.0
+22447,3,2026-08-29 17:00,Levante,local,Etta Eyong,etta-eyong,,asis_sg,1.0
+22447,3,2026-08-29 17:00,Betis,visitante,Valles,alvaro-valles,,min,90.0
+22447,3,2026-08-29 17:00,Betis,visitante,Bartra,marc-bartra,,min,90.0
+22447,3,2026-08-29 17:00,Betis,visitante,Bartra,marc-bartra,,goles,1.0
+22447,3,2026-08-29 17:00,Betis,visitante,Bellerín,hector-bellerin,,min,90.0
+22447,3,2026-08-29 17:00,Betis,visitante,Fran García,fran-garcia,,min,90.0
+22447,3,2026-08-29 17:00,Betis,visitante,Natan,natan,,min,90.0
+22447,3,2026-08-29 17:00,Betis,visitante,Isco,,,min,57.0
+22447,3,2026-08-29 17:00,Betis,visitante,Marc Roca,marc-roca,,min,67.0
+22447,3,2026-08-29 17:00,Betis,visitante,Marc Roca,marc-roca,,asis,1.0
+22447,3,2026-08-29 17:00,Betis,visitante,Marc Roca,marc-roca,,asis_sg,2.0
+22447,3,2026-08-29 17:00,Betis,visitante,Riquelme,rodrigo-riquelme,,min,67.0
+22447,3,2026-08-29 17:00,Betis,visitante,Riquelme,rodrigo-riquelme,,goles,1.0
+22447,3,2026-08-29 17:00,Betis,visitante,Riquelme,rodrigo-riquelme,,tiros,2.0
+22447,3,2026-08-29 17:00,Betis,visitante,Bernal,facundo-bernal,,min,74.0
+22447,3,2026-08-29 17:00,Betis,visitante,Parrott,troy-parrott,,min,57.0
+22447,3,2026-08-29 17:00,Betis,visitante,Antony,antony,,min,90.0
+22447,3,2026-08-29 17:00,Betis,visitante,Antony,antony,,tiros,2.0
+22447,3,2026-08-29 17:00,Betis,visitante,Fornals,pablo-fornals,,min,33.0
+22447,3,2026-08-29 17:00,Betis,visitante,Deossa,nelson-deossa,,min,23.0
+22447,3,2026-08-29 17:00,Betis,visitante,Cucho,,,min,33.0
+22447,3,2026-08-29 17:00,Betis,visitante,Abde,,,min,16.0
+22447,3,2026-08-29 17:00,Betis,visitante,Pablo García,pablo-garcia-1,,min,23.0
+22447,3,2026-08-29 17:00,Betis,visitante,Pablo García,pablo-garcia-1,,amarillas,1.0
+22448,3,2026-08-31 19:30,Osasuna,local,Herrera,sergio-herrera,,min,90.0
+22448,3,2026-08-31 19:30,Osasuna,local,Herrera,sergio-herrera,,asis_sg,1.0
+22448,3,2026-08-31 19:30,Osasuna,local,Herrera,sergio-herrera,,amarillas,1.0
+22448,3,2026-08-31 19:30,Osasuna,local,Catena,alejandro-catena,,min,90.0
+22448,3,2026-08-31 19:30,Osasuna,local,Herrando,jorge-herrando,,min,39.0
+22448,3,2026-08-31 19:30,Osasuna,local,Herrando,jorge-herrando,,amarillas,1.0
+22448,3,2026-08-31 19:30,Osasuna,local,Bretones,abel-bretones,,min,90.0
+22448,3,2026-08-31 19:30,Osasuna,local,Arguibide,inigo-arguibide,,min,90.0
+22448,3,2026-08-31 19:30,Osasuna,local,Arguibide,inigo-arguibide,,asis_sg,1.0
+22448,3,2026-08-31 19:30,Osasuna,local,Rubén G.,,,min,45.0
+22448,3,2026-08-31 19:30,Osasuna,local,Moi Gómez,moi-gomez,,min,77.0
+22448,3,2026-08-31 19:30,Osasuna,local,Oroz,aimar-oroz,,min,71.0
+22448,3,2026-08-31 19:30,Osasuna,local,Moncayola,jon-moncayola,,min,90.0
+22448,3,2026-08-31 19:30,Osasuna,local,Iker Muñoz,iker-munoz,,min,71.0
+22448,3,2026-08-31 19:30,Osasuna,local,Iker Muñoz,iker-munoz,,amarillas,1.0
+22448,3,2026-08-31 19:30,Osasuna,local,Budimir,ante-budimir,,min,90.0
+22448,3,2026-08-31 19:30,Osasuna,local,Budimir,ante-budimir,,goles,1.0
+22448,3,2026-08-31 19:30,Osasuna,local,Boyomo,boyomo,,min,51.0
+22448,3,2026-08-31 19:30,Osasuna,local,Torró,lucas-torro,,min,19.0
+22448,3,2026-08-31 19:30,Osasuna,local,Kike Barja,kike-barja,,min,13.0
+22448,3,2026-08-31 19:30,Osasuna,local,Kike Barja,kike-barja,,amarillas,1.0
+22448,3,2026-08-31 19:30,Osasuna,local,Dubasin,jonathan-dubasin,,min,45.0
+22448,3,2026-08-31 19:30,Osasuna,local,Raúl García,raul-garcia-1,,min,19.0
+22448,3,2026-08-31 19:30,Osasuna,local,Raúl García,raul-garcia-1,,amarillas,1.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Soria,david-soria,,min,90.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Mojica,johan-mojica,,min,90.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Mojica,johan-mojica,,amarillas,1.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Femenia,kiko-femenia,,min,90.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Femenia,kiko-femenia,,asis_sg,1.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Djené,dakonam-djene,,min,90.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Djené,dakonam-djene,,amarillas,1.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Andrés García,andres-garcia,,min,65.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Romero,zaid-romero,,min,90.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Francho,,,min,76.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Terrats,terrats,,min,90.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Mangala,orel-mangala,,min,90.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Mangala,orel-mangala,,amarillas,1.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Enes Ünal,enes-unal,,min,90.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Enes Ünal,enes-unal,,amarillas,1.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Satriano,martin-satriano,,min,86.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Gudelj,nemanja-gudelj,,min,14.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Risco,alberto-risco,,min,25.0
+22448,3,2026-08-31 19:30,Getafe,visitante,Mayoral,borja-mayoral,,min,4.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Courtois,thibaut-courtois,,min,90.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Rüdiger,antonio-rudiger,,min,90.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Alexander-Arnold,trent-alexander-arnold,,min,90.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Alexander-Arnold,trent-alexander-arnold,,asis,1.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Alexander-Arnold,trent-alexander-arnold,,asis_sg,1.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Cucurella,marc-cucurella,,min,90.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Huijsen,dean-huijsen,,min,90.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Valverde,federico-valverde,,min,77.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Brahim,,,min,65.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Bellingham,jude-bellingham,,min,87.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Bellingham,jude-bellingham,,goles,1.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Bellingham,jude-bellingham,,asis_sg,1.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Bellingham,jude-bellingham,,tiros,3.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Camavinga,eduardo-camavinga,,min,90.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Mbappé,kylian-mbappe,,min,90.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Mbappé,kylian-mbappe,,goles,1.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Mbappé,kylian-mbappe,,tiros,4.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Vinicius,,,min,90.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Vinicius,,,asis,1.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Vinicius,,,asis_sg,1.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Bernardo Silva,bernardo-silva,,min,13.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Güler,arda-gler,,min,3.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Güler,arda-gler,,goles,1.0
+22449,3,2026-08-30 17:00,Real Madrid,local,Y. Diomande,,,min,25.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Herrero,alfonso-herrero,,min,90.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Galilea,einar-galilea,,min,74.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Puga,carlos-puga,,min,60.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Rafita,,,min,90.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Recio,angel-recio,,min,90.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Joaquín,,,min,61.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Larrubia,david-larrubia,,min,90.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Dotor,carlos-dotor,,min,90.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Merino,izan-merino,,min,87.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Rafa Rodríguez,rafa-rodriguez,,min,45.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Chupete,chupete,,min,90.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Chupete,chupete,,amarillas,1.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Salinas,jose-salinas,,min,30.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Pablo Martínez,pablo-martinez,,min,45.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Enríquez,ramon-enriquez,,min,3.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Enríquez,ramon-enriquez,,amarillas,1.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Juan Cruz,juan-cruz-2,,min,29.0
+22449,3,2026-08-30 17:00,Málaga,visitante,Haitam,,,min,16.0
+22450,3,2026-08-28 19:00,Racing,local,Agirrezabala,julen-agirrezabala,,min,90.0
+22450,3,2026-08-28 19:00,Racing,local,Hernando,manu-hernando,,min,90.0
+22450,3,2026-08-28 19:00,Racing,local,Facu González,,,min,90.0
+22450,3,2026-08-28 19:00,Racing,local,Facu González,,,amarillas,1.0
+22450,3,2026-08-28 19:00,Racing,local,Mantilla,lvaro-mantilla,,min,90.0
+22450,3,2026-08-28 19:00,Racing,local,Mantilla,lvaro-mantilla,,amarillas,1.0
+22450,3,2026-08-28 19:00,Racing,local,Salinas,jorge-salinas,,min,90.0
+22450,3,2026-08-28 19:00,Racing,local,Canales,sergio-canales,,min,85.0
+22450,3,2026-08-28 19:00,Racing,local,Iñigo Vicente,inigo-vicente,,min,69.0
+22450,3,2026-08-28 19:00,Racing,local,Iñigo Vicente,inigo-vicente,,asis,1.0
+22450,3,2026-08-28 19:00,Racing,local,Iñigo Vicente,inigo-vicente,,asis_sg,1.0
+22450,3,2026-08-28 19:00,Racing,local,Iván Martín,ivan-martin,,min,90.0
+22450,3,2026-08-28 19:00,Racing,local,Iván Martín,ivan-martin,,asis_sg,1.0
+22450,3,2026-08-28 19:00,Racing,local,Puerta,gustavo-puerta,,min,90.0
+22450,3,2026-08-28 19:00,Racing,local,Andrés Martín,andres-martin,,min,59.0
+22450,3,2026-08-28 19:00,Racing,local,Andrés Martín,andres-martin,,asis_sg,1.0
+22450,3,2026-08-28 19:00,Racing,local,Zabiri,yassir-zabiri,,min,69.0
+22450,3,2026-08-28 19:00,Racing,local,Zabiri,yassir-zabiri,,goles,3.0
+22450,3,2026-08-28 19:00,Racing,local,Zabiri,yassir-zabiri,,tiros,3.0
+22450,3,2026-08-28 19:00,Racing,local,Prati,matteo-prati,,min,31.0
+22450,3,2026-08-28 19:00,Racing,local,Maguette,,,min,5.0
+22450,3,2026-08-28 19:00,Racing,local,Villalibre,asier-villalibre,,min,21.0
+22450,3,2026-08-28 19:00,Racing,local,Guliashvili,giorgi-guliashvili,,min,21.0
+22450,3,2026-08-28 19:00,Elche,visitante,Dituro,matias-dituro,,min,90.0
+22450,3,2026-08-28 19:00,Elche,visitante,Bigas,pedro-bigas,,min,62.0
+22450,3,2026-08-28 19:00,Elche,visitante,Chust,victor-chust,,min,90.0
+22450,3,2026-08-28 19:00,Elche,visitante,Affengruber,laliga-26-27,,min,90.0
+22450,3,2026-08-28 19:00,Elche,visitante,Sangaré,buba-sangare,,min,84.0
+22450,3,2026-08-28 19:00,Elche,visitante,Sangaré,buba-sangare,,goles,1.0
+22450,3,2026-08-28 19:00,Elche,visitante,Villar,gonzalo-villar,,min,90.0
+22450,3,2026-08-28 19:00,Elche,visitante,Valera,german-valera,,min,90.0
+22450,3,2026-08-28 19:00,Elche,visitante,Valera,german-valera,,asis_sg,1.0
+22450,3,2026-08-28 19:00,Elche,visitante,Aguado,marc-aguado,,min,45.0
+22450,3,2026-08-28 19:00,Elche,visitante,Buonanotte,facundo-buonanotte,,min,69.0
+22450,3,2026-08-28 19:00,Elche,visitante,Buonanotte,facundo-buonanotte,,amarillas,1.0
+22450,3,2026-08-28 19:00,Elche,visitante,Ali Houary,-ali-houary,,min,45.0
+22450,3,2026-08-28 19:00,Elche,visitante,Fer Niño,,,min,90.0
+22450,3,2026-08-28 19:00,Elche,visitante,Fer Niño,,,goles,1.0
+22450,3,2026-08-28 19:00,Elche,visitante,Fer Niño,,,tiros,2.0
+22450,3,2026-08-28 19:00,Elche,visitante,Josan,,,min,6.0
+22450,3,2026-08-28 19:00,Elche,visitante,Tete Morente,tete-morente,,min,45.0
+22450,3,2026-08-28 19:00,Elche,visitante,Tete Morente,tete-morente,,asis,1.0
+22450,3,2026-08-28 19:00,Elche,visitante,Cepeda,lucas-cepeda,,min,21.0
+22450,3,2026-08-28 19:00,Elche,visitante,Cepeda,lucas-cepeda,,asis,1.0
+22450,3,2026-08-28 19:00,Elche,visitante,Ponce,ezequiel-ponce,,min,45.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Remiro,alex-remiro,,min,90.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Zubeldia,igor-zubeldia,,min,90.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Zubeldia,igor-zubeldia,,amarillas,1.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Sergio Gómez,sergio-gomez,,min,90.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Jon Martín,jon-martin,,min,90.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Aramburu,jon-aramburu,,min,90.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Carlos Soler,carlos-soler,,min,90.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Carlos Soler,carlos-soler,,asis_sg,1.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Barrenetxea,ander-barrenetxea,,min,63.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Barrenetxea,ander-barrenetxea,,goles,1.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,L. Sucic,,,min,78.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Turrientes,benat-turrientes,,min,62.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Turrientes,benat-turrientes,,amarillas,1.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Oyarzabal,mikel-oyarzabal,,min,89.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Oyarzabal,mikel-oyarzabal,,asis,2.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Oyarzabal,mikel-oyarzabal,,asis_sg,1.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Oyarzabal,mikel-oyarzabal,,tiros,2.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Óskarsson,orri-steinn-skarsson,,min,78.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Óskarsson,orri-steinn-skarsson,,goles,1.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Óskarsson,orri-steinn-skarsson,,tiros,3.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Herrera,yangel-herrera,,min,28.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Kubo,takefusa-kubo,,min,12.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Gorrotxategi,jon-gorrotxategi,,min,1.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Guedes,goncalo-guedes,,min,12.0
+22451,3,2026-08-29 19:00,Real Sociedad,local,Guedes,goncalo-guedes,,tiros,3.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Dmitrovic,marko-dmitrovic,,min,90.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,U. Núñez,,,min,90.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,El Hilali,omar-el-hilali,,min,90.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Drkusic,vanja-drkusic,,min,90.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Hinojo,roger-hinojo,,min,90.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Hinojo,roger-hinojo,,amarillas,1.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Edu Expósito,edu-exposito,,min,70.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Urko,,,min,45.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Urko,,,amarillas,1.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Calatrava,lex-calatrava,,min,90.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Javier Hernández,javier-hernandez,,min,70.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Javier Hernández,javier-hernandez,,asis,1.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Javier Hernández,javier-hernandez,,asis_sg,1.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Roberto,,,min,83.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Roberto,,,goles,1.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Dolan,tyrhys-dolan,,min,83.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Pere Milla,pere-milla,,min,7.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Jofre,,,min,7.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Bauzà,rafel-bauza,,min,20.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Bauzà,rafel-bauza,,amarillas,1.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Moscardo,gabriel-moscardo,,min,45.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Marcos,,,min,20.0
+22451,3,2026-08-29 19:00,Espanyol,visitante,Marcos,,,amarillas,1.0
+22452,3,2026-08-29 21:30,Sevilla,local,Vlachodimos,odysseas-vlachodimos,,min,90.0
+22452,3,2026-08-29 21:30,Sevilla,local,Iglesias,juan-iglesias,,min,90.0
+22452,3,2026-08-29 21:30,Sevilla,local,Kike Salas,kike-salas,,min,90.0
+22452,3,2026-08-29 21:30,Sevilla,local,Suazo,gabriel-suazo,,min,90.0
+22452,3,2026-08-29 21:30,Sevilla,local,Suazo,gabriel-suazo,,amarillas,1.0
+22452,3,2026-08-29 21:30,Sevilla,local,Castrín,andres-castrin,,min,90.0
+22452,3,2026-08-29 21:30,Sevilla,local,Julio Díaz,julio-diaz,,min,55.0
+22452,3,2026-08-29 21:30,Sevilla,local,Julio Díaz,julio-diaz,,asis_sg,1.0
+22452,3,2026-08-29 21:30,Sevilla,local,Guridi,jon-guridi,,min,55.0
+22452,3,2026-08-29 21:30,Sevilla,local,Agoume,lucien-agoume,,min,90.0
+22452,3,2026-08-29 21:30,Sevilla,local,Sierra,miguel-sierra,,min,80.0
+22452,3,2026-08-29 21:30,Sevilla,local,Sierra,miguel-sierra,,goles,1.0
+22452,3,2026-08-29 21:30,Sevilla,local,Sierra,miguel-sierra,,tiros,3.0
+22452,3,2026-08-29 21:30,Sevilla,local,Peque,peque,,min,68.0
+22452,3,2026-08-29 21:30,Sevilla,local,Ure,robbie-ure,,min,90.0
+22452,3,2026-08-29 21:30,Sevilla,local,Ure,robbie-ure,,asis,1.0
+22452,3,2026-08-29 21:30,Sevilla,local,Kochorashvili,giorgi-kochorashvili-1,,min,35.0
+22452,3,2026-08-29 21:30,Sevilla,local,Alfon,,,min,10.0
+22452,3,2026-08-29 21:30,Sevilla,local,Ejuke,chidera-ejuke,,min,35.0
+22452,3,2026-08-29 21:30,Sevilla,local,Romero,isaac-romero,,min,22.0
+22452,3,2026-08-29 21:30,Sevilla,local,Romero,isaac-romero,,amarillas,1.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Oblak,jan-oblak,,min,90.0
+22452,3,2026-08-29 21:30,Atlético,visitante,M. Llorente,,,min,66.0
+22452,3,2026-08-29 21:30,Atlético,visitante,M. Llorente,,,asis,1.0
+22452,3,2026-08-29 21:30,Atlético,visitante,M. Llorente,,,amarillas,1.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Grimaldo,alex-grimaldo,,min,90.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Hancko,david-hancko,,min,90.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Pubill,marc-pubill,,min,90.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Pubill,marc-pubill,,amarillas,1.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Kang-In Lee,lee-kang-in,,min,72.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Kang-In Lee,lee-kang-in,,asis,1.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Kang-In Lee,lee-kang-in,,asis_sg,1.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Baena,lex-baena,,min,85.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Baena,lex-baena,,goles,2.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Baena,lex-baena,,tiros,2.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Giuliano,,,min,90.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Barrios,pablo-barrios,,min,90.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Barrios,pablo-barrios,,asis,1.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Hjulmand,morten-hjulmand,,min,85.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Lookman,ademola-lookman,,min,66.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Lookman,ademola-lookman,,goles,1.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Giménez,jose-maria-gimenez,,min,24.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Koke,,,min,18.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Mendoza,rodrigo-mendoza,,min,5.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Cardoso,johnny-cardoso,,min,5.0
+22452,3,2026-08-29 21:30,Atlético,visitante,Ortiz,arnau-ortiz,,min,24.0
+22453,4,2026-09-05 16:15,Athletic,local,Unai Simón,unai-simon,,min,90.0
+22453,4,2026-09-05 16:15,Athletic,local,Laporte,aymeric-laporte,,min,90.0
+22453,4,2026-09-05 16:15,Athletic,local,Yuri,,,min,90.0
+22453,4,2026-09-05 16:15,Athletic,local,Yeray,,,min,45.0
+22453,4,2026-09-05 16:15,Athletic,local,Areso,jesus-areso,,min,90.0
+22453,4,2026-09-05 16:15,Athletic,local,R. de Galarreta,,,min,60.0
+22453,4,2026-09-05 16:15,Athletic,local,Sancet,oihan-sancet,,min,90.0
+22453,4,2026-09-05 16:15,Athletic,local,Sancet,oihan-sancet,,goles,1.0
+22453,4,2026-09-05 16:15,Athletic,local,Navarro,robert-navarro,,min,66.0
+22453,4,2026-09-05 16:15,Athletic,local,Navarro,robert-navarro,,goles,1.0
+22453,4,2026-09-05 16:15,Athletic,local,Gerenabarrena,benat-gerenabarrena,,min,90.0
+22453,4,2026-09-05 16:15,Athletic,local,I. Williams,,,min,66.0
+22453,4,2026-09-05 16:15,Athletic,local,I. Williams,,,asis,1.0
+22453,4,2026-09-05 16:15,Athletic,local,I. Williams,,,asis_sg,1.0
+22453,4,2026-09-05 16:15,Athletic,local,N. Williams,,,min,76.0
+22453,4,2026-09-05 16:15,Athletic,local,N. Williams,,,goles,1.0
+22453,4,2026-09-05 16:15,Athletic,local,Paredes,aitor-paredes,,min,45.0
+22453,4,2026-09-05 16:15,Athletic,local,Johaneko,,,min,24.0
+22453,4,2026-09-05 16:15,Athletic,local,Berenguer,alex-berenguer,,min,24.0
+22453,4,2026-09-05 16:15,Athletic,local,Jauregizar,mikel-jauregizar,,min,30.0
+22453,4,2026-09-05 16:15,Athletic,local,Guruzeta,gorka-guruzeta,,min,14.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Oblak,jan-oblak,,min,90.0
+22453,4,2026-09-05 16:15,Atlético,visitante,M. Llorente,,,min,90.0
+22453,4,2026-09-05 16:15,Atlético,visitante,M. Llorente,,,tiros,2.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Grimaldo,alex-grimaldo,,min,90.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Hancko,david-hancko,,min,90.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Pubill,marc-pubill,,min,90.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Kang-In Lee,lee-kang-in,,min,59.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Kang-In Lee,lee-kang-in,,amarillas,1.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Baena,lex-baena,,min,76.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Giuliano,,,min,59.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Barrios,pablo-barrios,,min,90.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Barrios,pablo-barrios,,tiros,2.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Hjulmand,morten-hjulmand,,min,59.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Lookman,ademola-lookman,,min,58.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Romero,cristian-romero,,min,31.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Koke,,,min,31.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Cardoso,johnny-cardoso,,min,14.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Alvarez,,,min,31.0
+22453,4,2026-09-05 16:15,Atlético,visitante,Ortiz,arnau-ortiz,,min,32.0
+22454,4,2026-09-06 18:30,Alavés,local,Sivera,antonio-sivera,,min,90.0
+22454,4,2026-09-06 18:30,Alavés,local,Sivera,antonio-sivera,,asis,1.0
+22454,4,2026-09-06 18:30,Alavés,local,Sivera,antonio-sivera,,asis_sg,1.0
+22454,4,2026-09-06 18:30,Alavés,local,Jonny,,,min,80.0
+22454,4,2026-09-06 18:30,Alavés,local,Tenaglia,nahuel-tenaglia,,min,90.0
+22454,4,2026-09-06 18:30,Alavés,local,Ángel Pérez,angel-perez-1,,min,90.0
+22454,4,2026-09-06 18:30,Alavés,local,Ángel Pérez,angel-perez-1,,asis,2.0
+22454,4,2026-09-06 18:30,Alavés,local,Ángel Pérez,angel-perez-1,,asis_sg,2.0
+22454,4,2026-09-06 18:30,Alavés,local,Koski,ville-koski,,min,90.0
+22454,4,2026-09-06 18:30,Alavés,local,Aleñá,carles-alena,,min,71.0
+22454,4,2026-09-06 18:30,Alavés,local,Aleñá,carles-alena,,asis,1.0
+22454,4,2026-09-06 18:30,Alavés,local,Blanco,antonio-blanco,,min,90.0
+22454,4,2026-09-06 18:30,Alavés,local,Ibáñez,pablo-ibanez,,min,90.0
+22454,4,2026-09-06 18:30,Alavés,local,Ibáñez,pablo-ibanez,,goles,1.0
+22454,4,2026-09-06 18:30,Alavés,local,Rebbach,abde-rebbach,,min,71.0
+22454,4,2026-09-06 18:30,Alavés,local,Rebbach,abde-rebbach,,amarillas,1.0
+22454,4,2026-09-06 18:30,Alavés,local,Mariano,,,min,71.0
+22454,4,2026-09-06 18:30,Alavés,local,Mariano,,,goles,1.0
+22454,4,2026-09-06 18:30,Alavés,local,Mariano,,,asis,1.0
+22454,4,2026-09-06 18:30,Alavés,local,Boyé,lucas-boye,,min,85.0
+22454,4,2026-09-06 18:30,Alavés,local,Boyé,lucas-boye,,goles,3.0
+22454,4,2026-09-06 18:30,Alavés,local,Boyé,lucas-boye,,tiros,3.0
+22454,4,2026-09-06 18:30,Alavés,local,Youssef,,,min,19.0
+22454,4,2026-09-06 18:30,Alavés,local,Oláiz,xanet-olaiz,,min,10.0
+22454,4,2026-09-06 18:30,Alavés,local,Denis Suárez,denis-suarez,,min,19.0
+22454,4,2026-09-06 18:30,Alavés,local,Miguel,,,min,5.0
+22454,4,2026-09-06 18:30,Alavés,local,Aitor Mañas,aitor-manas,,min,19.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Herrera,sergio-herrera,,min,90.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Catena,alejandro-catena,,min,90.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Boyomo,boyomo,,min,60.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Bretones,abel-bretones,,min,90.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Bretones,abel-bretones,,amarillas,1.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Arguibide,inigo-arguibide,,min,85.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Rubén G.,,,min,60.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Moi Gómez,moi-gomez,,min,60.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Moi Gómez,moi-gomez,,asis,1.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Moi Gómez,moi-gomez,,asis_sg,1.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Moncayola,jon-moncayola,,min,90.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Iker Muñoz,iker-munoz,,min,90.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Budimir,ante-budimir,,min,90.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Budimir,ante-budimir,,goles,2.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Budimir,ante-budimir,,tiros,5.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Raúl García,raul-garcia-1,,min,90.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Yeboah,rockson-yeboah,,min,30.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Yeboah,rockson-yeboah,,amarillas,1.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Raul Moro,raul-moro,,min,30.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Dubasin,jonathan-dubasin,,min,30.0
+22454,4,2026-09-06 18:30,Osasuna,visitante,Osambela,asier-osambela,,min,5.0
+22455,4,2026-09-07 21:30,Elche,local,Dituro,matias-dituro,,min,90.0
+22455,4,2026-09-07 21:30,Elche,local,Bigas,pedro-bigas,,min,90.0
+22455,4,2026-09-07 21:30,Elche,local,Chust,victor-chust,,min,90.0
+22455,4,2026-09-07 21:30,Elche,local,Chust,victor-chust,,asis,1.0
+22455,4,2026-09-07 21:30,Elche,local,Sangaré,buba-sangare,,min,81.0
+22455,4,2026-09-07 21:30,Elche,local,Villar,gonzalo-villar,,min,70.0
+22455,4,2026-09-07 21:30,Elche,local,Tete Morente,tete-morente,,min,90.0
+22455,4,2026-09-07 21:30,Elche,local,Tete Morente,tete-morente,,asis,1.0
+22455,4,2026-09-07 21:30,Elche,local,Tete Morente,tete-morente,,asis_sg,1.0
+22455,4,2026-09-07 21:30,Elche,local,Tete Morente,tete-morente,,amarillas,1.0
+22455,4,2026-09-07 21:30,Elche,local,Valera,german-valera,,min,81.0
+22455,4,2026-09-07 21:30,Elche,local,Valera,german-valera,,amarillas,1.0
+22455,4,2026-09-07 21:30,Elche,local,Buonanotte,facundo-buonanotte,,min,55.0
+22455,4,2026-09-07 21:30,Elche,local,Morcillo,javi-morcillo,,min,90.0
+22455,4,2026-09-07 21:30,Elche,local,Ponce,ezequiel-ponce,,min,55.0
+22455,4,2026-09-07 21:30,Elche,local,Fer Niño,,,min,90.0
+22455,4,2026-09-07 21:30,Elche,local,Fer Niño,,,goles,1.0
+22455,4,2026-09-07 21:30,Elche,local,Fer Niño,,,asis_sg,1.0
+22455,4,2026-09-07 21:30,Elche,local,Fer Niño,,,tiros,3.0
+22455,4,2026-09-07 21:30,Elche,local,Revivo,roy-revivo,,min,9.0
+22455,4,2026-09-07 21:30,Elche,local,Josan,,,min,9.0
+22455,4,2026-09-07 21:30,Elche,local,Lemar,thomas-lemar,,min,35.0
+22455,4,2026-09-07 21:30,Elche,local,Lemar,thomas-lemar,,goles,1.0
+22455,4,2026-09-07 21:30,Elche,local,Lemar,thomas-lemar,,asis_sg,1.0
+22455,4,2026-09-07 21:30,Elche,local,Lemar,thomas-lemar,,amarillas,1.0
+22455,4,2026-09-07 21:30,Elche,local,Cepeda,lucas-cepeda,,min,20.0
+22455,4,2026-09-07 21:30,Elche,local,Cepeda,lucas-cepeda,,asis_sg,1.0
+22455,4,2026-09-07 21:30,Elche,local,Cepeda,lucas-cepeda,,tiros,2.0
+22455,4,2026-09-07 21:30,Elche,local,Osorio,abiel-osorio,,min,35.0
+22455,4,2026-09-07 21:30,Elche,local,Osorio,abiel-osorio,,amarillas,1.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Marrero,unai-marrero,,min,90.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Zubeldia,igor-zubeldia,,min,90.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Sergio Gómez,sergio-gomez,,min,90.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Aramburu,jon-aramburu,,min,90.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Aramburu,jon-aramburu,,amarillas,1.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,M. Sarr,,,min,58.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Carlos Soler,carlos-soler,,min,90.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Carlos Soler,carlos-soler,,asis,1.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Carlos Soler,carlos-soler,,asis_sg,1.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Herrera,yangel-herrera,,min,70.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Herrera,yangel-herrera,,goles,1.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,L. Sucic,,,min,90.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,L. Sucic,,,goles,1.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,L. Sucic,,,tiros,2.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Ochieng,job-ochieng,,min,90.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Ochieng,job-ochieng,,goles,1.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Ochieng,job-ochieng,,asis,2.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Ochieng,job-ochieng,,tiros,2.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Guedes,goncalo-guedes,,min,58.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Oyarzabal,mikel-oyarzabal,,min,70.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Pacheco,jon-pacheco,,min,20.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Fort,hector-fort,,min,9.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Jon Martín 57',,,min,6.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Jon Martín 57',,,rojas,1.0
+22455,4,2026-09-07 21:30,Real Sociedad,visitante,Gorrotxategi,jon-gorrotxategi,,min,20.0
+22456,4,2026-09-06 21:00,Espanyol,local,Dmitrovic,marko-dmitrovic,,min,90.0
+22456,4,2026-09-06 21:00,Espanyol,local,Cabrera,leandro-cabrera,,min,90.0
+22456,4,2026-09-06 21:00,Espanyol,local,U. Núñez,,,min,86.0
+22456,4,2026-09-06 21:00,Espanyol,local,El Hilali,omar-el-hilali,,min,75.0
+22456,4,2026-09-06 21:00,Espanyol,local,Hinojo,roger-hinojo,,min,86.0
+22456,4,2026-09-06 21:00,Espanyol,local,Edu Expósito,edu-exposito,,min,90.0
+22456,4,2026-09-06 21:00,Espanyol,local,Edu Expósito,edu-exposito,,asis_sg,2.0
+22456,4,2026-09-06 21:00,Espanyol,local,Calatrava,lex-calatrava,,min,59.0
+22456,4,2026-09-06 21:00,Espanyol,local,Calatrava,lex-calatrava,,amarillas,1.0
+22456,4,2026-09-06 21:00,Espanyol,local,Javier Hernández,javier-hernandez,,min,90.0
+22456,4,2026-09-06 21:00,Espanyol,local,Moscardo,gabriel-moscardo,,min,59.0
+22456,4,2026-09-06 21:00,Espanyol,local,Moscardo,gabriel-moscardo,,amarillas,1.0
+22456,4,2026-09-06 21:00,Espanyol,local,Roberto,,,min,90.0
+22456,4,2026-09-06 21:00,Espanyol,local,Dolan,tyrhys-dolan,,min,90.0
+22456,4,2026-09-06 21:00,Espanyol,local,Hartman,quilindschy-hartman,,min,4.0
+22456,4,2026-09-06 21:00,Espanyol,local,Hartman,quilindschy-hartman,,asis_sg,1.0
+22456,4,2026-09-06 21:00,Espanyol,local,Riedel,clemens-riedel,,min,4.0
+22456,4,2026-09-06 21:00,Espanyol,local,Urko,,,min,31.0
+22456,4,2026-09-06 21:00,Espanyol,local,Bryan,,,min,15.0
+22456,4,2026-09-06 21:00,Espanyol,local,Marcos,,,min,31.0
+22456,4,2026-09-06 21:00,Espanyol,local,Marcos,,,goles,1.0
+22456,4,2026-09-06 21:00,Espanyol,local,Marcos,,,tiros,3.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Vlachodimos,odysseas-vlachodimos,,min,90.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Iglesias,juan-iglesias,,min,90.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Kike Salas,kike-salas,,min,90.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Suazo,gabriel-suazo,,min,90.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Sangante,arouna-sangante,,min,56.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Sangante,arouna-sangante,,rojas,1.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Guridi,jon-guridi,,min,71.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Guridi,jon-guridi,,asis_sg,1.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Agoume,lucien-agoume,,min,90.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Kochorashvili,giorgi-kochorashvili-1,,min,54.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Kochorashvili,giorgi-kochorashvili-1,,amarillas,1.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Ejuke,chidera-ejuke,,min,60.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Sierra,miguel-sierra,,min,71.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Sierra,miguel-sierra,,amarillas,1.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Ure,robbie-ure,,min,54.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Ure,robbie-ure,,amarillas,1.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Carmona,jose-ngel-carmona,,min,19.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Castrín,andres-castrin,,min,30.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Fofana,youssouf-fofana,,min,36.0
+22456,4,2026-09-06 21:00,Sevilla,visitante,Manu Bueno,manu-bueno,,min,19.0
+22457,4,2026-09-07 19:00,Getafe,local,Soria,david-soria,,min,90.0
+22457,4,2026-09-07 19:00,Getafe,local,Mojica,johan-mojica,,min,90.0
+22457,4,2026-09-07 19:00,Getafe,local,Mojica,johan-mojica,,amarillas,1.0
+22457,4,2026-09-07 19:00,Getafe,local,Femenia,kiko-femenia,,min,8.0
+22457,4,2026-09-07 19:00,Getafe,local,Djené,dakonam-djene,,min,90.0
+22457,4,2026-09-07 19:00,Getafe,local,Gudelj,nemanja-gudelj,,min,90.0
+22457,4,2026-09-07 19:00,Getafe,local,Romero,zaid-romero,,min,67.0
+22457,4,2026-09-07 19:00,Getafe,local,Terrats,terrats,,min,89.0
+22457,4,2026-09-07 19:00,Getafe,local,Terrats,terrats,,amarillas,1.0
+22457,4,2026-09-07 19:00,Getafe,local,Mangala,orel-mangala,,min,89.0
+22457,4,2026-09-07 19:00,Getafe,local,Mario Martín,mario-martin,,min,90.0
+22457,4,2026-09-07 19:00,Getafe,local,Enes Ünal,enes-unal,,min,90.0
+22457,4,2026-09-07 19:00,Getafe,local,Satriano,martin-satriano,,min,73.0
+22457,4,2026-09-07 19:00,Getafe,local,Satriano,martin-satriano,,goles,1.0
+22457,4,2026-09-07 19:00,Getafe,local,Andrés García,andres-garcia,,min,82.0
+22457,4,2026-09-07 19:00,Getafe,local,Boselli,sebastian-boselli,,min,1.0
+22457,4,2026-09-07 19:00,Getafe,local,Iván Azón,ivan-azon,,min,17.0
+22457,4,2026-09-07 19:00,Celta,visitante,Radu,andrei-radu,,min,90.0
+22457,4,2026-09-07 19:00,Celta,visitante,M. Alonso,,,min,90.0
+22457,4,2026-09-07 19:00,Celta,visitante,M. Alonso,,,amarillas,1.0
+22457,4,2026-09-07 19:00,Celta,visitante,Galán,javi-galan,,min,64.0
+22457,4,2026-09-07 19:00,Celta,visitante,Starfelt,carl-starfelt,,min,90.0
+22457,4,2026-09-07 19:00,Celta,visitante,Starfelt,carl-starfelt,,goles,1.0
+22457,4,2026-09-07 19:00,Celta,visitante,Starfelt,carl-starfelt,,amarillas,1.0
+22457,4,2026-09-07 19:00,Celta,visitante,Lago,yoel-lago,,min,90.0
+22457,4,2026-09-07 19:00,Celta,visitante,Moriba,ilaix-moriba,,min,90.0
+22457,4,2026-09-07 19:00,Celta,visitante,Hugo González,hugo-gonzalez,,min,83.0
+22457,4,2026-09-07 19:00,Celta,visitante,Hugo González,hugo-gonzalez,,asis,1.0
+22457,4,2026-09-07 19:00,Celta,visitante,Hugo González,hugo-gonzalez,,asis_sg,1.0
+22457,4,2026-09-07 19:00,Celta,visitante,Hugo González,hugo-gonzalez,,tiros,2.0
+22457,4,2026-09-07 19:00,Celta,visitante,Román,miguel-roman,,min,90.0
+22457,4,2026-09-07 19:00,Celta,visitante,El-Abdellaoui,jones-el-abdellaoui,,min,64.0
+22457,4,2026-09-07 19:00,Celta,visitante,Aspas,iago-aspas,,min,64.0
+22457,4,2026-09-07 19:00,Celta,visitante,Durán,pablo-duran,,min,69.0
+22457,4,2026-09-07 19:00,Celta,visitante,Carreira,sergio-carreira,,min,26.0
+22457,4,2026-09-07 19:00,Celta,visitante,Rueda,javi-rueda,,min,26.0
+22457,4,2026-09-07 19:00,Celta,visitante,Rueda,javi-rueda,,asis_sg,1.0
+22457,4,2026-09-07 19:00,Celta,visitante,Driouech,couhaib-driouech,,min,26.0
+22457,4,2026-09-07 19:00,Celta,visitante,Iglesias,borja-iglesias,,min,21.0
+22457,4,2026-09-07 19:00,Celta,visitante,Jutglà,ferran-jutgla,,min,7.0
+22458,4,2026-09-06 18:30,Málaga,local,Herrero,alfonso-herrero,,min,90.0
+22458,4,2026-09-06 18:30,Málaga,local,Galilea,einar-galilea,,min,90.0
+22458,4,2026-09-06 18:30,Málaga,local,Salinas,jose-salinas,,min,90.0
+22458,4,2026-09-06 18:30,Málaga,local,Rafita,,,min,67.0
+22458,4,2026-09-06 18:30,Málaga,local,Rafita,,,amarillas,1.0
+22458,4,2026-09-06 18:30,Málaga,local,Recio,angel-recio,,min,90.0
+22458,4,2026-09-06 18:30,Málaga,local,Pablo Martínez,pablo-martinez,,min,59.0
+22458,4,2026-09-06 18:30,Málaga,local,Pablo Martínez,pablo-martinez,,amarillas,1.0
+22458,4,2026-09-06 18:30,Málaga,local,Larrubia,david-larrubia,,min,90.0
+22458,4,2026-09-06 18:30,Málaga,local,Juan Cruz,juan-cruz-2,,min,59.0
+22458,4,2026-09-06 18:30,Málaga,local,Dotor,carlos-dotor,,min,86.0
+22458,4,2026-09-06 18:30,Málaga,local,Lorenzo,dani-lorenzo-1,,min,67.0
+22458,4,2026-09-06 18:30,Málaga,local,Lorenzo,dani-lorenzo-1,,amarillas,1.0
+22458,4,2026-09-06 18:30,Málaga,local,Chupete,chupete,,min,90.0
+22458,4,2026-09-06 18:30,Málaga,local,Chupete,chupete,,tiros,2.0
+22458,4,2026-09-06 18:30,Málaga,local,Puga,carlos-puga,,min,23.0
+22458,4,2026-09-06 18:30,Málaga,local,Puga,carlos-puga,,amarillas,1.0
+22458,4,2026-09-06 18:30,Málaga,local,Joaquín,,,min,31.0
+22458,4,2026-09-06 18:30,Málaga,local,Enríquez,ramon-enriquez,,min,23.0
+22458,4,2026-09-06 18:30,Málaga,local,Merino,izan-merino,,min,31.0
+22458,4,2026-09-06 18:30,Levante,visitante,Ryan,mat-ryan,,min,90.0
+22458,4,2026-09-06 18:30,Levante,visitante,Mandi,aissa-mandi,,min,90.0
+22458,4,2026-09-06 18:30,Levante,visitante,Mandi,aissa-mandi,,amarillas,1.0
+22458,4,2026-09-06 18:30,Levante,visitante,De la Fuente,,,min,90.0
+22458,4,2026-09-06 18:30,Levante,visitante,De la Fuente,,,amarillas,1.0
+22458,4,2026-09-06 18:30,Levante,visitante,Manu Sánchez,manu-sanchez,,min,90.0
+22458,4,2026-09-06 18:30,Levante,visitante,Nacho Pérez,nacho-perez-1,,min,77.0
+22458,4,2026-09-06 18:30,Levante,visitante,Oriol Rey,oriol-rey,,min,90.0
+22458,4,2026-09-06 18:30,Levante,visitante,Olasagasti,jon-ander-olasagasti,,min,86.0
+22458,4,2026-09-06 18:30,Levante,visitante,Thiago,,,min,77.0
+22458,4,2026-09-06 18:30,Levante,visitante,Bardeli,,,min,77.0
+22458,4,2026-09-06 18:30,Levante,visitante,Iván Romero,ivan-romero,,min,60.0
+22458,4,2026-09-06 18:30,Levante,visitante,Iván Romero,ivan-romero,,asis_sg,1.0
+22458,4,2026-09-06 18:30,Levante,visitante,Brugui,,,min,90.0
+22458,4,2026-09-06 18:30,Levante,visitante,Toljan,jeremy-toljan,,min,13.0
+22458,4,2026-09-06 18:30,Levante,visitante,Sotelo,hugo-sotelo,,min,13.0
+22458,4,2026-09-06 18:30,Levante,visitante,Requena,dani-requena,,min,4.0
+22458,4,2026-09-06 18:30,Levante,visitante,Cortés,paco-cortes,,min,13.0
+22458,4,2026-09-06 18:30,Levante,visitante,Musuayi,yanis-musuayi,,min,30.0
+22459,4,2026-09-05 18:30,Rayo,local,Cárdenas,dani-cardenas,,min,90.0
+22459,4,2026-09-05 18:30,Rayo,local,Lejeune,florian-lejeune,,min,90.0
+22459,4,2026-09-05 18:30,Rayo,local,Lejeune,florian-lejeune,,amarillas,1.0
+22459,4,2026-09-05 18:30,Rayo,local,Pedrosa,adria-pedrosa,,min,75.0
+22459,4,2026-09-05 18:30,Rayo,local,Ratiu,andrei-florin,,min,90.0
+22459,4,2026-09-05 18:30,Rayo,local,Ratiu,andrei-florin,,goles,1.0
+22459,4,2026-09-05 18:30,Rayo,local,Ratiu,andrei-florin,,tiros,2.0
+22459,4,2026-09-05 18:30,Rayo,local,Álvaro García,alvaro-garcia,,min,74.0
+22459,4,2026-09-05 18:30,Rayo,local,Álvaro García,alvaro-garcia,,tiros,2.0
+22459,4,2026-09-05 18:30,Rayo,local,Unai López,unai-lopez,,min,90.0
+22459,4,2026-09-05 18:30,Rayo,local,Unai López,unai-lopez,,asis,2.0
+22459,4,2026-09-05 18:30,Rayo,local,Unai López,unai-lopez,,asis_sg,1.0
+22459,4,2026-09-05 18:30,Rayo,local,Pedro Díaz,pedro-diaz,,min,90.0
+22459,4,2026-09-05 18:30,Rayo,local,De Frutos,,,min,65.0
+22459,4,2026-09-05 18:30,Rayo,local,De Frutos,,,rojas,1.0
+22459,4,2026-09-05 18:30,Rayo,local,Valentín,scar-valentin,,min,57.0
+22459,4,2026-09-05 18:30,Rayo,local,Valentín,scar-valentin,,amarillas,1.0
+22459,4,2026-09-05 18:30,Rayo,local,Pathé Ciss,pathe-ciss,,min,90.0
+22459,4,2026-09-05 18:30,Rayo,local,Camello,sergio-camello,,min,57.0
+22459,4,2026-09-05 18:30,Rayo,local,Camello,sergio-camello,,goles,2.0
+22459,4,2026-09-05 18:30,Rayo,local,Camello,sergio-camello,,asis,1.0
+22459,4,2026-09-05 18:30,Rayo,local,Camello,sergio-camello,,amarillas,1.0
+22459,4,2026-09-05 18:30,Rayo,local,Camello,sergio-camello,,tiros,3.0
+22459,4,2026-09-05 18:30,Rayo,local,Balliu,ivan-balliu,,min,15.0
+22459,4,2026-09-05 18:30,Rayo,local,Tsitaishvili,georgiy-tsitaishvili,,min,16.0
+22459,4,2026-09-05 18:30,Rayo,local,Fran Pérez 64',,,min,20.0
+22459,4,2026-09-05 18:30,Rayo,local,Fran Pérez 64',,,rojas,1.0
+22459,4,2026-09-05 18:30,Rayo,local,Alemão,alemo,,min,33.0
+22459,4,2026-09-05 18:30,Racing,visitante,Agirrezabala,julen-agirrezabala,,min,90.0
+22459,4,2026-09-05 18:30,Racing,visitante,Hernando,manu-hernando,,min,55.0
+22459,4,2026-09-05 18:30,Racing,visitante,Facu González,,,min,55.0
+22459,4,2026-09-05 18:30,Racing,visitante,Mantilla,lvaro-mantilla,,min,89.0
+22459,4,2026-09-05 18:30,Racing,visitante,Salinas,jorge-salinas,,min,90.0
+22459,4,2026-09-05 18:30,Racing,visitante,Canales,sergio-canales,,min,90.0
+22459,4,2026-09-05 18:30,Racing,visitante,Canales,sergio-canales,,goles,1.0
+22459,4,2026-09-05 18:30,Racing,visitante,Canales,sergio-canales,,tiros,2.0
+22459,4,2026-09-05 18:30,Racing,visitante,Iñigo Vicente,inigo-vicente,,min,90.0
+22459,4,2026-09-05 18:30,Racing,visitante,Iñigo Vicente,inigo-vicente,,amarillas,1.0
+22459,4,2026-09-05 18:30,Racing,visitante,Iván Martín,ivan-martin,,min,90.0
+22459,4,2026-09-05 18:30,Racing,visitante,Prati,matteo-prati,,min,55.0
+22459,4,2026-09-05 18:30,Racing,visitante,Pablo García,pablo-garcia-1,,min,89.0
+22459,4,2026-09-05 18:30,Racing,visitante,Pablo García,pablo-garcia-1,,goles,1.0
+22459,4,2026-09-05 18:30,Racing,visitante,Pablo García,pablo-garcia-1,,tiros,2.0
+22459,4,2026-09-05 18:30,Racing,visitante,Zabiri,yassir-zabiri,,min,90.0
+22459,4,2026-09-05 18:30,Racing,visitante,Zabiri,yassir-zabiri,,amarillas,1.0
+22459,4,2026-09-05 18:30,Racing,visitante,Aarón,,,min,1.0
+22459,4,2026-09-05 18:30,Racing,visitante,Pablo Ramón,pablo-ramon,,min,35.0
+22459,4,2026-09-05 18:30,Racing,visitante,Belocian,jeanul-belocian,,min,35.0
+22459,4,2026-09-05 18:30,Racing,visitante,Almeida,andre-almeida-1,,min,35.0
+22459,4,2026-09-05 18:30,Racing,visitante,Arana,juan-carlos-arana,,min,1.0
+22460,4,2026-09-04 21:00,Betis,local,Valles,alvaro-valles,,min,90.0
+22460,4,2026-09-04 21:00,Betis,local,D. Llorente,,,min,39.0
+22460,4,2026-09-04 21:00,Betis,local,Bellerín,hector-bellerin,,min,90.0
+22460,4,2026-09-04 21:00,Betis,local,Fran García,fran-garcia,,min,90.0
+22460,4,2026-09-04 21:00,Betis,local,Natan,natan,,min,90.0
+22460,4,2026-09-04 21:00,Betis,local,Natan,natan,,amarillas,1.0
+22460,4,2026-09-04 21:00,Betis,local,Isco,,,min,60.0
+22460,4,2026-09-04 21:00,Betis,local,Fornals,pablo-fornals,,min,90.0
+22460,4,2026-09-04 21:00,Betis,local,Marc Roca,marc-roca,,min,90.0
+22460,4,2026-09-04 21:00,Betis,local,Marc Roca,marc-roca,,amarillas,1.0
+22460,4,2026-09-04 21:00,Betis,local,Bernal,facundo-bernal,,min,68.0
+22460,4,2026-09-04 21:00,Betis,local,Bernal,facundo-bernal,,amarillas,1.0
+22460,4,2026-09-04 21:00,Betis,local,Cucho,,,min,68.0
+22460,4,2026-09-04 21:00,Betis,local,Antony,antony,,min,77.0
+22460,4,2026-09-04 21:00,Betis,local,Bartra,marc-bartra,,min,51.0
+22460,4,2026-09-04 21:00,Betis,local,Fidalgo,lvaro-fidalgo,,min,30.0
+22460,4,2026-09-04 21:00,Betis,local,Riquelme,rodrigo-riquelme,,min,13.0
+22460,4,2026-09-04 21:00,Betis,local,Deossa,nelson-deossa,,min,22.0
+22460,4,2026-09-04 21:00,Betis,local,Deossa,nelson-deossa,,tiros,2.0
+22460,4,2026-09-04 21:00,Betis,local,Parrott,troy-parrott,,min,22.0
+22460,4,2026-09-04 21:00,Betis,local,Parrott,troy-parrott,,goles,1.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Courtois,thibaut-courtois,,min,90.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Konaté,ibrahima-konate,,min,90.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Konaté,ibrahima-konate,,amarillas,1.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Cucurella,marc-cucurella,,min,88.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Dumfries,denzel-dumfries,,min,64.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Huijsen,dean-huijsen,,min,90.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Huijsen,dean-huijsen,,tiros,2.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Valverde,federico-valverde,,min,82.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Bellingham,jude-bellingham,,min,90.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Bellingham,jude-bellingham,,asis_sg,1.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Camavinga,eduardo-camavinga,,min,64.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Camavinga,eduardo-camavinga,,amarillas,1.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Güler,arda-gler,,min,64.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Güler,arda-gler,,asis_sg,3.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Güler,arda-gler,,amarillas,1.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Mbappé,kylian-mbappe,,min,90.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Mbappé,kylian-mbappe,,tiros,5.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Vinicius,,,min,90.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Vinicius,,,asis_sg,1.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Vinicius,,,amarillas,1.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Vinicius,,,tiros,2.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Alexander-Arnold,trent-alexander-arnold,,min,26.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,A. F. Carreras,,,min,2.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Bernardo Silva,bernardo-silva,,min,26.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Carlos Espí,carlos-espi,,min,8.0
+22460,4,2026-09-04 21:00,Real Madrid,visitante,Y. Diomande,,,min,26.0
+22461,4,2026-09-06 16:15,Valencia,local,Dimitrievski,stole-dimitrievski,,min,90.0
+22461,4,2026-09-06 16:15,Valencia,local,Maffeo,pablo-maffeo,,min,54.0
+22461,4,2026-09-06 16:15,Valencia,local,Diakhaby,mouctar-diakhaby,,min,62.0
+22461,4,2026-09-06 16:15,Valencia,local,Jesús Vázquez,jesus-vazquez-1,,min,54.0
+22461,4,2026-09-06 16:15,Valencia,local,Arnau,,,min,90.0
+22461,4,2026-09-06 16:15,Valencia,local,Arnau,,,amarillas,1.0
+22461,4,2026-09-06 16:15,Valencia,local,Pepelu,pepelu,,min,54.0
+22461,4,2026-09-06 16:15,Valencia,local,Javi Guerra,javi-guerra-1,,min,62.0
+22461,4,2026-09-06 16:15,Valencia,local,Ugrinic,filip-ugrinic,,min,90.0
+22461,4,2026-09-06 16:15,Valencia,local,Dieng,aliou-dieng,,min,90.0
+22461,4,2026-09-06 16:15,Valencia,local,Danjuma,arnaut-danjuma,,min,90.0
+22461,4,2026-09-06 16:15,Valencia,local,Danjuma,arnaut-danjuma,,tiros,2.0
+22461,4,2026-09-06 16:15,Valencia,local,Gayà,jose-gaya,,min,36.0
+22461,4,2026-09-06 16:15,Valencia,local,Tárrega,cesar-tarrega,,min,36.0
+22461,4,2026-09-06 16:15,Valencia,local,Elliott,harvey-elliott,,min,36.0
+22461,4,2026-09-06 16:15,Valencia,local,Sato,ryunosuke-sato,,min,28.0
+22461,4,2026-09-06 16:15,Valencia,local,Duro,hugo-duro,,min,14.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Joan Garcia,joan-garcia,,min,90.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Eric Garcia,eric-garcia,,min,29.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Cubarsí,pau-cubarsi,,min,62.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Cubarsí,pau-cubarsi,,amarillas,1.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Martín,gerard-martin,,min,90.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Espart,xavi-espart,,min,90.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Rodri,,,min,62.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Rodri,,,amarillas,1.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Pedri,,,min,81.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Pedri,,,goles,1.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Fermín,,,min,75.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Fermín,,,goles,1.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Fermín,,,asis,2.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Fermín,,,asis_sg,2.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Fermín,,,amarillas,1.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Fermín,,,tiros,3.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Raphinha,raphinha,,min,90.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Raphinha,raphinha,,goles,1.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Gordon,anthony-gordon,,min,62.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Gordon,anthony-gordon,,asis,1.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Yamal,lamine-yamal,,min,90.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Yamal,lamine-yamal,,goles,2.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Yamal,lamine-yamal,,tiros,4.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,A. Christensen,,,min,28.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Koundé,jules-kounde,,min,61.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Olmo,dani-olmo,,min,15.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Olmo,dani-olmo,,asis,2.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Olmo,dani-olmo,,asis_sg,2.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Bernal,marc-bernal,,min,28.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Gabriel Jesús,,,min,9.0
+22461,4,2026-09-06 16:15,Barcelona,visitante,Adeyemi,karim-adeyemi,,min,28.0
+22462,4,2026-09-05 21:00,Villarreal,local,Luiz Junior,luiz-junior,,min,90.0
+22462,4,2026-09-05 21:00,Villarreal,local,S. Cardona,,,min,90.0
+22462,4,2026-09-05 21:00,Villarreal,local,Veiga,renato-veiga,,min,90.0
+22462,4,2026-09-05 21:00,Villarreal,local,Logan Costa,logan-costa,,min,83.0
+22462,4,2026-09-05 21:00,Villarreal,local,Freeman,alex-freeman,,min,90.0
+22462,4,2026-09-05 21:00,Villarreal,local,Pape Gueye,pape-gueye,,min,62.0
+22462,4,2026-09-05 21:00,Villarreal,local,Moleiro,alberto-moleiro,,min,62.0
+22462,4,2026-09-05 21:00,Villarreal,local,Moleiro,alberto-moleiro,,tiros,2.0
+22462,4,2026-09-05 21:00,Villarreal,local,Saliba,nathan-dylan-saliba,,min,90.0
+22462,4,2026-09-05 21:00,Villarreal,local,Gerard,,,min,77.0
+22462,4,2026-09-05 21:00,Villarreal,local,Gerard,,,asis_sg,1.0
+22462,4,2026-09-05 21:00,Villarreal,local,Ayoze,,,min,62.0
+22462,4,2026-09-05 21:00,Villarreal,local,Ayoze,,,asis,1.0
+22462,4,2026-09-05 21:00,Villarreal,local,Ayoze,,,asis_sg,1.0
+22462,4,2026-09-05 21:00,Villarreal,local,Pépé,nicolas-pepe,,min,90.0
+22462,4,2026-09-05 21:00,Villarreal,local,Pépé,nicolas-pepe,,goles,1.0
+22462,4,2026-09-05 21:00,Villarreal,local,Comesaña,santi-comesana,,min,28.0
+22462,4,2026-09-05 21:00,Villarreal,local,Comesaña,santi-comesana,,amarillas,1.0
+22462,4,2026-09-05 21:00,Villarreal,local,Akhomach,ilias-akhomach,,min,7.0
+22462,4,2026-09-05 21:00,Villarreal,local,Buchanan,tajon-buchanan,,min,28.0
+22462,4,2026-09-05 21:00,Villarreal,local,Buchanan,tajon-buchanan,,amarillas,1.0
+22462,4,2026-09-05 21:00,Villarreal,local,Mikautadze,georges-mikautadze,,min,28.0
+22462,4,2026-09-05 21:00,Villarreal,local,Oluwaseyi,tani-oluwaseyi,,min,13.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Leo Román,leo-roman,,min,90.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Ximo,,,min,90.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Giménez,jose-maria-gimenez,,min,66.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Giménez,jose-maria-gimenez,,asis_sg,1.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Quagliata,giacomo-quagliata,,min,90.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Noubi,lucas-noubi,,min,90.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Riki,,,min,54.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Mario,,,min,66.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Luismi,,,min,77.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Luismi,,,goles,1.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Amatucci,lorenzo-amatucci,,min,90.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Amatucci,lorenzo-amatucci,,amarillas,1.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,min,90.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,goles,1.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,asis,2.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,asis_sg,1.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Bil Nsongo,bil-nsongo,,min,66.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Loureiro,miguel-loureiro,,min,24.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Casadó,marc-casado,,min,24.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,A. Traoré,,,min,24.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Yeremay,,,min,36.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Yeremay,,,amarillas,1.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Eddahchouri,zakaria-eddahchouri,,min,13.0
+22462,4,2026-09-05 21:00,Deportivo,visitante,Eddahchouri,zakaria-eddahchouri,,goles,1.0
+22463,5,2026-09-12 18:30,Athletic,local,Unai Simón,unai-simon,,min,90.0
+22463,5,2026-09-12 18:30,Athletic,local,Laporte,aymeric-laporte,,min,90.0
+22463,5,2026-09-12 18:30,Athletic,local,Yuri,,,min,90.0
+22463,5,2026-09-12 18:30,Athletic,local,Yuri,,,amarillas,1.0
+22463,5,2026-09-12 18:30,Athletic,local,Yeray,,,min,90.0
+22463,5,2026-09-12 18:30,Athletic,local,Areso,jesus-areso,,min,65.0
+22463,5,2026-09-12 18:30,Athletic,local,R. de Galarreta,,,min,65.0
+22463,5,2026-09-12 18:30,Athletic,local,Sancet,oihan-sancet,,min,90.0
+22463,5,2026-09-12 18:30,Athletic,local,Sancet,oihan-sancet,,asis_sg,1.0
+22463,5,2026-09-12 18:30,Athletic,local,Navarro,robert-navarro,,min,72.0
+22463,5,2026-09-12 18:30,Athletic,local,Gerenabarrena,benat-gerenabarrena,,min,90.0
+22463,5,2026-09-12 18:30,Athletic,local,Gerenabarrena,benat-gerenabarrena,,amarillas,1.0
+22463,5,2026-09-12 18:30,Athletic,local,I. Williams,,,min,81.0
+22463,5,2026-09-12 18:30,Athletic,local,I. Williams,,,goles,1.0
+22463,5,2026-09-12 18:30,Athletic,local,N. Williams,,,min,90.0
+22463,5,2026-09-12 18:30,Athletic,local,N. Williams,,,asis_sg,1.0
+22463,5,2026-09-12 18:30,Athletic,local,Johaneko,,,min,25.0
+22463,5,2026-09-12 18:30,Athletic,local,Berenguer,alex-berenguer,,min,18.0
+22463,5,2026-09-12 18:30,Athletic,local,Berenguer,alex-berenguer,,asis,1.0
+22463,5,2026-09-12 18:30,Athletic,local,Berenguer,alex-berenguer,,asis_sg,1.0
+22463,5,2026-09-12 18:30,Athletic,local,Berenguer,alex-berenguer,,amarillas,1.0
+22463,5,2026-09-12 18:30,Athletic,local,Jauregizar,mikel-jauregizar,,min,25.0
+22463,5,2026-09-12 18:30,Athletic,local,Sannadi,maroan-sannadi,,min,9.0
+22463,5,2026-09-12 18:30,Elche,visitante,Dituro,matias-dituro,,min,90.0
+22463,5,2026-09-12 18:30,Elche,visitante,Chust,victor-chust,,min,90.0
+22463,5,2026-09-12 18:30,Elche,visitante,Sangaré,buba-sangare,,min,90.0
+22463,5,2026-09-12 18:30,Elche,visitante,Revivo,roy-revivo,,min,90.0
+22463,5,2026-09-12 18:30,Elche,visitante,Villar,gonzalo-villar,,min,83.0
+22463,5,2026-09-12 18:30,Elche,visitante,Tete Morente,tete-morente,,min,76.0
+22463,5,2026-09-12 18:30,Elche,visitante,Valera,german-valera,,min,82.0
+22463,5,2026-09-12 18:30,Elche,visitante,Buonanotte,facundo-buonanotte,,min,69.0
+22463,5,2026-09-12 18:30,Elche,visitante,Buonanotte,facundo-buonanotte,,goles,1.0
+22463,5,2026-09-12 18:30,Elche,visitante,Redondo,federico-redondo,,min,90.0
+22463,5,2026-09-12 18:30,Elche,visitante,Redondo,federico-redondo,,amarillas,1.0
+22463,5,2026-09-12 18:30,Elche,visitante,Morcillo,javi-morcillo,,min,90.0
+22463,5,2026-09-12 18:30,Elche,visitante,Fer Niño,,,min,69.0
+22463,5,2026-09-12 18:30,Elche,visitante,Rubén Sánchez,ruben-sanchez-1,,min,14.0
+22463,5,2026-09-12 18:30,Elche,visitante,Rubén Sánchez,ruben-sanchez-1,,amarillas,1.0
+22463,5,2026-09-12 18:30,Elche,visitante,Lemar,thomas-lemar,,min,21.0
+22463,5,2026-09-12 18:30,Elche,visitante,Martim Neto,martim-neto,,min,7.0
+22463,5,2026-09-12 18:30,Elche,visitante,Cepeda,lucas-cepeda,,min,8.0
+22463,5,2026-09-12 18:30,Elche,visitante,Osorio,abiel-osorio,,min,21.0
+22463,5,2026-09-12 18:30,Elche,visitante,Osorio,abiel-osorio,,amarillas,1.0
+22464,5,2026-09-13 14:00,Celta,local,Radu,andrei-radu,,min,90.0
+22464,5,2026-09-13 14:00,Celta,local,M. Alonso,,,min,90.0
+22464,5,2026-09-13 14:00,Celta,local,Carreira,sergio-carreira,,min,90.0
+22464,5,2026-09-13 14:00,Celta,local,Rueda,javi-rueda,,min,84.0
+22464,5,2026-09-13 14:00,Celta,local,Lago,yoel-lago,,min,90.0
+22464,5,2026-09-13 14:00,Celta,local,Lago,yoel-lago,,amarillas,1.0
+22464,5,2026-09-13 14:00,Celta,local,Moriba,ilaix-moriba,,min,74.0
+22464,5,2026-09-13 14:00,Celta,local,Moriba,ilaix-moriba,,asis_sg,1.0
+22464,5,2026-09-13 14:00,Celta,local,Hugo Álvarez,hugo-lvarez-,,min,74.0
+22464,5,2026-09-13 14:00,Celta,local,Hugo González,hugo-gonzalez,,min,62.0
+22464,5,2026-09-13 14:00,Celta,local,Hugo González,hugo-gonzalez,,asis,1.0
+22464,5,2026-09-13 14:00,Celta,local,Román,miguel-roman,,min,90.0
+22464,5,2026-09-13 14:00,Celta,local,Jutglà,ferran-jutgla,,min,84.0
+22464,5,2026-09-13 14:00,Celta,local,Jutglà,ferran-jutgla,,goles,1.0
+22464,5,2026-09-13 14:00,Celta,local,Jutglà,ferran-jutgla,,tiros,2.0
+22464,5,2026-09-13 14:00,Celta,local,Galán,javi-galan,,min,6.0
+22464,5,2026-09-13 14:00,Celta,local,Swedberg,williot-swedberg,,min,28.0
+22464,5,2026-09-13 14:00,Celta,local,Driouech,couhaib-driouech,,min,16.0
+22464,5,2026-09-13 14:00,Celta,local,Aspas,iago-aspas,,min,6.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Herrero,alfonso-herrero,,min,90.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Galilea,einar-galilea,,min,45.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Galilea,einar-galilea,,amarillas,1.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Salinas,jose-salinas,,min,87.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Rafita,,,min,90.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Recio,angel-recio,,min,90.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Joaquín,,,min,61.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Pablo Martínez,pablo-martinez,,min,90.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Pablo Martínez,pablo-martinez,,asis,1.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Larrubia,david-larrubia,,min,90.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Merino,izan-merino,,min,67.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Lorenzo,dani-lorenzo-1,,min,67.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Chupete,chupete,,min,90.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Berrocal,juan-berrocal,,min,3.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Puga,carlos-puga,,min,23.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Enríquez,ramon-enriquez,,min,45.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Juan Cruz,juan-cruz-2,,min,29.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Niño,adrian-nino,,min,23.0
+22464,5,2026-09-13 14:00,Málaga,visitante,Niño,adrian-nino,,goles,1.0
+22465,5,2026-09-13 18:30,Getafe,local,Soria,david-soria,,min,90.0
+22465,5,2026-09-13 18:30,Getafe,local,Mojica,johan-mojica,,min,90.0
+22465,5,2026-09-13 18:30,Getafe,local,Djené,dakonam-djene,,min,90.0
+22465,5,2026-09-13 18:30,Getafe,local,Gudelj,nemanja-gudelj,,min,90.0
+22465,5,2026-09-13 18:30,Getafe,local,Gudelj,nemanja-gudelj,,asis_sg,1.0
+22465,5,2026-09-13 18:30,Getafe,local,Boselli,sebastian-boselli,,min,84.0
+22465,5,2026-09-13 18:30,Getafe,local,Terrats,terrats,,min,84.0
+22465,5,2026-09-13 18:30,Getafe,local,Terrats,terrats,,goles,1.0
+22465,5,2026-09-13 18:30,Getafe,local,Terrats,terrats,,tiros,2.0
+22465,5,2026-09-13 18:30,Getafe,local,Mangala,orel-mangala,,min,90.0
+22465,5,2026-09-13 18:30,Getafe,local,Mario Martín,mario-martin,,min,90.0
+22465,5,2026-09-13 18:30,Getafe,local,Mario Martín,mario-martin,,amarillas,1.0
+22465,5,2026-09-13 18:30,Getafe,local,Enes Ünal,enes-unal,,min,90.0
+22465,5,2026-09-13 18:30,Getafe,local,Enes Ünal,enes-unal,,amarillas,1.0
+22465,5,2026-09-13 18:30,Getafe,local,Satriano,martin-satriano,,min,89.0
+22465,5,2026-09-13 18:30,Getafe,local,Iván Azón,ivan-azon,,min,76.0
+22465,5,2026-09-13 18:30,Getafe,local,Iván Azón,ivan-azon,,asis,1.0
+22465,5,2026-09-13 18:30,Getafe,local,Iván Azón,ivan-azon,,amarillas,1.0
+22465,5,2026-09-13 18:30,Getafe,local,Sazonov,saba-sazonov,,min,6.0
+22465,5,2026-09-13 18:30,Getafe,local,Davinchi,davinchi,,min,1.0
+22465,5,2026-09-13 18:30,Getafe,local,Francho,,,min,14.0
+22465,5,2026-09-13 18:30,Getafe,local,Joselu,,,min,6.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Leo Román,leo-roman,,min,90.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Ximo,,,min,90.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Giménez,jose-maria-gimenez,,min,90.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Quagliata,giacomo-quagliata,,min,90.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Noubi,lucas-noubi,,min,90.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Noubi,lucas-noubi,,amarillas,1.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Mario,,,min,90.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Luismi,,,min,71.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Casadó,marc-casado,,min,62.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Amatucci,lorenzo-amatucci,,min,90.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,min,90.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,goles,1.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,,asis_sg,1.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Bil Nsongo,bil-nsongo,,min,71.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,A. Traoré,,,min,28.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Yeremay,,,min,19.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Yeremay,,,asis,1.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Yeremay,,,asis_sg,1.0
+22465,5,2026-09-13 18:30,Deportivo,visitante,Eddahchouri,zakaria-eddahchouri,,min,19.0
+22466,5,2026-09-13 16:15,Levante,local,Ryan,mat-ryan,,min,90.0
+22466,5,2026-09-13 16:15,Levante,local,Mandi,aissa-mandi,,min,90.0
+22466,5,2026-09-13 16:15,Levante,local,Mandi,aissa-mandi,,asis_sg,1.0
+22466,5,2026-09-13 16:15,Levante,local,Toljan,jeremy-toljan,,min,90.0
+22466,5,2026-09-13 16:15,Levante,local,De la Fuente,,,min,71.0
+22466,5,2026-09-13 16:15,Levante,local,Manu Sánchez,manu-sanchez,,min,71.0
+22466,5,2026-09-13 16:15,Levante,local,Víctor García,victor-garcia-1,,min,90.0
+22466,5,2026-09-13 16:15,Levante,local,Víctor García,victor-garcia-1,,asis_sg,1.0
+22466,5,2026-09-13 16:15,Levante,local,Olasagasti,jon-ander-olasagasti,,min,59.0
+22466,5,2026-09-13 16:15,Levante,local,Sotelo,hugo-sotelo,,min,60.0
+22466,5,2026-09-13 16:15,Levante,local,Sotelo,hugo-sotelo,,amarillas,1.0
+22466,5,2026-09-13 16:15,Levante,local,Requena,dani-requena,,min,90.0
+22466,5,2026-09-13 16:15,Levante,local,Brugui,,,min,90.0
+22466,5,2026-09-13 16:15,Levante,local,Brugui,,,goles,1.0
+22466,5,2026-09-13 16:15,Levante,local,Brugui,,,tiros,3.0
+22466,5,2026-09-13 16:15,Levante,local,Ratkov,petar-ratkov,,min,60.0
+22466,5,2026-09-13 16:15,Levante,local,Nacho Pérez,nacho-perez-1,,min,19.0
+22466,5,2026-09-13 16:15,Levante,local,Ndukwe,ifeanyi-ndukwe,,min,19.0
+22466,5,2026-09-13 16:15,Levante,local,Oriol Rey,oriol-rey,,min,30.0
+22466,5,2026-09-13 16:15,Levante,local,Bardeli,,,min,31.0
+22466,5,2026-09-13 16:15,Levante,local,Iván Romero,ivan-romero,,min,30.0
+22466,5,2026-09-13 16:15,Levante,local,Iván Romero,ivan-romero,,goles,1.0
+22466,5,2026-09-13 16:15,Levante,local,Iván Romero,ivan-romero,,tiros,3.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Joan Garcia,joan-garcia,,min,90.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Eric Garcia,eric-garcia,,min,90.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Cubarsí,pau-cubarsi,,min,90.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Martín,gerard-martin,,min,45.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Martín,gerard-martin,,amarillas,1.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Espart,xavi-espart,,min,80.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Espart,xavi-espart,,goles,1.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Rodri,,,min,90.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Pedri,,,min,66.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Fermín,,,min,90.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Raphinha,raphinha,,min,90.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Raphinha,raphinha,,asis,2.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Raphinha,raphinha,,asis_sg,1.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Gordon,anthony-gordon,,min,67.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Yamal,lamine-yamal,,min,66.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Yamal,lamine-yamal,,goles,2.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Yamal,lamine-yamal,,tiros,2.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Cancelo,joao-cancelo,,min,10.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,A. Christensen,,,min,45.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Olmo,dani-olmo,,min,24.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Bernal,marc-bernal,,min,24.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Bernal,marc-bernal,,asis,1.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Bernal,marc-bernal,,asis_sg,1.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Adeyemi,karim-adeyemi,,min,23.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Adeyemi,karim-adeyemi,,goles,1.0
+22466,5,2026-09-13 16:15,Barcelona,visitante,Adeyemi,karim-adeyemi,,tiros,2.0
+22467,5,2026-09-12 16:15,Osasuna,local,Herrera,sergio-herrera,,min,90.0
+22467,5,2026-09-12 16:15,Osasuna,local,Diego Rico,diego-rico,,min,45.0
+22467,5,2026-09-12 16:15,Osasuna,local,Catena,alejandro-catena,,min,90.0
+22467,5,2026-09-12 16:15,Osasuna,local,Arguibide,inigo-arguibide,,min,59.0
+22467,5,2026-09-12 16:15,Osasuna,local,Yeboah,rockson-yeboah,,min,90.0
+22467,5,2026-09-12 16:15,Osasuna,local,Rubén G.,,,min,60.0
+22467,5,2026-09-12 16:15,Osasuna,local,Kike Barja,kike-barja,,min,60.0
+22467,5,2026-09-12 16:15,Osasuna,local,Kike Barja,kike-barja,,amarillas,1.0
+22467,5,2026-09-12 16:15,Osasuna,local,Moncayola,jon-moncayola,,min,90.0
+22467,5,2026-09-12 16:15,Osasuna,local,Moncayola,jon-moncayola,,amarillas,1.0
+22467,5,2026-09-12 16:15,Osasuna,local,Iker Muñoz,iker-munoz,,min,90.0
+22467,5,2026-09-12 16:15,Osasuna,local,Budimir,ante-budimir,,min,90.0
+22467,5,2026-09-12 16:15,Osasuna,local,Raúl García,raul-garcia-1,,min,71.0
+22467,5,2026-09-12 16:15,Osasuna,local,Bretones,abel-bretones,,min,45.0
+22467,5,2026-09-12 16:15,Osasuna,local,Bretones,abel-bretones,,asis_sg,1.0
+22467,5,2026-09-12 16:15,Osasuna,local,Raul Moro,raul-moro,,min,30.0
+22467,5,2026-09-12 16:15,Osasuna,local,Dubasin,jonathan-dubasin,,min,30.0
+22467,5,2026-09-12 16:15,Osasuna,local,Osambela,asier-osambela,,min,31.0
+22467,5,2026-09-12 16:15,Osasuna,local,Del Castillo,romain-del-castillo,,min,19.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Dmitrovic,marko-dmitrovic,,min,90.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Cabrera,leandro-cabrera,,min,90.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,El Hilali,omar-el-hilali,,min,90.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,El Hilali,omar-el-hilali,,asis,1.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,El Hilali,omar-el-hilali,,asis_sg,1.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,El Hilali,omar-el-hilali,,amarillas,1.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Hinojo,roger-hinojo,,min,90.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Hinojo,roger-hinojo,,amarillas,1.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Riedel,clemens-riedel,,min,90.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Riedel,clemens-riedel,,amarillas,1.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Edu Expósito,edu-exposito,,min,89.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Urko,,,min,90.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Javier Hernández,javier-hernandez,,min,80.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Roberto,,,min,80.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Roberto,,,goles,2.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Roberto,,,tiros,2.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Marcos,,,min,66.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Marcos,,,asis,1.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Marcos,,,asis_sg,1.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Dolan,tyrhys-dolan,,min,66.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Drkusic,vanja-drkusic,,min,1.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Pere Milla,pere-milla,,min,10.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Bryan,,,min,10.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Calatrava,lex-calatrava,,min,24.0
+22467,5,2026-09-12 16:15,Espanyol,visitante,Moscardo,gabriel-moscardo,,min,24.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Courtois,thibaut-courtois,,min,90.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Rüdiger,antonio-rudiger,,min,90.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Konaté,ibrahima-konate,,min,90.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Dumfries,denzel-dumfries,,min,90.0
+22468,5,2026-09-12 21:00,Real Madrid,local,A. F. Carreras,,,min,90.0
+22468,5,2026-09-12 21:00,Real Madrid,local,A. F. Carreras,,,goles,1.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Bernardo Silva,bernardo-silva,,min,69.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Valverde,federico-valverde,,min,45.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Bellingham,jude-bellingham,,min,90.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Bellingham,jude-bellingham,,goles,1.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Bellingham,jude-bellingham,,tiros,2.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Mbappé,kylian-mbappe,,min,90.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Mbappé,kylian-mbappe,,goles,2.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Mbappé,kylian-mbappe,,asis,1.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Mbappé,kylian-mbappe,,asis_sg,1.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Mbappé,kylian-mbappe,,tiros,4.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Vinicius,,,min,89.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Vinicius,,,asis,1.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Vinicius,,,tiros,2.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Y. Diomande,,,min,72.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Cucurella,marc-cucurella,,min,1.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Camavinga,eduardo-camavinga,,min,45.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Tchouaméni,aurelien-tchouameni,,min,21.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Güler,arda-gler,,min,18.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Güler,arda-gler,,asis,1.0
+22468,5,2026-09-12 21:00,Real Madrid,local,Güler,arda-gler,,asis_sg,2.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Audero,emil-audero,,min,90.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Lejeune,florian-lejeune,,min,90.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Pedrosa,adria-pedrosa,,min,86.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Pedrosa,adria-pedrosa,,asis_sg,1.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Ratiu,andrei-florin,,min,90.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Álvaro García,alvaro-garcia,,min,90.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Unai López,unai-lopez,,min,75.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Pedro Díaz,pedro-diaz,,min,67.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Pedro Díaz,pedro-diaz,,tiros,3.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Pathé Ciss,pathe-ciss,,min,90.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Pathé Ciss,pathe-ciss,,amarillas,1.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Tsitaishvili,georgiy-tsitaishvili,,min,90.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Tsitaishvili,georgiy-tsitaishvili,,tiros,2.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Camello,sergio-camello,,min,75.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Camello,sergio-camello,,goles,1.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Camello,sergio-camello,,tiros,3.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Mujaid,,,min,15.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Balliu,ivan-balliu,,min,4.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Valentín,scar-valentin,,min,23.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Valentín,scar-valentin,,asis_sg,1.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Rayane,,,min,23.0
+22468,5,2026-09-12 21:00,Rayo,visitante,Alemão,alemo,,min,15.0
+22469,5,2026-09-12 14:00,Racing,local,Agirrezabala,julen-agirrezabala,,min,90.0
+22469,5,2026-09-12 14:00,Racing,local,Pablo Ramón,pablo-ramon,,min,90.0
+22469,5,2026-09-12 14:00,Racing,local,Mantilla,lvaro-mantilla,,min,90.0
+22469,5,2026-09-12 14:00,Racing,local,Belocian,jeanul-belocian,,min,90.0
+22469,5,2026-09-12 14:00,Racing,local,Salinas,jorge-salinas,,min,90.0
+22469,5,2026-09-12 14:00,Racing,local,Salinas,jorge-salinas,,amarillas,1.0
+22469,5,2026-09-12 14:00,Racing,local,Canales,sergio-canales,,min,74.0
+22469,5,2026-09-12 14:00,Racing,local,Iñigo Vicente,inigo-vicente,,min,83.0
+22469,5,2026-09-12 14:00,Racing,local,Iñigo Vicente,inigo-vicente,,asis,1.0
+22469,5,2026-09-12 14:00,Racing,local,Iñigo Vicente,inigo-vicente,,asis_sg,1.0
+22469,5,2026-09-12 14:00,Racing,local,Iván Martín,ivan-martin,,min,90.0
+22469,5,2026-09-12 14:00,Racing,local,Prati,matteo-prati,,min,83.0
+22469,5,2026-09-12 14:00,Racing,local,Pablo García,pablo-garcia-1,,min,65.0
+22469,5,2026-09-12 14:00,Racing,local,Zabiri,yassir-zabiri,,min,74.0
+22469,5,2026-09-12 14:00,Racing,local,Zabiri,yassir-zabiri,,goles,2.0
+22469,5,2026-09-12 14:00,Racing,local,Zabiri,yassir-zabiri,,amarillas,1.0
+22469,5,2026-09-12 14:00,Racing,local,Zabiri,yassir-zabiri,,tiros,3.0
+22469,5,2026-09-12 14:00,Racing,local,Pedro Felipe,pedro-felipe,,min,1.0
+22469,5,2026-09-12 14:00,Racing,local,Almeida 64',,,min,24.0
+22469,5,2026-09-12 14:00,Racing,local,Almeida 64',,,rojas,1.0
+22469,5,2026-09-12 14:00,Racing,local,Maguette,,,min,7.0
+22469,5,2026-09-12 14:00,Racing,local,Luque,iker-luque,,min,16.0
+22469,5,2026-09-12 14:00,Racing,local,Villalibre,asier-villalibre,,min,7.0
+22469,5,2026-09-12 14:00,Racing,local,Guliashvili 73',,,min,15.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Sivera,antonio-sivera,,min,90.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Jonny,,,min,90.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Tenaglia,nahuel-tenaglia,,min,45.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Tenaglia,nahuel-tenaglia,,asis_sg,1.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Tenaglia,nahuel-tenaglia,,amarillas,1.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Ángel Pérez,angel-perez-1,,min,86.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Koski,ville-koski,,min,90.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Koski,ville-koski,,goles,1.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Denis Suárez,denis-suarez,,min,90.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Blanco,antonio-blanco,,min,67.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Blanco,antonio-blanco,,amarillas,1.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Ibáñez,pablo-ibanez,,min,45.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Ibáñez,pablo-ibanez,,amarillas,1.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Rebbach,abde-rebbach,,min,90.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Rebbach,abde-rebbach,,tiros,2.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Mariano,,,min,67.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Mariano,,,tiros,3.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Boyé,lucas-boye,,min,90.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Valentini,nicolas-valentini,,min,45.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Aleñá,carles-alena,,min,23.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Protesoni,,,min,45.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Toni Martinez,antonio-martinez,,min,23.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Miguel,,,min,1.0
+22469,5,2026-09-12 14:00,Alavés,visitante,Aitor Mañas 85',,,min,3.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Remiro,alex-remiro,,min,90.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Sergio Gómez,sergio-gomez,,min,90.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Aramburu,jon-aramburu,,min,90.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Beitia,luken-beitia,,min,90.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Beitia,luken-beitia,,asis_sg,1.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,M. Sarr,,,min,90.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Carlos Soler,carlos-soler,,min,78.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Barrenetxea,ander-barrenetxea,,min,72.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Herrera,yangel-herrera,,min,85.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Herrera,yangel-herrera,,amarillas,1.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,L. Sucic,,,min,90.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Guedes,goncalo-guedes,,min,72.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Oyarzabal,mikel-oyarzabal,,min,79.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Oyarzabal,mikel-oyarzabal,,amarillas,1.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Kubo,takefusa-kubo,,min,18.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Zakharyan,arsen-zakharyan,,min,5.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Gorrotxategi,jon-gorrotxategi,,min,12.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Ochieng,job-ochieng,,min,18.0
+22470,5,2026-09-13 21:00,Real Sociedad,local,Óskarsson,orri-steinn-skarsson,,min,11.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Oblak,jan-oblak,,min,90.0
+22470,5,2026-09-13 21:00,Atlético,visitante,M. Llorente,,,min,60.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Grimaldo,alex-grimaldo,,min,90.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Grimaldo,alex-grimaldo,,goles,1.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Grimaldo,alex-grimaldo,,asis,1.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Grimaldo,alex-grimaldo,,asis_sg,1.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Grimaldo,alex-grimaldo,,tiros,2.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Hancko,david-hancko,,min,90.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Hancko,david-hancko,,asis,1.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Hancko,david-hancko,,asis_sg,1.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Romero,cristian-romero,,min,90.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Pubill,marc-pubill,,min,90.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Kang-In Lee,lee-kang-in,,min,60.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Baena,lex-baena,,min,59.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Giuliano,,,min,90.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Giuliano,,,goles,1.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Hjulmand,morten-hjulmand,,min,90.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Lookman,ademola-lookman,,min,76.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Koke,,,min,30.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Cardoso,johnny-cardoso,,min,31.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Cardoso,johnny-cardoso,,amarillas,1.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Jonathan David,jonathan-david,,min,30.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Jonathan David,jonathan-david,,goles,1.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Jonathan David,jonathan-david,,tiros,2.0
+22470,5,2026-09-13 21:00,Atlético,visitante,Ortiz,arnau-ortiz,,min,14.0
+22471,5,2026-09-11 21:00,Sevilla,local,Vlachodimos,odysseas-vlachodimos,,min,90.0
+22471,5,2026-09-11 21:00,Sevilla,local,Iglesias,juan-iglesias,,min,90.0
+22471,5,2026-09-11 21:00,Sevilla,local,Iglesias,juan-iglesias,,goles,1.0
+22471,5,2026-09-11 21:00,Sevilla,local,Kike Salas,kike-salas,,min,90.0
+22471,5,2026-09-11 21:00,Sevilla,local,Suazo,gabriel-suazo,,min,90.0
+22471,5,2026-09-11 21:00,Sevilla,local,Castrín,andres-castrin,,min,90.0
+22471,5,2026-09-11 21:00,Sevilla,local,Agoume,lucien-agoume,,min,90.0
+22471,5,2026-09-11 21:00,Sevilla,local,Félix Correia,felix-correia,,min,83.0
+22471,5,2026-09-11 21:00,Sevilla,local,Fofana,youssouf-fofana,,min,71.0
+22471,5,2026-09-11 21:00,Sevilla,local,Sierra,miguel-sierra,,min,63.0
+22471,5,2026-09-11 21:00,Sevilla,local,Romero,isaac-romero,,min,63.0
+22471,5,2026-09-11 21:00,Sevilla,local,Stassin,lucas-stassin,,min,83.0
+22471,5,2026-09-11 21:00,Sevilla,local,Julio Díaz,julio-diaz,,min,7.0
+22471,5,2026-09-11 21:00,Sevilla,local,Guridi,jon-guridi,,min,7.0
+22471,5,2026-09-11 21:00,Sevilla,local,Kochorashvili,giorgi-kochorashvili-1,,min,19.0
+22471,5,2026-09-11 21:00,Sevilla,local,Kochorashvili,giorgi-kochorashvili-1,,asis,1.0
+22471,5,2026-09-11 21:00,Sevilla,local,Kochorashvili,giorgi-kochorashvili-1,,asis_sg,1.0
+22471,5,2026-09-11 21:00,Sevilla,local,Ejuke,chidera-ejuke,,min,27.0
+22471,5,2026-09-11 21:00,Sevilla,local,Ejuke,chidera-ejuke,,amarillas,1.0
+22471,5,2026-09-11 21:00,Sevilla,local,Ure,robbie-ure,,min,27.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Dimitrievski,stole-dimitrievski,,min,90.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Gayà,jose-gaya,,min,83.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Arnau,,,min,62.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Tárrega,cesar-tarrega,,min,24.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Pepelu,pepelu,,min,90.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Javi Guerra,javi-guerra-1,,min,83.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Ugrinic,filip-ugrinic,,min,90.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Dieng,aliou-dieng,,min,90.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Sato,ryunosuke-sato,,min,62.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Sato,ryunosuke-sato,,amarillas,1.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Danjuma,arnaut-danjuma,,min,90.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Maffeo,pablo-maffeo,,min,28.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Maffeo,pablo-maffeo,,amarillas,1.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Jesús Vázquez,jesus-vazquez-1,,min,7.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Elliott,harvey-elliott,,min,28.0
+22471,5,2026-09-11 21:00,Valencia,visitante,Duro,hugo-duro,,min,7.0
+22472,5,2026-09-14 21:00,Villarreal,local,Gulacsi,,,min,90.0
+22472,5,2026-09-14 21:00,Villarreal,local,Veiga,renato-veiga,,min,90.0
+22472,5,2026-09-14 21:00,Villarreal,local,Veiga,renato-veiga,,asis,1.0
+22472,5,2026-09-14 21:00,Villarreal,local,Veiga,renato-veiga,,asis_sg,1.0
+22472,5,2026-09-14 21:00,Villarreal,local,Veiga,renato-veiga,,amarillas,1.0
+22472,5,2026-09-14 21:00,Villarreal,local,Romero,carlos-romero,,min,90.0
+22472,5,2026-09-14 21:00,Villarreal,local,Mouriño,santiago-mourino,,min,76.0
+22472,5,2026-09-14 21:00,Villarreal,local,Pau Navarro,pau-navarro,,min,90.0
+22472,5,2026-09-14 21:00,Villarreal,local,Comesaña,santi-comesana,,min,90.0
+22472,5,2026-09-14 21:00,Villarreal,local,Pape Gueye,pape-gueye,,min,54.0
+22472,5,2026-09-14 21:00,Villarreal,local,Buchanan,tajon-buchanan,,min,55.0
+22472,5,2026-09-14 21:00,Villarreal,local,Gerard,,,min,62.0
+22472,5,2026-09-14 21:00,Villarreal,local,Gerard,,,goles,1.0
+22472,5,2026-09-14 21:00,Villarreal,local,Gerard,,,asis_sg,1.0
+22472,5,2026-09-14 21:00,Villarreal,local,Pépé,nicolas-pepe,,min,76.0
+22472,5,2026-09-14 21:00,Villarreal,local,Mikautadze,georges-mikautadze,,min,90.0
+22472,5,2026-09-14 21:00,Villarreal,local,Mikautadze,georges-mikautadze,,tiros,4.0
+22472,5,2026-09-14 21:00,Villarreal,local,Freeman,alex-freeman,,min,14.0
+22472,5,2026-09-14 21:00,Villarreal,local,Moleiro,alberto-moleiro,,min,35.0
+22472,5,2026-09-14 21:00,Villarreal,local,Saliba,nathan-dylan-saliba,,min,36.0
+22472,5,2026-09-14 21:00,Villarreal,local,Ayoze,,,min,14.0
+22472,5,2026-09-14 21:00,Villarreal,local,Oluwaseyi,tani-oluwaseyi,,min,28.0
+22472,5,2026-09-14 21:00,Betis,visitante,Valles,alvaro-valles,,min,90.0
+22472,5,2026-09-14 21:00,Betis,visitante,Bartra,marc-bartra,,min,90.0
+22472,5,2026-09-14 21:00,Betis,visitante,Bellerín,hector-bellerin,,min,90.0
+22472,5,2026-09-14 21:00,Betis,visitante,Bellerín,hector-bellerin,,tiros,2.0
+22472,5,2026-09-14 21:00,Betis,visitante,Fran García,fran-garcia,,min,90.0
+22472,5,2026-09-14 21:00,Betis,visitante,Natan,natan,,min,90.0
+22472,5,2026-09-14 21:00,Betis,visitante,Natan,natan,,goles,1.0
+22472,5,2026-09-14 21:00,Betis,visitante,Isco,,,min,57.0
+22472,5,2026-09-14 21:00,Betis,visitante,Fornals,pablo-fornals,,min,84.0
+22472,5,2026-09-14 21:00,Betis,visitante,Marc Roca,marc-roca,,min,90.0
+22472,5,2026-09-14 21:00,Betis,visitante,Riquelme,rodrigo-riquelme,,min,67.0
+22472,5,2026-09-14 21:00,Betis,visitante,Cucho,,,min,84.0
+22472,5,2026-09-14 21:00,Betis,visitante,Cucho,,,goles,1.0
+22472,5,2026-09-14 21:00,Betis,visitante,Cucho,,,asis_sg,1.0
+22472,5,2026-09-14 21:00,Betis,visitante,Cucho,,,tiros,3.0
+22472,5,2026-09-14 21:00,Betis,visitante,Abde,,,min,66.0
+22472,5,2026-09-14 21:00,Betis,visitante,Abde,,,asis_sg,1.0
+22472,5,2026-09-14 21:00,Betis,visitante,Ceballos,dani-ceballos,,min,33.0
+22472,5,2026-09-14 21:00,Betis,visitante,Lo Celso,giovani-lo-celso,,min,6.0
+22472,5,2026-09-14 21:00,Betis,visitante,Deossa,nelson-deossa,,min,23.0
+22472,5,2026-09-14 21:00,Betis,visitante,Deossa,nelson-deossa,,asis_sg,1.0
+22472,5,2026-09-14 21:00,Betis,visitante,Deossa,nelson-deossa,,tiros,2.0
+22472,5,2026-09-14 21:00,Betis,visitante,Bernal,facundo-bernal,,min,6.0
+22472,5,2026-09-14 21:00,Betis,visitante,Antony,antony,,min,24.0
+22472,5,2026-09-14 21:00,Betis,visitante,Antony,antony,,asis_sg,1.0
+22472,5,2026-09-14 21:00,Betis,visitante,Antony,antony,,tiros,3.0
+22473,6,2026-09-16 19:00,Atlético,local,Oblak,jan-oblak,,min,90.0
+22473,6,2026-09-16 19:00,Atlético,local,M. Llorente,,,min,90.0
+22473,6,2026-09-16 19:00,Atlético,local,Grimaldo,alex-grimaldo,,min,85.0
+22473,6,2026-09-16 19:00,Atlético,local,Grimaldo,alex-grimaldo,,asis_sg,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Le Normand,robin-le-normand,,min,90.0
+22473,6,2026-09-16 19:00,Atlético,local,Le Normand,robin-le-normand,,goles,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Romero,cristian-romero,,min,68.0
+22473,6,2026-09-16 19:00,Atlético,local,Koke,,,min,90.0
+22473,6,2026-09-16 19:00,Atlético,local,Kang-In Lee,lee-kang-in,,min,90.0
+22473,6,2026-09-16 19:00,Atlético,local,Kang-In Lee,lee-kang-in,,goles,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Kang-In Lee,lee-kang-in,,asis_sg,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Kang-In Lee,lee-kang-in,,tiros,4.0
+22473,6,2026-09-16 19:00,Atlético,local,Baena,lex-baena,,min,90.0
+22473,6,2026-09-16 19:00,Atlético,local,Baena,lex-baena,,goles,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Baena,lex-baena,,asis_sg,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Baena,lex-baena,,tiros,2.0
+22473,6,2026-09-16 19:00,Atlético,local,Cardoso,johnny-cardoso,,min,85.0
+22473,6,2026-09-16 19:00,Atlético,local,Cardoso,johnny-cardoso,,asis,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Cardoso,johnny-cardoso,,asis_sg,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Lookman,ademola-lookman,,min,68.0
+22473,6,2026-09-16 19:00,Atlético,local,Lookman,ademola-lookman,,asis_sg,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Lookman,ademola-lookman,,amarillas,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Jonathan David,jonathan-david,,min,68.0
+22473,6,2026-09-16 19:00,Atlético,local,Jonathan David,jonathan-david,,goles,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Jonathan David,jonathan-david,,asis,1.0
+22473,6,2026-09-16 19:00,Atlético,local,Jonathan David,jonathan-david,,asis_sg,2.0
+22473,6,2026-09-16 19:00,Atlético,local,Jonathan David,jonathan-david,,tiros,3.0
+22473,6,2026-09-16 19:00,Atlético,local,Hancko,david-hancko,,min,5.0
+22473,6,2026-09-16 19:00,Atlético,local,Pubill,marc-pubill,,min,22.0
+22473,6,2026-09-16 19:00,Atlético,local,Giuliano,,,min,22.0
+22473,6,2026-09-16 19:00,Atlético,local,Hjulmand,morten-hjulmand,,min,5.0
+22473,6,2026-09-16 19:00,Atlético,local,Ortiz,arnau-ortiz,,min,22.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Aitor,,,min,90.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Boyomo,boyomo,,min,90.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Bretones,abel-bretones,,min,90.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Bretones,abel-bretones,,amarillas,1.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Arguibide,inigo-arguibide,,min,71.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Unai Santos,unai-santos,,min,90.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Yeboah,rockson-yeboah,,min,90.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Torró,lucas-torro,,min,90.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Raul Moro,raul-moro,,min,59.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Raul Moro,raul-moro,,asis_sg,1.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Dubasin,jonathan-dubasin,,min,59.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Osambela,asier-osambela,,min,74.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Raúl García,raul-garcia-1,,min,60.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Rubén G.,,,min,31.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Rubén G.,,,amarillas,1.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Kike Barja,kike-barja,,min,31.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Moncayola,jon-moncayola,,min,19.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Budimir,ante-budimir,,min,30.0
+22473,6,2026-09-16 19:00,Osasuna,visitante,Del Castillo,,,min,16.0
+22474,6,2026-09-15 20:00,Alavés,local,Sivera,antonio-sivera,,min,90.0
+22474,6,2026-09-15 20:00,Alavés,local,Tenaglia,nahuel-tenaglia,,min,90.0
+22474,6,2026-09-15 20:00,Alavés,local,Valentini,nicolas-valentini,,min,90.0
+22474,6,2026-09-15 20:00,Alavés,local,Ángel Pérez,angel-perez-1,,min,85.0
+22474,6,2026-09-15 20:00,Alavés,local,Ángel Pérez,angel-perez-1,,asis_sg,1.0
+22474,6,2026-09-15 20:00,Alavés,local,Koski,ville-koski,,min,90.0
+22474,6,2026-09-15 20:00,Alavés,local,Denis Suárez,denis-suarez,,min,67.0
+22474,6,2026-09-15 20:00,Alavés,local,Blanco,antonio-blanco,,min,85.0
+22474,6,2026-09-15 20:00,Alavés,local,Blanco,antonio-blanco,,amarillas,1.0
+22474,6,2026-09-15 20:00,Alavés,local,Ibáñez,pablo-ibanez,,min,90.0
+22474,6,2026-09-15 20:00,Alavés,local,Rebbach,abde-rebbach,,min,85.0
+22474,6,2026-09-15 20:00,Alavés,local,Toni Martinez,antonio-martinez,,min,67.0
+22474,6,2026-09-15 20:00,Alavés,local,Boyé,lucas-boye,,min,90.0
+22474,6,2026-09-15 20:00,Alavés,local,Youssef,,,min,23.0
+22474,6,2026-09-15 20:00,Alavés,local,Aleñá,carles-alena,,min,5.0
+22474,6,2026-09-15 20:00,Alavés,local,Guevara,ander-guevara,,min,5.0
+22474,6,2026-09-15 20:00,Alavés,local,Mariano,,,min,23.0
+22474,6,2026-09-15 20:00,Alavés,local,Miguel,,,min,5.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Dimitrievski,stole-dimitrievski,,min,90.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Gayà,jose-gaya,,min,90.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Maffeo,pablo-maffeo,,min,82.0
+22474,6,2026-09-15 20:00,Valencia,visitante,De Haas,,,min,82.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Pepelu,pepelu,,min,90.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Pepelu,pepelu,,amarillas,1.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Guido,,,min,70.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Guido,,,amarillas,1.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Javi Guerra,javi-guerra-1,,min,90.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Javi Guerra,javi-guerra-1,,asis,1.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Javi Guerra,javi-guerra-1,,asis_sg,1.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Javi Guerra,javi-guerra-1,,amarillas,1.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Ugrinic,filip-ugrinic,,min,90.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Duro,hugo-duro,,min,63.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Danjuma,arnaut-danjuma,,min,90.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Jesús Vázquez,jesus-vazquez-1,,min,8.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Arnau,,,min,8.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Córdoba,iker-cordoba,,min,8.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Rioja 62',,,min,19.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Rioja 62',,,goles,1.0
+22474,6,2026-09-15 20:00,Valencia,visitante,Otorbi,david-otorbi,,min,20.0
+22475,6,2026-09-16 19:00,Deportivo,local,Leo Román,leo-roman,,min,90.0
+22475,6,2026-09-16 19:00,Deportivo,local,Giménez,jose-maria-gimenez,,min,83.0
+22475,6,2026-09-16 19:00,Deportivo,local,Angeliño,angelino,,min,59.0
+22475,6,2026-09-16 19:00,Deportivo,local,Angeliño,angelino,,rojas,1.0
+22475,6,2026-09-16 19:00,Deportivo,local,Altimira,adria-altimira,,min,90.0
+22475,6,2026-09-16 19:00,Deportivo,local,Loureiro,miguel-loureiro,,min,90.0
+22475,6,2026-09-16 19:00,Deportivo,local,Riki,,,min,57.0
+22475,6,2026-09-16 19:00,Deportivo,local,Luismi,,,min,61.0
+22475,6,2026-09-16 19:00,Deportivo,local,Amatucci,lorenzo-amatucci,,min,90.0
+22475,6,2026-09-16 19:00,Deportivo,local,Amatucci,lorenzo-amatucci,,amarillas,1.0
+22475,6,2026-09-16 19:00,Deportivo,local,Aubameyang,pierre-emerick-aubameyang,,min,90.0
+22475,6,2026-09-16 19:00,Deportivo,local,Yeremay,,,min,57.0
+22475,6,2026-09-16 19:00,Deportivo,local,Bil Nsongo,bil-nsongo,,min,45.0
+22475,6,2026-09-16 19:00,Deportivo,local,Quagliata,giacomo-quagliata,,min,29.0
+22475,6,2026-09-16 19:00,Deportivo,local,Mario,,,min,33.0
+22475,6,2026-09-16 19:00,Deportivo,local,Asp Jensen,jonathan-asp-jensen,,min,33.0
+22475,6,2026-09-16 19:00,Deportivo,local,Asp Jensen,jonathan-asp-jensen,,tiros,2.0
+22475,6,2026-09-16 19:00,Deportivo,local,A. Traoré,,,min,45.0
+22475,6,2026-09-16 19:00,Deportivo,local,Eddahchouri,zakaria-eddahchouri,,min,7.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Vlachodimos,odysseas-vlachodimos,,min,90.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Iglesias,juan-iglesias,,min,90.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Iglesias,juan-iglesias,,amarillas,1.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Kike Salas,kike-salas,,min,90.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Kike Salas,kike-salas,,amarillas,1.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Suazo,gabriel-suazo,,min,90.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Castrín,andres-castrin,,min,90.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Guridi,jon-guridi,,min,81.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Guridi,jon-guridi,,amarillas,1.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Agoume,lucien-agoume,,min,90.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Agoume,lucien-agoume,,asis_sg,1.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Félix Correia,felix-correia,,min,81.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Fofana,youssouf-fofana,,min,90.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Sierra,miguel-sierra,,min,89.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Sierra,miguel-sierra,,goles,1.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Sierra,miguel-sierra,,tiros,2.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Stassin,lucas-stassin,,min,76.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Stassin,lucas-stassin,,tiros,2.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Julio Díaz,julio-diaz,,min,9.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Kochorashvili,giorgi-kochorashvili-1,,min,9.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Romero,isaac-romero,,min,14.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Romero,isaac-romero,,amarillas,1.0
+22475,6,2026-09-16 19:00,Sevilla,visitante,Ure,robbie-ure,,min,1.0
+22476,6,2026-09-15 21:30,Elche,local,Dituro,matias-dituro,,min,90.0
+22476,6,2026-09-15 21:30,Elche,local,Chust,victor-chust,,min,90.0
+22476,6,2026-09-15 21:30,Elche,local,Sangaré,buba-sangare,,min,68.0
+22476,6,2026-09-15 21:30,Elche,local,Revivo,roy-revivo,,min,90.0
+22476,6,2026-09-15 21:30,Elche,local,Villar,gonzalo-villar,,min,90.0
+22476,6,2026-09-15 21:30,Elche,local,Villar,gonzalo-villar,,amarillas,1.0
+22476,6,2026-09-15 21:30,Elche,local,Tete Morente,tete-morente,,min,80.0
+22476,6,2026-09-15 21:30,Elche,local,Valera,german-valera,,min,58.0
+22476,6,2026-09-15 21:30,Elche,local,Aguado,marc-aguado,,min,58.0
+22476,6,2026-09-15 21:30,Elche,local,Aguado,marc-aguado,,amarillas,1.0
+22476,6,2026-09-15 21:30,Elche,local,Martim Neto,martim-neto,,min,68.0
+22476,6,2026-09-15 21:30,Elche,local,Redondo,federico-redondo,,min,90.0
+22476,6,2026-09-15 21:30,Elche,local,Osorio,abiel-osorio,,min,90.0
+22476,6,2026-09-15 21:30,Elche,local,Osorio,abiel-osorio,,goles,1.0
+22476,6,2026-09-15 21:30,Elche,local,Rubén Sánchez,ruben-sanchez-1,,min,22.0
+22476,6,2026-09-15 21:30,Elche,local,Josan,,,min,10.0
+22476,6,2026-09-15 21:30,Elche,local,Josan,,,asis,1.0
+22476,6,2026-09-15 21:30,Elche,local,Josan,,,amarillas,1.0
+22476,6,2026-09-15 21:30,Elche,local,Lemar,thomas-lemar,,min,32.0
+22476,6,2026-09-15 21:30,Elche,local,Cepeda,lucas-cepeda,,min,32.0
+22476,6,2026-09-15 21:30,Elche,local,Cepeda,lucas-cepeda,,asis,1.0
+22476,6,2026-09-15 21:30,Elche,local,Cepeda,lucas-cepeda,,asis_sg,1.0
+22476,6,2026-09-15 21:30,Elche,local,Cepeda,lucas-cepeda,,amarillas,1.0
+22476,6,2026-09-15 21:30,Elche,local,Fer Niño,,,min,22.0
+22476,6,2026-09-15 21:30,Elche,local,Fer Niño,,,goles,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Courtois,thibaut-courtois,,min,90.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Alexander-Arnold,trent-alexander-arnold,,min,87.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Konaté,ibrahima-konate,,min,90.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Konaté,ibrahima-konate,,amarillas,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Cucurella,marc-cucurella,,min,90.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Huijsen,dean-huijsen,,min,90.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Valverde,federico-valverde,,min,90.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Tchouaméni,aurelien-tchouameni,,min,86.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Güler,arda-gler,,min,68.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Güler,arda-gler,,asis_sg,2.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Mbappé,kylian-mbappe,,min,90.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Mbappé,kylian-mbappe,,goles,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Mbappé,kylian-mbappe,,asis,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Mbappé,kylian-mbappe,,asis_sg,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Vinicius,,,min,68.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Y. Diomande,,,min,89.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Y. Diomande,,,asis,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Y. Diomande,,,asis_sg,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Y. Diomande,,,amarillas,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Dumfries,denzel-dumfries,,min,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Brahim,,,min,22.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Bellingham,jude-bellingham,,min,22.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Carlos Espí,carlos-espi,,min,3.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Carlos Espí,carlos-espi,,goles,1.0
+22476,6,2026-09-15 21:30,Real Madrid,visitante,Endrick,endrick,,min,4.0
+22477,6,2026-09-16 21:30,Barcelona,local,Joan Garcia,joan-garcia,,min,45.0
+22477,6,2026-09-16 21:30,Barcelona,local,Cancelo,joao-cancelo,,min,78.0
+22477,6,2026-09-16 21:30,Barcelona,local,Cancelo,joao-cancelo,,goles,1.0
+22477,6,2026-09-16 21:30,Barcelona,local,Cancelo,joao-cancelo,,amarillas,1.0
+22477,6,2026-09-16 21:30,Barcelona,local,A. Christensen,,,min,90.0
+22477,6,2026-09-16 21:30,Barcelona,local,Eric Garcia,eric-garcia,,min,90.0
+22477,6,2026-09-16 21:30,Barcelona,local,Martín,gerard-martin,,min,90.0
+22477,6,2026-09-16 21:30,Barcelona,local,Olmo,dani-olmo,,min,90.0
+22477,6,2026-09-16 21:30,Barcelona,local,Olmo,dani-olmo,,asis,1.0
+22477,6,2026-09-16 21:30,Barcelona,local,Olmo,dani-olmo,,asis_sg,2.0
+22477,6,2026-09-16 21:30,Barcelona,local,Rodri,,,min,61.0
+22477,6,2026-09-16 21:30,Barcelona,local,Rodri,,,asis_sg,2.0
+22477,6,2026-09-16 21:30,Barcelona,local,Pedri,,,min,61.0
+22477,6,2026-09-16 21:30,Barcelona,local,Raphinha,raphinha,,min,69.0
+22477,6,2026-09-16 21:30,Barcelona,local,Raphinha,raphinha,,goles,3.0
+22477,6,2026-09-16 21:30,Barcelona,local,Raphinha,raphinha,,tiros,4.0
+22477,6,2026-09-16 21:30,Barcelona,local,Adeyemi,karim-adeyemi,,min,90.0
+22477,6,2026-09-16 21:30,Barcelona,local,Adeyemi,karim-adeyemi,,asis,1.0
+22477,6,2026-09-16 21:30,Barcelona,local,Adeyemi,karim-adeyemi,,asis_sg,2.0
+22477,6,2026-09-16 21:30,Barcelona,local,Adeyemi,karim-adeyemi,,amarillas,1.0
+22477,6,2026-09-16 21:30,Barcelona,local,Yamal,lamine-yamal,,min,90.0
+22477,6,2026-09-16 21:30,Barcelona,local,Yamal,lamine-yamal,,goles,1.0
+22477,6,2026-09-16 21:30,Barcelona,local,Yamal,lamine-yamal,,asis,2.0
+22477,6,2026-09-16 21:30,Barcelona,local,Yamal,lamine-yamal,,asis_sg,2.0
+22477,6,2026-09-16 21:30,Barcelona,local,Yamal,lamine-yamal,,amarillas,1.0
+22477,6,2026-09-16 21:30,Barcelona,local,Yamal,lamine-yamal,,tiros,3.0
+22477,6,2026-09-16 21:30,Barcelona,local,Szczesny,wojciech-szczesny,,min,45.0
+22477,6,2026-09-16 21:30,Barcelona,local,Balde,alejandro-balde,,min,12.0
+22477,6,2026-09-16 21:30,Barcelona,local,Balde,alejandro-balde,,asis_sg,1.0
+22477,6,2026-09-16 21:30,Barcelona,local,Gavi,pablo-gavi,,min,29.0
+22477,6,2026-09-16 21:30,Barcelona,local,Bernal,marc-bernal,,min,29.0
+22477,6,2026-09-16 21:30,Barcelona,local,Gabriel Jesús,,,min,21.0
+22477,6,2026-09-16 21:30,Barcelona,local,Gabriel Jesús,,,goles,1.0
+22477,6,2026-09-16 21:30,Racing,visitante,Agirrezabala,julen-agirrezabala,,min,90.0
+22477,6,2026-09-16 21:30,Racing,visitante,Aarón,,,min,90.0
+22477,6,2026-09-16 21:30,Racing,visitante,Hernando,manu-hernando,,min,90.0
+22477,6,2026-09-16 21:30,Racing,visitante,Facu González,,,min,86.0
+22477,6,2026-09-16 21:30,Racing,visitante,Pedro Felipe,pedro-felipe,,min,59.0
+22477,6,2026-09-16 21:30,Racing,visitante,Pedro Felipe,pedro-felipe,,amarillas,1.0
+22477,6,2026-09-16 21:30,Racing,visitante,Canales,sergio-canales,,min,90.0
+22477,6,2026-09-16 21:30,Racing,visitante,Sainz-Maza,nigo-sainz-maza,,min,78.0
+22477,6,2026-09-16 21:30,Racing,visitante,Sainz-Maza,nigo-sainz-maza,,asis_sg,1.0
+22477,6,2026-09-16 21:30,Racing,visitante,Prati,matteo-prati,,min,90.0
+22477,6,2026-09-16 21:30,Racing,visitante,Maguette,,,min,90.0
+22477,6,2026-09-16 21:30,Racing,visitante,Maguette,,,goles,1.0
+22477,6,2026-09-16 21:30,Racing,visitante,Villalibre,asier-villalibre,,min,59.0
+22477,6,2026-09-16 21:30,Racing,visitante,Villalibre,asier-villalibre,,asis,1.0
+22477,6,2026-09-16 21:30,Racing,visitante,Villalibre,asier-villalibre,,asis_sg,1.0
+22477,6,2026-09-16 21:30,Racing,visitante,Arana,juan-carlos-arana,,min,59.0
+22477,6,2026-09-16 21:30,Racing,visitante,Salinas,jorge-salinas,,min,4.0
+22477,6,2026-09-16 21:30,Racing,visitante,Iñigo Vicente,inigo-vicente,,min,31.0
+22477,6,2026-09-16 21:30,Racing,visitante,Luque,iker-luque,,min,31.0
+22477,6,2026-09-16 21:30,Racing,visitante,Guliashvili,giorgi-guliashvili,,min,12.0
+22477,6,2026-09-16 21:30,Racing,visitante,Zabiri,yassir-zabiri,,min,31.0
+22477,6,2026-09-16 21:30,Racing,visitante,Zabiri,yassir-zabiri,,goles,1.0
+22477,6,2026-09-16 21:30,Racing,visitante,Zabiri,yassir-zabiri,,amarillas,1.0
+22477,6,2026-09-16 21:30,Racing,visitante,Zabiri,yassir-zabiri,,tiros,2.0
+22480,6,2026-09-15 19:00,Rayo,local,Audero,emil-audero,,min,90.0
+22480,6,2026-09-15 19:00,Rayo,local,Lejeune,florian-lejeune,,min,90.0
+22480,6,2026-09-15 19:00,Rayo,local,Mujaid,,,min,61.0
+22480,6,2026-09-15 19:00,Rayo,local,Pedrosa,adria-pedrosa,,min,90.0
+22480,6,2026-09-15 19:00,Rayo,local,Pedrosa,adria-pedrosa,,goles,1.0
+22480,6,2026-09-15 19:00,Rayo,local,Ratiu,andrei-florin,,min,90.0
+22480,6,2026-09-15 19:00,Rayo,local,Álvaro García,alvaro-garcia,,min,84.0
+22480,6,2026-09-15 19:00,Rayo,local,Álvaro García,alvaro-garcia,,goles,1.0
+22480,6,2026-09-15 19:00,Rayo,local,Álvaro García,alvaro-garcia,,asis,1.0
+22480,6,2026-09-15 19:00,Rayo,local,Unai López,unai-lopez,,min,61.0
+22480,6,2026-09-15 19:00,Rayo,local,Unai López,unai-lopez,,amarillas,1.0
+22480,6,2026-09-15 19:00,Rayo,local,Pedro Díaz,pedro-diaz,,min,90.0
+22480,6,2026-09-15 19:00,Rayo,local,Pathé Ciss,pathe-ciss,,min,90.0
+22480,6,2026-09-15 19:00,Rayo,local,Pathé Ciss,pathe-ciss,,amarillas,1.0
+22480,6,2026-09-15 19:00,Rayo,local,Tsitaishvili,georgiy-tsitaishvili,,min,76.0
+22480,6,2026-09-15 19:00,Rayo,local,Tsitaishvili,georgiy-tsitaishvili,,asis_sg,1.0
+22480,6,2026-09-15 19:00,Rayo,local,Tsitaishvili,georgiy-tsitaishvili,,amarillas,1.0
+22480,6,2026-09-15 19:00,Rayo,local,Camello,sergio-camello,,min,76.0
+22480,6,2026-09-15 19:00,Rayo,local,Balliu,ivan-balliu,,min,6.0
+22480,6,2026-09-15 19:00,Rayo,local,Valentín,scar-valentin,,min,29.0
+22480,6,2026-09-15 19:00,Rayo,local,Fran Pérez,fran-perez,,min,14.0
+22480,6,2026-09-15 19:00,Rayo,local,Bouare,gnangoro-bouare,,min,29.0
+22480,6,2026-09-15 19:00,Rayo,local,Bouare,gnangoro-bouare,,amarillas,1.0
+22480,6,2026-09-15 19:00,Rayo,local,Alemão,alemo,,min,14.0
+22480,6,2026-09-15 19:00,Rayo,local,Alemão,alemo,,amarillas,1.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Dmitrovic,marko-dmitrovic,,min,90.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Cabrera,leandro-cabrera,,min,90.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,El Hilali,omar-el-hilali,,min,90.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,El Hilali,omar-el-hilali,,rojas,1.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Hartman,quilindschy-hartman,,min,90.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Hinojo,roger-hinojo,,min,45.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Riedel,clemens-riedel,,min,90.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Urko,,,min,84.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Bauzà,rafel-bauza,,min,45.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Javier Hernández,javier-hernandez,,min,74.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Javier Hernández,javier-hernandez,,asis,1.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Javier Hernández,javier-hernandez,,asis_sg,1.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Moscardo,gabriel-moscardo,,min,45.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Roberto,,,min,90.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Roberto,,,goles,1.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Edu Expósito,edu-exposito,,min,45.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Lozano,pol-lozano,,min,6.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Bryan,,,min,45.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Calatrava,lex-calatrava,,min,16.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Marcos,,,min,45.0
+22480,6,2026-09-15 19:00,Espanyol,visitante,Marcos,,,amarillas,1.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Remiro,alex-remiro,,min,90.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Zubeldia,igor-zubeldia,,min,90.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Sergio Gómez,sergio-gomez,,min,90.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Jon Martín,jon-martin,,min,90.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Aramburu,jon-aramburu,,min,90.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Barrenetxea,ander-barrenetxea,,min,71.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Herrera,yangel-herrera,,min,61.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Herrera,yangel-herrera,,amarillas,1.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Kubo,takefusa-kubo,,min,61.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Turrientes,benat-turrientes,,min,88.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Turrientes,benat-turrientes,,tiros,2.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Oyarzabal,mikel-oyarzabal,,min,90.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Óskarsson,orri-steinn-skarsson,,min,71.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Carlos Soler,carlos-soler,,min,2.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,L. Sucic,,,min,29.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,L. Sucic,,,amarillas,1.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Gorrotxategi,jon-gorrotxategi,,min,29.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Marchal,alex-marchal,,min,19.0
+22482,6,2026-09-03 21:00,Real Sociedad,local,Guedes,goncalo-guedes,,min,19.0
+22482,6,2026-09-03 21:00,Celta,visitante,Radu,andrei-radu,,min,90.0
+22482,6,2026-09-03 21:00,Celta,visitante,M. Alonso,,,min,90.0
+22482,6,2026-09-03 21:00,Celta,visitante,M. Alonso,,,amarillas,1.0
+22482,6,2026-09-03 21:00,Celta,visitante,Carreira,sergio-carreira,,min,90.0
+22482,6,2026-09-03 21:00,Celta,visitante,Carreira,sergio-carreira,,asis_sg,1.0
+22482,6,2026-09-03 21:00,Celta,visitante,Á. Núñez,,,min,84.0
+22482,6,2026-09-03 21:00,Celta,visitante,Rueda,javi-rueda,,min,84.0
+22482,6,2026-09-03 21:00,Celta,visitante,Lago,yoel-lago,,min,90.0
+22482,6,2026-09-03 21:00,Celta,visitante,Lago,yoel-lago,,amarillas,1.0
+22482,6,2026-09-03 21:00,Celta,visitante,Moriba,ilaix-moriba,,min,90.0
+22482,6,2026-09-03 21:00,Celta,visitante,Swedberg,williot-swedberg,,min,63.0
+22482,6,2026-09-03 21:00,Celta,visitante,Román,miguel-roman,,min,90.0
+22482,6,2026-09-03 21:00,Celta,visitante,Antañón,andres-antanon,,min,63.0
+22482,6,2026-09-03 21:00,Celta,visitante,Jutglà,ferran-jutgla,,min,69.0
+22482,6,2026-09-03 21:00,Celta,visitante,Galán,javi-galan,,min,6.0
+22482,6,2026-09-03 21:00,Celta,visitante,Javi Rodríguez,javi-rodriguez,,min,6.0
+22482,6,2026-09-03 21:00,Celta,visitante,Driouech,couhaib-driouech,,min,21.0
+22482,6,2026-09-03 21:00,Celta,visitante,Driouech,couhaib-driouech,,amarillas,1.0
+22482,6,2026-09-03 21:00,Celta,visitante,Aspas,iago-aspas,,min,27.0
+22482,6,2026-09-03 21:00,Celta,visitante,Durán,pablo-duran,,min,27.0
