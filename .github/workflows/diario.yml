@@ -1,41 +1,38 @@
-name: Captura diaria
+name: Captura
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 */2 * * *"
 
 jobs:
   capturar:
     runs-on: ubuntu-latest
     steps:
-      - name: Descargar el repositorio
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Preparar Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Instalar dependencias
-        run: pip install requests beautifulsoup4
+      - run: pip install requests beautifulsoup4
 
-      - name: Ejecutar el script
-        run: python scripts/mercado.py
-      
-      - name: Ejecutar el script de puntos
-        run: python scripts/puntos.py
+      - name: Calendario y estado de partidos
+        run: python scripts/partidos.py
 
-      - name: Actualizar urls de partidos
-        run: python scripts/partidos_urls.py
-
-      - name: Ejecutar el script de eventos
+      - name: Eventos de los partidos nuevos
         run: python scripts/eventos.py
 
-      - name: Guardar los datos en el repositorio
+      - name: Puntuaciones
+        run: python scripts/puntos.py
+
+      - name: Valor de mercado
+        run: python scripts/mercado.py
+
+      - name: Guardar
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add datos/
-          git diff --staged --quiet || git commit -m "Captura $(date +'%Y-%m-%d')"
+          git diff --staged --quiet || git commit -m "Captura $(date +'%Y-%m-%d %H:%M')"
           git push
