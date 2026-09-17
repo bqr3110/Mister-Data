@@ -2595,6 +2595,70 @@ jornada,lado,jugador,slug,evento,cantidad,puntos_lf,partido
 5,visitante,Deossa,,Minutos jugados,23.0,1.0,22472-villarreal-betis
 5,visitante,Bernal,,Minutos jugados,6.0,1.0,22472-villarreal-betis
 5,visitante,Antony,,Minutos jugados,24.0,1.0,22472-villarreal-betis
+6,local,Oblak,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,local,Oblak,,Goles en contra,0.0,4.0,22473-atletico-osasuna
+6,local,M. Llorente,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,local,M. Llorente,,Goles en contra,0.0,3.0,22473-atletico-osasuna
+6,local,Grimaldo,,Minutos jugados,85.0,2.0,22473-atletico-osasuna
+6,local,Grimaldo,,Goles en contra,0.0,3.0,22473-atletico-osasuna
+6,local,Le Normand,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,local,Le Normand,,Goles,1.0,6.0,22473-atletico-osasuna
+6,local,Le Normand,,Goles en contra,0.0,3.0,22473-atletico-osasuna
+6,local,Romero,,Minutos jugados,68.0,2.0,22473-atletico-osasuna
+6,local,Romero,,Goles en contra,0.0,3.0,22473-atletico-osasuna
+6,local,Koke,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,local,Koke,,Goles en contra,0.0,2.0,22473-atletico-osasuna
+6,local,Kang-In Lee,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,local,Kang-In Lee,,Goles,1.0,5.0,22473-atletico-osasuna
+6,local,Kang-In Lee,,Goles en contra,0.0,2.0,22473-atletico-osasuna
+6,local,Baena,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,local,Baena,,Goles,1.0,5.0,22473-atletico-osasuna
+6,local,Baena,,Goles en contra,0.0,2.0,22473-atletico-osasuna
+6,local,Cardoso,,Minutos jugados,85.0,2.0,22473-atletico-osasuna
+6,local,Cardoso,,Goles en contra,0.0,2.0,22473-atletico-osasuna
+6,local,Lookman,,Minutos jugados,68.0,2.0,22473-atletico-osasuna
+6,local,Lookman,,Goles en contra,0.0,1.0,22473-atletico-osasuna
+6,local,Lookman,,Tarjetas amarillas,1.0,-1.0,22473-atletico-osasuna
+6,local,Jonathan David,,Minutos jugados,68.0,2.0,22473-atletico-osasuna
+6,local,Jonathan David,,Goles,1.0,4.0,22473-atletico-osasuna
+6,local,Jonathan David,,Goles en contra,0.0,1.0,22473-atletico-osasuna
+6,local,Hancko,,Minutos jugados,5.0,1.0,22473-atletico-osasuna
+6,local,Pubill,,Minutos jugados,22.0,1.0,22473-atletico-osasuna
+6,local,Giuliano,,Minutos jugados,22.0,1.0,22473-atletico-osasuna
+6,local,Hjulmand,,Minutos jugados,5.0,1.0,22473-atletico-osasuna
+6,local,Ortiz,,Minutos jugados,22.0,1.0,22473-atletico-osasuna
+6,visitante,Aitor,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,visitante,Aitor,,Goles en contra,4.0,-4.0,22473-atletico-osasuna
+6,visitante,Boyomo,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,visitante,Boyomo,,Goles en contra,4.0,-4.0,22473-atletico-osasuna
+6,visitante,Bretones,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,visitante,Bretones,,Goles en contra,4.0,-4.0,22473-atletico-osasuna
+6,visitante,Bretones,,Tarjetas amarillas,1.0,-1.0,22473-atletico-osasuna
+6,visitante,Arguibide,,Minutos jugados,71.0,2.0,22473-atletico-osasuna
+6,visitante,Arguibide,,Goles en contra,3.0,-2.0,22473-atletico-osasuna
+6,visitante,Unai Santos,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,visitante,Unai Santos,,Goles en contra,4.0,-4.0,22473-atletico-osasuna
+6,visitante,Yeboah,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,visitante,Yeboah,,Goles en contra,4.0,-4.0,22473-atletico-osasuna
+6,visitante,Torró,,Minutos jugados,90.0,2.0,22473-atletico-osasuna
+6,visitante,Torró,,Goles en contra,4.0,-2.0,22473-atletico-osasuna
+6,visitante,Raul Moro,,Minutos jugados,59.0,1.0,22473-atletico-osasuna
+6,visitante,Raul Moro,,Goles en contra,2.0,-1.0,22473-atletico-osasuna
+6,visitante,Dubasin,,Minutos jugados,59.0,1.0,22473-atletico-osasuna
+6,visitante,Dubasin,,Goles en contra,2.0,-1.0,22473-atletico-osasuna
+6,visitante,Osambela,,Minutos jugados,74.0,2.0,22473-atletico-osasuna
+6,visitante,Osambela,,Goles en contra,3.0,-1.0,22473-atletico-osasuna
+6,visitante,Raúl García,,Minutos jugados,60.0,2.0,22473-atletico-osasuna
+6,visitante,Raúl García,,Goles en contra,2.0,-1.0,22473-atletico-osasuna
+6,visitante,Rubén G.,,Minutos jugados,31.0,1.0,22473-atletico-osasuna
+6,visitante,Rubén G.,,Goles en contra,2.0,-1.0,22473-atletico-osasuna
+6,visitante,Rubén G.,,Tarjetas amarillas,1.0,-1.0,22473-atletico-osasuna
+6,visitante,Kike Barja,,Minutos jugados,31.0,1.0,22473-atletico-osasuna
+6,visitante,Kike Barja,,Goles en contra,2.0,-1.0,22473-atletico-osasuna
+6,visitante,Moncayola,,Minutos jugados,19.0,1.0,22473-atletico-osasuna
+6,visitante,Budimir,,Minutos jugados,30.0,1.0,22473-atletico-osasuna
+6,visitante,Budimir,,Goles en contra,2.0,-1.0,22473-atletico-osasuna
+6,visitante,Del Castillo,,Minutos jugados,16.0,1.0,22473-atletico-osasuna
 6,local,Sivera,,Minutos jugados,90.0,2.0,22474-alaves-valencia
 6,local,Tenaglia,,Minutos jugados,90.0,2.0,22474-alaves-valencia
 6,local,Valentini,,Minutos jugados,90.0,2.0,22474-alaves-valencia
@@ -2643,6 +2707,55 @@ jornada,lado,jugador,slug,evento,cantidad,puntos_lf,partido
 6,visitante,Rioja 62',,Minutos jugados,19.0,1.0,22474-alaves-valencia
 6,visitante,Rioja 62',,Goles,1.0,5.0,22474-alaves-valencia
 6,visitante,Otorbi,,Minutos jugados,20.0,1.0,22474-alaves-valencia
+6,local,Leo Román,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,local,Giménez,,Minutos jugados,83.0,2.0,22475-deportivo-sevilla
+6,local,Angeliño,,Minutos jugados,59.0,1.0,22475-deportivo-sevilla
+6,local,Angeliño,,Tarjetas rojas,1.0,-3.0,22475-deportivo-sevilla
+6,local,Altimira,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,local,Loureiro,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,local,Riki,,Minutos jugados,57.0,1.0,22475-deportivo-sevilla
+6,local,Luismi,,Minutos jugados,61.0,2.0,22475-deportivo-sevilla
+6,local,Amatucci,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,local,Amatucci,,Tarjetas amarillas,1.0,-1.0,22475-deportivo-sevilla
+6,local,Aubameyang,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,local,Yeremay,,Minutos jugados,57.0,1.0,22475-deportivo-sevilla
+6,local,Bil Nsongo,,Minutos jugados,45.0,1.0,22475-deportivo-sevilla
+6,local,Quagliata,,Minutos jugados,29.0,1.0,22475-deportivo-sevilla
+6,local,Mario,,Minutos jugados,33.0,1.0,22475-deportivo-sevilla
+6,local,Asp Jensen,,Minutos jugados,33.0,1.0,22475-deportivo-sevilla
+6,local,A. Traoré,,Minutos jugados,45.0,1.0,22475-deportivo-sevilla
+6,local,Eddahchouri,,Minutos jugados,7.0,1.0,22475-deportivo-sevilla
+6,visitante,Vlachodimos,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,visitante,Vlachodimos,,Goles en contra,0.0,4.0,22475-deportivo-sevilla
+6,visitante,Iglesias,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,visitante,Iglesias,,Goles en contra,0.0,3.0,22475-deportivo-sevilla
+6,visitante,Iglesias,,Tarjetas amarillas,1.0,-1.0,22475-deportivo-sevilla
+6,visitante,Kike Salas,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,visitante,Kike Salas,,Goles en contra,0.0,3.0,22475-deportivo-sevilla
+6,visitante,Kike Salas,,Tarjetas amarillas,1.0,-1.0,22475-deportivo-sevilla
+6,visitante,Suazo,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,visitante,Suazo,,Goles en contra,0.0,3.0,22475-deportivo-sevilla
+6,visitante,Castrín,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,visitante,Castrín,,Goles en contra,0.0,3.0,22475-deportivo-sevilla
+6,visitante,Guridi,,Minutos jugados,81.0,2.0,22475-deportivo-sevilla
+6,visitante,Guridi,,Goles en contra,0.0,2.0,22475-deportivo-sevilla
+6,visitante,Guridi,,Tarjetas amarillas,1.0,-1.0,22475-deportivo-sevilla
+6,visitante,Agoume,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,visitante,Agoume,,Goles en contra,0.0,2.0,22475-deportivo-sevilla
+6,visitante,Félix Correia,,Minutos jugados,81.0,2.0,22475-deportivo-sevilla
+6,visitante,Félix Correia,,Goles en contra,0.0,1.0,22475-deportivo-sevilla
+6,visitante,Fofana,,Minutos jugados,90.0,2.0,22475-deportivo-sevilla
+6,visitante,Fofana,,Goles en contra,0.0,2.0,22475-deportivo-sevilla
+6,visitante,Sierra,,Minutos jugados,89.0,2.0,22475-deportivo-sevilla
+6,visitante,Sierra,,Goles,1.0,4.0,22475-deportivo-sevilla
+6,visitante,Sierra,,Goles en contra,0.0,1.0,22475-deportivo-sevilla
+6,visitante,Stassin,,Minutos jugados,76.0,2.0,22475-deportivo-sevilla
+6,visitante,Stassin,,Goles en contra,0.0,1.0,22475-deportivo-sevilla
+6,visitante,Julio Díaz,,Minutos jugados,9.0,1.0,22475-deportivo-sevilla
+6,visitante,Kochorashvili,,Minutos jugados,9.0,1.0,22475-deportivo-sevilla
+6,visitante,Romero,,Minutos jugados,14.0,1.0,22475-deportivo-sevilla
+6,visitante,Romero,,Tarjetas amarillas,1.0,-1.0,22475-deportivo-sevilla
+6,visitante,Ure,,Minutos jugados,1.0,1.0,22475-deportivo-sevilla
 6,local,Dituro,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
 6,local,Dituro,,Goles en contra,3.0,-2.0,22476-elche-real-madrid
 6,local,Chust,,Minutos jugados,90.0,2.0,22476-elche-real-madrid
@@ -2709,6 +2822,72 @@ jornada,lado,jugador,slug,evento,cantidad,puntos_lf,partido
 6,visitante,Carlos Espí,,Minutos jugados,3.0,1.0,22476-elche-real-madrid
 6,visitante,Carlos Espí,,Goles,1.0,4.0,22476-elche-real-madrid
 6,visitante,Endrick,,Minutos jugados,4.0,1.0,22476-elche-real-madrid
+6,local,Joan Garcia,,Minutos jugados,45.0,1.0,22477-barcelona-racing
+6,local,Cancelo,,Minutos jugados,78.0,2.0,22477-barcelona-racing
+6,local,Cancelo,,Goles,1.0,6.0,22477-barcelona-racing
+6,local,Cancelo,,Goles en contra,2.0,-2.0,22477-barcelona-racing
+6,local,Cancelo,,Tarjetas amarillas,1.0,-1.0,22477-barcelona-racing
+6,local,A. Christensen,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,local,A. Christensen,,Goles en contra,2.0,-2.0,22477-barcelona-racing
+6,local,Eric Garcia,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,local,Eric Garcia,,Goles en contra,2.0,-2.0,22477-barcelona-racing
+6,local,Martín,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,local,Martín,,Goles en contra,2.0,-2.0,22477-barcelona-racing
+6,local,Olmo,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,local,Olmo,,Goles en contra,2.0,-1.0,22477-barcelona-racing
+6,local,Rodri,,Minutos jugados,61.0,2.0,22477-barcelona-racing
+6,local,Pedri,,Minutos jugados,61.0,2.0,22477-barcelona-racing
+6,local,Raphinha,,Minutos jugados,69.0,2.0,22477-barcelona-racing
+6,local,Raphinha,,Goles,3.0,12.0,22477-barcelona-racing
+6,local,Raphinha,,Goles en contra,2.0,-1.0,22477-barcelona-racing
+6,local,Adeyemi,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,local,Adeyemi,,Goles en contra,2.0,-1.0,22477-barcelona-racing
+6,local,Adeyemi,,Tarjetas amarillas,1.0,-1.0,22477-barcelona-racing
+6,local,Yamal,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,local,Yamal,,Goles,1.0,4.0,22477-barcelona-racing
+6,local,Yamal,,Goles en contra,2.0,-1.0,22477-barcelona-racing
+6,local,Yamal,,Tarjetas amarillas,1.0,-1.0,22477-barcelona-racing
+6,local,Szczesny,,Minutos jugados,45.0,1.0,22477-barcelona-racing
+6,local,Balde,,Minutos jugados,12.0,1.0,22477-barcelona-racing
+6,local,Gavi,,Minutos jugados,29.0,1.0,22477-barcelona-racing
+6,local,Bernal,,Minutos jugados,29.0,1.0,22477-barcelona-racing
+6,local,Gabriel Jesús,,Minutos jugados,21.0,1.0,22477-barcelona-racing
+6,local,Gabriel Jesús,,Goles,1.0,4.0,22477-barcelona-racing
+6,visitante,Agirrezabala,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,visitante,Agirrezabala,,Goles en contra,7.0,-6.0,22477-barcelona-racing
+6,visitante,Aarón,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,visitante,Aarón,,Goles en contra,7.0,-6.0,22477-barcelona-racing
+6,visitante,Hernando,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,visitante,Hernando,,Goles en contra,7.0,-6.0,22477-barcelona-racing
+6,visitante,Facu González,,Minutos jugados,86.0,2.0,22477-barcelona-racing
+6,visitante,Facu González,,Goles en contra,6.0,-6.0,22477-barcelona-racing
+6,visitante,Pedro Felipe,,Minutos jugados,59.0,1.0,22477-barcelona-racing
+6,visitante,Pedro Felipe,,Goles en contra,4.0,-4.0,22477-barcelona-racing
+6,visitante,Pedro Felipe,,Tarjetas amarillas,1.0,-1.0,22477-barcelona-racing
+6,visitante,Canales,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,visitante,Canales,,Goles en contra,7.0,-3.0,22477-barcelona-racing
+6,visitante,Sainz-Maza,,Minutos jugados,78.0,2.0,22477-barcelona-racing
+6,visitante,Sainz-Maza,,Goles en contra,5.0,-4.0,22477-barcelona-racing
+6,visitante,Prati,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,visitante,Prati,,Goles en contra,7.0,-3.0,22477-barcelona-racing
+6,visitante,Maguette,,Minutos jugados,90.0,2.0,22477-barcelona-racing
+6,visitante,Maguette,,Goles,1.0,5.0,22477-barcelona-racing
+6,visitante,Maguette,,Goles en contra,7.0,-3.0,22477-barcelona-racing
+6,visitante,Villalibre,,Minutos jugados,59.0,1.0,22477-barcelona-racing
+6,visitante,Villalibre,,Goles en contra,4.0,-2.0,22477-barcelona-racing
+6,visitante,Arana,,Minutos jugados,59.0,1.0,22477-barcelona-racing
+6,visitante,Arana,,Goles en contra,4.0,-2.0,22477-barcelona-racing
+6,visitante,Salinas,,Minutos jugados,4.0,1.0,22477-barcelona-racing
+6,visitante,Iñigo Vicente,,Minutos jugados,31.0,1.0,22477-barcelona-racing
+6,visitante,Iñigo Vicente,,Goles en contra,3.0,-1.0,22477-barcelona-racing
+6,visitante,Luque,,Minutos jugados,31.0,1.0,22477-barcelona-racing
+6,visitante,Luque,,Goles en contra,3.0,-1.0,22477-barcelona-racing
+6,visitante,Guliashvili,,Minutos jugados,12.0,1.0,22477-barcelona-racing
+6,visitante,Guliashvili,,Goles en contra,2.0,-1.0,22477-barcelona-racing
+6,visitante,Zabiri,,Minutos jugados,31.0,1.0,22477-barcelona-racing
+6,visitante,Zabiri,,Goles,1.0,4.0,22477-barcelona-racing
+6,visitante,Zabiri,,Goles en contra,3.0,-1.0,22477-barcelona-racing
+6,visitante,Zabiri,,Tarjetas amarillas,1.0,-1.0,22477-barcelona-racing
 6,local,Audero,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
 6,local,Lejeune,,Minutos jugados,90.0,2.0,22480-rayo-espanyol
 6,local,Mujaid,,Minutos jugados,61.0,2.0,22480-rayo-espanyol
