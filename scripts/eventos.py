@@ -153,3 +153,12 @@ def main():
     with open(SALIDA, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(CABECERA)
+        for p in previas:
+            w.writerow([p.get(c, "") for c in CABECERA])
+        w.writerows(nuevas)
+
+    print(f"Total en fichero: {len(previas) + len(nuevas)}")
+
+
+if __name__ == "__main__":
+    main()
