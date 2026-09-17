@@ -50,15 +50,14 @@ def fecha_de(sopa):
 
 
 def ficha_jugadores(sopa):
-    """Del campograma: nombre -> (slug, posicion)"""
+    """Del campograma: nombre -> slug"""
     fichas = {}
     for a in sopa.select("a.camiseta"):
         href = a.get("href", "")
         slug = href.split("/")[-1] if "/jugadores/" in href else ""
         nombre = next((im.get("alt") for im in a.select("img") if im.get("alt")), "")
-        pos = a.attrs.get("data-posicion-mister-mixto-2", "")
         if nombre:
-            fichas[limpia(nombre)] = (slug, pos)
+            fichas[limpia(nombre)] = slug
     return fichas
 
 
@@ -78,12 +77,19 @@ def procesar(fila, cabeceras):
         equipo = fila[lado]
 
         nombre = None
+        posicion = nota_cron = nota_sofa = ""
+
         for tr in tabla.select("tr"):
             if "desglose" not in (tr.get("class") or []):
                 celdas = [c.get_text(" ", strip=True) for c in tr.select("th, td")]
                 if celdas and celdas[0] and celdas[0] not in ("Titulares", "Suplentes"):
                     nombre = re.sub(r"\s*\d{1,3}'\s*$", "", limpia(celdas[0])).strip()
+                    celda = tr.select_one("td.name, th.name")
+                    posicion = celda.attrs.get("data-posicion-mister-mixto-2", "") if celda else ""
+                    nota_cron = celdas[3] if len(celdas) > 3 else ""
+                    nota_sofa = celdas[4] if len(celdas) > 4 else ""
                 continue
+
             if not nombre:
                 continue
 
@@ -91,11 +97,18 @@ def procesar(fila, cabeceras):
             if bloque is None:
                 continue
 
-            slug, pos = "", ""
-            for n, (s, p) in fichas.items():
+            slug = ""
+            for n, s in fichas.items():
                 if n == nombre or n.endswith(" " + nombre) or nombre.endswith(" " + n):
-                    slug, pos = s, p
+                    slug = s
                     break
+
+            for etiqueta, valor in (("nota_cronista", nota_cron), ("nota_sofascore", nota_sofa)):
+                try:
+                    filas.append([fila["id"], fila["jornada"], fecha, equipo, lado,
+                                  nombre, slug, posicion, etiqueta, float(valor)])
+                except (TypeError, ValueError):
+                    pass
 
             for d in bloque.select("div.estadistica"):
                 cant, ev = cantidad_y_evento(d.get_text(" ", strip=True))
@@ -103,7 +116,7 @@ def procesar(fila, cabeceras):
                 if clave is None:
                     continue
                 filas.append([fila["id"], fila["jornada"], fecha, equipo, lado,
-                              nombre, slug, pos, clave, cant])
+                              nombre, slug, posicion, clave, cant])
     return filas
 
 
@@ -140,12 +153,3 @@ def main():
     with open(SALIDA, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(CABECERA)
-        for p in previas:
-            w.writerow([p.get(c, "") for c in CABECERA])
-        w.writerows(nuevas)
-
-    print(f"Total en fichero: {len(previas) + len(nuevas)}")
-
-
-if __name__ == "__main__":
-    main()
