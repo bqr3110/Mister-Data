@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="csrf-token" content="AnA4Y1izgwJwToenFYHbXKsUXlPF4XmIbi5laayT">
+        <meta name="csrf-token" content="ElawnxqIVkRjpFZLK766Kc8e5cIgMn66uPabpJcM">
 
             <title>Mercado Fantasy de Mister Fantasy - Fantasy Analytics - FútbolFantasy</title>
 
@@ -38272,6 +38272,9 @@ i.angle-6 { text-shadow: 0 4px 0 currentColor, 0 8px 0 currentColor, 0 12px 0 cu
         <span class="font-weight-bold" style="font-size:11px;">J7</span>
         <img width="16" height="16" src="https://static.futbolfantasy.com/uploads/images/cabecera/hd/4.png" alt="Betis" loading="lazy">
         <span aria-label="Casa">🏠</span>    </span>
+            <span class="rival-probability-row d-block" style="line-height:1;">
+                            <span class="porcentaje-perfil"><span class="probabilidad-widget"><span class="prob-2" style="font-size:10px;">50%</span></span></span>
+                    </span>
     </span>
 													</td>
 						<td class="text-center font-weight-bold">5.123.000</td>
@@ -50208,8 +50211,8 @@ i.angle-6 { text-shadow: 0 4px 0 currentColor, 0 8px 0 currentColor, 0 12px 0 cu
 	<img alt="Betis" class="escudo local lazyload " src="https://static.futbolfantasy.com/images/transp.png" data-src="//static.futbolfantasy.com/uploads/images/equipos/escudom/4.png" />
 		<div class="fecha"> Jue 17/09 <br>19:00h </div>
 	<img alt="Getafe" class="escudo visitante lazyload " src="https://static.futbolfantasy.com/images/transp.png" data-src="//static.futbolfantasy.com/uploads/images/equipos/escudom/8.png" />
-									<div class="previa con">Convocados</div>
-							<div class="canales">
+					<div class="previa ali">Alineaciones</div>
+				<div class="canales">
 							<img alt="Dazn" class="canal lazyload" src="https://static.futbolfantasy.com/images/transp.png" data-src="https://static.futbolfantasy.com/uploads/images/canales/dazn.png" />
 					</div>
 	</a>
@@ -50394,7 +50397,7 @@ i.angle-6 { text-shadow: 0 4px 0 currentColor, 0 8px 0 currentColor, 0 12px 0 cu
 	<img alt="OFI Creta" class="escudo local lazyload " src="https://static.futbolfantasy.com/images/transp.png" data-src="//static.futbolfantasy.com/uploads/images/equipos/escudom/829.png" />
 		<div class="fecha"> Jue 17/09 <br>18:45h </div>
 	<img alt="Hoffenheim" class="escudo visitante lazyload " src="https://static.futbolfantasy.com/images/transp.png" data-src="//static.futbolfantasy.com/uploads/images/equipos/escudom/612.png" />
-					<div class="previa">Previa</div>
+					<div class="previa ali">Alineaciones</div>
 				<div class="canales">
 					</div>
 	</a>
@@ -50404,7 +50407,7 @@ i.angle-6 { text-shadow: 0 4px 0 currentColor, 0 8px 0 currentColor, 0 12px 0 cu
 	<img alt="Levski Sofia" class="escudo local lazyload " src="https://static.futbolfantasy.com/images/transp.png" data-src="//static.futbolfantasy.com/uploads/images/equipos/escudom/830.png" />
 		<div class="fecha"> Jue 17/09 <br>18:45h </div>
 	<img alt="RB Salzburg" class="escudo visitante lazyload " src="https://static.futbolfantasy.com/images/transp.png" data-src="//static.futbolfantasy.com/uploads/images/equipos/escudom/586.png" />
-					<div class="previa">Previa</div>
+					<div class="previa ali">Alineaciones</div>
 				<div class="canales">
 					</div>
 	</a>
@@ -50909,7 +50912,49 @@ i.angle-6 { text-shadow: 0 4px 0 currentColor, 0 8px 0 currentColor, 0 12px 0 cu
 			</div>
 </section>
 
-                            <div class="d-none d-lg-block"></div>
+                            <div class="d-none d-lg-block"><script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const containers = document.querySelectorAll('.twitch_streaming');
+		let visibleContainer = null;
+		const headerEquipo = document.querySelectorAll('.headerequipo.with-estadio');
+		if(headerEquipo.length > 0) $('.twitch_streaming.main_streaming').remove();
+
+
+		containers.forEach(container => {
+			const style = window.getComputedStyle(container);
+			const isVisible = style.display !== 'none' && style.visibility !== 'hidden' && container.offsetParent !== null;
+			container.classList.add('active');
+			//if(headerEquipo.length == 0) container.classList.add('mt-3');
+
+			if (!visibleContainer && isVisible) {
+				visibleContainer = container;
+			}
+		});
+
+		if (visibleContainer && visibleContainer.innerHTML.trim() === '') {
+			const iframe = document.createElement('iframe');
+			iframe.frameBorder = '0';
+			iframe.scrolling = 'no';
+			//check if device are desktop or mobile
+			if (window.innerWidth > 768) {
+				iframe.width = '500';
+				iframe.height = '300';
+			} else {
+				iframe.width = '100%';
+				iframe.style.aspectRatio = '16 / 9'
+			}
+			//Check local
+			//if (window.location.host === 'futbolfantasy.com') {
+			iframe.src = 'https://player.twitch.tv/?channel=futbol_fantasy&amp;parent=www.futbolfantasy.com&parent=www.futbolfantasy.com';
+			/*} else {
+				iframe.src = 'https://player.twitch.tv/?channel=futbol_fantasy&amp;parent=www.futbolfantasy.com&parent=http://www.futbolfantasy.com.local';
+			}*/
+			visibleContainer.appendChild(iframe);
+		}
+	});
+	</script>
+
+</div>
                             
                         </div>
                     </div>
