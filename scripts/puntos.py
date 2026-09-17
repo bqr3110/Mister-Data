@@ -11,10 +11,10 @@ FUENTES = {
     "mixto": "https://www.futbolfantasy.com/analytics/mister-mixto/puntos",
     "cronistas_md": "https://www.futbolfantasy.com/analytics/mister-cronistas-md/puntos",
     "cronistas_marca": "https://www.futbolfantasy.com/analytics/cronistas-marca/puntos",
-    "sofascore": "https://www.futbolfantasy.com/analytics/mister-sofascore/puntos",
 }
 
 PARTIDOS = "datos/partidos.csv"
+EVENTOS = "datos/eventos.csv"
 SALIDA = "datos/puntos.csv"
 CABECERA = ["fuente", "jornada", "jugador", "equipo", "puntos", "jugo", "capturado"]
 
@@ -37,18 +37,25 @@ def numero(t):
 
 
 def orden_por_equipo():
-    """Para cada equipo, sus jornadas jugadas en orden cronologico REAL."""
+    """Para cada equipo, sus jornadas jugadas ordenadas por fecha REAL."""
+    fechas = {}
+    if os.path.exists(EVENTOS):
+        for e in csv.DictReader(open(EVENTOS, encoding="utf-8")):
+            if e.get("fecha"):
+                fechas[e["partido"]] = e["fecha"]
+
     jugados = defaultdict(list)
     for p in csv.DictReader(open(PARTIDOS, encoding="utf-8")):
         if p["terminado"] != "1":
             continue
+        clave = fechas.get(p["id"], "9999")
         for eq in (p["local"], p["visitante"]):
-            jugados[eq].append((p["jornada"], int(p["id"])))
+            jugados[eq].append((clave, int(p["id"]), int(p["jornada"])))
 
     orden = {}
     for eq, lista in jugados.items():
-        lista.sort(key=lambda x: x[1])          # el id crece con el calendario
-        orden[eq] = [int(j) for j, _ in lista]
+        lista.sort()
+        orden[eq] = [j for _, _, j in lista]
     return orden
 
 
@@ -77,7 +84,7 @@ def procesar(nombre_fuente, url, cabeceras, orden, hoy):
         if not racha:
             continue
 
-        # la racha va de lo mas reciente a lo mas antiguo, en orden cronologico
+        # la racha va de lo mas reciente a lo mas antiguo
         crono = list(reversed(orden.get(equipo, [])))
         for i, valor in enumerate(racha):
             if i >= len(crono):
@@ -94,10 +101,10 @@ def main():
     hoy = date.today().isoformat()
     orden = orden_por_equipo()
 
-    ej = list(orden.items())[:3]
-    print("Orden cronologico detectado (muestra):")
-    for eq, js in ej:
-        print(f"  {eq}: {js}")
+    print("Orden cronologico detectado:")
+    for eq in ["Real Madrid", "Real Sociedad", "Espanyol", "Alavés"]:
+        print(f"  {eq}: {orden.get(eq)}")
+    print()
 
     todas = []
     for nombre, url in FUENTES.items():
@@ -114,7 +121,7 @@ def main():
         w.writerow(CABECERA)
         w.writerows(todas)
 
-    print(f"Total: {len(todas)} filas")
+    print(f"\nTotal: {len(todas)} filas")
 
 
 if __name__ == "__main__":
