@@ -6046,3 +6046,219 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad
 22482,6,2026-09-03 21:00,Celta,visitante,Durán,pablo-duran,Delantero,nota_cronista,6.0
 22482,6,2026-09-03 21:00,Celta,visitante,Durán,pablo-duran,Delantero,nota_sofascore,6.3
 22482,6,2026-09-03 21:00,Celta,visitante,Durán,pablo-duran,Delantero,min,27.0
+22479,6,2026-09-17 21:30,Málaga,local,Herrero,laliga-26-27,Portero,nota_cronista,8.0
+22479,6,2026-09-17 21:30,Málaga,local,Herrero,laliga-26-27,Portero,nota_sofascore,6.3
+22479,6,2026-09-17 21:30,Málaga,local,Herrero,laliga-26-27,Portero,min,90.0
+22479,6,2026-09-17 21:30,Málaga,local,Herrero,laliga-26-27,Portero,amarillas,1.0
+22479,6,2026-09-17 21:30,Málaga,local,Galilea,laliga-26-27,Defensa,nota_cronista,2.0
+22479,6,2026-09-17 21:30,Málaga,local,Galilea,laliga-26-27,Defensa,nota_sofascore,6.7
+22479,6,2026-09-17 21:30,Málaga,local,Galilea,laliga-26-27,Defensa,min,90.0
+22479,6,2026-09-17 21:30,Málaga,local,Galilea,laliga-26-27,Defensa,amarillas,1.0
+22479,6,2026-09-17 21:30,Málaga,local,Salinas,laliga-26-27,Defensa,nota_cronista,3.0
+22479,6,2026-09-17 21:30,Málaga,local,Salinas,laliga-26-27,Defensa,nota_sofascore,6.0
+22479,6,2026-09-17 21:30,Málaga,local,Salinas,laliga-26-27,Defensa,min,45.0
+22479,6,2026-09-17 21:30,Málaga,local,Salinas,laliga-26-27,Defensa,amarillas,1.0
+22479,6,2026-09-17 21:30,Málaga,local,Puga,laliga-26-27,Defensa,nota_cronista,4.0
+22479,6,2026-09-17 21:30,Málaga,local,Puga,laliga-26-27,Defensa,nota_sofascore,6.9
+22479,6,2026-09-17 21:30,Málaga,local,Puga,laliga-26-27,Defensa,min,75.0
+22479,6,2026-09-17 21:30,Málaga,local,Recio,laliga-26-27,Defensa,nota_cronista,2.0
+22479,6,2026-09-17 21:30,Málaga,local,Recio,laliga-26-27,Defensa,nota_sofascore,8.0
+22479,6,2026-09-17 21:30,Málaga,local,Recio,laliga-26-27,Defensa,min,90.0
+22479,6,2026-09-17 21:30,Málaga,local,Pablo Martínez,laliga-26-27,Mediocampista,nota_cronista,4.0
+22479,6,2026-09-17 21:30,Málaga,local,Pablo Martínez,laliga-26-27,Mediocampista,nota_sofascore,6.4
+22479,6,2026-09-17 21:30,Málaga,local,Pablo Martínez,laliga-26-27,Mediocampista,min,90.0
+22479,6,2026-09-17 21:30,Málaga,local,Larrubia,laliga-26-27,Mediocampista,nota_cronista,3.0
+22479,6,2026-09-17 21:30,Málaga,local,Larrubia,laliga-26-27,Mediocampista,nota_sofascore,6.4
+22479,6,2026-09-17 21:30,Málaga,local,Larrubia,laliga-26-27,Mediocampista,min,90.0
+22479,6,2026-09-17 21:30,Málaga,local,Larrubia,laliga-26-27,Mediocampista,amarillas,1.0
+22479,6,2026-09-17 21:30,Málaga,local,Juan Cruz,laliga-26-27,Mediocampista,nota_cronista,5.0
+22479,6,2026-09-17 21:30,Málaga,local,Juan Cruz,laliga-26-27,Mediocampista,nota_sofascore,6.9
+22479,6,2026-09-17 21:30,Málaga,local,Juan Cruz,laliga-26-27,Mediocampista,min,45.0
+22479,6,2026-09-17 21:30,Málaga,local,Juan Cruz,laliga-26-27,Mediocampista,asis,1.0
+22479,6,2026-09-17 21:30,Málaga,local,Dotor,laliga-26-27,Mediocampista,nota_cronista,6.0
+22479,6,2026-09-17 21:30,Málaga,local,Dotor,laliga-26-27,Mediocampista,nota_sofascore,7.3
+22479,6,2026-09-17 21:30,Málaga,local,Dotor,laliga-26-27,Mediocampista,min,61.0
+22479,6,2026-09-17 21:30,Málaga,local,Dotor,laliga-26-27,Mediocampista,goles,1.0
+22479,6,2026-09-17 21:30,Málaga,local,Merino,laliga-26-27,Mediocampista,nota_cronista,3.0
+22479,6,2026-09-17 21:30,Málaga,local,Merino,laliga-26-27,Mediocampista,nota_sofascore,6.4
+22479,6,2026-09-17 21:30,Málaga,local,Merino,laliga-26-27,Mediocampista,min,61.0
+22479,6,2026-09-17 21:30,Málaga,local,Chupete,laliga-26-27,Delantero,nota_cronista,3.0
+22479,6,2026-09-17 21:30,Málaga,local,Chupete,laliga-26-27,Delantero,nota_sofascore,6.8
+22479,6,2026-09-17 21:30,Málaga,local,Chupete,laliga-26-27,Delantero,min,90.0
+22479,6,2026-09-17 21:30,Málaga,local,Rafita,,Defensa,nota_cronista,5.0
+22479,6,2026-09-17 21:30,Málaga,local,Rafita,,Defensa,nota_sofascore,7.0
+22479,6,2026-09-17 21:30,Málaga,local,Rafita,,Defensa,min,45.0
+22479,6,2026-09-17 21:30,Málaga,local,Joaquín,,Mediocampista,nota_cronista,4.0
+22479,6,2026-09-17 21:30,Málaga,local,Joaquín,,Mediocampista,nota_sofascore,6.4
+22479,6,2026-09-17 21:30,Málaga,local,Joaquín,,Mediocampista,min,29.0
+22479,6,2026-09-17 21:30,Málaga,local,Enríquez,laliga-26-27,Mediocampista,nota_cronista,4.0
+22479,6,2026-09-17 21:30,Málaga,local,Enríquez,laliga-26-27,Mediocampista,nota_sofascore,6.4
+22479,6,2026-09-17 21:30,Málaga,local,Enríquez,laliga-26-27,Mediocampista,min,15.0
+22479,6,2026-09-17 21:30,Málaga,local,Enríquez,laliga-26-27,Mediocampista,amarillas,1.0
+22479,6,2026-09-17 21:30,Málaga,local,Lorenzo,laliga-26-27,Mediocampista,nota_cronista,5.0
+22479,6,2026-09-17 21:30,Málaga,local,Lorenzo,laliga-26-27,Mediocampista,nota_sofascore,6.7
+22479,6,2026-09-17 21:30,Málaga,local,Lorenzo,laliga-26-27,Mediocampista,min,45.0
+22479,6,2026-09-17 21:30,Málaga,local,Niño,laliga-26-27,Delantero,nota_cronista,5.0
+22479,6,2026-09-17 21:30,Málaga,local,Niño,laliga-26-27,Delantero,nota_sofascore,6.1
+22479,6,2026-09-17 21:30,Málaga,local,Niño,laliga-26-27,Delantero,min,29.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Gulacsi,,Portero,nota_cronista,6.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Gulacsi,,Portero,nota_sofascore,6.5
+22479,6,2026-09-17 21:30,Villarreal,visitante,Gulacsi,,Portero,min,90.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,S. Cardona,,Defensa,nota_cronista,7.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,S. Cardona,,Defensa,nota_sofascore,7.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,S. Cardona,,Defensa,min,90.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Veiga,laliga-26-27,Defensa,nota_cronista,8.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Veiga,laliga-26-27,Defensa,nota_sofascore,7.1
+22479,6,2026-09-17 21:30,Villarreal,visitante,Veiga,laliga-26-27,Defensa,min,90.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Pau Navarro,laliga-26-27,Defensa,nota_cronista,7.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Pau Navarro,laliga-26-27,Defensa,nota_sofascore,6.7
+22479,6,2026-09-17 21:30,Villarreal,visitante,Pau Navarro,laliga-26-27,Defensa,min,90.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Freeman,laliga-26-27,Defensa,nota_cronista,7.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Freeman,laliga-26-27,Defensa,nota_sofascore,7.2
+22479,6,2026-09-17 21:30,Villarreal,visitante,Freeman,laliga-26-27,Defensa,min,90.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Comesaña,laliga-26-27,Mediocampista,nota_cronista,6.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Comesaña,laliga-26-27,Mediocampista,nota_sofascore,7.2
+22479,6,2026-09-17 21:30,Villarreal,visitante,Comesaña,laliga-26-27,Mediocampista,min,37.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Akhomach,laliga-26-27,Mediocampista,nota_cronista,9.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Akhomach,laliga-26-27,Mediocampista,nota_sofascore,6.8
+22479,6,2026-09-17 21:30,Villarreal,visitante,Akhomach,laliga-26-27,Mediocampista,min,63.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Akhomach,laliga-26-27,Mediocampista,asis,1.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Akhomach,laliga-26-27,Mediocampista,asis_sg,1.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Akhomach,laliga-26-27,Mediocampista,amarillas,1.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Moleiro,laliga-26-27,Mediocampista,nota_cronista,9.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Moleiro,laliga-26-27,Mediocampista,nota_sofascore,7.6
+22479,6,2026-09-17 21:30,Villarreal,visitante,Moleiro,laliga-26-27,Mediocampista,min,80.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Moleiro,laliga-26-27,Mediocampista,goles,1.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Moleiro,laliga-26-27,Mediocampista,asis_sg,1.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Moleiro,laliga-26-27,Mediocampista,tiros,2.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Buchanan,laliga-26-27,Mediocampista,nota_cronista,7.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Buchanan,laliga-26-27,Mediocampista,nota_sofascore,7.1
+22479,6,2026-09-17 21:30,Villarreal,visitante,Buchanan,laliga-26-27,Mediocampista,min,90.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Buchanan,laliga-26-27,Mediocampista,asis_sg,1.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Saliba,laliga-26-27,Mediocampista,nota_cronista,7.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Saliba,laliga-26-27,Mediocampista,nota_sofascore,6.9
+22479,6,2026-09-17 21:30,Villarreal,visitante,Saliba,laliga-26-27,Mediocampista,min,80.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Ayoze,,Delantero,nota_cronista,7.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Ayoze,,Delantero,nota_sofascore,6.4
+22479,6,2026-09-17 21:30,Villarreal,visitante,Ayoze,,Delantero,min,63.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Ayoze,,Delantero,asis,1.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Ayoze,,Delantero,asis_sg,1.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Romero,laliga-26-27,Defensa,nota_cronista,7.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Romero,laliga-26-27,Defensa,nota_sofascore,6.5
+22479,6,2026-09-17 21:30,Villarreal,visitante,Romero,laliga-26-27,Defensa,min,27.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Mouriño,laliga-26-27,Defensa,nota_cronista,6.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Mouriño,laliga-26-27,Defensa,nota_sofascore,6.8
+22479,6,2026-09-17 21:30,Villarreal,visitante,Mouriño,laliga-26-27,Defensa,min,10.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Pape Gueye,laliga-26-27,Mediocampista,nota_cronista,9.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Pape Gueye,laliga-26-27,Mediocampista,nota_sofascore,9.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Pape Gueye,laliga-26-27,Mediocampista,min,53.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Pape Gueye,laliga-26-27,Mediocampista,goles,2.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Pape Gueye,laliga-26-27,Mediocampista,tiros,2.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Carlos Macià,laliga-26-27,Mediocampista,nota_cronista,6.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Carlos Macià,laliga-26-27,Mediocampista,nota_sofascore,7.1
+22479,6,2026-09-17 21:30,Villarreal,visitante,Carlos Macià,laliga-26-27,Mediocampista,min,10.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Mikautadze,laliga-26-27,Delantero,nota_cronista,7.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Mikautadze,laliga-26-27,Delantero,nota_sofascore,6.5
+22479,6,2026-09-17 21:30,Villarreal,visitante,Mikautadze,laliga-26-27,Delantero,min,27.0
+22479,6,2026-09-17 21:30,Villarreal,visitante,Mikautadze,laliga-26-27,Delantero,asis_sg,1.0
+22481,6,2026-09-17 19:00,Betis,local,Valles,alvaro-valles,Portero,nota_cronista,7.0
+22481,6,2026-09-17 19:00,Betis,local,Valles,alvaro-valles,Portero,nota_sofascore,7.7
+22481,6,2026-09-17 19:00,Betis,local,Valles,alvaro-valles,Portero,min,90.0
+22481,6,2026-09-17 19:00,Betis,local,Junior,,Defensa,nota_cronista,5.0
+22481,6,2026-09-17 19:00,Betis,local,Junior,,Defensa,nota_sofascore,7.4
+22481,6,2026-09-17 19:00,Betis,local,Junior,,Defensa,min,90.0
+22481,6,2026-09-17 19:00,Betis,local,Ortiz,ngel-ortiz,Defensa,nota_cronista,4.0
+22481,6,2026-09-17 19:00,Betis,local,Ortiz,ngel-ortiz,Defensa,nota_sofascore,6.8
+22481,6,2026-09-17 19:00,Betis,local,Ortiz,ngel-ortiz,Defensa,min,45.0
+22481,6,2026-09-17 19:00,Betis,local,Ortiz,ngel-ortiz,Defensa,amarillas,1.0
+22481,6,2026-09-17 19:00,Betis,local,Natan,natan,Defensa,nota_cronista,7.0
+22481,6,2026-09-17 19:00,Betis,local,Natan,natan,Defensa,nota_sofascore,7.7
+22481,6,2026-09-17 19:00,Betis,local,Natan,natan,Defensa,min,90.0
+22481,6,2026-09-17 19:00,Betis,local,Valentín Gómez,valentin-gomez,Defensa,nota_cronista,6.0
+22481,6,2026-09-17 19:00,Betis,local,Valentín Gómez,valentin-gomez,Defensa,nota_sofascore,7.7
+22481,6,2026-09-17 19:00,Betis,local,Valentín Gómez,valentin-gomez,Defensa,min,90.0
+22481,6,2026-09-17 19:00,Betis,local,Isco,,Mediocampista,nota_cronista,6.0
+22481,6,2026-09-17 19:00,Betis,local,Isco,,Mediocampista,nota_sofascore,7.2
+22481,6,2026-09-17 19:00,Betis,local,Isco,,Mediocampista,min,61.0
+22481,6,2026-09-17 19:00,Betis,local,Deossa,nelson-deossa,Mediocampista,nota_cronista,7.0
+22481,6,2026-09-17 19:00,Betis,local,Deossa,nelson-deossa,Mediocampista,nota_sofascore,7.5
+22481,6,2026-09-17 19:00,Betis,local,Deossa,nelson-deossa,Mediocampista,min,90.0
+22481,6,2026-09-17 19:00,Betis,local,Bernal,facundo-bernal,Mediocampista,nota_cronista,7.0
+22481,6,2026-09-17 19:00,Betis,local,Bernal,facundo-bernal,Mediocampista,nota_sofascore,6.9
+22481,6,2026-09-17 19:00,Betis,local,Bernal,facundo-bernal,Mediocampista,min,90.0
+22481,6,2026-09-17 19:00,Betis,local,Parrott,troy-parrott,Delantero,nota_cronista,7.0
+22481,6,2026-09-17 19:00,Betis,local,Parrott,troy-parrott,Delantero,nota_sofascore,6.8
+22481,6,2026-09-17 19:00,Betis,local,Parrott,troy-parrott,Delantero,min,72.0
+22481,6,2026-09-17 19:00,Betis,local,Parrott,troy-parrott,Delantero,asis,1.0
+22481,6,2026-09-17 19:00,Betis,local,Parrott,troy-parrott,Delantero,asis_sg,1.0
+22481,6,2026-09-17 19:00,Betis,local,Antony,antony,Delantero,nota_cronista,6.0
+22481,6,2026-09-17 19:00,Betis,local,Antony,antony,Delantero,nota_sofascore,7.5
+22481,6,2026-09-17 19:00,Betis,local,Antony,antony,Delantero,min,89.0
+22481,6,2026-09-17 19:00,Betis,local,Antony,antony,Delantero,tiros,4.0
+22481,6,2026-09-17 19:00,Betis,local,Abde,,Delantero,nota_cronista,7.0
+22481,6,2026-09-17 19:00,Betis,local,Abde,,Delantero,nota_sofascore,8.1
+22481,6,2026-09-17 19:00,Betis,local,Abde,,Delantero,min,72.0
+22481,6,2026-09-17 19:00,Betis,local,Abde,,Delantero,goles,1.0
+22481,6,2026-09-17 19:00,Betis,local,Bellerín,hector-bellerin,Defensa,nota_cronista,6.0
+22481,6,2026-09-17 19:00,Betis,local,Bellerín,hector-bellerin,Defensa,nota_sofascore,7.3
+22481,6,2026-09-17 19:00,Betis,local,Bellerín,hector-bellerin,Defensa,min,45.0
+22481,6,2026-09-17 19:00,Betis,local,Ceballos,dani-ceballos,Mediocampista,nota_cronista,5.0
+22481,6,2026-09-17 19:00,Betis,local,Ceballos,dani-ceballos,Mediocampista,nota_sofascore,7.1
+22481,6,2026-09-17 19:00,Betis,local,Ceballos,dani-ceballos,Mediocampista,min,29.0
+22481,6,2026-09-17 19:00,Betis,local,Fidalgo,lvaro-fidalgo,Mediocampista,min,1.0
+22481,6,2026-09-17 19:00,Betis,local,Riquelme,rodrigo-riquelme,Mediocampista,nota_cronista,5.0
+22481,6,2026-09-17 19:00,Betis,local,Riquelme,rodrigo-riquelme,Mediocampista,nota_sofascore,6.8
+22481,6,2026-09-17 19:00,Betis,local,Riquelme,rodrigo-riquelme,Mediocampista,min,18.0
+22481,6,2026-09-17 19:00,Betis,local,Riquelme,rodrigo-riquelme,Mediocampista,asis_sg,1.0
+22481,6,2026-09-17 19:00,Betis,local,Cucho,,Delantero,nota_cronista,6.0
+22481,6,2026-09-17 19:00,Betis,local,Cucho,,Delantero,nota_sofascore,6.3
+22481,6,2026-09-17 19:00,Betis,local,Cucho,,Delantero,min,18.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Soria,david-soria,Portero,nota_cronista,8.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Soria,david-soria,Portero,nota_sofascore,8.5
+22481,6,2026-09-17 19:00,Getafe,visitante,Soria,david-soria,Portero,min,90.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Djené,dakonam-djene,Defensa,nota_cronista,6.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Djené,dakonam-djene,Defensa,nota_sofascore,6.5
+22481,6,2026-09-17 19:00,Getafe,visitante,Djené,dakonam-djene,Defensa,min,90.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Gudelj,nemanja-gudelj,Mediocampista,nota_cronista,5.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Gudelj,nemanja-gudelj,Mediocampista,nota_sofascore,5.9
+22481,6,2026-09-17 19:00,Getafe,visitante,Gudelj,nemanja-gudelj,Mediocampista,min,90.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Gudelj,nemanja-gudelj,Mediocampista,amarillas,1.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Andrés García,andres-garcia,Defensa,nota_cronista,5.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Andrés García,andres-garcia,Defensa,nota_sofascore,6.3
+22481,6,2026-09-17 19:00,Getafe,visitante,Andrés García,andres-garcia,Defensa,min,69.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Romero,zaid-romero,Defensa,nota_cronista,6.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Romero,zaid-romero,Defensa,nota_sofascore,7.9
+22481,6,2026-09-17 19:00,Getafe,visitante,Romero,zaid-romero,Defensa,min,90.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Davinchi,davinchi,Defensa,nota_cronista,4.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Davinchi,davinchi,Defensa,nota_sofascore,6.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Davinchi,davinchi,Defensa,min,45.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Davinchi,davinchi,Defensa,amarillas,1.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Francho,,Mediocampista,nota_cronista,5.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Francho,,Mediocampista,nota_sofascore,6.6
+22481,6,2026-09-17 19:00,Getafe,visitante,Francho,,Mediocampista,min,81.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Mangala,orel-mangala,Mediocampista,nota_cronista,5.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Mangala,orel-mangala,Mediocampista,nota_sofascore,6.4
+22481,6,2026-09-17 19:00,Getafe,visitante,Mangala,orel-mangala,Mediocampista,min,81.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Mario Martín,mario-martin,Mediocampista,nota_cronista,4.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Mario Martín,mario-martin,Mediocampista,nota_sofascore,6.3
+22481,6,2026-09-17 19:00,Getafe,visitante,Mario Martín,mario-martin,Mediocampista,min,87.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Satriano,martin-satriano,Delantero,nota_cronista,4.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Satriano,martin-satriano,Delantero,nota_sofascore,6.3
+22481,6,2026-09-17 19:00,Getafe,visitante,Satriano,martin-satriano,Delantero,min,45.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Iván Azón,ivan-azon,Delantero,nota_cronista,5.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Iván Azón,ivan-azon,Delantero,nota_sofascore,7.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Iván Azón,ivan-azon,Delantero,min,90.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Mojica,johan-mojica,Defensa,nota_cronista,5.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Mojica,johan-mojica,Defensa,nota_sofascore,6.8
+22481,6,2026-09-17 19:00,Getafe,visitante,Mojica,johan-mojica,Defensa,min,45.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Boselli,sebastian-boselli,Defensa,nota_cronista,4.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Boselli,sebastian-boselli,Defensa,nota_sofascore,6.7
+22481,6,2026-09-17 19:00,Getafe,visitante,Boselli,sebastian-boselli,Defensa,min,21.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Boselli,sebastian-boselli,Defensa,amarillas,1.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Risco,alberto-risco,Mediocampista,nota_sofascore,6.4
+22481,6,2026-09-17 19:00,Getafe,visitante,Risco,alberto-risco,Mediocampista,min,9.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Óscar López,oscar-lopez,Mediocampista,nota_sofascore,6.7
+22481,6,2026-09-17 19:00,Getafe,visitante,Óscar López,oscar-lopez,Mediocampista,min,9.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Enes Ünal,enes-unal,Delantero,nota_cronista,4.0
+22481,6,2026-09-17 19:00,Getafe,visitante,Enes Ünal,enes-unal,Delantero,nota_sofascore,6.2
+22481,6,2026-09-17 19:00,Getafe,visitante,Enes Ünal,enes-unal,Delantero,min,45.0
