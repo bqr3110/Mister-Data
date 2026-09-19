@@ -6262,3 +6262,112 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad
 22481,6,2026-09-17 19:00,Getafe,visitante,Enes Ünal,enes-unal,Delantero,nota_cronista,4.0
 22481,6,2026-09-17 19:00,Getafe,visitante,Enes Ünal,enes-unal,Delantero,nota_sofascore,6.2
 22481,6,2026-09-17 19:00,Getafe,visitante,Enes Ünal,enes-unal,Delantero,min,45.0
+22487,7,2026-09-18 21:00,Espanyol,local,Dmitrovic,laliga-26-27,Portero,nota_cronista,3.0
+22487,7,2026-09-18 21:00,Espanyol,local,Dmitrovic,laliga-26-27,Portero,nota_sofascore,5.5
+22487,7,2026-09-18 21:00,Espanyol,local,Dmitrovic,laliga-26-27,Portero,min,90.0
+22487,7,2026-09-18 21:00,Espanyol,local,Cabrera,laliga-26-27,Defensa,nota_cronista,3.0
+22487,7,2026-09-18 21:00,Espanyol,local,Cabrera,laliga-26-27,Defensa,nota_sofascore,6.8
+22487,7,2026-09-18 21:00,Espanyol,local,Cabrera,laliga-26-27,Defensa,min,90.0
+22487,7,2026-09-18 21:00,Espanyol,local,U. Núñez,,Defensa,nota_cronista,3.0
+22487,7,2026-09-18 21:00,Espanyol,local,U. Núñez,,Defensa,nota_sofascore,7.7
+22487,7,2026-09-18 21:00,Espanyol,local,U. Núñez,,Defensa,min,67.0
+22487,7,2026-09-18 21:00,Espanyol,local,José Ángel,,Defensa,min,90.0
+22487,7,2026-09-18 21:00,Espanyol,local,Hinojo,laliga-26-27,Defensa,nota_cronista,3.0
+22487,7,2026-09-18 21:00,Espanyol,local,Hinojo,laliga-26-27,Defensa,nota_sofascore,6.0
+22487,7,2026-09-18 21:00,Espanyol,local,Hinojo,laliga-26-27,Defensa,min,45.0
+22487,7,2026-09-18 21:00,Espanyol,local,Edu Expósito,laliga-26-27,Mediocampista,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Espanyol,local,Edu Expósito,laliga-26-27,Mediocampista,nota_sofascore,7.8
+22487,7,2026-09-18 21:00,Espanyol,local,Edu Expósito,laliga-26-27,Mediocampista,min,90.0
+22487,7,2026-09-18 21:00,Espanyol,local,Edu Expósito,laliga-26-27,Mediocampista,asis_sg,1.0
+22487,7,2026-09-18 21:00,Espanyol,local,Edu Expósito,laliga-26-27,Mediocampista,amarillas,1.0
+22487,7,2026-09-18 21:00,Espanyol,local,Urko,,Mediocampista,nota_cronista,3.0
+22487,7,2026-09-18 21:00,Espanyol,local,Urko,,Mediocampista,nota_sofascore,6.4
+22487,7,2026-09-18 21:00,Espanyol,local,Urko,,Mediocampista,min,45.0
+22487,7,2026-09-18 21:00,Espanyol,local,Bryan,,Mediocampista,nota_cronista,4.0
+22487,7,2026-09-18 21:00,Espanyol,local,Bryan,,Mediocampista,nota_sofascore,6.7
+22487,7,2026-09-18 21:00,Espanyol,local,Bryan,,Mediocampista,min,67.0
+22487,7,2026-09-18 21:00,Espanyol,local,Bryan,,Mediocampista,tiros,2.0
+22487,7,2026-09-18 21:00,Espanyol,local,Calatrava,laliga-26-27,Mediocampista,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Espanyol,local,Calatrava,laliga-26-27,Mediocampista,nota_sofascore,6.5
+22487,7,2026-09-18 21:00,Espanyol,local,Calatrava,laliga-26-27,Mediocampista,min,61.0
+22487,7,2026-09-18 21:00,Espanyol,local,Javier Hernández,laliga-26-27,Mediocampista,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Espanyol,local,Javier Hernández,laliga-26-27,Mediocampista,nota_sofascore,6.4
+22487,7,2026-09-18 21:00,Espanyol,local,Javier Hernández,laliga-26-27,Mediocampista,min,90.0
+22487,7,2026-09-18 21:00,Espanyol,local,Javier Hernández,laliga-26-27,Mediocampista,asis_sg,1.0
+22487,7,2026-09-18 21:00,Espanyol,local,Roberto,,Delantero,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Espanyol,local,Roberto,,Delantero,nota_sofascore,6.2
+22487,7,2026-09-18 21:00,Espanyol,local,Roberto,,Delantero,min,90.0
+22487,7,2026-09-18 21:00,Espanyol,local,Hartman,laliga-26-27,Defensa,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Espanyol,local,Hartman,laliga-26-27,Defensa,nota_sofascore,6.5
+22487,7,2026-09-18 21:00,Espanyol,local,Hartman,laliga-26-27,Defensa,min,45.0
+22487,7,2026-09-18 21:00,Espanyol,local,Riedel,laliga-26-27,Defensa,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Espanyol,local,Riedel,laliga-26-27,Defensa,nota_sofascore,6.7
+22487,7,2026-09-18 21:00,Espanyol,local,Riedel,laliga-26-27,Defensa,min,23.0
+22487,7,2026-09-18 21:00,Espanyol,local,Riedel,laliga-26-27,Defensa,amarillas,1.0
+22487,7,2026-09-18 21:00,Espanyol,local,Pere Milla,laliga-26-27,Mediocampista,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Espanyol,local,Pere Milla,laliga-26-27,Mediocampista,nota_sofascore,6.4
+22487,7,2026-09-18 21:00,Espanyol,local,Pere Milla,laliga-26-27,Mediocampista,min,29.0
+22487,7,2026-09-18 21:00,Espanyol,local,Marcos,,Delantero,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Espanyol,local,Marcos,,Delantero,nota_sofascore,7.5
+22487,7,2026-09-18 21:00,Espanyol,local,Marcos,,Delantero,min,45.0
+22487,7,2026-09-18 21:00,Espanyol,local,Dolan,laliga-26-27,Delantero,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Espanyol,local,Dolan,laliga-26-27,Delantero,nota_sofascore,6.7
+22487,7,2026-09-18 21:00,Espanyol,local,Dolan,laliga-26-27,Delantero,min,23.0
+22487,7,2026-09-18 21:00,Elche,visitante,Dituro,laliga-26-27,Portero,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Elche,visitante,Dituro,laliga-26-27,Portero,nota_sofascore,6.7
+22487,7,2026-09-18 21:00,Elche,visitante,Dituro,laliga-26-27,Portero,min,90.0
+22487,7,2026-09-18 21:00,Elche,visitante,Chust,laliga-26-27,Defensa,nota_cronista,6.0
+22487,7,2026-09-18 21:00,Elche,visitante,Chust,laliga-26-27,Defensa,nota_sofascore,6.0
+22487,7,2026-09-18 21:00,Elche,visitante,Chust,laliga-26-27,Defensa,min,90.0
+22487,7,2026-09-18 21:00,Elche,visitante,Sangaré,laliga-26-27,Defensa,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Elche,visitante,Sangaré,laliga-26-27,Defensa,nota_sofascore,6.8
+22487,7,2026-09-18 21:00,Elche,visitante,Sangaré,laliga-26-27,Defensa,min,37.0
+22487,7,2026-09-18 21:00,Elche,visitante,Revivo,laliga-26-27,Defensa,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Elche,visitante,Revivo,laliga-26-27,Defensa,nota_sofascore,7.3
+22487,7,2026-09-18 21:00,Elche,visitante,Revivo,laliga-26-27,Defensa,min,77.0
+22487,7,2026-09-18 21:00,Elche,visitante,Revivo,laliga-26-27,Defensa,asis,2.0
+22487,7,2026-09-18 21:00,Elche,visitante,Revivo,laliga-26-27,Defensa,asis_sg,2.0
+22487,7,2026-09-18 21:00,Elche,visitante,Lemar,laliga-26-27,Mediocampista,nota_cronista,6.0
+22487,7,2026-09-18 21:00,Elche,visitante,Lemar,laliga-26-27,Mediocampista,nota_sofascore,7.1
+22487,7,2026-09-18 21:00,Elche,visitante,Lemar,laliga-26-27,Mediocampista,min,77.0
+22487,7,2026-09-18 21:00,Elche,visitante,Villar,laliga-26-27,Mediocampista,nota_cronista,6.0
+22487,7,2026-09-18 21:00,Elche,visitante,Villar,laliga-26-27,Mediocampista,nota_sofascore,7.0
+22487,7,2026-09-18 21:00,Elche,visitante,Villar,laliga-26-27,Mediocampista,min,60.0
+22487,7,2026-09-18 21:00,Elche,visitante,Valera,laliga-26-27,Mediocampista,nota_cronista,7.0
+22487,7,2026-09-18 21:00,Elche,visitante,Valera,laliga-26-27,Mediocampista,nota_sofascore,8.8
+22487,7,2026-09-18 21:00,Elche,visitante,Valera,laliga-26-27,Mediocampista,min,90.0
+22487,7,2026-09-18 21:00,Elche,visitante,Valera,laliga-26-27,Mediocampista,goles,1.0
+22487,7,2026-09-18 21:00,Elche,visitante,Redondo,laliga-26-27,Mediocampista,nota_cronista,0.0
+22487,7,2026-09-18 21:00,Elche,visitante,Redondo,laliga-26-27,Mediocampista,nota_sofascore,3.0
+22487,7,2026-09-18 21:00,Elche,visitante,Redondo,laliga-26-27,Mediocampista,min,6.0
+22487,7,2026-09-18 21:00,Elche,visitante,Redondo,laliga-26-27,Mediocampista,rojas,1.0
+22487,7,2026-09-18 21:00,Elche,visitante,Cepeda,laliga-26-27,Mediocampista,nota_cronista,7.0
+22487,7,2026-09-18 21:00,Elche,visitante,Cepeda,laliga-26-27,Mediocampista,nota_sofascore,7.0
+22487,7,2026-09-18 21:00,Elche,visitante,Cepeda,laliga-26-27,Mediocampista,min,90.0
+22487,7,2026-09-18 21:00,Elche,visitante,Cepeda,laliga-26-27,Mediocampista,amarillas,1.0
+22487,7,2026-09-18 21:00,Elche,visitante,Morcillo,laliga-26-27,Mediocampista,nota_cronista,6.0
+22487,7,2026-09-18 21:00,Elche,visitante,Morcillo,laliga-26-27,Mediocampista,nota_sofascore,6.7
+22487,7,2026-09-18 21:00,Elche,visitante,Morcillo,laliga-26-27,Mediocampista,min,90.0
+22487,7,2026-09-18 21:00,Elche,visitante,Fer Niño,,Delantero,nota_cronista,8.0
+22487,7,2026-09-18 21:00,Elche,visitante,Fer Niño,,Delantero,nota_sofascore,8.5
+22487,7,2026-09-18 21:00,Elche,visitante,Fer Niño,,Delantero,min,61.0
+22487,7,2026-09-18 21:00,Elche,visitante,Fer Niño,,Delantero,goles,2.0
+22487,7,2026-09-18 21:00,Elche,visitante,Fer Niño,,Delantero,amarillas,1.0
+22487,7,2026-09-18 21:00,Elche,visitante,Fer Niño,,Delantero,tiros,2.0
+22487,7,2026-09-18 21:00,Elche,visitante,Bigas,laliga-26-27,Defensa,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Elche,visitante,Bigas,laliga-26-27,Defensa,nota_sofascore,6.5
+22487,7,2026-09-18 21:00,Elche,visitante,Bigas,laliga-26-27,Defensa,min,30.0
+22487,7,2026-09-18 21:00,Elche,visitante,Rubén Sánchez,laliga-26-27,Defensa,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Elche,visitante,Rubén Sánchez,laliga-26-27,Defensa,nota_sofascore,7.4
+22487,7,2026-09-18 21:00,Elche,visitante,Rubén Sánchez,laliga-26-27,Defensa,min,53.0
+22487,7,2026-09-18 21:00,Elche,visitante,Barzic,laliga-26-27,Defensa,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Elche,visitante,Barzic,laliga-26-27,Defensa,nota_sofascore,6.8
+22487,7,2026-09-18 21:00,Elche,visitante,Barzic,laliga-26-27,Defensa,min,13.0
+22487,7,2026-09-18 21:00,Elche,visitante,Tete Morente,laliga-26-27,Mediocampista,nota_cronista,5.0
+22487,7,2026-09-18 21:00,Elche,visitante,Tete Morente,laliga-26-27,Mediocampista,nota_sofascore,6.6
+22487,7,2026-09-18 21:00,Elche,visitante,Tete Morente,laliga-26-27,Mediocampista,min,13.0
+22487,7,2026-09-18 21:00,Elche,visitante,Tete Morente,laliga-26-27,Mediocampista,asis,1.0
+22487,7,2026-09-18 21:00,Elche,visitante,Tete Morente,laliga-26-27,Mediocampista,asis_sg,1.0
+22487,7,2026-09-18 21:00,Elche,visitante,Osorio,laliga-26-27,Delantero,nota_cronista,6.0
+22487,7,2026-09-18 21:00,Elche,visitante,Osorio,laliga-26-27,Delantero,nota_sofascore,6.4
+22487,7,2026-09-18 21:00,Elche,visitante,Osorio,laliga-26-27,Delantero,min,29.0
