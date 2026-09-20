@@ -6788,3 +6788,41 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad
 22490,7,2026-09-19 21:00,Barcelona,visitante,Adeyemi,laliga-26-27,Delantero,nota_cronista,6.0
 22490,7,2026-09-19 21:00,Barcelona,visitante,Adeyemi,laliga-26-27,Delantero,nota_sofascore,6.7
 22490,7,2026-09-19 21:00,Barcelona,visitante,Adeyemi,laliga-26-27,Delantero,min,13.0
+22488,7,2026-09-20 14:00,Getafe,local,Soria,laliga-26-27,Portero,nota_sofascore,6.8
+22488,7,2026-09-20 14:00,Getafe,local,Mojica,laliga-26-27,Defensa,nota_sofascore,7.3
+22488,7,2026-09-20 14:00,Getafe,local,Mojica,laliga-26-27,Defensa,amarillas,1.0
+22488,7,2026-09-20 14:00,Getafe,local,Djené,laliga-26-27,Defensa,nota_sofascore,7.1
+22488,7,2026-09-20 14:00,Getafe,local,Gudelj,laliga-26-27,Defensa,nota_sofascore,7.0
+22488,7,2026-09-20 14:00,Getafe,local,Gudelj,laliga-26-27,Defensa,amarillas,1.0
+22488,7,2026-09-20 14:00,Getafe,local,Andrés García,laliga-26-27,Defensa,nota_sofascore,6.7
+22488,7,2026-09-20 14:00,Getafe,local,Romero,laliga-26-27,Defensa,nota_sofascore,7.5
+22488,7,2026-09-20 14:00,Getafe,local,Francho,,Mediocampista,nota_sofascore,7.4
+22488,7,2026-09-20 14:00,Getafe,local,Francho,,Mediocampista,amarillas,1.0
+22488,7,2026-09-20 14:00,Getafe,local,Terrats,laliga-26-27,Mediocampista,nota_sofascore,7.7
+22488,7,2026-09-20 14:00,Getafe,local,Terrats,laliga-26-27,Mediocampista,amarillas,1.0
+22488,7,2026-09-20 14:00,Getafe,local,Terrats,laliga-26-27,Mediocampista,tiros,2.0
+22488,7,2026-09-20 14:00,Getafe,local,Enes Ünal,laliga-26-27,Delantero,nota_sofascore,6.6
+22488,7,2026-09-20 14:00,Getafe,local,Satriano,laliga-26-27,Delantero,nota_sofascore,7.3
+22488,7,2026-09-20 14:00,Getafe,local,Satriano,laliga-26-27,Delantero,asis,1.0
+22488,7,2026-09-20 14:00,Getafe,local,Satriano,laliga-26-27,Delantero,asis_sg,1.0
+22488,7,2026-09-20 14:00,Getafe,local,Iván Azón,laliga-26-27,Delantero,nota_sofascore,7.2
+22488,7,2026-09-20 14:00,Getafe,local,Iván Azón,laliga-26-27,Delantero,goles,1.0
+22488,7,2026-09-20 14:00,Getafe,local,Iván Azón,laliga-26-27,Delantero,tiros,3.0
+22488,7,2026-09-20 14:00,Getafe,local,Mangala,laliga-26-27,Mediocampista,nota_sofascore,6.5
+22488,7,2026-09-20 14:00,Málaga,visitante,Herrero,laliga-26-27,Portero,nota_sofascore,7.6
+22488,7,2026-09-20 14:00,Málaga,visitante,Berrocal,laliga-26-27,Defensa,nota_sofascore,6.9
+22488,7,2026-09-20 14:00,Málaga,visitante,Salinas,laliga-26-27,Defensa,nota_sofascore,6.2
+22488,7,2026-09-20 14:00,Málaga,visitante,Rafita,,Defensa,nota_sofascore,6.8
+22488,7,2026-09-20 14:00,Málaga,visitante,Recio,laliga-26-27,Defensa,nota_sofascore,6.4
+22488,7,2026-09-20 14:00,Málaga,visitante,Joaquín,,Mediocampista,nota_sofascore,6.3
+22488,7,2026-09-20 14:00,Málaga,visitante,Larrubia,laliga-26-27,Mediocampista,nota_sofascore,6.3
+22488,7,2026-09-20 14:00,Málaga,visitante,Larrubia,laliga-26-27,Mediocampista,amarillas,1.0
+22488,7,2026-09-20 14:00,Málaga,visitante,Dotor,laliga-26-27,Mediocampista,nota_sofascore,6.8
+22488,7,2026-09-20 14:00,Málaga,visitante,Rafa Rodríguez,laliga-26-27,Mediocampista,nota_sofascore,6.7
+22488,7,2026-09-20 14:00,Málaga,visitante,Lorenzo,laliga-26-27,Mediocampista,nota_sofascore,6.9
+22488,7,2026-09-20 14:00,Málaga,visitante,Jauregi,laliga-26-27,Delantero,nota_sofascore,6.3
+22488,7,2026-09-20 14:00,Málaga,visitante,Jauregi,laliga-26-27,Delantero,amarillas,1.0
+22488,7,2026-09-20 14:00,Málaga,visitante,Pablo Martínez,laliga-26-27,Mediocampista,nota_sofascore,6.5
+22488,7,2026-09-20 14:00,Málaga,visitante,Enríquez,laliga-26-27,Mediocampista,nota_sofascore,6.6
+22488,7,2026-09-20 14:00,Málaga,visitante,Niño,laliga-26-27,Delantero,nota_sofascore,6.4
+22488,7,2026-09-20 14:00,Málaga,visitante,Chupete,laliga-26-27,Delantero,nota_sofascore,6.5
