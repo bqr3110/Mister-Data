@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ojeador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="envoltorio">
+
+<header>
+  <div class="titulo">
+    <h1>Ojeador</h1>
+    <span class="sub" id="cabecera-sub"></span>
+    <button class="tema" id="btn-tema">Cambiar tema</button>
+  </div>
+</header>
+
+<div class="controles" hidden>
+  <div class="fila">
+    <label class="campo"><span>Buscar jugador</span>
+      <input type="text" id="buscar" placeholder="Sancet, Mbappé…" autocomplete="off"></label>
+
+    <label class="campo"><span>Puntuación</span>
+      <select id="fuente">
+        <option value="m2" selected>Mixto 2</option>
+        <option value="md">Cronistas MD</option>
+        <option value="cm">Cronistas Marca</option>
+        <option value="sf">Sofascore · nota 0-10</option>
+      </select></label>
+
+    <div class="campo"><span>Dónde juega</span>
+      <div class="segmento" id="sede">
+        <button data-v="" aria-pressed="true">Todo</button>
+        <button data-v="C" aria-pressed="false">Casa</button>
+        <button data-v="F" aria-pressed="false">Fuera</button>
+      </div></div>
+
+    <label class="campo"><span>Partidos mínimos</span>
+      <input type="number" id="minpj" value="1" min="1" max="38"></label>
+
+    <button class="mas" id="btn-mas" aria-expanded="false">Más filtros</button>
+  </div>
+
+  <div id="avanzado" hidden>
+    <div class="bloque">
+      <span class="etiqueta">Posiciones</span>
+      <div class="linea-pos" id="panel-pos"></div>
+    </div>
+
+    <div class="bloque">
+      <div class="cab-bloque">
+        <span class="etiqueta">Equipos</span>
+        <div class="segmento chico" id="modo-eq">
+          <button data-v="incluir" aria-pressed="true">Solo estos</button>
+          <button data-v="excluir" aria-pressed="false">Todos menos estos</button>
+        </div>
+      </div>
+      <div class="rejilla-eq" id="panel-equipos"></div>
+    </div>
+
+    <div class="bloque">
+      <div class="cab-bloque">
+        <span class="etiqueta">Quitar los partidos contra…</span>
+        <span class="nota-rival" id="nota-rival" hidden>ojo: los jugadores de esos equipos no pierden ningún partido, así que la comparación deja de ser homogénea</span>
+      </div>
+      <div class="rejilla-eq" id="panel-rivales"></div>
+    </div>
+
+    <div class="bloque">
+      <span class="etiqueta">Excluir del cálculo las jornadas en que…</span>
+      <div class="excl">
+        <label class="casilla"><input type="checkbox" id="ex-gol"><span>marcó gol</span></label>
+        <label class="casilla"><input type="checkbox" id="ex-roja"><span>vio roja</span></label>
+        <label class="conmin"><input type="checkbox" id="ex-min">
+          <span>jugó menos de</span>
+          <input type="number" id="minminutos" value="45" min="1" max="90"><span>minutos</span></label>
+      </div>
+      <div class="jornadas" id="jornadas"><span class="etiqueta">Jornadas sueltas</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="cargando">Cargando datos…</div>
+<div id="error" hidden></div>
+<div class="resumen" id="resumen"></div>
+
+<div class="tabla-caja" hidden>
+  <table>
+    <thead><tr id="cabeceras"></tr></thead>
+    <tbody id="cuerpo"></tbody>
+  </table>
+</div>
+
+</div>
+
+<dialog id="ficha">
+  <div class="ficha-cab">
+    <h2 id="ficha-nombre"></h2>
+    <span class="sub" id="ficha-equipo"></span>
+    <button class="cerrar" id="ficha-cerrar" aria-label="Cerrar">&times;</button>
+  </div>
+  <div class="sistemas" id="ficha-sistemas"></div>
+  <div class="proximos" id="ficha-prox"></div>
+  <div class="ficha-cuerpo"><table id="ficha-tabla"></table></div>
+  <div class="ficha-pie" id="ficha-pie"></div>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>
