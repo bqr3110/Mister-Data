@@ -1,5 +1,22 @@
 let DATOS = null;
 const CLAVES = ["m2","md","cm","sf"];
+const METRICAS = [
+  {k:'val', t:'Valor de mercado', esc:1e6, uni:'M'},
+  {k:'cam', t:'Subida de hoy',    esc:1e3, uni:'k'},
+  {k:'med', t:'Media'},
+  {k:'mdn', t:'Mediana'},
+  {k:'cas', t:'Media en casa'},
+  {k:'fue', t:'Media fuera'},
+  {k:'dif', t:'Casa − fuera'},
+  {k:'tot', t:'Puntos totales'},
+  {k:'pj',  t:'Partidos jugados'},
+  {k:'g',   t:'Goles'},
+  {k:'a',   t:'Asistencias'},
+  {k:'y',   t:'Amarillas'},
+  {k:'r',   t:'Rojas'},
+  {k:'min', t:'Minutos totales'},
+  {k:'mpm', t:'Minutos por partido'},
+];
 const eur = n => n===null||n===undefined ? null : (n/1e6).toFixed(2).replace('.',',') + 'M';
 
 const COLS = [
@@ -18,11 +35,12 @@ const COLS = [
   {k:'y',   t:'Am'},
   {k:'r',   t:'Roj'},
   {k:'min', t:'Min'},
+  {k:'mpm', t:'Min/P',  dec:0},
   {k:'val', t:'Valor',  mercado:1},
   {k:'cam', t:'Hoy',    cambio:1},
 ];
 
-const estado = {fuente:'m2', equipos:new Set(), modoEq:'incluir', pos:new Set(), rivales:new Set(),
+const estado = {fuente:'m2', equipos:new Set(), modoEq:'incluir', pos:new Set(), rivales:new Set(), rangos:[],
                 sede:'', minpj:1, exGol:false, exRoja:false, exMin:false, minMinutos:45,
                 excluidas:new Set(), orden:'med', asc:false, buscar:''};
 
@@ -69,6 +87,7 @@ function calcular(j){
   return {n:j.n, e:j.e, pos:j.pos||'', nc:j.nc, ref:j, usadas, disp:Object.keys(pts).length,
     pj:todos.length, tot:+todos.reduce((x,z)=>x+z,0).toFixed(1), med:prom(todos), mdn:mediana(todos),
     cas, fue, dif:(cas!==null&&fue!==null)?cas-fue:null, g,a,y,r,min,
+    mpm: todos.length ? Math.round(min/todos.length) : null,
     val:j.val, cam:j.cam};
 }
 
@@ -80,7 +99,14 @@ function pintar(){
     .filter(j => !estado.equipos.size || (estado.modoEq==='incluir' ? estado.equipos.has(j.e) : !estado.equipos.has(j.e)))
     .filter(j => !estado.pos.size || estado.pos.has(j.pos))
     .filter(j => !q || j.n.toLowerCase().includes(q) || j.nc.toLowerCase().includes(q))
-    .map(calcular).filter(Boolean);
+    .map(calcular).filter(Boolean)
+    .filter(f => estado.rangos.every(c => {
+      const v = f[c.k];
+      if(v === null || v === undefined) return false;
+      if(c.min !== null && v < c.min) return false;
+      if(c.max !== null && v > c.max) return false;
+      return true;
+    }));
 
   const k = estado.orden;
   filas.sort((x,z)=>{
@@ -117,6 +143,13 @@ function pintar(){
   if(estado.excluidas.size) avisos.push(`${estado.excluidas.size} jornada(s) fuera`);
   if(estado.pos.size) avisos.push([...estado.pos].join(', '));
   if(estado.rivales.size) avisos.push(`sin partidos contra ${[...estado.rivales].join(', ')}`);
+  for(const c of estado.rangos){
+    const m = METRICAS.find(x=>x.k===c.k); if(!m) continue;
+    const e = m.esc||1, u = m.uni||'';
+    const a = c.min!==null ? `desde ${(c.min/e)}${u}` : '';
+    const b = c.max!==null ? `hasta ${(c.max/e)}${u}` : '';
+    avisos.push(`${m.t.toLowerCase()} ${[a,b].filter(Boolean).join(' ')}`);
+  }
   if(estado.equipos.size) avisos.push(`${estado.modoEq==='incluir'?'solo':'sin'} ${[...estado.equipos].join(', ')}`);
 
   document.getElementById('resumen').innerHTML =
@@ -212,6 +245,62 @@ panelRiv.addEventListener('click', e => {
   notaRiv.setAttribute('hidden',''); actualizarCuenta(); pintar();
 });
 
+// ---- condiciones numericas (desde / hasta)
+const cajaRangos = document.getElementById('rangos');
+
+function opcionesMetrica(sel){
+  return METRICAS.map(m => `<option value="${m.k}" ${m.k===sel?'selected':''}>${m.t}</option>`).join('');
+}
+
+function pintarRangos(){
+  cajaRangos.innerHTML = estado.rangos.map((c,i) => {
+    const m = METRICAS.find(x=>x.k===c.k) || METRICAS[0];
+    const e = m.esc || 1, u = m.uni ? ` <span class="uni">${m.uni}</span>` : '';
+    const v = x => x===null ? '' : (x/e);
+    return `<div class="rango" data-i="${i}">
+      <select class="r-k">${opcionesMetrica(c.k)}</select>
+      <span class="etiqueta">desde</span>
+      <input type="number" class="r-min" step="any" value="${v(c.min)}" placeholder="—">${u}
+      <span class="etiqueta">hasta</span>
+      <input type="number" class="r-max" step="any" value="${v(c.max)}" placeholder="—">${u}
+      <button class="quitar" title="Quitar">&times;</button>
+    </div>`;
+  }).join('') + '<button class="limpiar" id="add-rango">+ añadir condición</button>';
+}
+
+cajaRangos.addEventListener('click', e => {
+  if(e.target.id === 'add-rango'){
+    estado.rangos.push({k:'val', min:null, max:null});
+    pintarRangos(); actualizarCuenta(); return;
+  }
+  if(e.target.classList.contains('quitar')){
+    estado.rangos.splice(+e.target.closest('.rango').dataset.i, 1);
+    pintarRangos(); actualizarCuenta(); pintar();
+  }
+});
+
+cajaRangos.addEventListener('input', e => {
+  const caja = e.target.closest('.rango'); if(!caja) return;
+  const i = +caja.dataset.i, c = estado.rangos[i];
+  const m = METRICAS.find(x=>x.k===caja.querySelector('.r-k').value) || METRICAS[0];
+  const e2 = m.esc || 1;
+  const num = el => el.value === '' ? null : parseFloat(el.value) * e2;
+  c.k = m.k;
+  c.min = num(caja.querySelector('.r-min'));
+  c.max = num(caja.querySelector('.r-max'));
+  actualizarCuenta(); pintar();
+});
+
+cajaRangos.addEventListener('change', e => {
+  if(!e.target.classList.contains('r-k')) return;
+  const caja = e.target.closest('.rango');
+  const i = +caja.dataset.i;
+  estado.rangos[i] = {k: e.target.value, min:null, max:null};
+  pintarRangos(); actualizarCuenta(); pintar();
+});
+
+pintarRangos();
+
 // ---- posiciones
 const panelPos = document.getElementById('panel-pos');
 panelPos.innerHTML = DATOS.posiciones.map(p => `<label><input type="checkbox" value="${p}"><span>${p}</span></label>`).join('');
@@ -259,7 +348,7 @@ btnMas.addEventListener('click', () => {
 });
 function actualizarCuenta(){
   const n = estado.equipos.size + estado.pos.size + estado.excluidas.size + estado.rivales.size
-          + (estado.exGol?1:0) + (estado.exRoja?1:0) + (estado.exMin?1:0);
+          + estado.rangos.length + (estado.exGol?1:0) + (estado.exRoja?1:0) + (estado.exMin?1:0);
   btnMas.innerHTML = n ? `Más filtros <span class="cuenta">· ${n}</span>` : 'Más filtros';
 }
 
