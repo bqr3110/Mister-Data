@@ -26,9 +26,12 @@ const estado = {fuente:'m2', equipos:new Set(), modoEq:'incluir', pos:new Set(),
                 sede:'', minpj:1, exGol:false, exRoja:false, exMin:false, minMinutos:45,
                 excluidas:new Set(), orden:'med', asc:false, buscar:''};
 
-const JORNADAS = (()=>{ const s=new Set();
+let JORNADAS = [];
+function calcularJornadas(){
+  const s = new Set();
   for(const j of DATOS.jugadores) for(const f in j.p) for(const n in j.p[f]) s.add(+n);
-  return [...s].sort((a,b)=>a-b); })();
+  JORNADAS = [...s].sort((a,b)=>a-b);
+}
 
 const mediana = v => { if(!v.length) return null;
   const o=[...v].sort((a,b)=>a-b), m=o.length>>1;
@@ -169,6 +172,9 @@ function abrirFicha(f){
   document.getElementById('ficha').showModal();
 }
 
+function arrancar(){
+calcularJornadas();
+
 // ---- equipos
 const panelEq = document.getElementById('panel-equipos');
 panelEq.innerHTML = DATOS.equipos.map(e => `<label><input type="checkbox" value="${e}"><span>${e}</span></label>`).join('')
@@ -189,7 +195,6 @@ document.getElementById('modo-eq').addEventListener('click', e => {
   b.setAttribute('aria-pressed','true'); estado.modoEq = b.dataset.v; pintar();
 });
 
-function arrancar(){
 // ---- rivales a descartar
 const panelRiv = document.getElementById('panel-rivales');
 const notaRiv = document.getElementById('nota-rival');
