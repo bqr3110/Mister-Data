@@ -7147,3 +7147,109 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad
 22492,7,2026-09-20 18:30,Levante,visitante,Musuayi,laliga-26-27,Delantero,nota_cronista,4.0
 22492,7,2026-09-20 18:30,Levante,visitante,Musuayi,laliga-26-27,Delantero,nota_sofascore,6.6
 22492,7,2026-09-20 18:30,Levante,visitante,Musuayi,laliga-26-27,Delantero,min,27.0
+22491,7,2026-09-20 21:00,Valencia,local,Dimitrievski,laliga-26-27,Portero,nota_cronista,4.0
+22491,7,2026-09-20 21:00,Valencia,local,Dimitrievski,laliga-26-27,Portero,nota_sofascore,6.3
+22491,7,2026-09-20 21:00,Valencia,local,Dimitrievski,laliga-26-27,Portero,min,90.0
+22491,7,2026-09-20 21:00,Valencia,local,Gayà,laliga-26-27,Defensa,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Valencia,local,Gayà,laliga-26-27,Defensa,nota_sofascore,6.3
+22491,7,2026-09-20 21:00,Valencia,local,Gayà,laliga-26-27,Defensa,min,82.0
+22491,7,2026-09-20 21:00,Valencia,local,Gayà,laliga-26-27,Defensa,amarillas,1.0
+22491,7,2026-09-20 21:00,Valencia,local,Maffeo,laliga-26-27,Defensa,nota_cronista,5.0
+22491,7,2026-09-20 21:00,Valencia,local,Maffeo,laliga-26-27,Defensa,nota_sofascore,6.4
+22491,7,2026-09-20 21:00,Valencia,local,Maffeo,laliga-26-27,Defensa,min,90.0
+22491,7,2026-09-20 21:00,Valencia,local,De Haas,,Defensa,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Valencia,local,De Haas,,Defensa,nota_sofascore,7.3
+22491,7,2026-09-20 21:00,Valencia,local,De Haas,,Defensa,min,90.0
+22491,7,2026-09-20 21:00,Valencia,local,De Haas,,Defensa,amarillas,1.0
+22491,7,2026-09-20 21:00,Valencia,local,Pepelu,laliga-26-27,Mediocampista,nota_cronista,4.0
+22491,7,2026-09-20 21:00,Valencia,local,Pepelu,laliga-26-27,Mediocampista,nota_sofascore,6.5
+22491,7,2026-09-20 21:00,Valencia,local,Pepelu,laliga-26-27,Mediocampista,min,90.0
+22491,7,2026-09-20 21:00,Valencia,local,Guido,,Mediocampista,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Valencia,local,Guido,,Mediocampista,nota_sofascore,7.0
+22491,7,2026-09-20 21:00,Valencia,local,Guido,,Mediocampista,min,69.0
+22491,7,2026-09-20 21:00,Valencia,local,Javi Guerra,laliga-26-27,Mediocampista,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Valencia,local,Javi Guerra,laliga-26-27,Mediocampista,nota_sofascore,6.6
+22491,7,2026-09-20 21:00,Valencia,local,Javi Guerra,laliga-26-27,Mediocampista,min,90.0
+22491,7,2026-09-20 21:00,Valencia,local,Ugrinic,laliga-26-27,Mediocampista,nota_cronista,4.0
+22491,7,2026-09-20 21:00,Valencia,local,Ugrinic,laliga-26-27,Mediocampista,nota_sofascore,6.4
+22491,7,2026-09-20 21:00,Valencia,local,Ugrinic,laliga-26-27,Mediocampista,min,45.0
+22491,7,2026-09-20 21:00,Valencia,local,Mayol,laliga-26-27,Mediocampista,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Valencia,local,Mayol,laliga-26-27,Mediocampista,nota_sofascore,7.4
+22491,7,2026-09-20 21:00,Valencia,local,Mayol,laliga-26-27,Mediocampista,min,90.0
+22491,7,2026-09-20 21:00,Valencia,local,Mayol,laliga-26-27,Mediocampista,goles,1.0
+22491,7,2026-09-20 21:00,Valencia,local,Duro,laliga-26-27,Delantero,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Valencia,local,Duro,laliga-26-27,Delantero,nota_sofascore,6.4
+22491,7,2026-09-20 21:00,Valencia,local,Duro,laliga-26-27,Delantero,min,82.0
+22491,7,2026-09-20 21:00,Valencia,local,Duro,laliga-26-27,Delantero,asis,1.0
+22491,7,2026-09-20 21:00,Valencia,local,Danjuma,laliga-26-27,Delantero,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Valencia,local,Danjuma,laliga-26-27,Delantero,nota_sofascore,7.8
+22491,7,2026-09-20 21:00,Valencia,local,Danjuma,laliga-26-27,Delantero,min,88.0
+22491,7,2026-09-20 21:00,Valencia,local,Jesús Vázquez,laliga-26-27,Defensa,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Valencia,local,Jesús Vázquez,laliga-26-27,Defensa,nota_sofascore,6.6
+22491,7,2026-09-20 21:00,Valencia,local,Jesús Vázquez,laliga-26-27,Defensa,min,8.0
+22491,7,2026-09-20 21:00,Valencia,local,Elliott,laliga-26-27,Mediocampista,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Valencia,local,Elliott,laliga-26-27,Mediocampista,nota_sofascore,6.5
+22491,7,2026-09-20 21:00,Valencia,local,Elliott,laliga-26-27,Mediocampista,min,21.0
+22491,7,2026-09-20 21:00,Valencia,local,Rioja,laliga-26-27,Mediocampista,nota_cronista,5.0
+22491,7,2026-09-20 21:00,Valencia,local,Rioja,laliga-26-27,Mediocampista,nota_sofascore,7.0
+22491,7,2026-09-20 21:00,Valencia,local,Rioja,laliga-26-27,Mediocampista,min,2.0
+22491,7,2026-09-20 21:00,Valencia,local,Rioja,laliga-26-27,Mediocampista,asis_sg,1.0
+22491,7,2026-09-20 21:00,Valencia,local,Otorbi,laliga-26-27,Delantero,nota_cronista,9.0
+22491,7,2026-09-20 21:00,Valencia,local,Otorbi,laliga-26-27,Delantero,nota_sofascore,8.0
+22491,7,2026-09-20 21:00,Valencia,local,Otorbi,laliga-26-27,Delantero,min,45.0
+22491,7,2026-09-20 21:00,Valencia,local,Blázquez,laliga-26-27,Delantero,nota_sofascore,6.6
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Remiro,laliga-26-27,Portero,nota_cronista,9.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Remiro,laliga-26-27,Portero,nota_sofascore,7.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Remiro,laliga-26-27,Portero,min,90.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Sergio Gómez,laliga-26-27,Defensa,nota_cronista,7.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Sergio Gómez,laliga-26-27,Defensa,nota_sofascore,6.7
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Sergio Gómez,laliga-26-27,Defensa,min,69.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Jon Martín,laliga-26-27,Defensa,nota_cronista,9.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Jon Martín,laliga-26-27,Defensa,nota_sofascore,6.5
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Jon Martín,laliga-26-27,Defensa,min,90.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Aramburu,laliga-26-27,Defensa,nota_cronista,8.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Aramburu,laliga-26-27,Defensa,nota_sofascore,6.6
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Aramburu,laliga-26-27,Defensa,min,90.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Beitia,laliga-26-27,Defensa,nota_cronista,8.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Beitia,laliga-26-27,Defensa,nota_sofascore,7.7
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Beitia,laliga-26-27,Defensa,min,90.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Carlos Soler,laliga-26-27,Mediocampista,nota_cronista,9.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Carlos Soler,laliga-26-27,Mediocampista,nota_sofascore,8.2
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Carlos Soler,laliga-26-27,Mediocampista,min,90.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Carlos Soler,laliga-26-27,Mediocampista,goles,1.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Carlos Soler,laliga-26-27,Mediocampista,asis,1.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,L. Sucic,,Mediocampista,nota_cronista,9.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,L. Sucic,,Mediocampista,nota_sofascore,7.6
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,L. Sucic,,Mediocampista,min,87.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,L. Sucic,,Mediocampista,goles,1.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,L. Sucic,,Mediocampista,asis_sg,1.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,L. Sucic,,Mediocampista,amarillas,1.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Gorrotxategi,laliga-26-27,Mediocampista,nota_cronista,8.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Gorrotxategi,laliga-26-27,Mediocampista,nota_sofascore,7.2
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Gorrotxategi,laliga-26-27,Mediocampista,min,69.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Ochieng,laliga-26-27,Mediocampista,nota_cronista,9.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Ochieng,laliga-26-27,Mediocampista,nota_sofascore,6.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Ochieng,laliga-26-27,Mediocampista,min,61.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Ochieng,laliga-26-27,Mediocampista,asis,1.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Guedes,laliga-26-27,Delantero,nota_cronista,8.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Guedes,laliga-26-27,Delantero,nota_sofascore,6.3
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Guedes,laliga-26-27,Delantero,min,90.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Oyarzabal,laliga-26-27,Delantero,nota_cronista,7.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Oyarzabal,laliga-26-27,Delantero,nota_sofascore,6.8
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Oyarzabal,laliga-26-27,Delantero,min,61.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Aihen,,Defensa,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Aihen,,Defensa,nota_sofascore,6.2
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Aihen,,Defensa,min,21.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Barrenetxea,laliga-26-27,Mediocampista,nota_cronista,7.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Barrenetxea,laliga-26-27,Mediocampista,nota_sofascore,7.2
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Barrenetxea,laliga-26-27,Mediocampista,min,29.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Barrenetxea,laliga-26-27,Mediocampista,goles,1.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Herrera,laliga-26-27,Mediocampista,nota_cronista,7.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Herrera,laliga-26-27,Mediocampista,nota_sofascore,7.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Herrera,laliga-26-27,Mediocampista,min,21.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Zakharyan,laliga-26-27,Mediocampista,nota_cronista,6.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Zakharyan,laliga-26-27,Mediocampista,nota_sofascore,6.5
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Zakharyan,laliga-26-27,Mediocampista,min,3.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Óskarsson 60',,Delantero,nota_cronista,0.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Óskarsson 60',,Delantero,nota_sofascore,6.0
+22491,7,2026-09-20 21:00,Real Sociedad,visitante,Óskarsson 60',,Delantero,min,29.0
