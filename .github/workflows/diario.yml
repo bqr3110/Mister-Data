@@ -8,6 +8,8 @@ on:
 jobs:
   capturar:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -39,3 +41,37 @@ jobs:
           git add datos/ web/
           git diff --staged --quiet || git commit -m "Captura $(date +'%Y-%m-%d %H:%M')"
           git push
+
+  # Publica la carpeta web/ en GitHub Pages.
+  # Va aqui dentro y no en un archivo aparte a proposito: un commit hecho por
+  # un workflow no dispara otros workflows, asi que un archivo suelto nunca
+  # llegaria a ejecutarse.
+  publicar:
+    needs: capturar
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      # ref: main es imprescindible. Sin eso se descargaria el codigo tal y
+      # como estaba ANTES de que el trabajo anterior guardara los datos, y la
+      # web se publicaria con los datos viejos.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - id: despliegue
+        uses: actions/deploy-pages@v4
