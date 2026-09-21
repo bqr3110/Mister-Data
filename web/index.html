@@ -17,13 +17,14 @@
   <div class="titulo">
     <h1>Ojeador</h1>
     <span class="sub" id="cabecera-sub"></span>
+    <button class="tema" id="abrir-cmp">Comparador</button>
     <button class="tema" id="btn-tema">Cambiar tema</button>
   </div>
 </header>
 
 <div class="controles" hidden>
   <div class="fila">
-    <label class="campo"><span>Buscar jugador</span>
+    <label class="campo busca"><span>Buscar jugador</span>
       <input type="text" id="buscar" placeholder="Sancet, Mbappé…" autocomplete="off"></label>
 
     <label class="campo"><span>Puntuación</span>
@@ -82,6 +83,39 @@
             <input type="number" id="cam-min" step="1" placeholder="—"><span class="uni">k</span>
           </div>
           <button class="limpiar" data-limpiar="valor">quitar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <button class="filtro" data-p="juega" aria-expanded="false">Juega</button>
+      <div class="pop ancho" id="pop-juega" hidden>
+        <div class="pop-cuerpo">
+          <span class="etiqueta">Para quitar de en medio a los que llevan tiempo sin jugar.
+            Se mira sobre los partidos reales de su equipo: tus exclusiones no cuentan aquí.</span>
+
+          <div class="linea-num">
+            <span class="etiqueta">Mirando sus últimos</span>
+            <input type="number" id="ult-n" value="5" min="1" max="20">
+            <span class="uni">partidos</span>
+          </div>
+
+          <label class="casilla"><input type="checkbox" id="ju-min"><span>Jugó al menos…</span></label>
+          <div class="linea-num sangrada">
+            <input type="number" id="ju-cuantos" value="3" min="1" max="20">
+            <span class="uni">de ellos, con</span>
+            <input type="number" id="ju-minutos" value="15" min="1" max="90">
+            <span class="uni">min o más cada uno</span>
+          </div>
+
+          <label class="casilla"><input type="checkbox" id="ju-tot"><span>Sumó al menos…</span></label>
+          <div class="linea-num sangrada">
+            <input type="number" id="ju-totmin" value="180" min="1" max="1800">
+            <span class="uni">minutos entre todos ellos</span>
+          </div>
+
+          <label class="casilla"><input type="checkbox" id="ju-ultimo"><span>Jugó el último partido</span></label>
+          <button class="limpiar" data-limpiar="juega">quitar</button>
         </div>
       </div>
     </div>
@@ -147,7 +181,12 @@
 
 <div id="cargando">Cargando datos…</div>
 <div id="error" hidden></div>
+
 <div class="resumen" id="resumen"></div>
+
+<div class="barra-orden" id="barra-orden" hidden>
+  <div class="tira" id="tira"></div>
+</div>
 
 <div class="tabla-caja" hidden>
   <table>
@@ -156,7 +195,37 @@
   </table>
 </div>
 
+<div class="tarjetas" id="tarjetas" hidden></div>
+
 </div>
+
+<div class="velo" id="velo" hidden></div>
+
+<div class="carro" id="carro" hidden>
+  <button class="carro-abrir" id="carro-abrir">Comparar <span id="carro-n">0</span></button>
+  <button class="carro-vaciar" id="carro-vaciar" aria-label="Vaciar">&times;</button>
+</div>
+
+<dialog id="comparador">
+  <div class="cmp-cab">
+    <h2>Comparador</h2>
+    <span class="sub" id="cmp-sub"></span>
+    <button class="cerrar" id="cmp-cerrar" aria-label="Cerrar">&times;</button>
+  </div>
+
+  <div class="cmp-anadir">
+    <input type="text" id="cmp-buscar" placeholder="Añadir jugador por nombre…" autocomplete="off">
+    <div class="cmp-sug" id="cmp-sug" hidden></div>
+  </div>
+
+  <div class="cmp-seccion">
+    <button class="sub-cab cmp-sec" id="cmp-cab-atrib" aria-expanded="false">Qué datos comparo</button>
+    <div class="cmp-atrib" id="cmp-atrib" hidden></div>
+  </div>
+
+  <div class="cmp-cuerpo" id="cmp-cuerpo"></div>
+  <div class="cmp-pie" id="cmp-pie"></div>
+</dialog>
 
 <dialog id="ficha">
   <div class="ficha-cab">
