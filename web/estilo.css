@@ -523,6 +523,9 @@ tbody tr:hover .mas-cmp,.mas-cmp.puesto,.mas-cmp:focus-visible{opacity:1}
         display 180ms allow-discrete}
 .carro[hidden]{opacity:0;transform:translateX(-50%) translateY(14px)}
 @starting-style{ .carro:not([hidden]){opacity:0;transform:translateX(-50%) translateY(14px)} }
+@media (max-width:700px){
+  @starting-style{ .carro:not([hidden]){opacity:0;transform:translateY(14px)} }
+}
 .carro-abrir.lleno{animation:sacudir 420ms var(--ease-out)}
 @keyframes sacudir{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}
   50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
@@ -610,6 +613,10 @@ tbody tr:hover .mas-cmp,.mas-cmp.puesto,.mas-cmp:focus-visible{opacity:1}
   .cmp-jug{min-width:76px}
   .cmp-n{font-size:12.5px;max-width:84px}
   .cmp-pie{padding:10px 16px}
-  .carro{bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  /* el sello de Netlify vive abajo a la derecha: nos apartamos a la izquierda */
+  .carro{left:12px;right:auto;transform:none;
+    bottom:calc(14px + env(safe-area-inset-bottom,0px));max-width:calc(100% - 24px)}
+  .carro[hidden]{transform:translateY(14px)}
+  .carro-abrir{padding:11px 15px}
   .ficha-cmp{width:100%;text-align:center}
 }
