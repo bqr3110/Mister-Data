@@ -24,6 +24,23 @@ function insignia(txt, color, ayuda){
     } style="background:${color};color:${tinta(color)}">${txt}</span>`;
 }
 
+// Real Sociedad -> real-sociedad · Alaves sin tilde, como los ficheros
+const rebanada = n => n.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase().replace(/ /g, '-');
+
+/* El escudo si esta descargado; si no, la abreviatura de siempre.
+   El onerror deja la insignia de texto, asi que la web funciona igual
+   antes y despues de pasar el script de escudos. */
+function escudo(equipo, ayuda){
+  const e = EQUIPO[equipo];
+  if(!e) return equipo;
+  const texto = insignia(e[0], e[1], ayuda);
+  return `<span class="esc" data-ayuda="${ayuda || equipo}"><img src="escudos/${
+    rebanada(equipo)}.png" alt="${equipo}" loading="lazy"
+    onerror="this.parentNode.outerHTML=this.dataset.txt"
+    data-txt="${texto.replace(/"/g, '&quot;')}"></span>`;
+}
+
 const eur = n => (n === null || n === undefined) ? null
   : (n / 1e6).toFixed(2).replace('.', ',') + 'M';
 // version corta para el movil, donde no caben dos decimales
@@ -162,10 +179,22 @@ function calcular(j, ignorarMin){
     val:j.val, cam:j.cam, ...actividad(j)};
 }
 
+/* Escala de Mister: la nota de Sofascore se traduce a puntos por tramos.
+   Sirve para dos cosas: pintar la racha con SUS colores y poder decir
+   "un 7,4 son +7" al pasar por encima de un cuadro. */
+const TABLA_SF = [
+  [9.3, 12], [8.6, 11], [8.0, 10], [7.8, 9], [7.6, 8], [7.4, 7], [7.2, 6],
+  [7.0, 5], [6.8, 4], [6.6, 3], [6.4, 2], [6.2, 1], [6.0, 0],
+  [5.8, -1], [5.4, -2], [5.0, -3], [0, -4],
+];
+const notaAPuntos = n => (TABLA_SF.find(([min]) => n >= min - 1e-9) || [0, -4])[1];
+
+/* Los colores son los del propio Mister:
+   azul los partidazos, verde bien, amarillo flojo, gris cero, rojo negativo. */
 function nivel(v){
   if(v === undefined || v === null) return 'pv';
-  if(esNota()) return v<6 ? 'p0' : v<6.8 ? 'p1' : v<7.4 ? 'p2' : v<8.2 ? 'p3' : 'p4';
-  return v<0 ? 'p0' : v<3 ? 'p1' : v<6 ? 'p2' : v<10 ? 'p3' : 'p4';
+  const p = esNota() ? notaAPuntos(v) : v;
+  return p < 0 ? 'nr' : p === 0 ? 'n0' : p < 5 ? 'na' : p < 10 ? 'nv' : 'nz';
 }
 function pintarRacha(f, tope){
   const pts = f.ref.p[estado.fuente] || {};
@@ -174,7 +203,11 @@ function pintarRacha(f, tope){
     const v = pts[n];
     const dentro = f.usadas.includes(n);
     const [sede] = (DATOS.lugar[n+'|'+f.e] || '|').split('|');
-    const t = v===undefined ? `J${n}: no jugó` : `J${n} ${sede==='C'?'casa':'fuera'}: ${v}`;
+    // con Sofascore la nota no dice nada por sí sola: se añade lo que vale en Mister
+    const equiv = (v !== undefined && esNota())
+      ? ` → ${notaAPuntos(v) > 0 ? '+' : ''}${notaAPuntos(v)} pts` : '';
+    const t = v===undefined ? `J${n}: no jugó`
+      : `J${n} ${sede==='C'?'casa':'fuera'}: ${v}${equiv}`;
     return `<i class="pt ${nivel(v)}${dentro?'':' off'}" data-ayuda="${t}">${v===undefined?'':v}</i>`;
   }).join('');
 }
@@ -326,7 +359,7 @@ function pintarTarjetas(filas){
     const val = (f.val === null || f.val === undefined) ? '' : millones(f.val);
     return `<article class="tj" data-i="${i}" data-k="${f.n + '|' + f.e}">
       <div class="tj-cab">
-        ${p ? insignia(p[0], p[1], f.pos) : ''}${e ? insignia(e[0], e[1], f.e) : ''}
+        ${p ? insignia(p[0], p[1], f.pos) : ''}${escudo(f.e, f.e)}
         <span class="tj-n">${f.n}</span>
         <span class="tj-racha">${pintarRacha(f, RACHA_TJ)}</span>
         <span class="tj-val">${val}${cam}</span>
@@ -353,7 +386,7 @@ function pintarTabla(filas, k){
       }
       if(c.insig === 'eq'){
         const e = EQUIPO[f.e];
-        return `<td class="cen${s}">${e ? insignia(e[0], e[1], f.e) : f.e}</td>`;
+        return `<td class="cen${s}">${escudo(f.e, f.e)}</td>`;
       }
       if(c.racha) return `<td class="racha${s}">${pintarRacha(f)}</td>`;
       if(c.txt) return `<td class="nom${s}">${f[c.k]||'<span class="tenue">·</span>'}</td>`;
@@ -678,37 +711,56 @@ function pintarComparador(){
 
   const filas = estado.atrib.map(k => ATRIB.find(a => a.k === k)).filter(Boolean);
 
-  let html = '<table class="cmp-tabla"><thead><tr><th class="cmp-rot"></th>' +
-    fichas.map(f => {
-      const p = POS[f.pos], e = EQUIPO[f.e];
-      return `<th><div class="cmp-jug">
-        <div class="cmp-ins">${p?insignia(p[0],p[1],f.pos):''}${e?insignia(e[0],e[1],f.e):''}</div>
-        <span class="cmp-n">${f.n}</span>
-        <button class="cmp-quitar" data-quitar="${f.clave}" aria-label="Quitar">&times;</button>
-      </div></th>`;
-    }).join('') + '</tr></thead><tbody>';
+  /* Rejilla tranquila: el dato es el numero. Lo unico que destaca es el
+     mejor de cada fila, y solo con el peso de la letra. Las rayas finas
+     entre filas son lo que lleva el ojo de izquierda a derecha. */
+  const celda = (f, a, mejor) => {
+    const v = f[a.k];
+    if(v === null || v === undefined) return '<td class="cg vacia">·</td>';
+    const gana = mejor !== null && v === mejor;
+    return `<td class="cg${gana ? ' mejor' : ''}">${valorAtrib(f, a)}</td>`;
+  };
+
+  const gana = {};
+  let cuerpoTabla = '';
 
   for(const a of filas){
-    // el mejor de la fila se resalta, salvo en atributos sin ganador claro
+    const vals = fichas.map(f => f[a.k]).filter(v => v !== null && v !== undefined);
     let mejor = null;
-    if(a.alto !== null){
-      const vs = fichas.map(f => f[a.k]).filter(v => v !== null && v !== undefined);
-      if(vs.length > 1) mejor = a.alto ? Math.max(...vs) : Math.min(...vs);
+    if(a.alto !== null && vals.length > 1 && Math.min(...vals) !== Math.max(...vals))
+      mejor = a.alto ? Math.max(...vals) : Math.min(...vals);
+
+    cuerpoTabla += `<tr><th class="cg-rot"${AYUDA[a.k] ? ` data-ayuda="${AYUDA[a.k]}"` : ''
+      }>${a.t}</th>` + fichas.map(f => celda(f, a, mejor)).join('') + '</tr>';
+
+    if(mejor !== null){
+      const g = fichas.filter(f => f[a.k] === mejor);
+      if(g.length === 1) gana[g[0].n] = (gana[g[0].n] || 0) + 1;
     }
-    html += `<tr><th class="cmp-rot"${AYUDA[a.k]?` data-ayuda="${AYUDA[a.k]}"`:''}>${a.t}</th>` + fichas.map(f => {
-      const v = f[a.k];
-      const gana = mejor !== null && v === mejor && v !== null && v !== undefined;
-      return `<td class="${gana?'gana':''}">${valorAtrib(f, a)}</td>`;
-    }).join('') + '</tr>';
   }
 
-  // racha, siempre al final: es lo que mejor se lee de un vistazo
-  html += '<tr><th class="cmp-rot">Racha</th>' + fichas.map(f =>
-    `<td class="cmp-racha">${pintarRacha(f, 6)}</td>`).join('') + '</tr></tbody></table>';
+  // la racha no es una magnitud: va con sus propios colores, sin teñir
+  cuerpoTabla += `<tr><th class="cg-rot" data-ayuda="${AYUDA.racha}">Racha</th>` +
+    fichas.map(f => `<td class="cg-racha">${pintarRacha(f, 5)}</td>`).join('') + '</tr>';
 
-  cuerpo.innerHTML = html;
+  const cab = '<thead><tr><th class="cg-rot"></th>' + fichas.map(f => {
+    const p = POS[f.pos], e = EQUIPO[f.e];
+    return `<th class="cg-jug">
+      <button class="cg-quitar" data-quitar="${f.clave}" aria-label="Quitar">&times;</button>
+      <span class="cg-ins">${p ? insignia(p[0],p[1],f.pos) : ''}${escudo(f.e, f.e)}</span>
+      <span class="cg-n">${f.n}</span></th>`;
+  }).join('') + '</tr></thead>';
+
+  const orden = Object.entries(gana).sort((a,b) => b[1]-a[1]);
+  const veredicto = (orden.length && filas.length > 1 && fichas.length > 1)
+    ? `<div class="cmp-veredicto"><b>${orden[0][0]}</b> gana en ${orden[0][1]} de ${filas.length}</div>`
+    : '';
+
+  cuerpo.innerHTML = veredicto +
+    `<div class="cg-caja"><table class="cg-tabla">${cab}<tbody>${cuerpoTabla}</tbody></table></div>`;
   document.getElementById('cmp-pie').innerHTML = filas.length
-    ? `<span>Sobre ${DATOS.fuentes[estado.fuente]}, con los filtros de exclusión que tengas puestos.</span>`
+    ? `<span>En negrita, el mejor de cada fila. Sobre ${DATOS.fuentes[estado.fuente]}, ` +
+      'con los filtros de exclusión que tengas puestos.</span>'
     : '<span>Elige arriba qué datos quieres comparar.</span>';
 }
 
@@ -931,7 +983,7 @@ function arrancarComparador(){
     sug.innerHTML = hallados.map(j => {
       const k = clave(j), f = calcular(j, true), p = POS[j.pos], e = EQUIPO[j.e];
       return `<button class="sg${enCarro(k)?' puesto':''}" data-sug="${k}">
-        ${p?insignia(p[0],p[1],j.pos):''}${e?insignia(e[0],e[1],j.e):''}
+        ${p?insignia(p[0],p[1],j.pos):''}${escudo(j.e, j.e)}
         <span class="sg-n">${j.n}</span>
         <span class="sg-d">${f && f.med!==null ? 'media '+f.med.toFixed(2) : 'sin datos'}</span>
         <span class="sg-x">${enCarro(k)?'✓':'+'}</span></button>`;
