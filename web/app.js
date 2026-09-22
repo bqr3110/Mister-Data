@@ -63,6 +63,7 @@ const STATS = [
   {k:'y',   t:'Amarillas'},
   {k:'r',   t:'Rojas'},
   {k:'pj',  t:'Partidos jugados'},
+  {k:'tit', t:'Titularidades'},
   {k:'mpm', t:'Minutos por partido'},
 ];
 
@@ -74,6 +75,7 @@ const COLS = [
   {k:'n',   t:'Jugador', pega:'c4', txt:1},
   {k:'racha', t:'Racha', racha:1, sep:1},
   {k:'ult', t:'Últ.', ultimos:1},
+  {k:'tit', t:'Tit'},
   {k:'pj',  t:'PJ'},
   {k:'med', t:'Media',   dec:2},
   {k:'mdn', t:'Mediana', dec:1},
@@ -98,7 +100,7 @@ const estado = {
   excluidas:new Set(), rangos:[], stats:{},
   orden:'med', asc:false,
   carro:[], atrib:['med','mdn','cas','fue','pj'],
-  ultN:5, juOn:false, juCuantos:3, juMinutos:15,
+  ultN:5, juOn:false, juCuantos:3, juMinutos:15, juTit:false,
   juTotOn:false, juTotMin:180, juUltimo:false,
 };
 
@@ -128,13 +130,14 @@ const minutosEn = (j, n) => (j.ev[n] && j.ev[n].m) || 0;
    si no, el filtro se mordería la cola. */
 function actividad(j){
   const ult = (JUGADAS[j.e] || JORNADAS).slice(-estado.ultN);
-  let jug = 0, min = 0;
+  let jug = 0, min = 0, tit = 0;
   for(const n of ult){
     const m = minutosEn(j, n);
     min += m;
     if(m >= estado.juMinutos) jug++;
+    if(j.ev[n] && j.ev[n].tit === 1) tit++;
   }
-  return {ult:jug, ultDe:ult.length, ultMin:min,
+  return {ult:jug, ultDe:ult.length, ultMin:min, ultTit:tit,
           ultimo: ult.length ? minutosEn(j, ult[ult.length-1]) >= estado.juMinutos : false};
 }
 
@@ -149,12 +152,13 @@ function calcular(j, ignorarMin){
   if(!pts) return null;
 
   const todos=[], casa=[], fuera=[], usadas=[];
-  let g=0,a=0,asg=0,y=0,r=0,min=0;
+  let g=0,a=0,asg=0,y=0,r=0,min=0,tit=0;
 
   for(const nj in pts){
     const n = +nj;
     const ev = j.ev[nj] || {};
     g+=ev.g||0; a+=ev.a||0; asg+=ev.asg||0; y+=ev.y||0; r+=ev.r||0; min+=ev.m||0;
+    tit+=ev.tit||0;
 
     if(estado.excluidas.has(n)) continue;
     const [sede, rival] = (DATOS.lugar[n+'|'+j.e] || '|').split('|');
@@ -175,7 +179,7 @@ function calcular(j, ignorarMin){
     pj:todos.length, tot:+todos.reduce((x,z)=>x+z,0).toFixed(1),
     med:prom(todos), mdn:mediana(todos),
     cas, fue, dif:(cas!==null&&fue!==null)?cas-fue:null,
-    g,a,asg,y,r,min, atot:a+asg, mpm: todos.length ? Math.round(min/todos.length) : null,
+    g,a,asg,y,r,min,tit, atot:a+asg, mpm: todos.length ? Math.round(min/todos.length) : null,
     val:j.val, cam:j.cam, ...actividad(j)};
 }
 
@@ -228,6 +232,7 @@ const AYUDA = {
   n:    'Nombre del jugador',
   val:  'Valor de mercado en Mister',
   racha:'Últimas jornadas. Cuanto más verde, mejor puntuó. Los apagados están fuera por los filtros',
+  tit:  'Veces que ha salido de titular. Si entró desde el banquillo no cuenta',
   ult:  'Cuántos de los últimos partidos de su equipo ha jugado. Se mira sobre los partidos reales, sin que le afecten tus exclusiones',
   ultMin:'Minutos sumados en los últimos partidos de su equipo',
   pj:   'Partidos jugados que entran en el cálculo. Si ves 4/6, es que dos quedan fuera por tus filtros',
@@ -287,8 +292,8 @@ const esMovil = () => MOVIL.matches;
 
 // etiquetas cortas para las tarjetas, donde no cabe "Casa − fuera"
 // columnas de la tira horizontal: el orden en que se leen en el movil
-const TIRA = ['med','mdn','cas','fue','dif','ult','pj','tot','g','atot','min','mpm','y','r','val','cam'];
-const CORTO = {ult:'Jugados', atot:'Asis', med:'Media', mdn:'Mediana', dif:'Casa−fuera', mpm:'Min/P', tot:'Total',
+const TIRA = ['med','mdn','cas','fue','dif','ult','pj','tot','tit','g','atot','min','mpm','y','r','val','cam'];
+const CORTO = {ult:'Jugados', tit:'Titular', atot:'Asis', med:'Media', mdn:'Mediana', dif:'Casa−fuera', mpm:'Min/P', tot:'Total',
                cas:'Casa', fue:'Fuera', min:'Min', val:'Valor', cam:'Hoy'};
 const RACHA_TJ = 5;   // partidos visibles en la racha de la tarjeta
 
@@ -421,7 +426,7 @@ function pintar(){
     })
     .map(calcular).filter(Boolean)
     .filter(f => {
-      if(estado.juOn    && f.ult    < estado.juCuantos) return false;
+      if(estado.juOn    && (estado.juTit ? f.ultTit : f.ult) < estado.juCuantos) return false;
       if(estado.juTotOn && f.ultMin < estado.juTotMin)  return false;
       if(estado.juUltimo && !f.ultimo) return false;
       return true;
@@ -498,7 +503,7 @@ function listaActivos(){
   if(estado.camMin !== null) L.push({t:`Sube hoy ${estado.camMin/1e3}k o más`, q:()=>{
     estado.camMin = null; document.getElementById('cam-min').value=''; }});
   if(estado.juOn) L.push({
-    t:`Jugó ${estado.juCuantos} de los últimos ${estado.ultN}`, q:()=>{
+    t:`${estado.juTit?'Titular en':'Jugó'} ${estado.juCuantos} de los últimos ${estado.ultN}`, q:()=>{
     estado.juOn=false; document.getElementById('ju-min').checked=false; }});
   if(estado.juTotOn) L.push({
     t:`${estado.juTotMin} min en los últimos ${estado.ultN}`, q:()=>{
@@ -560,8 +565,8 @@ function limpiarTodo(){
   ['val-min','val-max','cam-min'].forEach(i => document.getElementById(i).value = '');
   estado.exGol = estado.exRoja = estado.exMin = false;
   ['ex-gol','ex-roja','ex-min'].forEach(i => document.getElementById(i).checked = false);
-  estado.juOn = estado.juTotOn = estado.juUltimo = false;
-  ['ju-min','ju-tot','ju-ultimo'].forEach(i => document.getElementById(i).checked = false);
+  estado.juOn = estado.juTotOn = estado.juUltimo = estado.juTit = false;
+  ['ju-min','ju-tot','ju-ultimo','ju-tit'].forEach(i => document.getElementById(i).checked = false);
   estado.excluidas.clear();
   document.querySelectorAll('#jornadas .chip').forEach(c => c.setAttribute('aria-pressed','false'));
   estado.rangos = []; pintarRangos();
@@ -625,6 +630,7 @@ const ATRIB = [
   {k:'dif',  t:'Casa − fuera',        dec:2, alto:1},
   {k:'tot',  t:'Puntos totales',      dec:1, alto:1},
   {k:'pj',   t:'Partidos jugados',           alto:1},
+  {k:'tit',  t:'Titularidades',              alto:1},
   {k:'ult',  t:'Jugados de los últimos',      alto:1},
   {k:'ultMin',t:'Minutos en los últimos',     alto:1},
   {k:'g',    t:'Goles',                      alto:1},
@@ -853,8 +859,8 @@ document.getElementById('barra-filtros').addEventListener('click', e => {
   if(lim === 'rivales'){ estado.rivales.clear(); todasCasillas('panel-rivales', false);
     document.getElementById('nota-rival').hidden = true; pintar(); }
   if(lim === 'juega'){
-    estado.juOn = estado.juTotOn = estado.juUltimo = false;
-    ['ju-min','ju-tot','ju-ultimo'].forEach(i => document.getElementById(i).checked = false);
+    estado.juOn = estado.juTotOn = estado.juUltimo = estado.juTit = false;
+    ['ju-min','ju-tot','ju-ultimo','ju-tit'].forEach(i => document.getElementById(i).checked = false);
     pintar();
   }
   if(lim === 'valor'){
@@ -1056,6 +1062,7 @@ function arrancar(){
   alCambiar('ju-minutos','juMinutos', 1, 90);
   alCambiar('ju-totmin', 'juTotMin',  1, 1800);
   ent('ju-min').addEventListener('change', e => { estado.juOn = e.target.checked; pintar(); });
+  ent('ju-tit').addEventListener('change', e => { estado.juTit = e.target.checked; pintar(); });
   ent('ju-tot').addEventListener('change', e => { estado.juTotOn = e.target.checked; pintar(); });
   ent('ju-ultimo').addEventListener('change', e => { estado.juUltimo = e.target.checked; pintar(); });
 
