@@ -294,6 +294,13 @@ output{font-size:13px;color:var(--tinta);min-width:52px;font-variant-numeric:tab
 .st-t{font-size:13.5px}
 .st input{width:100%;font-size:13px;padding:5px 8px}
 
+/* ---------- escudo del equipo (con la abreviatura de reserva) ---------- */
+.esc{display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;flex:none;vertical-align:middle}
+.esc img{width:100%;height:100%;object-fit:contain;display:block}
+.cg-ins .esc{width:26px;height:26px}
+@media (max-width:700px){ .esc{width:20px;height:20px} }
+
 /* ---------- insignias de posicion y equipo ---------- */
 .ins{display:inline-flex;align-items:center;justify-content:center;
   min-width:34px;padding:2px 6px;border-radius:5px;
@@ -310,17 +317,23 @@ td.racha{white-space:nowrap;line-height:1}
 .pt.off{opacity:.3}
 .pt.mas{border:0;background:none;color:var(--tinta2);width:13px;margin-right:4px}
 .pv{background:transparent;border:1px dashed var(--linea);color:transparent}
-.p0{background:#B33A2B;color:#fff}
-.p1{background:color-mix(in srgb,var(--tinta) 14%,transparent);color:var(--tinta2)}
-.p2{background:#9BC6A6;color:#0F2E1B}
-.p3{background:#4D9A66;color:#fff}
-.p4{background:#1C6B49;color:#fff}
-:root[data-theme="dark"] .p2,
-:root:not([data-theme="light"]) .p2{background:#2E5A3F;color:#CFE6D8}
-:root[data-theme="dark"] .p3,
-:root:not([data-theme="light"]) .p3{background:#3C8A5E;color:#fff}
-:root[data-theme="dark"] .p4,
-:root:not([data-theme="light"]) .p4{background:#5FC08F;color:#0B1A12}
+/* colores de la escala de Mister:
+   azul +10 o mas · verde +5 a +9 · amarillo +1 a +4 · gris 0 · rojo negativo */
+.nr{background:#C6394B;color:#fff}
+.n0{background:#9AA3A0;color:#fff}
+.na{background:#E9A517;color:#3A2A00}
+.nv{background:#2E9E5B;color:#fff}
+.nz{background:#1D7FD4;color:#fff}
+:root[data-theme="dark"] .nr,
+:root:not([data-theme="light"]) .nr{background:#D9556A}
+:root[data-theme="dark"] .n0,
+:root:not([data-theme="light"]) .n0{background:#545E58;color:#D7DEDA}
+:root[data-theme="dark"] .na,
+:root:not([data-theme="light"]) .na{background:#D9A020;color:#241900}
+:root[data-theme="dark"] .nv,
+:root:not([data-theme="light"]) .nv{background:#31A863}
+:root[data-theme="dark"] .nz,
+:root:not([data-theme="light"]) .nz{background:#3A93E0}
 
 /* ---------- primeras columnas fijas al hacer scroll lateral ---------- */
 .pega{position:sticky;background:var(--tarjeta);z-index:1}
@@ -569,27 +582,42 @@ tbody tr:hover .mas-cmp,.mas-cmp.puesto,.mas-cmp:focus-visible{opacity:1}
   width:16px;height:16px;border-radius:8px;background:rgba(255,255,255,.28);
   font-size:11px;font-weight:600}
 
-.cmp-cuerpo{flex:1;overflow:auto;padding:0}
+.cmp-cuerpo{flex:1;overflow:auto;padding:0 20px 4px}
 .cmp-vacio{padding:48px 24px;text-align:center;color:var(--tinta2);line-height:1.7}
-.cmp-tabla{width:100%;border-collapse:collapse;font-size:14px}
-.cmp-tabla th,.cmp-tabla td{padding:9px 12px;text-align:center;
-  border-bottom:1px solid var(--linea);white-space:nowrap}
-.cmp-tabla thead th{position:sticky;top:0;z-index:3;background:var(--tarjeta);
-  border-bottom:1.5px solid var(--tinta);vertical-align:bottom;cursor:default}
-.cmp-tabla .cmp-rot{position:sticky;left:0;z-index:2;background:var(--tarjeta);
-  text-align:left;font-weight:500;font-size:13px;color:var(--tinta2);
-  box-shadow:1px 0 0 var(--linea);min-width:140px}
-.cmp-tabla thead .cmp-rot{z-index:4}
-.cmp-tabla tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--tinta) 2.5%,transparent)}
-.cmp-jug{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:96px;position:relative}
-.cmp-ins{display:flex;gap:3px}
-.cmp-n{font-weight:600;font-size:13.5px;max-width:112px;overflow:hidden;
-  text-overflow:ellipsis;white-space:nowrap}
-.cmp-quitar{position:absolute;top:-8px;right:-8px;border:0;background:none;
-  color:var(--tinta2);font-size:16px;line-height:1;cursor:pointer;padding:2px 4px}
-.cmp-quitar:hover{color:var(--neg)}
-.cmp-tabla td.gana{color:var(--acento);font-weight:700}
-.cmp-tabla td.cmp-racha{padding:7px 10px;line-height:1}
+
+.cmp-veredicto{font-size:13.5px;color:var(--tinta2);padding:12px 0 10px;
+  position:sticky;top:0;z-index:4;background:var(--tarjeta)}
+.cmp-veredicto b{color:var(--tinta);font-weight:600}
+
+/* rejilla: jugadores en columnas, apartados en filas.
+   Sin fondos ni cajas: solo una raya finisima que guia el ojo a lo ancho. */
+.cg-caja{overflow-x:auto;padding-bottom:14px;-webkit-overflow-scrolling:touch}
+.cg-tabla{border-collapse:collapse;width:100%}
+.cg-tabla th,.cg-tabla td{border:0;background:none;white-space:nowrap}
+.cg-tabla tbody tr{border-bottom:1px solid color-mix(in srgb,var(--linea) 55%,transparent)}
+.cg-tabla tbody tr:last-child{border-bottom:0}
+
+.cg-rot{position:sticky;left:0;z-index:2;background:var(--tarjeta);
+  text-align:left;font-weight:400;font-size:12.5px;color:var(--tinta2);
+  padding:9px 14px 9px 0;min-width:104px;cursor:help}
+.cg-tabla thead .cg-rot{z-index:3}
+
+.cg-jug{position:relative;min-width:76px;padding:2px 8px 9px;vertical-align:bottom;
+  text-align:center;cursor:default}
+.cg-ins{display:flex;gap:3px;justify-content:center;margin-bottom:3px}
+.cg-n{display:block;font-size:12.5px;font-weight:600;color:var(--tinta);
+  overflow:hidden;text-overflow:ellipsis}
+.cg-quitar{position:absolute;top:-5px;right:0;border:0;background:none;
+  color:var(--tinta2);font-size:15px;line-height:1;cursor:pointer;padding:2px 4px;opacity:.45}
+.cg-quitar:hover{color:var(--neg);opacity:1}
+
+/* el numero es el dato; el mejor pesa mas, y nada mas */
+.cg{padding:9px 8px;text-align:center;font-size:14px;font-weight:500;
+  color:var(--tinta2);font-variant-numeric:tabular-nums}
+.cg.mejor{color:var(--tinta);font-weight:700}
+.cg.vacia{color:var(--linea);font-weight:400}
+.cg-racha{text-align:center;line-height:1;padding:7px 8px}
+
 .cmp-pie{padding:11px 20px;border-top:1px solid var(--linea);font-size:12.5px;color:var(--tinta2)}
 
 /* boton del comparador dentro de la ficha */
@@ -608,10 +636,11 @@ tbody tr:hover .mas-cmp,.mas-cmp.puesto,.mas-cmp:focus-visible{opacity:1}
   .cmp-anadir{padding:10px 16px}
   .cmp-sug{left:16px;right:16px}
   .cmp-seccion{padding:8px 16px 2px}
-  .cmp-tabla th,.cmp-tabla td{padding:8px 9px;font-size:13.5px}
-  .cmp-tabla .cmp-rot{min-width:112px;font-size:12px}
-  .cmp-jug{min-width:76px}
-  .cmp-n{font-size:12.5px;max-width:84px}
+  .cmp-cuerpo{padding:0 16px 4px}
+  .cg-rot{min-width:92px;font-size:12px;padding-right:10px}
+  .cg-jug{min-width:66px;padding-left:5px;padding-right:5px}
+  .cg-n{font-size:11.5px}
+  .cg{padding:8px 5px;font-size:13.5px}
   .cmp-pie{padding:10px 16px}
   /* el sello de Netlify vive abajo a la derecha: nos apartamos a la izquierda */
   .carro{left:12px;right:auto;transform:none;
