@@ -11,7 +11,8 @@ FUENTES = {"mixto2": "m2", "cronistas_md": "md", "cronistas_marca": "cm"}
 NOMBRES = {"m2": "Mixto 2", "md": "Cronistas MD", "cm": "Cronistas Marca", "sf": "Sofascore"}
 
 MAPA_EV = {"goles": "g", "asis": "a", "asis_sg": "asg", "amarillas": "y", "rojas": "r",
-           "min": "m", "tiros": "t", "ocasiones": "oc", "nota_sofascore": "sf", "nota_cronista": "cr"}
+           "min": "m", "tiros": "t", "ocasiones": "oc", "nota_sofascore": "sf", "nota_cronista": "cr",
+           "titular": "tit"}
 
 
 def limpia(t):
