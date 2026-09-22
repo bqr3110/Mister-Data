@@ -78,16 +78,20 @@ def procesar(fila, cabeceras):
 
         nombre = None
         posicion = nota_cron = nota_sofa = ""
+        seccion = ""   # "Titulares" o "Suplentes": la tabla viene separada en dos
 
         for tr in tabla.select("tr"):
             if "desglose" not in (tr.get("class") or []):
                 celdas = [c.get_text(" ", strip=True) for c in tr.select("th, td")]
-                if celdas and celdas[0] and celdas[0] not in ("Titulares", "Suplentes"):
-                    nombre = re.sub(r"\s*\d{1,3}'\s*$", "", limpia(celdas[0])).strip()
-                    celda = tr.select_one("td.name, th.name")
-                    posicion = celda.attrs.get("data-posicion-mister-mixto-2", "") if celda else ""
-                    nota_cron = celdas[3] if len(celdas) > 3 else ""
-                    nota_sofa = celdas[4] if len(celdas) > 4 else ""
+                if celdas and celdas[0]:
+                    if celdas[0] in ("Titulares", "Suplentes"):
+                        seccion = celdas[0]
+                    else:
+                        nombre = re.sub(r"\s*\d{1,3}'\s*$", "", limpia(celdas[0])).strip()
+                        celda = tr.select_one("td.name, th.name")
+                        posicion = celda.attrs.get("data-posicion-mister-mixto-2", "") if celda else ""
+                        nota_cron = celdas[3] if len(celdas) > 3 else ""
+                        nota_sofa = celdas[4] if len(celdas) > 4 else ""
                 continue
 
             if not nombre:
@@ -102,6 +106,12 @@ def procesar(fila, cabeceras):
                 if n == nombre or n.endswith(" " + nombre) or nombre.endswith(" " + n):
                     slug = s
                     break
+
+            # 1 si salio de inicio, 0 si entro desde el banquillo
+            if seccion:
+                filas.append([fila["id"], fila["jornada"], fecha, equipo, lado,
+                              nombre, slug, posicion, "titular",
+                              1.0 if seccion == "Titulares" else 0.0])
 
             for etiqueta, valor in (("nota_cronista", nota_cron), ("nota_sofascore", nota_sofa)):
                 try:
