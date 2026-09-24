@@ -21,9 +21,17 @@ def limpia(t):
 
 
 def apodo(n):
+    """"Fermin Lopez Fermin" -> "Fermin"  ·  "Nico Williams N. Williams" -> "N. Williams"
+
+    El campo viene como "<nombre completo> <como le llaman>". Se busca el
+    corte donde la segunda parte repite una palabra de la primera, pero
+    ademas se exige que no sea mas larga que ella: sin esa condicion, a
+    quien se conoce por el nombre de pila se le parte al reves y sale
+    "Lopez Fermin" o "Gonzalez Pedri".
+    """
     w = n.split()
     for k in range(1, len(w)):
-        if w[k:][-1] in w[:k]:
+        if w[k:][-1] in w[:k] and len(w[k:]) <= k:
             return " ".join(w[k:])
     return n
 
