@@ -1,0 +1,31 @@
+name: Fotos
+
+# A mano, como los escudos. Solo baja las caras que falten, asi que
+# pasarlo tras unas cuantas jornadas cuesta poco.
+on:
+  workflow_dispatch:
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests pillow
+
+      - name: Descargar fotos
+        run: python scripts/fotos.py
+
+      - name: Guardar
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add web/fotos/
+          git diff --staged --quiet || git commit -m "Fotos de los jugadores"
+          git push
