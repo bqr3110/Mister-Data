@@ -1,0 +1,56 @@
+name: Publicar
+
+# Publica la carpeta web/ en GitHub Pages.
+#
+# Antes esto vivia dentro de diario.yml, con el razonamiento de que un commit
+# hecho por un workflow no dispara otros workflows y por tanto un archivo
+# suelto nunca se ejecutaria. Eso es verdad para "on: push", pero NO para
+# "on: workflow_run", que salta cuando otro workflow termina sin importar
+# quien hizo el commit. Asi que se puede separar, y separarlo arregla el
+# problema de raiz: tocar el frontend a mano ya publica sin esperar al cron.
+on:
+  # cuando la captura acaba, para publicar los datos nuevos
+  workflow_run:
+    workflows: ["Captura"]
+    types: [completed]
+  # cuando se cambia la web a mano, para no esperar dos horas
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - ".github/workflows/publicar.yml"
+  workflow_dispatch:
+
+jobs:
+  publicar:
+    # si la captura fallo no se publica: mejor la web de antes que una a medias
+    if: >
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      # ref: main es imprescindible. En el caso de workflow_run, sin esto se
+      # descargaria el codigo tal y como estaba ANTES de que la captura
+      # guardara los datos, y la web saldria con los datos viejos.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - id: despliegue
+        uses: actions/deploy-pages@v4
