@@ -229,15 +229,50 @@
 </dialog>
 
 <dialog id="ficha">
-  <div class="ficha-cab">
-    <h2 id="ficha-nombre"></h2>
-    <span class="sub" id="ficha-equipo"></span>
+  <div class="fx-cab">
     <button class="cerrar" id="ficha-cerrar" aria-label="Cerrar">&times;</button>
+
+    <div class="fx-id">
+      <div class="fx-foto" id="ficha-foto"></div>
+      <div class="fx-quien">
+        <div class="fx-arriba" id="ficha-arriba"></div>
+        <h2 id="ficha-nombre"></h2>
+        <div class="fx-val" id="ficha-val"></div>
+        <div class="fx-racha5" id="ficha-racha5"></div>
+      </div>
+    </div>
+
+    <div class="fx-punt">
+      <div class="fx-hero" id="ficha-hero"></div>
+      <div class="fx-sub" id="ficha-sub"></div>
+    </div>
   </div>
-  <div class="sistemas" id="ficha-sistemas"></div>
-  <div class="proximos" id="ficha-prox"></div>
-  <div class="ficha-cuerpo"><table id="ficha-tabla"></table></div>
-  <div class="ficha-pie" id="ficha-pie"></div>
+
+  <div class="fx-prox" id="ficha-prox"></div>
+
+  <div class="fx-acciones">
+    <button class="fx-btn" data-calc="puja">Puja ideal</button>
+    <button class="fx-btn" data-calc="clausula">Subir cláusula</button>
+    <button class="fx-btn cmp" id="ficha-cmp"></button>
+  </div>
+  <div class="fx-calc" id="ficha-calc" hidden></div>
+
+  <div class="fx-barra">
+    <div class="fx-pestanas" id="fx-pestanas">
+      <button class="fx-pes act" data-pes="partidos">Últimos partidos</button>
+      <button class="fx-pes" data-pes="stats">Estadísticas</button>
+    </div>
+    <div class="fx-sede" id="fx-sede">
+      <button class="act" data-sd="">Todo</button>
+      <button data-sd="C">Casa</button>
+      <button data-sd="F">Fuera</button>
+    </div>
+  </div>
+
+  <div class="fx-cuerpo">
+    <div class="fx-panel" id="pes-partidos"></div>
+    <div class="fx-panel" id="pes-stats" hidden></div>
+  </div>
 </dialog>
 <script src="app.js"></script>
 </body>
