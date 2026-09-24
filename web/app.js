@@ -152,13 +152,18 @@ function calcular(j, ignorarMin){
   if(!pts) return null;
 
   const todos=[], casa=[], fuera=[], usadas=[];
-  let g=0,a=0,asg=0,y=0,r=0,min=0,tit=0;
+  let g=0,a=0,asg=0,y=0,r=0,min=0,tit=0,t=0,oc=0;
+  /* Los totales de arriba son de toda la temporada a proposito (asi la columna
+     de goles sigue diciendo cuantos lleva aunque excluyas esas jornadas).
+     Pero min/partido, puntos/90 y % titular dividen puntos ya filtrados:
+     esos necesitan minutos y titularidades del mismo trozo, no del total. */
+  let minU=0, titU=0, hayTit=false;
 
   for(const nj in pts){
     const n = +nj;
     const ev = j.ev[nj] || {};
     g+=ev.g||0; a+=ev.a||0; asg+=ev.asg||0; y+=ev.y||0; r+=ev.r||0; min+=ev.m||0;
-    tit+=ev.tit||0;
+    tit+=ev.tit||0; t+=ev.t||0; oc+=ev.oc||0;
 
     if(estado.excluidas.has(n)) continue;
     const [sede, rival] = (DATOS.lugar[n+'|'+j.e] || '|').split('|');
@@ -170,16 +175,33 @@ function calcular(j, ignorarMin){
 
     const p = pts[nj];
     todos.push(p); usadas.push(n);
+    minU += ev.m||0; titU += ev.tit||0;
+    if(ev.tit !== undefined) hayTit = true;
     if(sede==='C') casa.push(p); else if(sede==='F') fuera.push(p);
   }
 
   if(!ignorarMin && todos.length < estado.minpj) return null;
   const cas = prom(casa), fue = prom(fuera);
+
+  /* Lo que de verdad decide un fichaje no es solo la media: es si ahora
+     esta en forma, cuanto techo tiene y cada cuanto te hunde la jornada. */
+  const ordenadas = usadas.map((n, i) => [n, todos[i]]).sort((a, b) => a[0] - b[0]);
+  const ult5 = ordenadas.slice(-5).map(x => x[1]);
+  const nota = esNota();
+  const bueno = nota ? 7.4 : 10;     // "partidazo" en cada escala
+  const malo  = nota ? 6 : 0;
   return {n:j.n, e:j.e, pos:j.pos||'', nc:j.nc, ref:j, usadas, disp:Object.keys(pts).length,
     pj:todos.length, tot:+todos.reduce((x,z)=>x+z,0).toFixed(1),
     med:prom(todos), mdn:mediana(todos),
     cas, fue, dif:(cas!==null&&fue!==null)?cas-fue:null,
-    g,a,asg,y,r,min,tit, atot:a+asg, mpm: todos.length ? Math.round(min/todos.length) : null,
+    g,a,asg,y,r,min,tit,t,oc, atot:a+asg, minU, titU, hayTit,
+    mpm: todos.length ? Math.round(minU/todos.length) : null,
+    med5: prom(ult5), mej: todos.length ? Math.max(...todos) : null,
+    peor: todos.length ? Math.min(...todos) : null,
+    p10: todos.filter(v => v >= bueno).length,
+    pneg: todos.filter(v => v < malo).length,
+    p90: minU ? +(todos.reduce((x,z)=>x+z,0) / minU * 90).toFixed(2) : null,
+    ptit: (hayTit && todos.length) ? Math.round(titU / todos.length * 100) : null,
     val:j.val, cam:j.cam, ...actividad(j)};
 }
 
@@ -202,7 +224,11 @@ function nivel(v){
 }
 function pintarRacha(f, tope){
   const pts = f.ref.p[estado.fuente] || {};
-  const js = (tope && JORNADAS.length > tope) ? JORNADAS.slice(-tope) : JORNADAS;
+  // si se está mirando solo casa o solo fuera, la racha es la de esos partidos
+  const base = estado.sede
+    ? JORNADAS.filter(n => (DATOS.lugar[n+'|'+f.e] || '|').split('|')[0] === estado.sede)
+    : JORNADAS;
+  const js = (tope && base.length > tope) ? base.slice(-tope) : base;
   return js.map(n => {
     const v = pts[n];
     const dentro = f.usadas.includes(n);
@@ -248,7 +274,17 @@ const AYUDA = {
   asg:  'Asistencias que no acabaron en gol',
   y:    'Tarjetas amarillas',
   r:    'Tarjetas rojas',
+  med5: 'Media de los últimos 5 partidos que cuentan. Comparada con la media general, dice si está de dulce o de capa caída',
+  mej:  'Su mejor jornada',
+  peor: 'Su peor jornada',
+  p10:  'Partidos en los que hizo 10 puntos o más. Los que te ganan la jornada',
+  pneg: 'Partidos en los que hizo puntuación negativa. Los que te la hunden',
+  p90:  'Puntos por cada 90 minutos jugados. Compara de tú a tú a un titular con un suplente',
+  ptit: 'Porcentaje de sus partidos que jugó de titular',
+  t:    'Tiros a puerta',
+  oc:   'Ocasiones claras creadas',
   min:  'Minutos jugados en total',
+  minU: 'Minutos jugados en los partidos que entran en el cálculo',
   mpm:  'Minutos por partido jugado',
   cam:  'Cuánto ha subido o bajado su valor hoy',
 };
@@ -777,52 +813,579 @@ function abrirComparador(){
 
 /* ---------- ficha ---------- */
 
-function abrirFicha(f){
-  document.getElementById('ficha-nombre').textContent = f.n;
-  document.getElementById('ficha-equipo').textContent =
-    (f.pos ? f.pos + ' · ' : '') + (f.nc !== f.n ? f.nc : f.e) +
-    (f.val ? ' · ' + eur(f.val) : '');
+/* Las tres fuentes que componen el Mixto 2. Van con su nombre en texto:
+   los logotipos son marcas suyas y no los dibujo. */
+const SUB = ['cm', 'md', 'sf'];
 
-  const js = [...new Set(CLAVES.flatMap(c => Object.keys(f.ref.p[c]||{})))].map(Number).sort((a,b)=>a-b);
+/* Estadisticas de la ficha: primero el resumen, luego por familias. */
+const GRUPOS = [
+  ['Resumen',      ['med','mdn','tot','pj','tit']],
+  ['Forma y techo',['med5','mej','peor','p10','pneg']],
+  ['Casa y fuera', ['cas','fue','dif']],
+  ['Ataque',       ['g','a','asg','t','oc']],
+  ['Juego',        ['minU','mpm','p90','ptit','ult']],
+  ['Disciplina',   ['y','r']],
+  ['Mercado',      ['val','cam']],
+];
+const ROTULO = {
+  med:'Media', mdn:'Mediana', pj:'Partidos', tit:'Titular', tot:'Puntos totales',
+  cas:'Media en casa', fue:'Media fuera', dif:'Casa − fuera',
+  g:'Goles', a:'Asis. de gol', asg:'Asis. sin gol', t:'Tiros a puerta',
+  oc:'Ocasiones creadas', min:'Minutos', minU:'Minutos', mpm:'Min/partido',
+  ult:'Jugados últimos', y:'Amarillas', r:'Rojas', val:'Valor', cam:'Sube hoy',
+  med5:'Media últimos 5', mej:'Mejor jornada', peor:'Peor jornada',
+  p10:'Partidazos', pneg:'En negativo', p90:'Puntos/90 min', ptit:'% titular',
+};
 
-  document.getElementById('ficha-sistemas').innerHTML = CLAVES.map(c => {
-    const p = f.ref.p[c] || {};
-    const v = js.map(n => p[n]).filter(x => x!==undefined);
-    const m = v.length ? (v.reduce((a,b)=>a+b,0)/v.length) : null;
-    return `<div class="${c===estado.fuente?'act':''}">${DATOS.fuentes[c]}${c==='sf'?' <span class="escala">0-10</span>':''}
-      <strong>${m===null?'·':m.toFixed(2)}</strong></div>`;
+function valorFicha(f, k){
+  if(k === 'val') return f.val ? eur(f.val) : '<span class="tenue">·</span>';
+  if(k === 'cam') return !f.cam ? '<span class="tenue">·</span>'
+    : `${f.cam>0?'+':''}${(f.cam/1000).toFixed(0)}k`;
+  if(k === 'ult') return `${f.ult}<span class="tenue">/${f.ultDe}</span>`;
+  if(k === 'tit') return f.hayTit ? `${f.titU}<span class="tenue">/${f.pj}</span>`
+    : '<span class="tenue">·</span>';
+  if(k === 'ptit') return f.ptit === null ? '<span class="tenue">·</span>' : f.ptit + '<span class="tenue">%</span>';
+  if(k === 'med5') return fmt(f.med5, 2);
+  if(k === 'p90')  return fmt(f.p90, 2);
+  const c = COLS.find(x => x.k === k) || ATRIB.find(x => x.k === k) || {};
+  return fmt(f[k], c.dec);
+}
+
+/* Pestaña "Últimos partidos": una columna por jornada, como en el Mister.
+   La altura dice cuantos puntos; el color, en que tramo de la escala cae. */
+function panelPartidos(f){
+  const pts = f.ref.p[estado.fuente] || {};
+  // con casa o fuera elegido, las otras jornadas no se apagan: desaparecen
+  const js = estado.sede
+    ? JORNADAS.filter(n => (DATOS.lugar[n+'|'+f.e] || '|').split('|')[0] === estado.sede)
+    : JORNADAS;
+  const tope = Math.max(...js.map(n => Math.abs(pts[n] || 0)), 1);
+  const hay = js.some(n => pts[n] !== undefined && pts[n] < 0);
+
+  return '<div class="gr">' + js.map(n => {
+    const v = pts[n];
+    const ev = f.ref.ev[n] || {};
+    const [sede, rival] = (DATOS.lugar[n+'|'+f.e] || '|').split('|');
+    const jugado = v !== undefined;
+    const alto = jugado ? Math.max(Math.abs(v) / tope * 100, 3) : 0;
+
+    const marcas = [
+      ev.g ? '⚽'.repeat(Math.min(ev.g, 3)) : '',
+      (ev.a || ev.asg) ? '<i class="gr-as">→</i>' : '',
+      ev.y ? '<i class="gr-am"></i>' : '',
+      ev.r ? '<i class="gr-ro"></i>' : '',
+    ].join('');
+
+    const t = jugado
+      ? `J${n} ${sede==='C'?'en casa contra':'fuera contra'} ${rival}: ${v} pts` +
+        (ev.m !== undefined ? ` · ${ev.m} min` : '') +
+        (ev.tit === 1 ? ' · titular' : ev.tit === 0 ? ' · suplente' : '')
+      : `J${n} contra ${rival}: no jugó`;
+
+    const cuenta = f.usadas.includes(n);
+    return `<div class="gr-col${jugado && !cuenta ? ' fuera-filtro' : ''}" data-ayuda="${t}">
+      <div class="gr-pista${hay?' doble':''}">
+        ${jugado
+          ? `<div class="gr-barra ${nivel(v)}${v<0?' neg':''}" style="height:${alto}%">
+               <span class="gr-n">${v}</span><span class="gr-ev">${marcas}</span></div>`
+          : '<div class="gr-no"></div>'}
+      </div>
+      <div class="gr-pie">
+        ${escudo(rival, rival)}
+        <i class="gr-s">${!jugado ? '·' : ev.tit === 1 ? 'T' : ev.tit === 0 ? 'S' : (sede==='C'?'🏠':'✈️')}</i>
+        <b>J${n}</b>
+      </div>
+    </div>`;
+  }).join('') + '</div>';
+}
+
+function panelStats(f){
+  const tinte = k =>
+    k === 'dif' && f.dif !== null ? (f.dif > 0 ? ' casa' : f.dif < 0 ? ' fuera' : '') :
+    k === 'cam' && f.cam ? (f.cam > 0 ? ' casa' : ' neg') :
+    k === 'pneg' && f.pneg ? ' neg' : '';
+
+  // mirando solo casa (o solo fuera) ese grupo sobra: la mitad sale vacía
+  return GRUPOS.filter(([titulo]) => !(estado.sede && titulo === 'Casa y fuera'))
+    .map(([titulo, ks]) => {
+    // el resumen va en grande; el resto, en filas apretadas
+    const cuerpo = titulo === 'Resumen'
+      ? '<div class="fx-tiles">' + ks.map(k =>
+          `<div class="fx-b${tinte(k)}"${AYUDA[k]?` data-ayuda="${AYUDA[k]}"`:''}>
+            <b>${valorFicha(f, k)}</b><span>${ROTULO[k]}</span></div>`).join('') + '</div>'
+      : '<div class="fx-filas">' + ks.map(k =>
+          `<div class="fx-f${tinte(k)}"${AYUDA[k]?` data-ayuda="${AYUDA[k]}"`:''}>
+            <span>${ROTULO[k]}</span><b>${valorFicha(f, k)}</b></div>`).join('') + '</div>';
+    return `<section class="fx-g"><h3>${titulo}</h3>${cuerpo}</section>`;
   }).join('');
+}
+
+/* La ficha puede mirarse con otro sistema de puntuacion sin tocar la lista
+   de detras. Se cambia la fuente un instante, se calcula, y se devuelve. */
+let fuenteFicha = 'm2';
+let sedeFicha = '';
+function conFuente(fu, fn){
+  const antes = estado.fuente;
+  estado.fuente = fu;
+  try { return fn(); } finally { estado.fuente = antes; }
+}
+
+const ORDEN_SUB = ['m2', 'cm', 'md', 'sf'];
+
+/* El rotulo de cada sistema. Si algun dia pones los logotipos en
+   web/logos/, aparecen solos; mientras no esten, se lee el nombre.
+   Los logos no los bajo yo: son marcas de Marca, MD y Sofascore, y
+   Mixto 2 no tiene logotipo porque es una cuenta del propio Mister. */
+function rotuloFuente(c){
+  const t = DATOS.fuentes[c].replace('Cronistas ', '');
+  if(c === 'm2') return t;
+  // el nombre va siempre en el html; el css lo esconde solo si el logo carga.
+  // Si no hay logo, la imagen se quita sola y vuelve a verse el nombre.
+  return `<img class="logo-f" src="logos/${c}.png" alt="${t}" loading="lazy"
+    onerror="this.remove()"><span class="txt-f">${t}</span>`;
+}
+const TONO = {m2:'var(--f-m2)', cm:'var(--f-cm)', md:'var(--f-md)', sf:'var(--f-sf)'};
+
+/* Todo lo que depende del sistema elegido: el numero grande, las casillas,
+   la racha corta, el grafico y las estadisticas. */
+function pintarFicha(j){
+  const sedeAntes = estado.sede;
+  estado.sede = sedeFicha;
+  conFuente(fuenteFicha, () => {
+    const f = calcular(j, true);
+    window.__ficha = f;
+
+    // el número grande y los tres pequeños miran la temporada entera del jugador,
+    // sin los filtros de la lista, pero sí obedecen al casa/fuera de la ficha
+    const js = [...new Set(CLAVES.flatMap(c => Object.keys(j.p[c]||{})))].map(Number)
+      .filter(n => !sedeFicha || (DATOS.lugar[n+'|'+j.e] || '|').split('|')[0] === sedeFicha)
+      .sort((a,b)=>a-b);
+    const mediaDe = c => {
+      const q = j.p[c] || {};
+      const v = js.map(n => q[n]).filter(x => x !== undefined);
+      return v.length ? v.reduce((a,b)=>a+b,0)/v.length : null;
+    };
+    const m = mediaDe(fuenteFicha);
+
+    const hero = document.getElementById('ficha-hero');
+    hero.style.setProperty('--tono', TONO[fuenteFicha]);
+    hero.innerHTML =
+      `<span class="fx-hero-n">${m === null ? '·' : m.toFixed(2)}</span>
+       <span class="fx-hero-t">${rotuloFuente(fuenteFicha)}${
+         fuenteFicha === 'sf' ? ' <em>0-10</em>' : ''}</span>`;
+    hero.classList.remove('cambia'); void hero.offsetWidth; hero.classList.add('cambia');
+
+    document.getElementById('ficha-sub').innerHTML = ORDEN_SUB
+      .filter(c => c !== fuenteFicha).map(c => {
+        const v = mediaDe(c);
+        const eq = (c === 'sf' && v !== null) ? ` ≈ ${notaAPuntos(v)>0?'+':''}${notaAPuntos(v)} pts` : '';
+        return `<button class="fx-s" data-fu="${c}" style="--tono:${TONO[c]}"
+          data-ayuda="Ver la ficha con ${DATOS.fuentes[c]}${
+          c==='sf'?' · nota sobre 10'+eq:' · puntos'}">
+          <em>${rotuloFuente(c)}</em>
+          <b>${v === null ? '·' : v.toFixed(2)}</b></button>`;
+      }).join('');
+
+    document.getElementById('ficha-racha5').innerHTML = pintarRacha(f, 5);
+    document.getElementById('pes-partidos').innerHTML = panelPartidos(f);
+    document.getElementById('pes-stats').innerHTML = panelStats(f);
+  });
+  estado.sede = sedeAntes;
+}
+
+function abrirFicha(f){
+  const k = f.n + '|' + f.e;
+  const p = POS[f.pos];
+
+  // la foto, y si no la hay (o no ha llegado aun), sus iniciales
+  const ini = `<span class="fx-ini">${
+    f.n.split(' ').map(x=>x[0]).slice(0,2).join('')}</span>`;
+  document.getElementById('ficha-foto').innerHTML = f.ref.f
+    ? `<img src="fotos/${f.ref.f}.webp" alt="${f.n}" loading="lazy"
+         onerror="this.parentNode.innerHTML=this.dataset.ini"
+         data-ini="${ini.replace(/"/g,'&quot;')}">`
+    : ini;
+  document.getElementById('ficha-arriba').innerHTML =
+    `${escudo(f.e, f.e)}<span>${f.e}</span>` +
+    (p ? `<span class="fx-pos" style="color:${p[1]}">${f.pos}</span>` : '');
+  document.getElementById('ficha-nombre').textContent = f.n;
+
+  const cam = !f.cam ? ''
+    : `<i class="${f.cam>0?'sube':'baja'}">${f.cam>0?'+':''}${(f.cam/1000).toFixed(0)}k hoy</i>`;
+  document.getElementById('ficha-val').innerHTML =
+    (f.val ? eur(f.val) : '<span class="tenue">sin valor</span>') + cam;
 
   const pr = DATOS.prox[f.e] || [];
-  document.getElementById('ficha-prox').innerHTML = pr.length
-    ? '<span class="etiqueta">Próximos</span> ' + pr.map(([n,sd,rival,cuando]) =>
-        `<span class="prox ${sd==='C'?'c':''}" title="${cuando||''}">J${n} ${sd==='C'?'vs':'@'} ${rival}</span>`).join(' ')
-    : '';
+  document.getElementById('ficha-prox').innerHTML = pr.length ? pr.map(([n,sd,rival,cuando]) =>
+    `<span class="fx-p" data-ayuda="J${n} ${sd==='C'?'en casa contra':'fuera contra'} ${rival}${cuando?' · '+cuando:''}">
+      <b>J${n}</b>${escudo(rival, rival)}<i>${sd==='C'?'🏠':'✈️'}</i></span>`).join('') : '';
 
-  let html = '<thead><tr><th class="nom">Jornada</th><th class="txt">Rival</th>'
-    + CLAVES.map(c=>`<th class="${c===estado.fuente?'':'otra'}">${DATOS.fuentes[c]}</th>`).join('')
-    + '<th>Min</th><th>G</th><th>Asis</th><th>Am</th><th>Roj</th></tr></thead><tbody>';
+  fuenteFicha = estado.fuente;   // arranca con lo que tengas elegido fuera
+  sedeFicha = estado.sede;
+  document.querySelectorAll('#fx-sede button').forEach(b =>
+    b.classList.toggle('act', b.dataset.sd === sedeFicha));
+  pintarFicha(f.ref);
 
-  for(const n of js){
-    const [sede, rival] = (DATOS.lugar[n+'|'+f.e]||'|').split('|');
-    const ev = f.ref.ev[n] || {};
-    const dentro = f.usadas.includes(n);
-    html += `<tr style="${dentro?'':'opacity:.4'}">`
-      + `<td class="nom">J${n} <span class="${sede==='C'?'casa':'fuera'}">${sede==='C'?'casa':'fuera'}</span></td>`
-      + `<td class="txt">${rival||''}</td>`
-      + CLAVES.map(c => { const v=(f.ref.p[c]||{})[n];
-          return `<td ${c===estado.fuente?'style="font-weight:600"':'class="tenue otra"'}>${v===undefined?'·':v}</td>`; }).join('')
-      + `<td>${ev.m!==undefined?ev.m:'<span class="tenue">·</span>'}</td>`
-      + `<td>${ev.g||''}</td><td>${(ev.a||0)+(ev.asg||0)||''}</td><td>${ev.y||''}</td><td>${ev.r||''}</td></tr>`;
+  // el botón no marca una casilla: lleva al comparador con este jugador ya dentro
+  const btn = document.getElementById('ficha-cmp');
+  btn.dataset.cmpFicha = k;
+  const otros = estado.carro.filter(x => x !== k).length;
+  btn.textContent = otros ? `Comparar (${otros + 1})` : 'Comparar';
+  document.getElementById('ficha-calc').hidden = true;
+
+  const dlg = document.getElementById('ficha');
+  dlg.showModal();
+  document.querySelector('.fx-cuerpo').scrollTop = 0;
+}
+
+/* ================================================================
+   CALCULADORAS DE PUJA Y CLAUSULA
+
+   Las formulas son las que ajustaste tu en agosto, traidas tal cual
+   desde calculadoras-mister.jsx. No he tocado ni un numero: lo unico
+   que cambia es que el valor de mercado y la subida de hoy ya vienen
+   puestos de los datos, en vez de copiarlos a mano.
+   ================================================================ */
+
+const euros = n => (n === null || n === undefined || !isFinite(n)) ? '—'
+  : (n < 0 ? '-' : '') + Math.abs(Math.round(n)).toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' €';
+
+// las cinco ventanas del historico: las tres primeras son de un dia,
+// las dos ultimas vienen acumuladas y hay que repartirlas
+const VENTANAS = [
+  {k:'hoy',  t:'Hoy',       acum:false, dias:1},
+  {k:'ayer', t:'Ayer',      acum:false, dias:1},
+  {k:'ante', t:'Anteayer',  acum:false, dias:1},
+  {k:'sem',  t:'Semana',    acum:true,  dias:7},
+  {k:'mes',  t:'Mes',       acum:true,  dias:30},
+];
+
+const MULT = [1.5, 2.0, 2.5, 3.0, 3.5, 4.0];
+
+/* Dos niveles: lo que es criterio tuyo (a cuántos días pujas, cuánto
+   frenas) vale para cualquier jugador; lo que es del jugador (lo que te
+   costó, si está lesionado, su histórico) se guarda con su nombre. */
+const CALC = {
+  cual:'puja', modo:'dias',
+  dias:8, frenado:30, diasFrenado:15, escalon:5, peso:'simple',
+  jug:{},      // por jugador: {hist:{hoy:{v,u},…}, compra, precio, lesionado, diasRec, valRec}
+};
+try {
+  const g = JSON.parse(localStorage.getItem('calc') || '{}');
+  Object.assign(CALC, g, {jug: g.jug || {}});
+} catch(_){}
+const guardarCalc = () => { try {
+  // lo que empieza por __ es de esta pasada, no hace falta guardarlo
+  localStorage.setItem('calc', JSON.stringify(CALC,
+    (k, v) => k.startsWith('__') ? undefined : v));
+} catch(_){} };
+
+const fichaDe = k => (CALC.jug[k] = CALC.jug[k] || {
+  hist: Object.fromEntries(VENTANAS.map(v => [v.k, {v:'', u:'pct'}])),
+  compra:0, precio:null, lesionado:false, diasRec:14, valRec:null,
+});
+
+/* La tendencia: cada ventana con dato se pasa a % diario y se promedian.
+   Las acumuladas se reparten en geometrica, no dividiendo entre los dias.
+
+   El promedio se puede hacer de dos maneras y las dos salen a la vez:
+   - simple: la tuya. Un dia suelto pesa lo mismo que un mes entero.
+   - ponderada: cada ventana pesa sus dias. Un mes lleva 30 dias dentro,
+     asi que dice treinta veces mas que la subida de hoy. Es lo que sale
+     de ponderar por el inverso de la varianza. OJO: las ventanas se
+     solapan (el mes incluye la semana, la semana incluye hoy), asi que
+     es una aproximacion, no el optimo exacto. */
+function tasaDiaria(hist, valor){
+  const filas = VENTANAS.map(w => {
+    const c = hist[w.k] || {v:'', u:'pct'};
+    if(c.v === '' || c.v === null || isNaN(Number(c.v))) return {...w, diario:null};
+    let pct = Number(c.v);
+    if(c.u === 'eur'){
+      const antes = valor - Number(c.v);
+      pct = antes > 0 ? (Number(c.v) / antes) * 100 : 0;
+    }
+    return {...w, diario: w.acum ? (Math.pow(1 + pct/100, 1/w.dias) - 1) * 100 : pct};
+  });
+  const con = filas.filter(x => x.diario !== null);
+  const simple = con.length ? con.reduce((a,x) => a + x.diario, 0) / con.length : 0;
+  const pesos = con.reduce((a,x) => a + x.dias, 0);
+  const pond = pesos ? con.reduce((a,x) => a + x.diario * x.dias, 0) / pesos : 0;
+  return {filas, simple, pond, tasa: CALC.peso === 'pond' ? pond : simple};
+}
+
+/* La subida no se mantiene: se va frenando hasta quedarse en una
+   fraccion de la de hoy, y a partir de ahi se queda plana ahi. */
+function tasaEnDia(t, tasa, frenado, diasFrenado){
+  if(tasa === 0 || diasFrenado <= 0) return tasa;
+  const frac = Math.max(0.001, frenado / 100);
+  return tasa * Math.pow(frac, Math.min(t, diasFrenado) / diasFrenado);
+}
+
+function serieValor(valor, tasa, o){
+  const tope = Math.max(60, (o.dias||0) + 10, o.lesionado ? (o.diasRec||0) + 10 : 0);
+  const out = [{dia:0, valor}];
+  let v = valor;
+  for(let t = 1; t <= tope; t++){
+    // lesionado: sigue la tendencia hasta que vuelve, y ese dia salta al valor puesto
+    if(o.lesionado && t >= o.diasRec) v = o.valRec;
+    else v = v * (1 + tasaEnDia(t - 1, tasa, o.frenado, o.diasFrenado) / 100);
+    out.push({dia:t, valor:v});
   }
-  document.getElementById('ficha-tabla').innerHTML = html + '</tbody>';
+  return out;
+}
 
-  const k = f.n + '|' + f.e;
-  document.getElementById('ficha-pie').innerHTML =
-    `<span>${DATOS.fuentes[estado.fuente]}: media ${f.med.toFixed(2)}, mediana ${f.mdn}, sobre ${f.pj} partidos. Las filas atenuadas quedan fuera por los filtros activos.</span>` +
-    `<button class="ficha-cmp${enCarro(k)?' puesto':''}" data-cmp-ficha="${k}">${
-      enCarro(k) ? '✓ En el comparador' : '+ Mandar al comparador'}</button>`;
-  document.getElementById('ficha').showModal();
+const diaDePrecio = (serie, precio) => {
+  if(!isFinite(precio) || !serie.length) return null;
+  if(precio === serie[0].valor) return 0;
+  const sube = precio > serie[0].valor;
+  for(let i = 1; i < serie.length; i++){
+    if(sube ? serie[i].valor >= precio : serie[i].valor <= precio) return serie[i].dia;
+  }
+  return null;
+};
+
+const diasHasta = (valor, tasa, objetivo) => {
+  if(objetivo <= valor) return null;
+  if(!tasa || tasa <= 0) return Infinity;
+  return Math.ceil(Math.log(objetivo / valor) / Math.log(1 + tasa / 100));
+};
+
+/* La proyeccion, en SVG. Solo la curva, la raya del objetivo y el punto:
+   lo que se lee de un vistazo. Los numeros exactos ya estan arriba. */
+function grafica(serie, opc){
+  const An = 320, Al = 116, mx = 6, my = 10;
+  if(serie.length < 2) return '';
+  const vs = serie.map(p => p.valor).filter(isFinite);
+  if(!vs.length) return '';
+  let lo = Math.min(...vs), hi = Math.max(...vs);
+  if(opc.refY !== undefined && isFinite(opc.refY)){ lo = Math.min(lo, opc.refY); hi = Math.max(hi, opc.refY); }
+  if(hi - lo < 1){ hi = lo + 1; }
+  const dmax = serie[serie.length-1].dia;
+  const X = d => mx + d / dmax * (An - mx*2);
+  const Y = v => Al - my - (v - lo) / (hi - lo) * (Al - my*2);
+
+  const linea = serie.map((p,i) => `${i?'L':'M'}${X(p.dia).toFixed(1)} ${Y(p.valor).toFixed(1)}`).join(' ');
+  const area = `${linea} L${X(dmax).toFixed(1)} ${Al-my} L${X(0).toFixed(1)} ${Al-my} Z`;
+
+  let marca = '';
+  if(opc.refX !== undefined && opc.refX !== null){
+    const x = X(opc.refX).toFixed(1);
+    marca += `<line x1="${x}" y1="${my-4}" x2="${x}" y2="${Al-my}" class="g-ref"/>`;
+  }
+  if(opc.refY !== undefined && opc.refY !== null && isFinite(opc.refY)){
+    const y = Y(opc.refY).toFixed(1);
+    marca += `<line x1="${mx}" y1="${y}" x2="${An-mx}" y2="${y}" class="g-ref"/>`;
+  }
+  if(opc.puntoX !== undefined && opc.puntoX !== null && opc.puntoY !== undefined){
+    marca += `<circle cx="${X(opc.puntoX).toFixed(1)}" cy="${Y(opc.puntoY).toFixed(1)}" r="4" class="g-pt"/>`;
+  }
+
+  return `<svg class="g-svg" viewBox="0 0 ${An} ${Al}" role="img"
+    aria-label="Proyección del valor a ${dmax} días">
+    <path d="${area}" class="g-area"/>
+    <path d="${linea}" class="g-linea"/>${marca}</svg>
+    <div class="g-pies"><span>hoy</span><span>${dmax} días</span></div>`;
+}
+
+/* El historico: la subida de hoy ya viene de los datos; el resto se
+   escribe una vez por jugador y se queda guardado. */
+function bloqueHistorico(t){
+  const J = CALC.__j, {filas, tasa, simple, pond} = t;
+  const pondera = CALC.peso === 'pond';
+  const difiere = Math.abs(simple - pond) > 0.005;
+  return `<details class="cc-plg"${CALC.abHist ? ' open' : ''} data-plg="hist">
+    <summary><span>Tendencia</span>
+      <b class="${tasa < 0 ? 'baja' : tasa > 0 ? 'sube' : ''}">${tasa.toFixed(2)}%/día</b></summary>
+    <div class="cc-peso" id="cc-peso">
+      <button class="${pondera?'':'act'}" data-peso="simple">Media simple
+        <i>${simple.toFixed(2)}%</i></button>
+      <button class="${pondera?'act':''}" data-peso="pond">Ponderada por días
+        <i>${pond.toFixed(2)}%</i></button>
+    </div>
+    <p class="cc-pista">${difiere
+      ? 'Ponderada, un mes pesa treinta veces más que la subida de hoy, que es lo que de verdad vale. Las ventanas se solapan, así que es aproximado.'
+      : 'Con un solo dato las dos dan lo mismo. Rellena más ventanas y se separan.'}</p>
+    <p class="cc-pista">Hoy, ayer y anteayer: lo que subió ese día. Semana y mes: acumulado.</p>
+    <div class="cc-hist">${filas.map(w => `
+      <div class="cc-h">
+        <label for="h-${w.k}">${w.t}</label>
+        <input id="h-${w.k}" type="number" step="0.01" data-hist="${w.k}"
+          value="${(J.hist[w.k]||{}).v ?? ''}" placeholder="—" inputmode="decimal">
+        <button class="cc-uni" data-uni="${w.k}"
+          aria-label="Cambiar unidad">${(J.hist[w.k]||{}).u === 'eur' ? '€' : '%'}</button>
+        <i>${w.diario === null ? '' : w.diario.toFixed(2) + '%/día'}</i>
+      </div>`).join('')}</div>
+  </details>`;
+}
+
+function panelPuja(f){
+  const J = CALC.__j, val = f.val, h = J.hist;
+  const T = tasaDiaria(h, val), tasa = T.tasa;
+  const o = {dias:CALC.dias, frenado:CALC.frenado, diasFrenado:CALC.diasFrenado,
+             lesionado:J.lesionado, diasRec:+J.diasRec || 0,
+             valRec: J.valRec === null ? val : +J.valRec};
+  const serie = serieValor(val, tasa, o);
+  const puja = (serie[Math.min(CALC.dias, serie.length-1)] || {}).valor ?? val;
+  const dif = puja - val;
+  const precio = J.precio === null ? Math.round(val * 1.1) : +J.precio;
+  const diaPrecio = diaDePrecio(serie, precio);
+
+  const porDias = CALC.modo === 'dias';
+  // lo que cambia al mover el deslizador va marcado: se repinta solo eso,
+  // asi el arrastre no se corta a media caricia
+  const cabeza = porDias
+    ? `<p class="cc-rot">Puja recomendada para ${CALC.dias} día${CALC.dias===1?'':'s'}</p>
+       <p class="cc-grande">${euros(puja)}</p>
+       <p class="cc-sub ${dif>=0?'sube':'baja'}">${euros(Math.abs(dif))}
+         ${dif>=0?'por encima':'por debajo'} de su valor de hoy</p>`
+    : `<p class="cc-rot">Llegaría a ese precio en</p>
+       <p class="cc-grande">${diaPrecio === null
+          ? `no llega en ${serie[serie.length-1].dia} días`
+          : '~' + diaPrecio + ' día' + (diaPrecio===1?'':'s')}</p>
+       <p class="cc-sub">${euros(Math.abs(precio - val))} ${precio>=val?'por encima':'por debajo'} de su valor de hoy</p>`;
+
+  const graf = grafica(serie, porDias
+      ? {refX:CALC.dias, puntoX:CALC.dias, puntoY:puja}
+      : {refY:precio, puntoX:diaPrecio, puntoY:precio});
+
+  if(CALC.__soloSalida) return {cabeza, graf, salida:`${CALC.dias} d`};
+
+  return `
+    <div id="cc-cab">${cabeza}</div>
+    <div class="cc-modo" id="cc-modo">
+      <button class="${porDias?'act':''}" data-modo="dias">Por días</button>
+      <button class="${porDias?'':'act'}" data-modo="precio">Por precio</button>
+    </div>
+    ${porDias
+      ? `<div class="cc-rango">
+           <input type="range" id="cc-dias" min="1" max="45" value="${CALC.dias}">
+           <output id="cc-out">${CALC.dias} d</output></div>`
+      : `<div class="cc-campo"><label for="cc-precio">Precio que te planteas pagar</label>
+           <input type="number" id="cc-precio" value="${precio}" step="1000" inputmode="numeric"></div>`}
+    <div class="cc-graf" id="cc-gr">${graf}</div>
+    ${bloqueHistorico(T)}
+    <details class="cc-plg"${CALC.abAj ? ' open' : ''} data-plg="aj">
+      <summary><span>Frenado y lesión</span>
+        <b>${CALC.frenado}% en ${CALC.diasFrenado} d${J.lesionado?' · lesionado':''}</b></summary>
+      <p class="cc-pista">La subida se va frenando hasta quedarse en ese % de la de hoy,
+        y a partir de ahí se mantiene plana ahí.</p>
+      <div class="cc-par">
+        <div class="cc-campo"><label for="cc-fren">Se queda en el %</label>
+          <input type="number" id="cc-fren" value="${CALC.frenado}" min="0" max="100" inputmode="numeric"></div>
+        <div class="cc-campo"><label for="cc-frend">En estos días</label>
+          <input type="number" id="cc-frend" value="${CALC.diasFrenado}" min="0" inputmode="numeric"></div>
+      </div>
+      <label class="cc-chk"><input type="checkbox" id="cc-les"${J.lesionado?' checked':''}>
+        <span>Está lesionado</span></label>
+      ${J.lesionado ? `<div class="cc-par">
+        <div class="cc-campo"><label for="cc-rec">Días hasta que vuelve</label>
+          <input type="number" id="cc-rec" value="${J.diasRec}" min="0" inputmode="numeric"></div>
+        <div class="cc-campo"><label for="cc-vrec">Valor al volver</label>
+          <input type="number" id="cc-vrec" value="${o.valRec}" step="1000" inputmode="numeric"></div>
+      </div>` : ''}
+    </details>`;
+}
+
+function panelClausula(f){
+  const J = CALC.__j, val = f.val;
+  const compra = +J.compra || 0;
+  const T = tasaDiaria(J.hist, val), tasa = T.tasa;
+  const esc = CALC.escalon;
+  const base = Math.max(compra, val);
+  const clausula = base * MULT[esc];
+  const coste = 0.2 * esc * base;
+  const total = compra + coste;
+  const objetivo = esc > 0 ? total / (1 + 0.1 * esc) : null;
+  const dif = objetivo === null ? null : val - objetivo;
+  const dias = objetivo ? diasHasta(val, tasa, objetivo) : null;
+
+  const serie = [];
+  if(objetivo){
+    const r = 1 + tasa / 100;
+    const tope = Math.min(90, Math.max(30, (isFinite(dias) && dias !== null) ? dias + 5 : 30));
+    for(let t = 0; t <= tope; t++) serie.push({dia:t, valor: val * Math.pow(r, t)});
+  }
+
+  const mult = MULT[esc].toFixed(1).replace('.', ',');
+  const cabeza = `
+    <p class="cc-rot">Cláusula si subes a ×${mult}</p>
+    <p class="cc-grande">${euros(clausula)}</p>
+    <p class="cc-sub">te cuesta ${euros(coste)}</p>`;
+
+  const cuentas = `
+    <div class="cc-cuentas">
+      <div><span>Compra</span><b>${euros(compra)}</b></div>
+      <div><span>Subir cláusula</span><b>${euros(coste)}</b></div>
+      <div class="tot"><span>Invertido</span><b>${euros(total)}</b></div>
+    </div>
+    ${esc > 0 ? `
+      <p class="cc-rot">Tiene que llegar a</p>
+      <p class="cc-grande">${euros(objetivo)}</p>
+      <p class="cc-sub ${dif>=0?'sube':'baja'}">${dif>=0
+        ? 'ya ha subido ' + euros(dif) + ' de más'
+        : 'le faltan ' + euros(-dif)}</p>
+      <p class="cc-plazo">${dias === null ? 'Ya está alcanzado'
+        : dias === Infinity ? 'A esta tendencia, nunca'
+        : '~' + dias + ' día' + (dias===1?'':'s') + ' a esta tendencia'}</p>
+      <div class="cc-graf">${grafica(serie, {refY:objetivo,
+        puntoX:(isFinite(dias)&&dias!==null)?dias:null, puntoY:objetivo})}</div>` : ''}`;
+
+  if(CALC.__soloSalida) return {cabeza, cuentas, salida:'×' + mult, esc};
+
+  return `
+    <div id="cc-cab">${cabeza}</div>
+    <div class="cc-rango escalones">
+      <input type="range" id="cc-esc" min="0" max="5" step="1" value="${esc}">
+      <output id="cc-out">×${mult}</output></div>
+    <div class="cc-escn" id="cc-escn">${MULT.map((m,i) =>
+      `<span class="${i===esc?'act':''}">${m.toFixed(1).replace('.', ',')}</span>`).join('')}</div>
+
+    <div class="cc-campo"><label for="cc-compra">Lo que te costó (0 si vino gratis)</label>
+      <input type="number" id="cc-compra" value="${compra}" step="1000" inputmode="numeric"></div>
+
+    <div id="cc-cuentas">${cuentas}</div>
+    ${bloqueHistorico(T)}`;
+}
+
+function panelCalculo(cual){
+  const f = window.__ficha;
+  const caja = document.getElementById('ficha-calc');
+  if(!f || !f.val){ caja.hidden = true; return; }
+
+  if(cual) CALC.cual = cual;
+  CALC.__j = fichaDe(f.n + '|' + f.e);
+  // la subida de hoy la sabemos: se rellena sola la primera vez
+  if(CALC.__j.hist.hoy.v === '' && f.cam){ CALC.__j.hist.hoy = {v:String(f.cam), u:'eur'}; }
+
+  caja.hidden = false;
+  caja.innerHTML = `
+    <div class="fx-calc-cab">${CALC.cual === 'puja' ? 'Puja ideal' : 'Subir cláusula'}
+      <span class="cc-quien">${f.n} · ${euros(f.val)}</span>
+      <button class="fx-x" id="fx-cerrar-calc" aria-label="Cerrar">&times;</button></div>
+    <div class="cc-cuerpo">${CALC.cual === 'puja' ? panelPuja(f) : panelClausula(f)}</div>`;
+  guardarCalc();
+}
+
+/* Mientras arrastras, solo se repintan los numeros y el grafico.
+   El deslizador se queda donde esta y sigue pegado al dedo. */
+function refrescarCalculo(){
+  const f = window.__ficha;
+  const caja = document.getElementById('ficha-calc');
+  if(!f || !f.val || caja.hidden) return;
+  CALC.__soloSalida = true;
+  const s = CALC.cual === 'puja' ? panelPuja(f) : panelClausula(f);
+  CALC.__soloSalida = false;
+
+  const pon = (id, html) => { const e = document.getElementById(id); if(e) e.innerHTML = html; };
+  pon('cc-cab', s.cabeza);
+  if(s.graf !== undefined) pon('cc-gr', s.graf);
+  if(s.cuentas !== undefined) pon('cc-cuentas', s.cuentas);
+  const out = document.getElementById('cc-out');
+  if(out) out.textContent = s.salida;
+  const escn = document.getElementById('cc-escn');
+  if(escn) [...escn.children].forEach((x,i) => x.classList.toggle('act', i === s.esc));
+  guardarCalc();
 }
 
 /* ---------- desplegables ---------- */
@@ -949,12 +1512,94 @@ function arrancarComparador(){
   // sin menu contextual: la pulsacion larga es nuestra
   tarjetas.addEventListener('contextmenu', e => { if(e.target.closest('.tj')) e.preventDefault(); });
 
-  document.getElementById('ficha-pie').addEventListener('click', e => {
+  document.getElementById('ficha-sub').addEventListener('click', e => {
+    const b = e.target.closest('[data-fu]'); if(!b) return;
+    fuenteFicha = b.dataset.fu;
+    pintarFicha(window.__ficha.ref);
+  });
+
+  document.getElementById('fx-sede').addEventListener('click', e => {
+    const b = e.target.closest('button'); if(!b) return;
+    sedeFicha = b.dataset.sd;
+    document.querySelectorAll('#fx-sede button').forEach(x => x.classList.toggle('act', x === b));
+    pintarFicha(window.__ficha.ref);
+  });
+
+  document.getElementById('fx-pestanas').addEventListener('click', e => {
+    const b = e.target.closest('.fx-pes'); if(!b) return;
+    document.querySelectorAll('.fx-pes').forEach(x => x.classList.toggle('act', x === b));
+    document.getElementById('pes-partidos').hidden = b.dataset.pes !== 'partidos';
+    document.getElementById('pes-stats').hidden = b.dataset.pes !== 'stats';
+    document.querySelector('.fx-cuerpo').scrollTop = 0;
+  });
+
+  document.querySelector('.fx-acciones').addEventListener('click', e => {
+    const c = e.target.closest('[data-calc]');
+    if(c){ panelCalculo(c.dataset.calc); return; }
     const b = e.target.closest('[data-cmp-ficha]'); if(!b) return;
-    if(!alternarCarro(b.dataset.cmpFicha)) return avisarLleno();
-    const dentro = enCarro(b.dataset.cmpFicha);
-    b.classList.toggle('puesto', dentro);
-    b.textContent = dentro ? '✓ En el comparador' : '+ Mandar al comparador';
+    const k = b.dataset.cmpFicha;
+    // si aún no estaba, entra; y en cualquier caso se va derecho al comparador
+    if(!enCarro(k) && !alternarCarro(k)) return avisarLleno();
+    document.getElementById('ficha').close();
+    abrirComparador();
+  });
+  const cajaCalc = document.getElementById('ficha-calc');
+
+  cajaCalc.addEventListener('click', e => {
+    if(e.target.id === 'fx-cerrar-calc'){ cajaCalc.hidden = true; return; }
+
+    const m = e.target.closest('[data-modo]');
+    if(m){ CALC.modo = m.dataset.modo; panelCalculo(); return; }
+
+    const p = e.target.closest('[data-peso]');
+    if(p){ CALC.peso = p.dataset.peso; panelCalculo(); return; }
+
+    // el % / € de cada fila del historico: cambiar de unidad vacia el dato,
+    // porque un 2 en porcentaje y un 2 en euros no son la misma cosa
+    const u = e.target.closest('[data-uni]');
+    if(u){
+      const h = CALC.__j.hist, c = h[u.dataset.uni];
+      h[u.dataset.uni] = {v:'', u: c.u === 'eur' ? 'pct' : 'eur'};
+      panelCalculo(); return;
+    }
+  });
+
+  // los plegables recuerdan si los dejaste abiertos
+  cajaCalc.addEventListener('toggle', e => {
+    const d = e.target.closest('details[data-plg]'); if(!d) return;
+    if(d.dataset.plg === 'hist') CALC.abHist = d.open; else CALC.abAj = d.open;
+    guardarCalc();
+  }, true);
+
+  cajaCalc.addEventListener('change', e => {
+    if(e.target.id === 'cc-les'){ CALC.__j.lesionado = e.target.checked; panelCalculo(); }
+  });
+
+  cajaCalc.addEventListener('input', e => {
+    const t = e.target, v = t.value;
+    switch(t.id){
+      case 'cc-dias':   CALC.dias = +v; break;
+      case 'cc-esc':    CALC.escalon = +v; break;
+      case 'cc-precio': CALC.__j.precio = v === '' ? null : +v; break;
+      case 'cc-compra': CALC.__j.compra = v === '' ? 0 : +v; break;
+      case 'cc-fren':   CALC.frenado = Math.min(100, Math.max(0, +v || 0)); break;
+      case 'cc-frend':  CALC.diasFrenado = +v || 0; break;
+      case 'cc-rec':    CALC.__j.diasRec = +v || 0; break;
+      case 'cc-vrec':   CALC.__j.valRec = v === '' ? null : +v; break;
+      default:
+        if(t.dataset.hist){ CALC.__j.hist[t.dataset.hist].v = v; break; }
+        return;
+    }
+    // las filas del historico cambian el resumen del plegable, que está fuera
+    // de las zonas que refresco: ahí sí conviene repintar entero, pero sin
+    // perder el foco de la casilla que se está escribiendo
+    if(t.dataset.hist){
+      const id = t.id;
+      let pos = null; try { pos = t.selectionStart; } catch(_){}
+      panelCalculo();
+      const n = document.getElementById(id);
+      if(n){ n.focus(); if(pos !== null) try { n.setSelectionRange(pos, pos); } catch(_){} }
+    } else refrescarCalculo();
   });
 
   // elegir atributos, en el orden en que se tocan
