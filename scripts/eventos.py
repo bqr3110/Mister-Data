@@ -18,7 +18,9 @@ CABECERA = ["partido", "jornada", "fecha", "equipo", "lado", "jugador", "slug",
 #   2  el slug sale del enlace de la fila, no del cruce de nombres con el
 #      campograma, que dejaba sin slug a 108 jugadores ("N. Williams" en la
 #      tabla frente a "Nico Williams" en el campo)
-VERSION = "2"
+#   3  ese enlace no siempre es un <a>: el menu de "Ver la ficha del jugador"
+#      lo monta el javascript, asi que se barren tambien los atributos
+VERSION = "3"
 
 INTERESAN = {
     "Minutos jugados": "min",
@@ -57,6 +59,42 @@ def fecha_de(sopa):
             h = f" {m.group(4)}:{m.group(5)}" if m.group(4) else ""
             return f"{m.group(3)}-{MESES[m.group(2).lower()]:02d}-{int(m.group(1)):02d}{h}"
     return ""
+
+
+def slug_de_fila(tr):
+    """Saca el slug del jugador de su fila en la tabla de puntuaciones.
+
+    Al pinchar el nombre sale un desplegable con "Ver la ficha del jugador"
+    que lleva a /jugadores/<slug>/laliga-26-27. Ese menu lo monta el
+    javascript de la pagina, asi que el enlace puede no estar como <a>: la
+    direccion suele venir en algun atributo de la fila. Se mira primero el
+    enlace de toda la vida y, si no esta, se barren los atributos.
+    """
+    a = tr.select_one('a[href*="/jugadores/"]')
+    if a:
+        s = slug_de_href(a.get("href", ""))
+        if slug_valido(s):
+            return s
+
+    for etiqueta in [tr] + tr.select("*"):
+        for valor in etiqueta.attrs.values():
+            if not isinstance(valor, str) or "/jugadores/" not in valor:
+                continue
+            m = re.search(r"/jugadores/([a-z0-9\-]+)", valor)
+            if m and slug_valido(m.group(1)):
+                return m.group(1)
+    return ""
+
+
+def atributos_de_la_fila(tr):
+    """Para el log, cuando no se encuentra el slug: que se vea que hay ahi."""
+    fuera = []
+    for etiqueta in [tr] + tr.select("*"):
+        for k, v in etiqueta.attrs.items():
+            if k in ("class", "style"):
+                continue
+            fuera.append(f"{etiqueta.name}[{k}]={str(v)[:60]}")
+    return " | ".join(fuera[:12])
 
 
 def slug_de_href(href):
@@ -120,7 +158,7 @@ def ficha_jugadores(sopa, fotos):
     return fichas
 
 
-def procesar(fila, cabeceras, fotos):
+def procesar(fila, cabeceras, fotos, sin_slug):
     r = requests.get(fila["url"], headers=cabeceras, timeout=30)
     r.raise_for_status()
     sopa = BeautifulSoup(r.text, "html.parser")
@@ -148,13 +186,13 @@ def procesar(fila, cabeceras, fotos):
                         seccion = celdas[0]
                     else:
                         nombre = re.sub(r"\s*\d{1,3}'\s*$", "", limpia(celdas[0])).strip()
-                        # La propia fila enlaza a la ficha del jugador. De ahi sale
-                        # el slug sin tener que adivinar nada: la tabla y el
-                        # campograma no siempre le llaman igual ("N. Williams" en
-                        # una, "Nico Williams" en el otro) y el cruce por nombre
-                        # dejaba fuera a mas de cien jugadores.
-                        enlace = tr.select_one('a[href*="/jugadores/"]')
-                        slug_fila = slug_de_href(enlace.get("href", "")) if enlace else ""
+                        # De la propia fila, sin cruzar nombres: la tabla y el
+                        # campograma no siempre le llaman igual ("N. Williams"
+                        # en una, "Nico Williams" en el otro) y ese cruce dejaba
+                        # fuera a mas de cien jugadores.
+                        slug_fila = slug_de_fila(tr)
+                        if not slug_fila and len(sin_slug) < 3:
+                            sin_slug.append(f"{nombre}: {atributos_de_la_fila(tr)}")
                         celda = tr.select_one("td.name, th.name")
                         posicion = celda.attrs.get("data-posicion-mister-mixto-2", "") if celda else ""
                         nota_cron = celdas[3] if len(celdas) > 3 else ""
@@ -233,10 +271,14 @@ def main():
             if f.get("slug"):
                 fotos[f["slug"]] = f.get("url", "")
 
+    # si algun jugador se queda sin slug, se apunta como es su fila: asi el
+    # log de Actions dice donde mirar sin tener que ir a husmear el html
+    sin_slug = []
+
     nuevas = []
     for i, p in enumerate(faltan):
         try:
-            f = procesar(p, cabeceras, fotos)
+            f = procesar(p, cabeceras, fotos, sin_slug)
             print(f"  {i+1}/{len(faltan)} J{p['jornada']} {p['local']}-{p['visitante']}: {len(f)}")
             nuevas.extend(f)
         except Exception as e:
@@ -262,6 +304,13 @@ def main():
         for p in previas:
             w.writerow([p.get(c, "") for c in CABECERA])
         w.writerows(nuevas)
+
+    con = sum(1 for f in nuevas if f[6])
+    print(f"filas nuevas con slug: {con} de {len(nuevas)}")
+    if sin_slug:
+        print("  sin slug, asi viene su fila:")
+        for x in sin_slug:
+            print("   ", x)
 
     print(f"Total en fichero: {len(previas) + len(nuevas)}")
 
