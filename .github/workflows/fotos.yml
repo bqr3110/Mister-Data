@@ -26,6 +26,16 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add web/fotos/
-          git diff --staged --quiet || git commit -m "Fotos de los jugadores"
-          git push
+          # datos/fotos.csv tambien: ahi quedan las urls ya resueltas, y sin
+          # el la proxima pasada volveria a entrar en la ficha de cada uno
+          git add web/fotos/ datos/fotos.csv
+          git diff --staged --quiet && echo "nada nuevo" && exit 0
+          git commit -m "Fotos de los jugadores"
+          # esto tarda sus minutos: si mientras tanto main ha avanzado, el push
+          # se rechazaria y se perderia todo lo descargado. Rebase y reintento.
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "reintento $i"
+            sleep 5
+          done
+          exit 1
