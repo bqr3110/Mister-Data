@@ -58,7 +58,7 @@ def main():
         k = (nom, eq)
         if k not in jug:
             jug[k] = {"n": apodo(nom), "nc": nom, "e": eq, "pos": "", "p": {}, "ev": {},
-                      "val": None, "cam": None}
+                      "val": None, "cam": None, "f": ""}
         if r["jugo"] != "1" or not r["puntos"]:
             continue
         jug[k]["p"].setdefault(f, {})[int(r["jornada"])] = float(r["puntos"])
@@ -96,6 +96,12 @@ def main():
             continue
         if r.get("posicion"):
             jug[k]["pos"] = r["posicion"]
+        # el slug es el nombre del fichero de su foto en web/fotos/.
+        # Las capturas viejas guardaban la temporada del enlace en vez del
+        # jugador; eso no vale como nombre de fichero y se descarta.
+        s = (r.get("slug") or "").strip()
+        if s and not s.startswith(("laliga", "-")) and not jug[k]["f"]:
+            jug[k]["f"] = s
         try:
             jug[k]["ev"].setdefault(int(r["jornada"]), {})[ev] = float(r["cantidad"])
         except ValueError:
@@ -118,7 +124,14 @@ def main():
         except (ValueError, TypeError):
             pass
         try:
-            jug[k]["cam"] = int(r["cambio"])
+            # "cambio" es la resta entre la captura de hoy y la de ayer, y sale 0
+            # los dias en que la captura llega antes de que el Mister actualice.
+            # "cambio_web" es lo que el propio Mister anuncia que sube o baja:
+            # es lo que se ve en la app y lo que sirve para calcular una puja.
+            crudo = r.get("cambio_web")
+            if crudo in (None, ""):
+                crudo = r.get("cambio", "")
+            jug[k]["cam"] = int(crudo)
         except (ValueError, TypeError):
             pass
 
