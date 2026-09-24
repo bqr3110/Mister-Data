@@ -9,7 +9,16 @@ PARTIDOS = "datos/partidos.csv"
 SALIDA = "datos/eventos.csv"
 FOTOS = "datos/fotos.csv"
 CABECERA = ["partido", "jornada", "fecha", "equipo", "lado", "jugador", "slug",
-            "posicion", "evento", "cantidad"]
+            "posicion", "evento", "cantidad", "v"]
+
+# Version del extractor. Se guarda en cada fila, y los partidos guardados con
+# una version anterior se vuelven a pedir solos. Asi un arreglo como este no
+# obliga a borrar datos/eventos.csv a mano ni se queda a medias:
+#   1  primera version
+#   2  el slug sale del enlace de la fila, no del cruce de nombres con el
+#      campograma, que dejaba sin slug a 108 jugadores ("N. Williams" en la
+#      tabla frente a "Nico Williams" en el campo)
+VERSION = "2"
 
 INTERESAN = {
     "Minutos jugados": "min",
@@ -127,6 +136,7 @@ def procesar(fila, cabeceras, fotos):
         equipo = fila[lado]
 
         nombre = None
+        slug_fila = ""
         posicion = nota_cron = nota_sofa = ""
         seccion = ""   # "Titulares" o "Suplentes": la tabla viene separada en dos
 
@@ -138,6 +148,13 @@ def procesar(fila, cabeceras, fotos):
                         seccion = celdas[0]
                     else:
                         nombre = re.sub(r"\s*\d{1,3}'\s*$", "", limpia(celdas[0])).strip()
+                        # La propia fila enlaza a la ficha del jugador. De ahi sale
+                        # el slug sin tener que adivinar nada: la tabla y el
+                        # campograma no siempre le llaman igual ("N. Williams" en
+                        # una, "Nico Williams" en el otro) y el cruce por nombre
+                        # dejaba fuera a mas de cien jugadores.
+                        enlace = tr.select_one('a[href*="/jugadores/"]')
+                        slug_fila = slug_de_href(enlace.get("href", "")) if enlace else ""
                         celda = tr.select_one("td.name, th.name")
                         posicion = celda.attrs.get("data-posicion-mister-mixto-2", "") if celda else ""
                         nota_cron = celdas[3] if len(celdas) > 3 else ""
@@ -151,22 +168,24 @@ def procesar(fila, cabeceras, fotos):
             if bloque is None:
                 continue
 
-            slug = ""
-            for n, s in fichas.items():
-                if n == nombre or n.endswith(" " + nombre) or nombre.endswith(" " + n):
-                    slug = s
-                    break
+            # el enlace de la fila manda; el campograma queda como respaldo
+            slug = slug_fila
+            if not slug:
+                for n, s in fichas.items():
+                    if n == nombre or n.endswith(" " + nombre) or nombre.endswith(" " + n):
+                        slug = s
+                        break
 
             # 1 si salio de inicio, 0 si entro desde el banquillo
             if seccion:
                 filas.append([fila["id"], fila["jornada"], fecha, equipo, lado,
                               nombre, slug, posicion, "titular",
-                              1.0 if seccion == "Titulares" else 0.0])
+                              1.0 if seccion == "Titulares" else 0.0, VERSION])
 
             for etiqueta, valor in (("nota_cronista", nota_cron), ("nota_sofascore", nota_sofa)):
                 try:
                     filas.append([fila["id"], fila["jornada"], fecha, equipo, lado,
-                                  nombre, slug, posicion, etiqueta, float(valor)])
+                                  nombre, slug, posicion, etiqueta, float(valor), VERSION])
                 except (TypeError, ValueError):
                     pass
 
@@ -176,7 +195,7 @@ def procesar(fila, cabeceras, fotos):
                 if clave is None:
                     continue
                 filas.append([fila["id"], fila["jornada"], fecha, equipo, lado,
-                              nombre, slug, posicion, clave, cant])
+                              nombre, slug, posicion, clave, cant, VERSION])
     return filas
 
 
@@ -192,10 +211,11 @@ def main():
             guardadas.append(f)
             ya.add(f["partido"])
 
-    # Un partido cuyas filas traigan el slug mal se vuelve a pedir: hasta
-    # hoy se guardaba "laliga-26-27" para casi todos en vez de su nombre,
-    # y sin el slug bueno no hay foto. Asi no hace falta borrar nada a mano.
-    rehacer = {f["partido"] for f in guardadas if es_basura(f.get("slug"))}
+    # Los partidos guardados con una version anterior del extractor se vuelven
+    # a pedir. No hay bucle posible: al volver a guardarlos llevan la version
+    # de ahora, asi que la siguiente pasada ya no los toca.
+    rehacer = {f["partido"] for f in guardadas
+               if f.get("v") != VERSION or es_basura(f.get("slug"))}
 
     previas = [f for f in guardadas if f["partido"] not in rehacer]
     ya -= rehacer
@@ -203,7 +223,8 @@ def main():
     faltan = [p for p in terminados if p["id"] not in ya]
     print(f"Terminados: {len(terminados)}   ya guardados: {len(ya)}   a pedir: {len(faltan)}")
     if rehacer:
-        print(f"  de esos, {len(rehacer)} se repiten porque tenian el slug mal")
+        print(f"  de esos, {len(rehacer)} se repiten: se guardaron con una "
+              f"version anterior del extractor")
 
     # las fotos ya conocidas no se vuelven a mirar
     fotos = {}
