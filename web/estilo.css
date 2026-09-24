@@ -4,18 +4,23 @@
   --papel:#F1F4EF; --tarjeta:#FFFFFF; --tinta:#15231B; --tinta2:#5B6B61;
   --linea:#D6DDD6; --acento:#1C6B49; --casa:#1C6B49; --fuera:#8C5A22;
   --neg:#A6392A; --resalte:#E7EEE7; --sombra:rgba(21,35,27,.06);
+  /* un color por sistema de puntuacion. Separados tambien para daltonismo,
+     y siempre con su nombre al lado: el color acompana, no informa solo. */
+  --f-m2:#0C7D55; --f-cm:#C2410C; --f-md:#1D5FD4; --f-sf:#8B3A9E; --f-txt:#FFFFFF;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --papel:#111714; --tarjeta:#18201B; --tinta:#E6EDE7; --tinta2:#94A299;
     --linea:#2A352E; --acento:#5FC08F; --casa:#5FC08F; --fuera:#D9A25F;
     --neg:#E0715E; --resalte:#1F2A23; --sombra:rgba(0,0,0,.4);
+    --f-m2:#3ED396; --f-cm:#F29354; --f-md:#9ABBFF; --f-sf:#D96FC8; --f-txt:#101613;
   }
 }
 :root[data-theme="dark"]{
   --papel:#111714; --tarjeta:#18201B; --tinta:#E6EDE7; --tinta2:#94A299;
   --linea:#2A352E; --acento:#5FC08F; --casa:#5FC08F; --fuera:#D9A25F;
   --neg:#E0715E; --resalte:#1F2A23; --sombra:rgba(0,0,0,.4);
+  --f-m2:#3ED396; --f-cm:#F29354; --f-md:#9ABBFF; --f-sf:#D96FC8; --f-txt:#101613;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--papel);color:var(--tinta);
@@ -97,19 +102,337 @@ tbody tr{cursor:pointer}
 dialog{border:1px solid var(--linea);border-radius:12px;background:var(--tarjeta);color:var(--tinta);
   padding:0;max-width:720px;width:calc(100% - 32px);box-shadow:0 12px 40px var(--sombra)}
 dialog::backdrop{background:rgba(0,0,0,.45)}
-.ficha-cab{padding:18px 20px;border-bottom:1px solid var(--linea);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.ficha-cab h2{margin:0;font-size:20px;font-weight:600}
-.ficha-cab .cerrar{margin-left:auto;border:0;background:none;color:var(--tinta2);font-size:24px;cursor:pointer;line-height:1;padding:0 4px}
-.sistemas{display:flex;gap:10px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--linea);font-size:12.5px}
-.sistemas div{border:1px solid var(--linea);border-radius:7px;padding:6px 11px;color:var(--tinta2)}
-.sistemas div.act{border-color:var(--acento);color:var(--tinta)}
-.sistemas strong{font-size:16px;color:var(--tinta);display:block;font-weight:600}
-.proximos{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:11px 20px;border-bottom:1px solid var(--linea)}
-.prox{font-size:12px;padding:2px 8px;border-radius:5px;border:1px solid var(--linea);color:var(--tinta2)}
-.prox.c{border-color:var(--casa);color:var(--casa)}
-.ficha-cuerpo{max-height:58vh;overflow:auto}
-.ficha-cuerpo table{font-size:13.5px}
-.ficha-pie{padding:12px 20px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta2)}
+/* ---------- ficha del jugador ---------- */
+/* la ficha entera baja de una pieza: no hay un cajon que se desplace por dentro */
+#ficha{max-width:680px;max-height:90vh;overflow-y:auto;overscroll-behavior:contain}
+
+/* cabecera: identidad a la izquierda, puntuacion a la derecha */
+.fx-cab{position:relative;display:flex;gap:16px;align-items:flex-start;
+  padding:18px 20px 14px;flex:none;flex-wrap:wrap}
+/* la X: un boton redondo de verdad, no un aspa suelta encima del contenido */
+/* z-index por debajo de la barra de pestañas: al subir, pasa por detrás, no por encima */
+#ficha .cerrar{position:absolute;top:12px;right:12px;z-index:2;width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;
+  border:0;border-radius:50%;background:var(--resalte);color:var(--tinta2);
+  font-size:17px;line-height:1;
+  transition:transform 110ms var(--ease-out),background-color 110ms ease,color 110ms ease}
+#ficha .cerrar:hover{background:var(--neg);color:#fff}
+#ficha .cerrar:active{transform:scale(.9)}
+
+.fx-id{display:flex;gap:13px;align-items:flex-start;flex:1 1 230px;min-width:0}
+.fx-foto{flex:none;width:58px;height:58px;border-radius:50%;overflow:hidden;
+  background:var(--resalte);display:flex;align-items:center;justify-content:center}
+.fx-foto img{width:100%;height:100%;object-fit:cover}
+.fx-ini{font-size:20px;font-weight:600;color:var(--tinta2)}
+.fx-quien{min-width:0;flex:1}
+.fx-arriba{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tinta2)}
+.fx-arriba .esc{width:17px;height:17px}
+.fx-pos{font-weight:600}
+.fx-quien h2{margin:1px 0 2px;font-size:21px;font-weight:600;letter-spacing:-.02em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fx-val{font-size:14px;font-weight:600}
+.fx-val i{font-style:normal;font-weight:500;margin-left:7px;font-size:12px}
+.fx-racha5{margin-top:8px;line-height:1;white-space:nowrap}
+.fx-racha5 .pt{animation:asoma 240ms var(--ease-out) backwards}
+.fx-racha5 .pt:nth-child(2){animation-delay:30ms}
+.fx-racha5 .pt:nth-child(3){animation-delay:60ms}
+.fx-racha5 .pt:nth-child(4){animation-delay:90ms}
+.fx-racha5 .pt:nth-child(5){animation-delay:120ms}
+@keyframes asoma{from{opacity:0;transform:scale(.8)}}
+
+.fx-punt{display:flex;align-items:center;gap:12px;flex:none;padding-right:30px}
+.fx-hero{display:flex;flex-direction:column;align-items:flex-end}
+.fx-hero-n{font-size:40px;font-weight:600;line-height:1;letter-spacing:-.03em;
+  font-variant-numeric:proportional-nums}
+/* el sistema elegido va en macizo; los otros tres, en tinte */
+.fx-hero-t{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  margin-top:6px;padding:3px 9px;border-radius:6px;
+  background:var(--tono,var(--tinta2));color:var(--f-txt)}
+/* las otras tres fuentes son botones: tocas una y la ficha se recalcula */
+.fx-sub{display:flex;flex-direction:column;gap:4px}
+.fx-s{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  font:inherit;font-size:10.5px;color:var(--tinta);cursor:pointer;min-width:118px;
+  border:0;border-left:3px solid var(--tono,var(--linea));
+  background:color-mix(in srgb,var(--tono,var(--linea)) 13%,transparent);
+  padding:3px 8px;border-radius:3px 7px 7px 3px;text-align:left;
+  transition:transform 110ms var(--ease-out),background-color 110ms ease}
+.fx-s em{font-style:normal;letter-spacing:.02em;font-weight:500}
+.fx-s b{font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.fx-s:hover{background:color-mix(in srgb,var(--tono,var(--linea)) 26%,transparent)}
+/* la respuesta va en el down, no al soltar */
+.fx-s:active{transform:scale(.95)}
+
+/* al cambiar de sistema, el numero grande confirma el cambio */
+.fx-hero.cambia .fx-hero-n{animation:llega 260ms var(--ease-out)}
+@keyframes llega{from{opacity:0;transform:translateY(5px) scale(.97)}}
+.fx-hero-t em{font-style:normal;font-size:9px;opacity:.75;letter-spacing:0}
+
+/* logotipos de cada sistema: si el fichero está, manda el logo y el
+   nombre se esconde; si no está, la imagen se quita y queda el nombre */
+.logo-f{height:11px;width:auto;vertical-align:-1px;display:inline-block}
+.logo-f ~ .txt-f{display:none}
+.fx-hero-t .logo-f{height:13px;filter:brightness(0) invert(1)}
+.fx-s .logo-f{height:10px;opacity:.85}
+
+/* proximos: jornada, escudo del rival y casa o avion.
+   Van siempre en una sola linea; si no caben, se desliza en horizontal. */
+.fx-prox{display:flex;gap:6px;flex-wrap:nowrap;padding:0 20px 14px;flex:none;
+  overflow-x:auto;scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 20px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 20px),transparent)}
+.fx-prox::-webkit-scrollbar{display:none}
+.fx-prox:empty{display:none}
+.fx-p{display:inline-flex;align-items:center;gap:5px;padding:4px 8px 4px 6px;flex:none;
+  border:1px solid var(--linea);border-radius:8px;font-size:11.5px;cursor:help}
+.fx-p b{font-weight:600;color:var(--tinta2);font-size:11px}
+.fx-p i{font-style:normal;font-size:10.5px}
+.fx-p .esc{width:18px;height:18px}
+
+/* pestanas a la izquierda, casa/fuera a la derecha, en la misma linea */
+/* al bajar por la ficha las pestañas se quedan arriba: siempre sabes dónde estás */
+.fx-barra{display:flex;align-items:flex-end;gap:12px;padding:0 20px;flex:none;
+  position:sticky;top:0;z-index:4;background:var(--tarjeta);
+  border-bottom:1px solid var(--linea)}
+.fx-pestanas{display:flex;gap:2px;flex:1;min-width:0}
+.fx-pes{font:inherit;font-size:13px;padding:9px 2px;margin-right:20px;border:0;background:none;
+  color:var(--tinta2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;
+  white-space:nowrap;transition:color 120ms ease,border-color 120ms ease}
+.fx-pes:hover{color:var(--tinta)}
+.fx-pes:active{transform:scale(.97)}
+.fx-pes.act{color:var(--acento);font-weight:600;border-bottom-color:var(--acento)}
+
+/* total / casa / fuera: filtra la racha, el grafico y las estadisticas a la vez */
+.fx-sede{display:flex;flex:none;gap:2px;align-self:center;margin-bottom:4px;padding:2px;
+  border:1px solid var(--linea);border-radius:8px;background:var(--papel)}
+.fx-sede button{font:inherit;font-size:11.5px;padding:3px 9px;border:0;border-radius:6px;
+  background:none;color:var(--tinta2);cursor:pointer;white-space:nowrap;
+  transition:transform 110ms var(--ease-out),background-color 130ms ease,color 130ms ease}
+.fx-sede button:hover{color:var(--tinta)}
+.fx-sede button:active{transform:scale(.94)}
+.fx-sede button.act{background:var(--tarjeta);color:var(--tinta);font-weight:600;
+  box-shadow:0 1px 3px var(--sombra)}
+
+.fx-cuerpo{padding:14px 20px 6px}
+.fx-panel{animation:entra 220ms var(--ease-out)}
+.fx-panel[hidden]{display:none}
+@keyframes entra{from{opacity:0;transform:translateY(6px)}}
+
+/* las barras crecen desde la base: dice que lo que mide es la altura */
+.gr-barra{animation:crece 320ms var(--ease-out) backwards;transform-origin:bottom center}
+.gr-barra.neg{transform-origin:top center}
+@keyframes crece{from{transform:scaleY(0);opacity:.35}}
+
+/* grafico de partidos: una columna por jornada, al estilo del propio Mister */
+.gr{display:flex;gap:6px;align-items:flex-end;overflow-x:auto;padding-bottom:6px;
+  scrollbar-width:none}
+.gr::-webkit-scrollbar{display:none}
+.gr-col{flex:none;width:44px;display:flex;flex-direction:column;align-items:center;cursor:help}
+.gr-pista{width:100%;height:132px;display:flex;align-items:flex-end;justify-content:center}
+.gr-pista.doble{align-items:center}
+.gr-barra{width:100%;border-radius:6px 6px 2px 2px;display:flex;flex-direction:column;
+  align-items:center;padding-top:4px;gap:3px;min-height:16px;position:relative}
+.gr-barra.neg{align-self:flex-start;border-radius:2px 2px 6px 6px;justify-content:flex-end;
+  padding-top:0;padding-bottom:4px}
+.gr-n{font-size:13px;font-weight:700;line-height:1}
+.gr-ev{font-size:9px;line-height:1.3;display:flex;flex-direction:column;align-items:center;gap:2px}
+.gr-as{font-style:normal;font-weight:700;font-size:11px}
+.gr-am,.gr-ro{width:6px;height:8px;border-radius:1px;display:block}
+.gr-am{background:#E9C317}
+.gr-ro{background:#C6394B}
+.gr-no{width:60%;height:5px;border-radius:3px;background:var(--linea);opacity:.6;align-self:flex-end}
+.gr-pie{display:flex;flex-direction:column;align-items:center;gap:2px;padding-top:7px}
+.gr-pie .esc{width:19px;height:19px}
+.gr-s{font-style:normal;font-size:9px;font-weight:600;color:var(--tinta2);line-height:1}
+.gr-pie b{font-size:10.5px;font-weight:500;color:var(--tinta2)}
+
+/* estadisticas por familias. El resumen en grande; el resto en filas
+   apretadas a dos o tres columnas, que es donde cabe de verdad la informacion. */
+.fx-g{padding-bottom:11px}
+.fx-g h3{margin:0 0 5px;font-size:10px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--tinta2)}
+
+.fx-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.fx-b{display:flex;flex-direction:column;gap:1px;padding:4px 2px 6px 0;min-width:0;cursor:help}
+.fx-b b{font-size:21px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.fx-b span{font-size:10px;color:var(--tinta2);overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.fx-b.casa b{color:var(--casa)}
+.fx-b.fuera b{color:var(--fuera)}
+.fx-b.neg b{color:var(--neg)}
+
+.fx-filas{display:grid;grid-template-columns:repeat(3,1fr);gap:0 18px}
+.fx-f{display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  padding:3px 0;border-bottom:1px solid var(--linea);min-width:0;cursor:help}
+.fx-f span{font-size:11.5px;color:var(--tinta2);overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.fx-f b{font-size:13px;font-weight:600;flex:none;font-variant-numeric:tabular-nums}
+.fx-f.casa b{color:var(--casa)}
+.fx-f.fuera b{color:var(--fuera)}
+.fx-f.neg b{color:var(--neg)}
+
+/* jornada que el filtro de casa/fuera deja fuera del calculo: sigue ahi, pero apagada */
+.gr-col.fuera-filtro{opacity:.3}
+
+/* acciones, ancladas abajo como en el Mister */
+.fx-acciones{display:flex;gap:7px;flex-wrap:wrap;padding:11px 20px;
+  border-top:1px solid var(--linea);flex:none}
+.fx-btn{font:inherit;font-size:12.5px;padding:8px 14px;border-radius:18px;
+  border:1px solid var(--linea);background:var(--tarjeta);color:var(--tinta);cursor:pointer;
+  transition:transform 120ms var(--ease-out),border-color 120ms ease,color 120ms ease}
+.fx-btn:hover{border-color:var(--acento);color:var(--acento)}
+.fx-btn:active{transform:scale(.96)}
+/* es la acción principal de la ficha: lleva derecho al comparador */
+.fx-btn.cmp{margin-left:auto;background:var(--acento);border-color:var(--acento);color:var(--papel)}
+.fx-btn.cmp:hover{color:var(--papel);filter:brightness(1.08)}
+
+.fx-calc{margin:0 20px 14px;border:1px solid var(--acento);border-radius:10px;
+  background:var(--resalte);overflow:hidden;flex:none}
+.fx-calc[hidden]{display:none}
+.fx-calc-cab{position:relative;padding:9px 14px;font-size:13px;font-weight:600;
+  border-bottom:1px solid color-mix(in srgb,var(--acento) 30%,transparent)}
+.fx-x{position:absolute;top:5px;right:8px;border:0;background:none;color:var(--tinta2);
+  font-size:18px;line-height:1;cursor:pointer;padding:2px 5px}
+.fx-calc-cab .cc-quien{font-weight:400;color:var(--tinta2);font-size:12px;margin-left:8px}
+
+/* ---------- calculadoras de puja y cláusula ---------- */
+.cc-cuerpo{padding:12px 14px 13px}
+.cc-rot{margin:0;font-size:11px;color:var(--tinta2)}
+.cc-grande{margin:1px 0 0;font-size:27px;font-weight:600;line-height:1.1;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums}
+.cc-sub{margin:2px 0 0;font-size:12px;color:var(--tinta2)}
+.cc-sub.sube{color:var(--casa)}
+.cc-sub.baja{color:var(--fuera)}
+.cc-plazo{margin:6px 0 0;font-size:13px;font-weight:600}
+#cc-cuentas > .cc-rot{margin-top:13px}
+
+.cc-modo{display:flex;gap:2px;margin:12px 0 0;padding:2px;border-radius:8px;
+  border:1px solid var(--linea);background:var(--tarjeta)}
+.cc-modo button{flex:1;font:inherit;font-size:12px;padding:5px 8px;border:0;border-radius:6px;
+  background:none;color:var(--tinta2);cursor:pointer;
+  transition:transform 110ms var(--ease-out),background-color 130ms ease,color 130ms ease}
+.cc-modo button:active{transform:scale(.97)}
+.cc-modo button.act{background:var(--acento);color:var(--papel);font-weight:600}
+
+.cc-rango{display:flex;align-items:center;gap:10px;margin-top:8px}
+.cc-rango input[type=range]{flex:1;min-width:0}
+.cc-rango output{font-size:13px;font-weight:600;color:var(--tinta);min-width:46px;text-align:right}
+.cc-escn{display:flex;justify-content:space-between;font-size:9.5px;color:var(--tinta2);
+  padding:0 2px;margin-top:-4px}
+.cc-escn .act{color:var(--acento);font-weight:700}
+
+.cc-campo{display:flex;flex-direction:column;gap:3px;margin-top:10px;min-width:0}
+.cc-campo label{font-size:11px;color:var(--tinta2)}
+.cc-campo input{width:100%;font-size:13.5px;padding:6px 9px}
+.cc-par{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cc-chk{display:flex;align-items:center;gap:7px;font-size:13px;cursor:pointer;margin-top:11px}
+.cc-chk input{accent-color:var(--acento);width:15px;height:15px}
+
+.cc-cuentas{margin-top:11px;border-top:1px solid var(--linea)}
+.cc-cuentas div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  padding:5px 0;font-size:12px;color:var(--tinta2)}
+.cc-cuentas b{font-weight:600;color:var(--tinta);font-variant-numeric:tabular-nums}
+.cc-cuentas .tot{border-top:1px solid var(--linea);color:var(--tinta);font-weight:600}
+.cc-cuentas .tot b{font-size:15px}
+
+/* la proyección */
+.cc-graf{margin-top:11px}
+.g-svg{display:block;width:100%;height:auto}
+.g-area{fill:var(--acento);opacity:.1}
+.g-linea{fill:none;stroke:var(--acento);stroke-width:2;
+  stroke-linejoin:round;stroke-linecap:round}
+.g-ref{stroke:var(--neg);stroke-width:1.2;stroke-dasharray:4 4}
+.g-pt{fill:var(--neg);stroke:var(--tarjeta);stroke-width:2}
+.g-pies{display:flex;justify-content:space-between;font-size:9.5px;color:var(--tinta2);
+  margin-top:-2px;padding:0 4px}
+
+/* plegables: lo que se rellena una vez y se queda guardado */
+.cc-plg{margin-top:12px;border-top:1px solid var(--linea)}
+.cc-plg summary{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  padding:8px 0 6px;font-size:12px;color:var(--tinta2);cursor:pointer;list-style:none}
+.cc-plg summary::-webkit-details-marker{display:none}
+.cc-plg summary span{display:flex;align-items:center;gap:6px}
+.cc-plg summary span::before{content:"";width:0;height:0;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;border-left:5px solid currentColor;opacity:.45;
+  transition:transform 140ms var(--ease-out)}
+.cc-plg[open] summary span::before{transform:rotate(90deg)}
+.cc-plg summary b{font-weight:600;color:var(--tinta);font-variant-numeric:tabular-nums}
+.cc-plg summary b.sube{color:var(--casa)}
+.cc-plg summary b.baja{color:var(--fuera)}
+.cc-pista{margin:0 0 8px;font-size:11px;color:var(--tinta2);opacity:.85}
+
+/* las dos formas de promediar, con su cifra a la vista para poder elegir */
+.cc-peso{display:flex;gap:6px;margin-bottom:8px}
+.cc-peso button{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0;
+  font:inherit;font-size:10.5px;padding:5px 7px;cursor:pointer;text-align:left;
+  border:1px solid var(--linea);border-radius:8px;background:var(--tarjeta);color:var(--tinta2);
+  transition:transform 110ms var(--ease-out),border-color 120ms ease,color 120ms ease}
+.cc-peso button i{font-style:normal;font-size:13.5px;font-weight:600;color:var(--tinta);
+  font-variant-numeric:tabular-nums}
+.cc-peso button:hover{border-color:var(--acento)}
+.cc-peso button:active{transform:scale(.97)}
+.cc-peso button.act{border-color:var(--acento);background:var(--resalte);color:var(--acento)}
+.cc-peso button.act i{color:var(--acento)}
+
+.cc-hist{display:flex;flex-direction:column;gap:5px}
+.cc-h{display:grid;grid-template-columns:62px 1fr 28px 58px;gap:6px;align-items:center}
+.cc-h label{font-size:11.5px;color:var(--tinta2)}
+.cc-h input{width:100%;font-size:13px;padding:4px 7px;text-align:right}
+.cc-h i{font-style:normal;font-size:10px;color:var(--tinta2);text-align:right;
+  font-variant-numeric:tabular-nums}
+.cc-uni{font:inherit;font-size:12px;font-weight:600;padding:4px 0;cursor:pointer;
+  border:1px solid var(--linea);border-radius:6px;background:var(--tarjeta);color:var(--tinta2);
+  transition:transform 110ms var(--ease-out),border-color 120ms ease,color 120ms ease}
+.cc-uni:hover{border-color:var(--acento);color:var(--acento)}
+.cc-uni:active{transform:scale(.9)}
+
+@media (prefers-reduced-motion:reduce){
+  .cc-modo button:active,.cc-uni:active{transform:none}
+  .cc-plg summary span::before{transition:none}
+}
+@media (max-width:700px){
+  .cc-cuerpo{padding:12px 12px 13px}
+  .cc-grande{font-size:24px}
+  .cc-h{grid-template-columns:54px 1fr 28px 50px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fx-panel,.gr-barra,.fx-racha5 .pt,.fx-hero.cambia .fx-hero-n{animation:none}
+  .fx-panel{animation:aparece 160ms ease}
+  @keyframes aparece{from{opacity:0}}
+  .fx-s:active,.fx-pes:active,.fx-btn:active,.fx-sede button:active,
+  #ficha .cerrar:active{transform:none}
+}
+
+@media (max-width:700px){
+  #ficha{max-height:94vh}
+  .fx-cab{padding:16px 16px 12px;gap:12px}
+  .fx-punt{padding-right:0;width:100%;justify-content:flex-start;gap:14px}
+  .fx-hero{align-items:flex-start}
+  .fx-hero-n{font-size:36px}
+  .fx-sub{flex:1;max-width:200px}
+  .fx-s{min-width:0}
+  /* mas apretados para que los cinco quepan sin tener que deslizar */
+  .fx-prox{padding:0 16px 12px;gap:4px}
+  .fx-p{padding:3px 6px 3px 5px;gap:3px;font-size:11px;border-radius:7px}
+  .fx-p .esc{width:15px;height:15px}
+  .fx-p b{font-size:10.5px}
+  .fx-p i{font-size:9.5px}
+  /* en movil no caben las dos pestanas y los tres botones en la misma linea:
+     casa/fuera sube a su propia fila y las pestanas ocupan la de abajo */
+  .fx-barra{padding:0 16px;gap:0;flex-wrap:wrap}
+  .fx-sede{order:-1;margin:2px auto 7px;align-self:center}
+  .fx-pestanas{flex:1 0 100%}
+  .fx-pes{margin-right:18px}
+  .fx-cuerpo{padding:13px 16px 6px}
+  .fx-acciones{padding:10px 16px}
+  .fx-calc{margin:0 16px 12px}
+  .fx-b b{font-size:17px}
+  .fx-b span{font-size:9.5px}
+  .fx-filas{grid-template-columns:repeat(2,1fr);gap:0 14px}
+  .gr-col{width:40px}
+  .gr-pista{height:120px}
+}
+
 
 
 .val{color:var(--tinta)}
@@ -484,13 +807,6 @@ tbody tr:hover td.pega{background:var(--resalte)}
   /* ficha a pantalla casi completa */
   dialog{width:100%;max-width:none;max-height:92vh;margin:auto 0 0;
     border-radius:16px 16px 0 0;border-bottom:0}
-  .ficha-cab{padding:15px 16px}
-  .ficha-cab h2{font-size:18px}
-  .sistemas{padding:11px 16px;gap:7px}
-  .sistemas div{padding:5px 9px;font-size:11.5px;flex:1 1 calc(50% - 4px)}
-  .proximos{padding:10px 16px}
-  .ficha-cuerpo{max-height:46vh;overflow:auto}
-  .ficha-cuerpo th,.ficha-cuerpo td{padding:6px 7px;font-size:12.5px}
   .ficha-cuerpo .otra{display:none}
   .ficha-pie{padding:11px 16px;font-size:12px}
 }
