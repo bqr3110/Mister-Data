@@ -1208,7 +1208,7 @@ function bloqueHistorico(t){
       : 'Con un solo dato las dos dan lo mismo. Rellena más ventanas y se separan.'}</p>
     <p class="cc-pista">Hoy, ayer y anteayer: lo que subió ese día. Semana y mes: acumulado.</p>
     <div class="cc-hist">${filas.map(w => `
-      <div class="cc-h">
+      <div class="cc-h${(J.hist[w.k]||{}).auto ? ' auto' : ''}">
         <label for="h-${w.k}">${w.t}</label>
         <input id="h-${w.k}" type="number" step="0.01" data-hist="${w.k}"
           value="${(J.hist[w.k]||{}).v ?? ''}" placeholder="—" inputmode="decimal">
@@ -1355,8 +1355,21 @@ function panelCalculo(cual){
 
   if(cual) CALC.cual = cual;
   CALC.__j = fichaDe(f.n + '|' + f.e);
-  // la subida de hoy la sabemos: se rellena sola la primera vez
-  if(CALC.__j.hist.hoy.v === '' && f.cam){ CALC.__j.hist.hoy = {v:String(f.cam), u:'eur'}; }
+
+  /* Las cinco ventanas salen del histórico de valores, que se guarda a
+     diario. Van todas en %, para que se lean juntas sin mezclar unidades.
+     Solo se rellena lo que esté vacío: lo que escribas tú manda y no se
+     pisa. Si aún no hay histórico, la de hoy cae en la subida que anuncia
+     el propio Mister, que sí sabemos desde el primer día. */
+  const h = f.ref.h || {};
+  for(const w of VENTANAS){
+    const c = CALC.__j.hist[w.k];
+    if(c.v !== '' || h[w.k] === undefined) continue;
+    CALC.__j.hist[w.k] = {v:String(h[w.k]), u:'pct', auto:true};
+  }
+  if(CALC.__j.hist.hoy.v === '' && f.cam){
+    CALC.__j.hist.hoy = {v:String(f.cam), u:'eur', auto:true};
+  }
 
   caja.hidden = false;
   caja.innerHTML = `
@@ -1559,7 +1572,7 @@ function arrancarComparador(){
     const u = e.target.closest('[data-uni]');
     if(u){
       const h = CALC.__j.hist, c = h[u.dataset.uni];
-      h[u.dataset.uni] = {v:'', u: c.u === 'eur' ? 'pct' : 'eur'};
+      h[u.dataset.uni] = {v:'', u: c.u === 'eur' ? 'pct' : 'eur', auto:false};
       panelCalculo(); return;
     }
   });
@@ -1587,7 +1600,8 @@ function arrancarComparador(){
       case 'cc-rec':    CALC.__j.diasRec = +v || 0; break;
       case 'cc-vrec':   CALC.__j.valRec = v === '' ? null : +v; break;
       default:
-        if(t.dataset.hist){ CALC.__j.hist[t.dataset.hist].v = v; break; }
+        if(t.dataset.hist){ const c = CALC.__j.hist[t.dataset.hist];
+          c.v = v; c.auto = false; break; }
         return;
     }
     // las filas del historico cambian el resumen del plegable, que está fuera
