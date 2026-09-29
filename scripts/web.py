@@ -1,3 +1,4 @@
+import glob
 import csv
 import json
 import os
@@ -143,6 +144,53 @@ def main():
         except (ValueError, TypeError):
             pass
 
+    # ---- historico de valores -> las cinco ventanas de la calculadora ----
+    #
+    # No se mete la serie entera en el json (461 jugadores por todos los dias
+    # se hace enorme y crece cada dia). Se calculan aqui los cinco numeros que
+    # la calculadora pide y se guardan ya listos, en % sobre el valor de
+    # partida, que es la unidad con la que trabaja.
+    serie = defaultdict(dict)
+    for ruta in sorted(glob.glob(os.path.join("datos", "historico", "mercado-*.csv"))):
+        for r in csv.DictReader(open(ruta, encoding="utf-8")):
+            k = buscar(limpia(r["jugador"]), r["equipo"])
+            if k is None:
+                continue
+            try:
+                serie[k][r["fecha"]] = int(r["valor"])
+            except (ValueError, TypeError):
+                pass
+
+    def variacion(vals, dias):
+        """% de subida entre el valor de hace `dias` dias y el ultimo."""
+        if len(vals) <= dias:
+            return None
+        antes, ahora = vals[-1 - dias], vals[-1]
+        if not antes:
+            return None
+        return round((ahora - antes) / antes * 100, 3)
+
+    con_hist = 0
+    for k, porFecha in serie.items():
+        if k not in jug or len(porFecha) < 2:
+            continue
+        vals = [porFecha[f] for f in sorted(porFecha)]
+        h = {}
+        for clave, dias in (("hoy", 1), ("ayer", 2), ("ante", 3), ("sem", 7), ("mes", 30)):
+            # ayer y anteayer son la subida DE ese dia, no la acumulada
+            if clave in ("ayer", "ante"):
+                if len(vals) <= dias:
+                    continue
+                antes, despues = vals[-dias - 1], vals[-dias]
+                v = round((despues - antes) / antes * 100, 3) if antes else None
+            else:
+                v = variacion(vals, dias)
+            if v is not None:
+                h[clave] = v
+        if h:
+            jug[k]["h"] = h
+            con_hist += 1
+
     salida = {
         "lugar": lugar,
         "prox": dict(prox),
@@ -158,6 +206,7 @@ def main():
 
     print(f"jugadores: {len(salida['jugadores'])}")
     print(f"sin cruce en eventos: {len(sin_cruce)}  sin valor de mercado: {sin_valor}")
+    print(f"jugadores con historico de valores: {con_hist}")
     print(f"json: {round(os.path.getsize(SALIDA)/1024)} KB")
 
 
