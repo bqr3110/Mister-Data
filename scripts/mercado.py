@@ -102,24 +102,36 @@ def main():
         w.writerows(filas)
 
     # 2) archivo del mes, una fila por jugador y dia
+    #
+    # Antes se guardaba la PRIMERA captura del dia y las siguientes se
+    # descartaban. Como la captura corre cada dos horas y el Mister cambia
+    # los valores mas tarde, la foto del dia se quedaba con el valor que
+    # venia de la vispera: el historico iba un dia por detras.
+    # Ahora la fila del dia se reescribe en cada pasada, asi que queda el
+    # ultimo valor conocido de ese dia.
     mensual = os.path.join(CARPETA, f"mercado-{hoy[:7]}.csv")
-    hechas = set()
-    previas = []
+    registro = {}
     if os.path.exists(mensual):
         for f in csv.DictReader(open(mensual, encoding="utf-8")):
-            previas.append([f["fecha"], f["jugador"], f["equipo"], f["valor"]])
-            hechas.add((f["fecha"], f["jugador"], f["equipo"]))
+            registro[(f["fecha"], f["jugador"], f["equipo"])] = f["valor"]
 
-    nuevas = [[x["fecha"], x["jugador"], x["equipo"], x["valor"]]
-              for x in filas if (hoy, x["jugador"], x["equipo"]) not in hechas]
+    antes = len(registro)
+    cambiadas = 0
+    for x in filas:
+        clave = (x["fecha"], x["jugador"], x["equipo"])
+        if registro.get(clave) != str(x["valor"]):
+            cambiadas += 1
+        registro[clave] = x["valor"]
 
     with open(mensual, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["fecha", "jugador", "equipo", "valor"])
-        w.writerows(previas + nuevas)
+        for (fe, ju, eq) in sorted(registro):
+            w.writerow([fe, ju, eq, registro[(fe, ju, eq)]])
 
     print(f"jugadores leidos: {len(filas)}")
-    print(f"anadidos al archivo del mes: {len(nuevas)}  (total {len(previas) + len(nuevas)})")
+    print(f"archivo del mes: {len(registro)} filas "
+          f"({len(registro) - antes} nuevas, {cambiadas} puestas al dia)")
 
 
 if __name__ == "__main__":
