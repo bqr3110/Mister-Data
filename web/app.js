@@ -41,6 +41,15 @@ function escudo(equipo, ayuda){
     data-txt="${texto.replace(/"/g, '&quot;')}"></span>`;
 }
 
+/* La subida del día en las dos unidades: el porcentaje dice si es mucho
+   o poco, que 50k no es lo mismo en un jugador de 1M que en uno de 20M. */
+function subidaHoy(cam, val, conHoy){
+  if(!cam) return '';
+  const pct = val ? (cam / val * 100) : null;
+  return `<i class="${cam>0?'sube':'baja'}">${cam>0?'+':''}${(cam/1000).toFixed(0)}k${
+    pct === null ? '' : ` <em>${pct>0?'+':''}${pct.toFixed(2)}%</em>`}${conHoy?' hoy':''}</i>`;
+}
+
 const eur = n => (n === null || n === undefined) ? null
   : (n / 1e6).toFixed(2).replace('.', ',') + 'M';
 // version corta para el movil, donde no caben dos decimales
@@ -396,7 +405,7 @@ function pintarTarjetas(filas){
   caja.innerHTML = filas.slice(0, tope).map((f,i) => {
     const p = POS[f.pos], e = EQUIPO[f.e];
     const cam = !f.cam ? ''
-      : `<i class="${f.cam>0?'sube':'baja'}">${f.cam>0?'+':''}${(f.cam/1000).toFixed(0)}k</i>`;
+      : subidaHoy(f.cam, f.val);
     const val = (f.val === null || f.val === undefined) ? '' : millones(f.val);
     return `<article class="tj" data-i="${i}" data-k="${f.n + '|' + f.e}">
       <div class="tj-cab">
@@ -437,7 +446,9 @@ function pintarTabla(filas, k){
       if(c.cambio){
         if(f.cam===null||f.cam===undefined) return '<td><span class="tenue">·</span></td>';
         const sig = f.cam>0?'+':'';
-        return `<td class="${f.cam>0?'sube':f.cam<0?'baja':'tenue'}">${sig}${(f.cam/1000).toFixed(0)}k</td>`;
+        const pc = f.val ? ` <em>${f.cam>0?'+':''}${(f.cam/f.val*100).toFixed(2)}%</em>` : '';
+        return `<td class="${f.cam>0?'sube':f.cam<0?'baja':'tenue'}">${sig}${
+          (f.cam/1000).toFixed(0)}k${pc}</td>`;
       }
       let cls = (c.cls || '') + s;
       if(c.dif) cls = 'dif' + s + ' ' + (f.dif===null ? '' : f.dif>0 ? 'dif-pos' : f.dif<0 ? 'dif-neg' : '');
@@ -806,6 +817,273 @@ function pintarComparador(){
     : '<span>Elige arriba qué datos quieres comparar.</span>';
 }
 
+/* ================================================================
+   BALANCE DE FICHAJES
+
+   Dos columnas: lo que vendes y lo que compras. Dice si te llega el
+   dinero, hoy y dentro de unos días.
+
+   Lo que hay que tener en cuenta, y que es fácil olvidar al hacerlo
+   a ojo:
+
+   - Al vender, lo que te ofrecen no es exactamente el valor: Mister
+     puja entre el 95 % y el 105 %. Por eso las ventas salen como una
+     horquilla y no como un número.
+   - Si a un jugador tuyo le has subido la cláusula, eso ya lo pagaste.
+     No lo recuperas al venderlo, así que aquí se resta aparte.
+   - Subir la cláusula de uno que fichas cuesta el 20 % de su valor por
+     cada escalón, y eso hay que sumarlo a lo que pagas.
+   - Y todo se mueve: en diez días el que vendes vale otra cosa y el
+     que compras también.
+   ================================================================ */
+
+const BAL = {vende:[], compra:[], saldo:0, dias:null};
+try {
+  const g = JSON.parse(localStorage.getItem('balance') || '{}');
+  Object.assign(BAL, g, {vende: g.vende || [], compra: g.compra || []});
+} catch(_){}
+const guardarBal = () => { try {
+  localStorage.setItem('balance', JSON.stringify(BAL));
+} catch(_){} };
+
+const VENTA_MIN = 0.95, VENTA_MAX = 1.05;   // la horquilla de la oferta de Mister
+const TOPE_DIAS = 20;
+
+/* ---------- dinero escrito a mano ----------
+
+   Nadie teclea 18752365. Se habla en millones, así que eso es lo que se
+   escribe: "18,75" son 18.750.000. Por debajo de mil se entiende que
+   hablas de millones; de mil para arriba, que estás poniendo la cifra
+   entera. Admite además la M y la k por si acaso, y los puntos de millar.
+   En español la coma nunca separa millares: si aparece, es la decimal. */
+function leerDinero(txt){
+  if(txt === null || txt === undefined) return null;
+  let s = String(txt).trim().toLowerCase().replace(/[€\s ]/g, '');
+  if(!s) return null;
+  const neg = s.startsWith('-');
+  if(neg) s = s.slice(1);
+
+  let esc = 1, marcada = false;
+  if(/[km]$/.test(s)){ esc = s.endsWith('k') ? 1e3 : 1e6; marcada = true; s = s.slice(0, -1); }
+
+  const pto = s.lastIndexOf('.'), com = s.lastIndexOf(',');
+  let dec = '';
+  if(com > -1 && com > pto){                        // coma: siempre decimal
+    dec = s.slice(com + 1); s = s.slice(0, com);
+  } else if(pto > -1 && s.indexOf('.') === pto && /^\d{1,2}$/.test(s.slice(pto + 1))){
+    dec = s.slice(pto + 1); s = s.slice(0, pto);    // un punto solo con 1-2 cifras detrás
+  }
+  const ent = s.replace(/\D/g, '');                 // lo demás, puntos de millar
+  if(ent === '' && dec === '') return null;
+
+  const n = parseFloat((ent || '0') + (dec ? '.' + dec.replace(/\D/g, '') : ''));
+  if(!isFinite(n)) return null;
+  if(!marcada && n < 1000) esc = 1e6;               // "18,75" son millones
+  return Math.round(n * esc) * (neg ? -1 : 1);
+}
+
+/* Y cómo se le devuelve escrito cuando no está tecleando: en millones,
+   que es como lo va a volver a leer. Sin perder un solo euro. */
+function escribirDinero(n){
+  if(n === null || n === undefined || !isFinite(n)) return '';
+  return (+(n / 1e6).toFixed(6)).toString().replace('.', ',');
+}
+
+/* Cuándo empieza la próxima jornada: el primer partido que quede por
+   jugar de cualquier equipo. Es el plazo que sale por defecto, porque
+   es el momento en que todo se mueve. */
+function diasProximaJornada(){
+  const hoy = new Date(); hoy.setHours(0,0,0,0);
+  let mejor = null;
+  for(const eq in (DATOS.prox || {})){
+    for(const x of DATOS.prox[eq]){
+      const f = fechaProx(x[3], hoy);
+      if(!f) continue;
+      const d = Math.round((f - hoy) / 864e5);
+      if(d >= 0 && (mejor === null || d < mejor)) mejor = d;
+    }
+  }
+  return mejor === null ? null : Math.min(mejor, TOPE_DIAS);
+}
+
+const diasBal = () => BAL.dias === null ? (diasProximaJornada() ?? 0) : BAL.dias;
+
+/* Lo que vale una operación. Cada fila puede llevar su propio precio
+   escrito a mano; si no lo lleva, se usa lo que valdrá ese día. */
+function cuentaFila(fila, dias){
+  const j = INDICE[fila.k];
+  if(!j) return null;
+  const val = j.val || 0;
+  const proyectado = dias > 0 ? valorPotencial({val, ref:j}, dias).techo : val;
+  // lo que pagas o te dan: lo tuyo manda sobre la proyección
+  const precio = (fila.precio === null || fila.precio === undefined)
+    ? proyectado : +fila.precio;
+  const esc = +fila.esc || 0;
+  // la cláusula se calcula sobre la base que digas: si hiciste un clausulazo,
+  // no es su valor de mercado, es lo que pagaste
+  const base = (fila.base === null || fila.base === undefined) ? precio : +fila.base;
+  const clausula = 0.2 * esc * base;
+  const suyo = !!fila.suyo;               // ya lo tienes: solo pagas la cláusula
+  const total = (suyo ? 0 : precio) + clausula;
+  return {j, val, proyectado, precio, esc, base, clausula, suyo, total,
+          aMano: fila.precio !== null && fila.precio !== undefined};
+}
+
+function filaBalance(cual, fila, c, i){
+  const vende = cual === 'vende';
+  // una casilla de dinero: texto libre, con el euro leído debajo para que
+  // se vea al momento que lo ha entendido
+  const campo = (etq, cual2, cual3, valor, txt) => {
+    const escrito = txt !== null && txt !== undefined && txt !== ''
+      ? txt : escribirDinero(valor);
+    return `
+    <label class="bal-campo">
+      <span>${etq}</span>
+      <input type="text" data-${cual2}="${cual}|${i}" value="${escrito}"
+        inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="18,75">
+      <em class="bal-leido" data-leido="${cual2}|${cual}|${i}">${euros(valor)}</em>
+    </label>`;
+  };
+
+  return `<div class="bal-f">
+    <div class="bal-quien">
+      ${escudo(c.j.e, c.j.e)}<span class="bal-n">${c.j.n}</span>
+      <b class="${vende ? 'sube' : 'baja'}" data-tot="${cual}|${i}"
+        >${vende ? '+' : '−'}${eur(c.total)}</b>
+      <button class="bal-x" data-quita="${cual}|${i}" aria-label="Quitar">&times;</button>
+    </div>
+
+    <div class="bal-campos">
+      ${c.suyo ? '' : campo(vende ? 'Te dan' : 'Pagas', 'precio', cual, c.precio, fila.precioTxt)}
+      <div class="bal-campo quieto">
+        <span>${BAL.__dias ? 'valdrá' : 'vale'}</span>
+        <div>${eur(c.proyectado)}</div>
+      </div>
+    </div>
+
+    ${vende ? '' : `
+    <label class="bal-chk"><input type="checkbox" data-suyo="${cual}|${i}"${
+      c.suyo ? ' checked' : ''}><span>Ya lo tengo, solo le subo la cláusula</span></label>
+
+    <div class="bal-campos">
+      <label class="bal-campo">
+        <span>Cláusula</span>
+        <select data-esc="${cual}|${i}">
+          ${MULT.map((m, k) => `<option value="${k}"${k===c.esc?' selected':''}
+            >${k === 0 ? 'no la toco' : '×' + m.toFixed(1).replace('.', ',')}</option>`).join('')}
+        </select>
+      </label>
+      ${c.esc ? campo('Calculada sobre', 'base', cual, c.base, fila.baseTxt) : ''}
+    </div>
+    ${c.esc ? `<p class="bal-nota" data-nota="${cual}|${i}">Subirla cuesta
+      <b>${eur(c.clausula)}</b> y la cláusula queda en
+      <b>${eur(c.base * MULT[c.esc])}</b></p>` : ''}`}
+  </div>`;
+}
+
+function pintarBalance(){
+  const dias = diasBal();
+  BAL.__dias = dias;
+  const caja = document.getElementById('bal-cuerpo');
+  const prox = diasProximaJornada();
+
+  const lado = (cual, titulo, vacio) => {
+    const filas = BAL[cual];
+    const cuentas = filas.map(f => cuentaFila(f, dias));
+    const cuerpo = filas.length
+      ? cuentas.map((c, i) => c ? filaBalance(cual, filas[i], c, i) : '').join('')
+      : `<p class="bal-vacio">${vacio}</p>`;
+    return `<section class="bal-lado ${cual}">
+      <h3>${titulo} <span>${filas.length || ''}</span></h3>
+      ${cuerpo}
+      <div class="bal-busca">
+        <input type="text" data-busca="${cual}" placeholder="Añadir jugador…" autocomplete="off">
+        <div class="bal-sug" data-sug-de="${cual}" hidden></div>
+      </div>
+    </section>`;
+  };
+
+  caja.innerHTML = `
+    <div class="bal-plazo">
+      <div class="bal-slider">
+        <input type="range" id="bal-dias" min="0" max="${TOPE_DIAS}" value="${dias}">
+        <output>${dias === 0 ? 'hoy' : dias + ' d'}</output>
+      </div>
+      ${prox !== null ? `<button id="bal-prox" class="${BAL.dias === null ? 'act' : ''}"
+        >Próxima jornada${prox ? ` · ${prox} d` : ''}</button>` : ''}
+    </div>
+    <div class="bal-lados">
+      ${lado('vende', 'Vendo', 'Añade los que vas a soltar.')}
+      ${lado('compra', 'Compro', 'Añade a quien fiches o a quien quieras subirle la cláusula.')}
+    </div>`;
+
+  document.getElementById('bal-saldo').value = BAL.saldoTxt !== undefined
+    ? BAL.saldoTxt : (BAL.saldo ? escribirDinero(BAL.saldo) : '');
+  totalesBalance();
+}
+
+/* Los números de abajo y las cifras de cada fila. Va aparte porque
+   mientras escribes en una casilla hay que actualizar esto sin volver a
+   generar la casilla: si se regenera, se pierde el cursor. */
+function totalesBalance(){
+  const dias = BAL.__dias;
+
+  for(const cual of ['vende', 'compra']){
+    BAL[cual].forEach((fila, i) => {
+      const c = cuentaFila(fila, dias);
+      if(!c) return;
+      const tot = document.querySelector(`[data-tot="${cual}|${i}"]`);
+      if(tot) tot.textContent = (cual === 'vende' ? '+' : '−') + eur(c.total);
+      const nota = document.querySelector(`[data-nota="${cual}|${i}"]`);
+      if(nota && c.esc) nota.innerHTML = `Subirla cuesta <b>${eur(c.clausula)}</b>` +
+        ` y la cláusula queda en <b>${eur(c.base * MULT[c.esc])}</b>`;
+      for(const [campo, valor] of [['precio', c.precio], ['base', c.base]]){
+        const le = document.querySelector(`[data-leido="${campo}|${cual}|${i}"]`);
+        if(le) le.textContent = euros(valor);
+      }
+    });
+  }
+
+  const v = BAL.vende.map(f => cuentaFila(f, dias)).filter(Boolean);
+  const c = BAL.compra.map(f => cuentaFila(f, dias)).filter(Boolean);
+  const ingreso = v.reduce((a, x) => a + x.total, 0);
+  const gasto = c.reduce((a, x) => a + x.total, 0);
+  const saldo = +BAL.saldo || 0;
+  const neto = saldo + ingreso - gasto;
+  // la horquilla solo afecta a lo que no has escrito tú: si fijas el precio,
+  // ese es el precio
+  const flota = v.filter(x => !x.aMano).reduce((a, x) => a + x.total, 0);
+  const fijo = ingreso - flota;
+  const peor = saldo + fijo + flota * VENTA_MIN - gasto;
+  const mejor = saldo + fijo + flota * VENTA_MAX - gasto;
+
+  document.getElementById('bal-total').innerHTML = (!v.length && !c.length)
+    ? '<p class="bal-vacio">Añade jugadores a cualquiera de los dos lados.</p>'
+    : `<div class="bal-cifras">
+         <div><span>vendiendo</span><b class="sube">+${eur(ingreso)}</b></div>
+         <div><span>fichando</span><b class="baja">−${eur(gasto)}</b></div>
+         ${saldo ? `<div><span>tenías</span><b>${eur(saldo)}</b></div>` : ''}
+       </div>
+       <div class="bal-res ${neto>=0?'bien':'mal'}">
+         <span>${neto>=0 ? 'Te sobran' : 'Te faltan'}</span>
+         <b>${eur(Math.abs(neto))}</b>
+       </div>
+       ${flota ? `<p class="bal-horquilla">Por los que no has puesto precio, Mister paga
+         entre el 95 % y el 105 %: acabarías entre <b>${eur(peor)}</b> y
+         <b>${eur(mejor)}</b>.</p>` : ''}`;
+
+  document.getElementById('bal-sub').textContent =
+    dias === 0 ? 'con los valores de hoy'
+    : BAL.dias === null ? `al empezar la próxima jornada, en ${dias} días`
+    : `dentro de ${dias} días`;
+  guardarBal();
+}
+
+function abrirBalance(){
+  pintarBalance();
+  document.getElementById('balance').showModal();
+}
+
 function abrirComparador(){
   pintarComparador();
   document.getElementById('comparador').showModal();
@@ -1011,7 +1289,7 @@ function abrirFicha(f){
   document.getElementById('ficha-nombre').textContent = f.n;
 
   const cam = !f.cam ? ''
-    : `<i class="${f.cam>0?'sube':'baja'}">${f.cam>0?'+':''}${(f.cam/1000).toFixed(0)}k hoy</i>`;
+    : subidaHoy(f.cam, f.val, true);
   document.getElementById('ficha-val').innerHTML =
     (f.val ? eur(f.val) : '<span class="tenue">sin valor</span>') + cam;
 
@@ -1063,12 +1341,138 @@ const VENTANAS = [
 
 const MULT = [1.5, 2.0, 2.5, 3.0, 3.5, 4.0];
 
+/* ================================================================
+   PROYECCION POR PARTIDOS
+
+   Lo que de verdad mueve el valor no es una tendencia que se pueda
+   extrapolar, es si el jugador juega o no juega. Medido sobre la
+   jornada 7 y los 9 dias siguientes (parón de selecciones, así que
+   no hay nada más que lo contamine), con 449 jugadores:
+
+        no jugó                 -20,5 %   (n=134)
+        jugó menos de 45 min     -5,4 %   (n= 89)
+        jugó 45+ min, sin gol    +5,9 %   (n=205)
+        marcó un gol            +15,9 %   (n= 21)
+
+   Ojo: es UNA jornada. Con la 8 y la 9 habrá que volver a mirarlo.
+   Si estos números cambian, se cambian aquí y ya está.
+   ================================================================ */
+
+const EFECTO = {no:0.795, poco:0.946, juega:1.059, gol:1.159};
+const DIAS_EFECTO = 9;      // en cuántos días se completa, que es la ventana medida
+
+/* Qué suele hacer en un partido, mirando los últimos que jugó su equipo.
+   Devuelve con qué frecuencia no juega, juega poco o juega de verdad. */
+function perfilPartido(j, cuantos){
+  const jornadas = (JUGADAS[j.e] || JORNADAS).slice(-(cuantos || 6));
+  let no = 0, poco = 0, juega = 0, conGol = 0;
+  for(const n of jornadas){
+    const ev = j.ev[n];
+    const m = (ev && ev.m) || 0;
+    if(!ev || !m) no++;
+    else if(m < 45) poco++;
+    else { juega++; if((ev.g || 0) > 0) conGol++; }
+  }
+  const t = jornadas.length || 1;
+  // en cuántos de los partidos que juega MARCA, no cuántos goles mete:
+  // el efecto medido es el de "marcó o no marcó", y un hat-trick no
+  // multiplica por tres la subida
+  return {no:no/t, poco:poco/t, juega:juega/t,
+          gol: juega ? conGol/juega : 0, de:t};
+}
+
+/* El efecto que cabe esperar de UN partido suyo, ya mezclado con la
+   probabilidad de que lo juegue. Un titular fijo que marca a menudo
+   sale por encima de 1; uno que lleva semanas sin jugar, por debajo. */
+function efectoPartido(p){
+  const conGol = p.gol;
+  const jugando = conGol * EFECTO.gol + (1 - conGol) * EFECTO.juega;
+  return p.no * EFECTO.no + p.poco * EFECTO.poco + p.juega * jugando;
+}
+
+/* "Lun 12/10 21:00h" -> Date. El año no viene, así que se deduce:
+   la temporada cruza el año nuevo, y los meses de enero a junio son
+   del año siguiente al de agosto-diciembre. */
+function fechaProx(txt, hoy){
+  const m = /(\d{1,2})\/(\d{1,2})/.exec(txt || '');
+  if(!m) return null;
+  const dia = +m[1], mes = +m[2];
+  let año = hoy.getFullYear();
+  // si el partido cae en un mes bastante anterior al de hoy, es del año que viene
+  if(mes < hoy.getMonth() + 1 - 6) año++;
+  const d = new Date(año, mes - 1, dia, 21, 0, 0);
+  // y si aun asi sale en el pasado, es del año que viene
+  if(d < hoy && (hoy - d) > 30 * 864e5) d.setFullYear(año + 1);
+  return d;
+}
+
+/* Lo que hizo en un partido concreto, para saber qué efecto le toca.
+   Aquí no hay que estimar nada: ya se sabe si jugó y si marcó. */
+function efectoReal(ev){
+  const m = (ev && ev.m) || 0;
+  if(!ev || !m) return EFECTO.no;
+  if(m < 45) return EFECTO.poco;
+  return (ev.g || 0) > 0 ? EFECTO.gol : EFECTO.juega;
+}
+
+/* Proyección del valor día a día contando los partidos que caen en medio.
+   Cada partido reparte su efecto en los DIAS_EFECTO siguientes, así que
+   dos partidos seguidos se solapan y se acumulan, que es lo que pasa.
+
+   Cuenta las dos cosas:
+   - los partidos que quedan por jugar, con el efecto que cabe esperar
+   - los ya jugados hace menos de DIAS_EFECTO, con el efecto que de verdad
+     tuvieron. Sin esto, en un parón de selecciones la proyección diría
+     que no pasa nada, cuando en realidad la subida del último partido
+     todavía se está aplicando. */
+function seriePorPartidos(j, valor, dias, extra){
+  const hoy = new Date(); hoy.setHours(0,0,0,0);
+  const p = perfilPartido(j);
+  const ef = efectoPartido(p) * (extra || 1);
+  const mult = (extra || 1);
+
+  // [díaRelativo, efecto] — negativo si ya se jugó
+  const eventos = [];
+
+  for(const x of ((DATOS.prox || {})[j.e] || [])){
+    const f = fechaProx(x[3], hoy);
+    if(!f) continue;
+    const d = Math.round((f - hoy) / 864e5);
+    if(d >= 0) eventos.push([d, ef]);
+  }
+
+  for(const n of (JUGADAS[j.e] || JORNADAS)){
+    const txt = (DATOS.jugado || {})[n + '|' + j.e];
+    if(!txt) continue;
+    const f = new Date(txt + 'T21:00:00');
+    const d = Math.round((f - hoy) / 864e5);
+    if(d < 0 && d > -DIAS_EFECTO) eventos.push([d, efectoReal(j.ev[n]) * mult]);
+  }
+  eventos.sort((a,b) => a[0] - b[0]);
+
+  const tope = Math.max(60, dias + 10);
+  const out = [{dia:0, valor}];
+  let v = valor;
+  for(let t = 1; t <= tope; t++){
+    // todos los partidos que siguen soltando su efecto ese día
+    let f = 1;
+    for(const [d, e] of eventos){
+      if(t > d && t <= d + DIAS_EFECTO) f *= Math.pow(e, 1 / DIAS_EFECTO);
+    }
+    v = v * f;
+    out.push({dia:t, valor:v});
+  }
+  const partidos = eventos.filter(x => x[0] >= 0).map(x => x[0]);
+  const enMarcha = eventos.filter(x => x[0] < 0);
+  return {serie:out, perfil:p, efecto:ef, partidos, enMarcha};
+}
+
 /* Dos niveles: lo que es criterio tuyo (a cuántos días pujas, cuánto
    frenas) vale para cualquier jugador; lo que es del jugador (lo que te
    costó, si está lesionado, su histórico) se guarda con su nombre. */
 const CALC = {
   cual:'puja', modo:'dias',
-  dias:8, frenado:30, diasFrenado:15, escalon:5, peso:'simple',
+  dias:8, frenado:30, diasFrenado:15, escalon:5, peso:'simple', metodo:'partidos',
   jug:{},      // por jugador: {hist:{hoy:{v,u},…}, compra, precio, lesionado, diasRec, valRec}
 };
 try {
@@ -1114,36 +1518,9 @@ function tasaDiaria(hist, valor){
   return {filas, simple, pond, tasa: CALC.peso === 'pond' ? pond : simple};
 }
 
-/* La subida no se mantiene: se va frenando hasta quedarse en una
-   fraccion de la de hoy, y a partir de ahi se queda plana ahi. */
-function tasaEnDia(t, tasa, frenado, diasFrenado){
-  if(tasa === 0 || diasFrenado <= 0) return tasa;
-  const frac = Math.max(0.001, frenado / 100);
-  return tasa * Math.pow(frac, Math.min(t, diasFrenado) / diasFrenado);
-}
 
-function serieValor(valor, tasa, o){
-  const tope = Math.max(60, (o.dias||0) + 10, o.lesionado ? (o.diasRec||0) + 10 : 0);
-  const out = [{dia:0, valor}];
-  let v = valor;
-  for(let t = 1; t <= tope; t++){
-    // lesionado: sigue la tendencia hasta que vuelve, y ese dia salta al valor puesto
-    if(o.lesionado && t >= o.diasRec) v = o.valRec;
-    else v = v * (1 + tasaEnDia(t - 1, tasa, o.frenado, o.diasFrenado) / 100);
-    out.push({dia:t, valor:v});
-  }
-  return out;
-}
 
-const diaDePrecio = (serie, precio) => {
-  if(!isFinite(precio) || !serie.length) return null;
-  if(precio === serie[0].valor) return 0;
-  const sube = precio > serie[0].valor;
-  for(let i = 1; i < serie.length; i++){
-    if(sube ? serie[i].valor >= precio : serie[i].valor <= precio) return serie[i].dia;
-  }
-  return null;
-};
+
 
 const diasHasta = (valor, tasa, objetivo) => {
   if(objetivo <= valor) return null;
@@ -1219,71 +1596,149 @@ function bloqueHistorico(t){
   </details>`;
 }
 
+/* ================================================================
+   LA PUJA IDEAL
+
+   Un número y un veredicto. Nada que decidir.
+
+   El razonamiento, por si hace falta repasarlo dentro de un año:
+
+   - El SUELO es el valor × 1,05. Mister puja solo por los jugadores
+     libres con una oferta aleatoria de entre el 95 % y el 105 % del
+     valor (art. 37 de su ayuda). Por debajo de ese 105 % la máquina
+     puede ganarte sin que intervenga nadie, así que pujar ahí es tirar
+     el turno.
+   - El TECHO es lo que valdrá el jugador cuando hayan pasado sus dos
+     próximos partidos. Pagar más que eso es perder dinero seguro.
+   - El PLAZO no lo elige nadie: sale del calendario de su equipo.
+   - La puja va al 60 % del camino entre el suelo y el techo. Deja
+     margen para que el jugador cumpla peor de lo esperado y aun así
+     no pierdas.
+   ================================================================ */
+
+/* ================================================================
+   VALOR POTENCIAL  ·  lo máximo que puedes pagar hoy
+
+   Qué predice esto: lo que valdrá el jugador dentro de unos días. Si
+   pagas eso, ese día habrás quedado en paz; si vendes antes, pierdes.
+
+   Cómo. Lo único que predice de verdad es lo que el jugador YA está
+   subiendo. Se comprobó partiendo el histórico en dos: con lo de los
+   primeros días se predijo lo de los siguientes.
+
+        lo que lleva subiendo           r = +0,55
+        media de puntos                 r = +0,26
+        subida de un solo día           r = +0,23
+        minutos, partidos, valor          ruido
+
+   Un modelo que contaba partidos (si juega, si marca) se probó y se
+   tiró: predecía con r = +0,10, o sea nada. Los efectos que se ven por
+   grupos (el que no juega baja un 20 %) no sirven para un jugador
+   concreto, porque dentro de cada grupo hay de todo.
+
+   La fórmula sale de una regresión sobre 546 jugadores:
+
+        subida esperada en 4 días = 0,65 × (subida de los últimos 5) − 1,78
+
+   O sea: se conserva el 65 % del ritmo y hay un freno fijo de 1,78
+   puntos. Eso es el "frenado" que hacía falta, pero medido en vez de
+   inventado. R² = 0,31 y el error típico es de 8 puntos: esto orienta,
+   no garantiza.
+   ================================================================ */
+
+const CONSERVA = 0.6512;    // cuánto del ritmo se mantiene
+const FRENO = 1.778;        // lo que se pierde de salida, en puntos
+const VENTANA = 5;          // días de los que se lee el ritmo
+const TRAMO = 4;            // días que cubre cada aplicación de la fórmula
+const PLAZO = 10;           // a cuántos días se da el valor potencial
+
+function valorPotencial(f, dias){
+  const val = f.val;
+  const h = f.ref.h || {};
+  dias = dias || PLAZO;
+
+  // lo que lleva subiendo. Si no hay ventana de 5 días, se apaña con lo que haya
+  let ritmo = h.d5, base = VENTANA;
+  if(ritmo === undefined){ ritmo = h.sem; base = 7; }
+  if(ritmo === undefined){ ritmo = h.hoy; base = 1; }
+  const hayDato = ritmo !== undefined;
+  const sub5 = hayDato ? ritmo * (VENTANA / base) : 0;
+
+  // lo que cabe esperar, pasado a tasa diaria
+  const esperado = CONSERVA * sub5 - FRENO;          // en % para TRAMO días
+  const diaria = Math.pow(1 + esperado / 100, 1 / TRAMO) - 1;
+
+  const serie = [{dia:0, valor:val}];
+  let v = val;
+  for(let t = 1; t <= Math.max(30, dias + 5); t++){
+    v = v * (1 + diaria);
+    serie.push({dia:t, valor:v});
+  }
+  const techo = serie[Math.min(dias, serie.length - 1)].valor;
+  const sube = techo / val - 1;
+
+  const veredicto =
+    !hayDato     ? {clase:'justo', txt:'Sin datos suficientes'} :
+    sube > 0.06  ? {clase:'bien',  txt:'Buen margen'} :
+    sube > 0.01  ? {clase:'justo', txt:'Margen corto'} :
+                   {clase:'mal',   txt:'No pujes'};
+
+  return {val, serie, techo, sube, diaria, sub5, esperado, hayDato, veredicto, dias};
+}
+
 function panelPuja(f){
-  const J = CALC.__j, val = f.val, h = J.hist;
-  const T = tasaDiaria(h, val), tasa = T.tasa;
-  const o = {dias:CALC.dias, frenado:CALC.frenado, diasFrenado:CALC.diasFrenado,
-             lesionado:J.lesionado, diasRec:+J.diasRec || 0,
-             valRec: J.valRec === null ? val : +J.valRec};
-  const serie = serieValor(val, tasa, o);
-  const puja = (serie[Math.min(CALC.dias, serie.length-1)] || {}).valor ?? val;
-  const dif = puja - val;
-  const precio = J.precio === null ? Math.round(val * 1.1) : +J.precio;
-  const diaPrecio = diaDePrecio(serie, precio);
+  const J = CALC.__j, val = f.val;
+  const r = valorPotencial(f, PLAZO);
+  const pf = perfilPartido(f.ref);
 
-  const porDias = CALC.modo === 'dias';
-  // lo que cambia al mover el deslizador va marcado: se repinta solo eso,
-  // asi el arrastre no se corta a media caricia
-  const cabeza = porDias
-    ? `<p class="cc-rot">Puja recomendada para ${CALC.dias} día${CALC.dias===1?'':'s'}</p>
-       <p class="cc-grande">${euros(puja)}</p>
-       <p class="cc-sub ${dif>=0?'sube':'baja'}">${euros(Math.abs(dif))}
-         ${dif>=0?'por encima':'por debajo'} de su valor de hoy</p>`
-    : `<p class="cc-rot">Llegaría a ese precio en</p>
-       <p class="cc-grande">${diaPrecio === null
-          ? `no llega en ${serie[serie.length-1].dia} días`
-          : '~' + diaPrecio + ' día' + (diaPrecio===1?'':'s')}</p>
-       <p class="cc-sub">${euros(Math.abs(precio - val))} ${precio>=val?'por encima':'por debajo'} de su valor de hoy</p>`;
+  const cabeza = `
+    <p class="cc-rot">No pagues más de</p>
+    <p class="cc-grande">${euros(r.techo)}</p>
+    <p class="cc-sub ${r.sube>=0?'sube':'baja'}">${r.sube>=0?'+':''}${(r.sube*100).toFixed(1)}%
+      sobre sus ${euros(val)} de hoy</p>
+    <p class="cc-veredicto ${r.veredicto.clase}">${r.veredicto.txt}</p>`;
 
-  const graf = grafica(serie, porDias
-      ? {refX:CALC.dias, puntoX:CALC.dias, puntoY:puja}
-      : {refY:precio, puntoX:diaPrecio, puntoY:precio});
+  const graf = grafica(r.serie.slice(0, r.dias + 5),
+    {refY:r.techo, puntoX:r.dias, puntoY:r.techo});
 
-  if(CALC.__soloSalida) return {cabeza, graf, salida:`${CALC.dias} d`};
+  if(CALC.__soloSalida) return {cabeza, graf, salida:''};
+
+  const porque = !r.hayDato
+    ? `Todavía no hay histórico suyo para saber a qué ritmo se mueve.`
+    : r.veredicto.clase === 'mal'
+    ? `Lleva ${r.sub5>=0?'subiendo':'bajando'} un ${Math.abs(r.sub5).toFixed(1)}% en 5 días.
+       A ese ritmo no llega a cubrir lo que cuesta hoy: pagar su precio ya es sobrepagar.`
+    : `Lleva subiendo un <b>${r.sub5.toFixed(1)}%</b> en los últimos 5 días. De ese ritmo
+       se suele conservar dos tercios, así que en <b>${r.dias} días</b> debería valer
+       <b>${euros(r.techo)}</b>. Pagando eso quedas en paz; lo que pujes por debajo es
+       lo que ganas.`;
 
   return `
     <div id="cc-cab">${cabeza}</div>
-    <div class="cc-modo" id="cc-modo">
-      <button class="${porDias?'act':''}" data-modo="dias">Por días</button>
-      <button class="${porDias?'':'act'}" data-modo="precio">Por precio</button>
-    </div>
-    ${porDias
-      ? `<div class="cc-rango">
-           <input type="range" id="cc-dias" min="1" max="45" value="${CALC.dias}">
-           <output id="cc-out">${CALC.dias} d</output></div>`
-      : `<div class="cc-campo"><label for="cc-precio">Precio que te planteas pagar</label>
-           <input type="number" id="cc-precio" value="${precio}" step="1000" inputmode="numeric"></div>`}
+    <p class="cc-porque">${porque}</p>
     <div class="cc-graf" id="cc-gr">${graf}</div>
-    ${bloqueHistorico(T)}
+
+    <div class="cc-cuenta">
+      <div class="${r.sub5>=0?'sube':'baja'}"><b>${r.sub5>=0?'+':''}${
+        r.sub5.toFixed(1)}%</b><span>lleva en 5 días</span></div>
+      <div class="${r.diaria>=0?'sube':'baja'}"><b>${r.diaria>=0?'+':''}${
+        (r.diaria*100).toFixed(2)}%</b><span>esperado al día</span></div>
+      <div><b>${Math.round(pf.juega*100)}%</b><span>juega los partidos</span></div>
+      <div><b>${euros(r.techo - val).replace(' €','')}</b><span>margen sobre hoy</span></div>
+    </div>
+
+    <p class="cc-aviso">El error típico de esta cuenta es de 8 puntos. Orienta, no garantiza.</p>
+
     <details class="cc-plg"${CALC.abAj ? ' open' : ''} data-plg="aj">
-      <summary><span>Frenado y lesión</span>
-        <b>${CALC.frenado}% en ${CALC.diasFrenado} d${J.lesionado?' · lesionado':''}</b></summary>
-      <p class="cc-pista">La subida se va frenando hasta quedarse en ese % de la de hoy,
-        y a partir de ahí se mantiene plana ahí.</p>
-      <div class="cc-par">
-        <div class="cc-campo"><label for="cc-fren">Se queda en el %</label>
-          <input type="number" id="cc-fren" value="${CALC.frenado}" min="0" max="100" inputmode="numeric"></div>
-        <div class="cc-campo"><label for="cc-frend">En estos días</label>
-          <input type="number" id="cc-frend" value="${CALC.diasFrenado}" min="0" inputmode="numeric"></div>
+      <summary><span>A otro plazo</span><b>${r.dias} días</b></summary>
+      <div class="cc-plazos" id="cc-plazos">
+        ${[5,10,15,21].map(d => {
+          const x = valorPotencial(f, d);
+          return `<div><b>${euros(x.techo)}</b><span>${d} días</span></div>`;
+        }).join('')}
       </div>
       <label class="cc-chk"><input type="checkbox" id="cc-les"${J.lesionado?' checked':''}>
-        <span>Está lesionado</span></label>
-      ${J.lesionado ? `<div class="cc-par">
-        <div class="cc-campo"><label for="cc-rec">Días hasta que vuelve</label>
-          <input type="number" id="cc-rec" value="${J.diasRec}" min="0" inputmode="numeric"></div>
-        <div class="cc-campo"><label for="cc-vrec">Valor al volver</label>
-          <input type="number" id="cc-vrec" value="${o.valRec}" step="1000" inputmode="numeric"></div>
-      </div>` : ''}
+        <span>Está lesionado o sancionado</span></label>
     </details>`;
 }
 
@@ -1662,6 +2117,124 @@ function arrancarComparador(){
 
   pintarAtrib();
   pintarCarro();
+  arrancarBalance();
+}
+
+/* ---------- balance: enganchar los controles ---------- */
+function arrancarBalance(){
+  const dlg = document.getElementById('balance');
+  document.getElementById('abrir-bal').addEventListener('click', abrirBalance);
+  document.getElementById('bal-cerrar').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if(e.target === dlg) dlg.close(); });
+
+  const cuerpo = document.getElementById('bal-cuerpo');
+
+  // una sola forma de leer "lado|índice", que la clave del jugador
+  // lleva su propio "|" dentro
+  const parte = t => { const i = t.indexOf('|'); return [t.slice(0, i), t.slice(i + 1)]; };
+
+  const saldoCaja = document.getElementById('bal-saldo');
+  saldoCaja.addEventListener('input', e => {
+    BAL.saldoTxt = e.target.value;
+    BAL.saldo = leerDinero(e.target.value) || 0;
+    totalesBalance();
+  });
+  // al salir, se le deja escrito como lo va a volver a leer
+  saldoCaja.addEventListener('blur', () => {
+    BAL.saldoTxt = BAL.saldo ? escribirDinero(BAL.saldo) : '';
+    saldoCaja.value = BAL.saldoTxt;
+  });
+
+  cuerpo.addEventListener('click', e => {
+    if(e.target.closest('#bal-prox')){ BAL.dias = null; pintarBalance(); return; }
+
+    const q = e.target.closest('[data-quita]');
+    if(q){ const [cual, i] = parte(q.dataset.quita); BAL[cual].splice(+i, 1); pintarBalance(); return; }
+
+    const sg = e.target.closest('[data-badd]');
+    if(sg){
+      const [cual, k] = parte(sg.dataset.badd);
+      if(!BAL[cual].some(x => x.k === k))
+        BAL[cual].push({k, esc:0, precio:null, base:null, suyo:false});
+      pintarBalance(); return;
+    }
+  });
+
+  // al salir de una casilla se le deja escrito en millones, que es como se
+  // lee. Si la dejó vacía, vuelve a mandar la proyección.
+  cuerpo.addEventListener('focusout', e => {
+    const t = e.target;
+    for(const campo of ['precio', 'base']){
+      if(t.dataset[campo] === undefined) continue;
+      const [cual, i] = parte(t.dataset[campo]);
+      const fila = BAL[cual][+i]; if(!fila) return;
+      if(fila[campo] === null || fila[campo] === undefined){
+        delete fila[campo + 'Txt'];
+        pintarBalance();
+      } else {
+        fila[campo + 'Txt'] = escribirDinero(fila[campo]);
+        t.value = fila[campo + 'Txt'];
+        guardarBal();
+      }
+      return;
+    }
+  });
+
+  cuerpo.addEventListener('change', e => {
+    const sel = e.target.closest('[data-esc]');
+    if(sel){
+      const [cual, i] = parte(sel.dataset.esc);
+      BAL[cual][+i].esc = +sel.value;
+      pintarBalance(); return;
+    }
+    const chk = e.target.closest('[data-suyo]');
+    if(chk){
+      const [cual, i] = parte(chk.dataset.suyo);
+      BAL[cual][+i].suyo = chk.checked;
+      pintarBalance(); return;
+    }
+  });
+
+  cuerpo.addEventListener('input', e => {
+    const t = e.target;
+
+    if(t.id === 'bal-dias'){
+      BAL.dias = +t.value;
+      pintarBalance();
+      const n = document.getElementById('bal-dias');
+      if(n) n.focus();
+      return;
+    }
+
+    // mientras escribe, la casilla no se toca: solo se guarda lo escrito y
+    // se refrescan los números. Repintarla le robaría el cursor.
+    for(const campo of ['precio', 'base']){
+      if(t.dataset[campo] !== undefined){
+        const [cual, i] = parte(t.dataset[campo]);
+        const fila = BAL[cual][+i];
+        fila[campo + 'Txt'] = t.value;
+        fila[campo] = leerDinero(t.value);
+        totalesBalance();
+        return;
+      }
+    }
+
+    const b = t.closest('[data-busca]'); if(!b) return;
+    const cual = b.dataset.busca;
+    const caja = cuerpo.querySelector(`[data-sug-de="${cual}"]`);
+    const q = b.value.trim().toLowerCase();
+    if(q.length < 2){ caja.hidden = true; return; }
+    const hay = DATOS.jugadores.filter(j => j.val &&
+      (j.n.toLowerCase().includes(q) || (j.nc||'').toLowerCase().includes(q))).slice(0, 7);
+    caja.hidden = !hay.length;
+    caja.innerHTML = hay.map(j => {
+      const p = POS[j.pos];
+      return `<button class="sg" data-badd="${cual}|${clave(j)}">
+        ${p?insignia(p[0],p[1],j.pos):''}${escudo(j.e, j.e)}
+        <span class="sg-n">${j.n}</span>
+        <span class="sg-d">${eur(j.val)}</span><span class="sg-x">+</span></button>`;
+    }).join('');
+  });
 }
 
 function avisarLleno(){
