@@ -313,6 +313,25 @@ dialog::backdrop{background:rgba(0,0,0,.45)}
 .cc-modo button:active{transform:scale(.97)}
 .cc-modo button.act{background:var(--acento);color:var(--papel);font-weight:600}
 
+/* el veredicto: lo primero que se mira */
+.cc-veredicto{display:inline-block;margin:7px 0 0;padding:3px 10px;border-radius:14px;
+  font-size:12px;font-weight:600}
+.cc-veredicto.bien{background:var(--casa);color:var(--papel)}
+.cc-veredicto.justo{background:var(--fuera);color:var(--papel)}
+.cc-veredicto.mal{background:var(--neg);color:#fff}
+.cc-porque{margin:11px 0 0;font-size:12px;color:var(--tinta2);line-height:1.5}
+.cc-porque b{color:var(--tinta);font-weight:600}
+
+/* de dónde sale la cuenta cuando proyecta por partidos */
+.cc-cuenta{display:grid;grid-template-columns:repeat(4,1fr);gap:2px 8px;margin-top:11px;
+  padding-top:9px;border-top:1px solid var(--linea)}
+.cc-cuenta div{display:flex;flex-direction:column;gap:1px;min-width:0}
+.cc-cuenta b{font-size:16px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.cc-cuenta span{font-size:9.5px;color:var(--tinta2);line-height:1.25}
+.cc-cuenta .sube b{color:var(--casa)}
+.cc-cuenta .baja b{color:var(--neg)}
+.cc-metodo{margin-top:11px}
+
 .cc-rango{display:flex;align-items:center;gap:10px;margin-top:8px}
 .cc-rango input[type=range]{flex:1;min-width:0}
 .cc-rango output{font-size:13px;font-weight:600;color:var(--tinta);min-width:46px;text-align:right}
@@ -971,3 +990,112 @@ tbody tr:hover .mas-cmp,.mas-cmp.puesto,.mas-cmp:focus-visible{opacity:1}
   .carro-abrir{padding:11px 15px}
   .ficha-cmp{width:100%;text-align:center}
 }
+
+/* el aviso de que esto orienta pero no garantiza */
+.cc-aviso{margin:9px 0 0;font-size:10.5px;color:var(--tinta2);opacity:.8;font-style:italic}
+
+/* el mismo valor a varios plazos, para el que quiera mirar */
+.cc-plazos{display:grid;grid-template-columns:repeat(4,1fr);gap:2px 8px;margin-bottom:10px}
+.cc-plazos div{display:flex;flex-direction:column;gap:1px;min-width:0}
+.cc-plazos b{font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.cc-plazos span{font-size:9.5px;color:var(--tinta2)}
+
+/* el porcentaje al lado de los euros: mismo dato, otra escala */
+.sube em, .baja em{font-style:normal;font-size:.82em;opacity:.7;margin-left:2px}
+td .sube em, td .baja em, td em{font-style:normal;font-size:11px;opacity:.65}
+
+/* ================================================================
+   BALANCE
+   ================================================================ */
+#balance{max-width:880px;max-height:90vh;overflow-y:auto;overscroll-behavior:contain}
+.bal-cuerpo{padding:0 20px}
+
+.bal-plazo{display:flex;align-items:center;gap:12px;margin:14px 0 2px;flex-wrap:wrap}
+.bal-slider{flex:1;min-width:150px;display:flex;align-items:center;gap:9px}
+.bal-slider input[type=range]{flex:1;min-width:0}
+.bal-slider output{font-size:12.5px;font-weight:600;min-width:40px;text-align:right}
+.bal-plazo button{font:inherit;font-size:11.5px;padding:5px 11px;border-radius:16px;
+  border:1px solid var(--linea);background:var(--tarjeta);color:var(--tinta2);cursor:pointer;
+  white-space:nowrap;transition:transform 110ms var(--ease-out),
+  background-color 130ms ease,border-color 130ms ease,color 130ms ease}
+.bal-plazo button:active{transform:scale(.96)}
+.bal-plazo button.act{border-color:var(--acento);background:var(--acento);color:var(--papel);
+  font-weight:600}
+
+/* cada dato editable, como un campo con su etiqueta encima: así se ve
+   de un vistazo qué se puede tocar y qué es solo información */
+.bal-campos{display:flex;gap:8px;margin-top:7px;flex-wrap:wrap}
+.bal-campo{flex:1 1 118px;min-width:0;display:flex;flex-direction:column;gap:2px}
+.bal-campo > span{font-size:9.5px;color:var(--tinta2);letter-spacing:.03em;
+  text-transform:uppercase;font-weight:600}
+.bal-campo input,.bal-campo select{width:100%;font-size:13px;padding:5px 8px;
+  font-variant-numeric:tabular-nums}
+.bal-campo input[type=text]{text-align:right}
+/* el euro que se ha leído de lo escrito, para que se vea al momento */
+.bal-leido{display:block;font-size:10px;font-style:normal;color:var(--tinta2);
+  text-align:right;font-variant-numeric:tabular-nums;padding-right:1px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bal-campo.quieto > div{font-size:13px;padding:5px 0;color:var(--tinta2);
+  font-variant-numeric:tabular-nums}
+.bal-campo.quieto{flex:0 1 82px}
+.bal-chk{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--tinta2);
+  cursor:pointer;margin-top:5px}
+.bal-chk input{accent-color:var(--acento);width:14px;height:14px}
+
+.bal-lados{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:12px 0 6px}
+.bal-lado h3{margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--tinta2);display:flex;align-items:center;gap:6px}
+.bal-lado h3 span{font-size:10px;background:var(--resalte);border-radius:9px;padding:0 6px;
+  min-width:16px;text-align:center}
+.bal-lado.vende h3{color:var(--casa)}
+.bal-lado.compra h3{color:var(--fuera)}
+
+.bal-f{padding:9px 0;border-bottom:1px solid var(--linea)}
+.bal-quien{display:flex;align-items:center;gap:6px;min-width:0}
+.bal-quien .esc{width:18px;height:18px}
+.bal-n{flex:1;min-width:0;font-size:13.5px;font-weight:600;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
+.bal-x{border:0;background:none;color:var(--tinta2);font-size:16px;line-height:1;
+  cursor:pointer;padding:0 3px;opacity:.5}
+.bal-x:hover{color:var(--neg);opacity:1}
+.bal-quien > b{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;
+  margin-left:auto;white-space:nowrap}
+.bal-nota{margin:5px 0 0;font-size:10.5px;color:var(--tinta2);opacity:.9}
+.bal-nota b{color:var(--tinta);font-weight:600}
+.bal-vacio{margin:0;padding:10px 0;font-size:12px;color:var(--tinta2);opacity:.8}
+
+.bal-busca{position:relative;margin-top:9px}
+.bal-busca input{width:100%;font-size:13px;padding:6px 9px}
+.bal-sug{position:absolute;left:0;right:0;top:calc(100% - 2px);z-index:6;
+  background:var(--tarjeta);border:1px solid var(--linea);border-radius:9px;
+  box-shadow:0 8px 26px var(--sombra);overflow:hidden;max-height:240px;overflow-y:auto}
+.bal-sug[hidden]{display:none}
+
+.bal-pie{padding:12px 20px 16px;border-top:1px solid var(--linea);margin-top:8px}
+.bal-caja{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.bal-caja label{font-size:12px;color:var(--tinta2)}
+.bal-caja input{width:140px;font-size:13.5px;padding:6px 9px}
+
+.bal-cifras{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:9px}
+.bal-cifras div{display:flex;flex-direction:column;gap:1px}
+.bal-cifras span{font-size:10.5px;color:var(--tinta2)}
+.bal-cifras b{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+
+.bal-res{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:11px 14px;border-radius:10px}
+.bal-res span{font-size:13px;font-weight:600}
+.bal-res b{font-size:24px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.bal-res.bien{background:var(--acento);color:var(--papel)}
+.bal-res.mal{background:var(--neg);color:#fff}
+.bal-horquilla{margin:9px 0 0;font-size:11.5px;color:var(--tinta2);line-height:1.5}
+.bal-horquilla b{color:var(--tinta);font-weight:600}
+
+@media (max-width:700px){
+  #balance{max-height:94vh}
+  .bal-cuerpo{padding:0 16px}
+  .bal-lados{grid-template-columns:1fr;gap:14px}
+  .bal-pie{padding:11px 16px 14px}
+  .bal-res b{font-size:21px}
+  .bal-plazo button{font-size:11.5px;padding:6px 4px}
+}
+@media (prefers-reduced-motion:reduce){ .bal-plazo button:active{transform:none} }
