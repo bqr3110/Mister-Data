@@ -17,6 +17,7 @@
   <div class="titulo">
     <h1>Ojeador</h1>
     <span class="sub" id="cabecera-sub"></span>
+    <button class="tema" id="abrir-bal">Balance</button>
     <button class="tema" id="abrir-cmp">Comparador</button>
     <button class="tema" id="btn-tema">Cambiar tema</button>
   </div>
@@ -226,6 +227,25 @@
 
   <div class="cmp-cuerpo" id="cmp-cuerpo"></div>
   <div class="cmp-pie" id="cmp-pie"></div>
+</dialog>
+
+<dialog id="balance">
+  <div class="cmp-cab">
+    <h2>Balance</h2>
+    <span class="sub" id="bal-sub"></span>
+    <button class="cerrar" id="bal-cerrar" aria-label="Cerrar">&times;</button>
+  </div>
+
+  <div class="bal-cuerpo" id="bal-cuerpo"></div>
+
+  <div class="bal-pie">
+    <div class="bal-caja">
+      <label for="bal-saldo">Lo que tienes ahora</label>
+      <input type="text" id="bal-saldo" inputmode="decimal" placeholder="0"
+        autocomplete="off" spellcheck="false">
+    </div>
+    <div class="bal-total" id="bal-total"></div>
+  </div>
 </dialog>
 
 <dialog id="ficha">
