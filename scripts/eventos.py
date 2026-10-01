@@ -20,7 +20,14 @@ CABECERA = ["partido", "jornada", "fecha", "equipo", "lado", "jugador", "slug",
 #      tabla frente a "Nico Williams" en el campo)
 #   3  ese enlace no siempre es un <a>: el menu de "Ver la ficha del jugador"
 #      lo monta el javascript, asi que se barren tambien los atributos
-VERSION = "3"
+#   4  el enlace si esta en el HTML, pero en OTRA fila: cada jugador ocupa
+#      dos <tr> seguidos, el de los datos y un <tr class="desglose"> con el
+#      detalle, y la ficha se enlaza en el segundo. Mirado sobre una pagina
+#      entera: de 90 filas de jugador, 45 llevaban el enlace dentro y 45 en
+#      la hermana. Las 45 de la hermana son justo las de nombre corto
+#      ("Fermin", "Pedri", "Koke"), que es por lo que fallaban esas y no
+#      otras: el cruce de nombres con el campograma tampoco las pillaba.
+VERSION = "4"
 
 INTERESAN = {
     "Minutos jugados": "min",
@@ -61,28 +68,47 @@ def fecha_de(sopa):
     return ""
 
 
-def slug_de_fila(tr):
-    """Saca el slug del jugador de su fila en la tabla de puntuaciones.
-
-    Al pinchar el nombre sale un desplegable con "Ver la ficha del jugador"
-    que lleva a /jugadores/<slug>/laliga-26-27. Ese menu lo monta el
-    javascript de la pagina, asi que el enlace puede no estar como <a>: la
-    direccion suele venir en algun atributo de la fila. Se mira primero el
-    enlace de toda la vida y, si no esta, se barren los atributos.
-    """
-    a = tr.select_one('a[href*="/jugadores/"]')
-    if a:
+def slug_en(etiqueta):
+    """El primer enlace a una ficha de jugador que haya dentro, si vale."""
+    if etiqueta is None or not hasattr(etiqueta, "select_one"):
+        return ""
+    a = etiqueta.select_one('a[href*="/jugadores/"]')
+    if a is not None:
         s = slug_de_href(a.get("href", ""))
         if slug_valido(s):
             return s
+    # por si algun dia el enlace deja de ser un <a> y queda en un atributo
+    for hijo in [etiqueta] + etiqueta.select("*"):
+        for valor in hijo.attrs.values():
+            for txt in (valor if isinstance(valor, list) else [valor]):
+                if not isinstance(txt, str) or "/jugadores/" not in txt:
+                    continue
+                m = re.search(r"/jugadores/([a-z0-9\-]+)", txt)
+                if m and slug_valido(m.group(1)):
+                    return m.group(1)
+    return ""
 
-    for etiqueta in [tr] + tr.select("*"):
-        for valor in etiqueta.attrs.values():
-            if not isinstance(valor, str) or "/jugadores/" not in valor:
-                continue
-            m = re.search(r"/jugadores/([a-z0-9\-]+)", valor)
-            if m and slug_valido(m.group(1)):
-                return m.group(1)
+
+def slug_de_fila(tr):
+    """Saca el slug del jugador de su fila en la tabla de puntuaciones.
+
+    Cada jugador ocupa dos filas seguidas: la de los datos y un
+    <tr class="desglose"> con el detalle del partido. La ficha se enlaza
+    en una de las dos, y cual depende de como venga escrito el nombre: si
+    en la tabla pone "Fermin" y no "Fermin Lopez", el enlace esta en la
+    hermana. Asi que se mira la fila y, si no esta ahi, las siguientes
+    mientras sean del desglose.
+    """
+    s = slug_en(tr)
+    if s:
+        return s
+
+    sig = tr.find_next_sibling("tr")
+    while sig is not None and "desglose" in (sig.get("class") or []):
+        s = slug_en(sig)
+        if s:
+            return s
+        sig = sig.find_next_sibling("tr")
     return ""
 
 
