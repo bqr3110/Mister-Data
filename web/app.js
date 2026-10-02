@@ -933,6 +933,7 @@ function cuentaFila(fila, dias){
      lo que pagaste por él, salvo que hoy valga más: entonces, sobre lo
      que vale. Por eso la base es el mayor de los dos. */
   const baja = !!fila.baja;
+  const mequedo = baja && !!fila.mequedo;   // le bajo la cláusula pero no lo suelto
   const escAct = Math.min(MULT.length - 1, Math.max(0, +fila.escAct || 0));
   const escFin = Math.min(escAct, Math.max(0, +fila.escFin || 0));
   const pague = (fila.pague === null || fila.pague === undefined)
@@ -940,11 +941,16 @@ function cuentaFila(fila, dias){
   const baseBaja = Math.max(pague, proyectado);
   const devuelve = baja ? DEVUELVE_ESC * (escAct - escFin) * baseBaja : 0;
 
-  const total = baja ? devuelve : (suyo ? 0 : precio) + clausula;
+  const aMano = fila.precio !== null && fila.precio !== undefined;
+  const venta = mequedo ? 0 : precio;
+  // lo único que baila con la horquilla del 95-105 % es el traspaso, y solo
+  // si no le has puesto precio tú. La devolución de la cláusula es fija.
+  const flotante = (mequedo || aMano) ? 0 : precio;
+
+  const total = baja ? venta + devuelve : (suyo ? 0 : precio) + clausula;
   return {j, val, proyectado, precio, esc, base, clausula, suyo, total,
-          baja, escAct, escFin, pague, baseBaja, devuelve,
-          aPagado: fila.pague !== null && fila.pague !== undefined,
-          aMano: fila.precio !== null && fila.precio !== undefined};
+          baja, mequedo, escAct, escFin, pague, baseBaja, devuelve, venta, flotante,
+          aPagado: fila.pague !== null && fila.pague !== undefined, aMano};
 }
 
 /* De dónde ha salido la base de la devolución, dicho en una línea. Si no
@@ -980,7 +986,7 @@ function filaBalance(cual, fila, c, i){
     </div>
 
     <div class="bal-campos">
-      ${(c.suyo || c.baja) ? ''
+      ${(c.suyo || c.mequedo) ? ''
         : campo(vende ? 'Te dan' : 'Pagas', 'precio', cual, c.precio, fila.precioTxt)}
       <div class="bal-campo quieto">
         <span>${BAL.__dias ? 'valdrá' : 'vale'}</span>
@@ -990,7 +996,7 @@ function filaBalance(cual, fila, c, i){
 
     ${!vende ? '' : `
     <label class="bal-chk"><input type="checkbox" data-baja="${cual}|${i}"${
-      c.baja ? ' checked' : ''}><span>No lo vendo, solo le bajo la cláusula</span></label>
+      c.baja ? ' checked' : ''}><span>Le bajo la cláusula antes</span></label>
 
     ${!c.baja ? '' : `
     <div class="bal-campos">
@@ -1014,8 +1020,11 @@ function filaBalance(cual, fila, c, i){
       c.escAct === c.escFin
         ? 'Elige a cuánto la tienes y a cuánto la dejas.'
         : `Te devuelven <b>${eur(c.devuelve)}</b>, que es la mitad de lo que costó
-           subirla. Calculado sobre <b>${eur(c.baseBaja)}</b>, ${
-             textoBase(c)}.`}</p>`}`}
+           subirla. Calculado sobre <b>${eur(c.baseBaja)}</b>, ${textoBase(c)}.${
+             c.mequedo ? '' : ` Y al venderlo, <b>${eur(c.venta)}</b> más.`}`}</p>
+
+    <label class="bal-chk"><input type="checkbox" data-mequedo="${cual}|${i}"${
+      c.mequedo ? ' checked' : ''}><span>Y me lo quedo, no lo vendo</span></label>`}`}
 
     ${vende ? '' : `
     <label class="bal-chk"><input type="checkbox" data-suyo="${cual}|${i}"${
@@ -1094,7 +1103,8 @@ function totalesBalance(){
       if(nota && c.baja && c.escAct !== c.escFin) nota.innerHTML =
         `Te devuelven <b>${eur(c.devuelve)}</b>, que es la mitad de lo que costó` +
         ` subirla. Calculado sobre <b>${eur(c.baseBaja)}</b>, ` +
-        textoBase(c) + '.';
+        textoBase(c) + '.' +
+        (c.mequedo ? '' : ` Y al venderlo, <b>${eur(c.venta)}</b> más.`);
       else if(nota && c.esc) nota.innerHTML = `Subirla cuesta <b>${eur(c.clausula)}</b>` +
         ` y la cláusula queda en <b>${eur(c.base * MULT[c.esc])}</b>`;
       for(const [campo, valor] of [['precio', c.precio], ['base', c.base],
@@ -1113,7 +1123,7 @@ function totalesBalance(){
   const neto = saldo + ingreso - gasto;
   // la horquilla solo afecta a lo que no has escrito tú: si fijas el precio,
   // ese es el precio
-  const flota = v.filter(x => !x.aMano && !x.baja).reduce((a, x) => a + x.total, 0);
+  const flota = v.reduce((a, x) => a + x.flotante, 0);
   const fijo = ingreso - flota;
   const peor = saldo + fijo + flota * VENTA_MIN - gasto;
   const mejor = saldo + fijo + flota * VENTA_MAX - gasto;
@@ -2254,10 +2264,11 @@ function arrancarBalance(){
       BAL[cual][+i].suyo = chk.checked;
       pintarBalance(); return;
     }
-    const bj = e.target.closest('[data-baja]');
-    if(bj){
-      const [cual, i] = parte(bj.dataset.baja);
-      BAL[cual][+i].baja = bj.checked;
+    for(const campo of ['baja', 'mequedo']){
+      const b = e.target.closest(`[data-${campo}]`);
+      if(!b) continue;
+      const [cual, i] = parte(b.dataset[campo]);
+      BAL[cual][+i][campo] = b.checked;
       pintarBalance(); return;
     }
     for(const campo of ['escact', 'escfin']){
