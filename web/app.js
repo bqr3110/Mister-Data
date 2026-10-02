@@ -908,6 +908,9 @@ function diasProximaJornada(){
 
 const diasBal = () => BAL.dias === null ? (diasProximaJornada() ?? 0) : BAL.dias;
 
+const COSTE_ESC = 0.20;      // subir un escalón de cláusula cuesta esto
+const DEVUELVE_ESC = 0.10;   // y bajarlo te devuelve la mitad de eso
+
 /* Lo que vale una operación. Cada fila puede llevar su propio precio
    escrito a mano; si no lo lleva, se usa lo que valdrá ese día. */
 function cuentaFila(fila, dias){
@@ -922,11 +925,34 @@ function cuentaFila(fila, dias){
   // la cláusula se calcula sobre la base que digas: si hiciste un clausulazo,
   // no es su valor de mercado, es lo que pagaste
   const base = (fila.base === null || fila.base === undefined) ? precio : +fila.base;
-  const clausula = 0.2 * esc * base;
+  const clausula = COSTE_ESC * esc * base;
   const suyo = !!fila.suyo;               // ya lo tienes: solo pagas la cláusula
-  const total = (suyo ? 0 : precio) + clausula;
+
+  /* Bajarle la cláusula a uno que te quedas también es dinero que entra.
+     Mister devuelve la mitad de lo que costó subirla, y la calcula sobre
+     lo que pagaste por él, salvo que hoy valga más: entonces, sobre lo
+     que vale. Por eso la base es el mayor de los dos. */
+  const baja = !!fila.baja;
+  const escAct = Math.min(MULT.length - 1, Math.max(0, +fila.escAct || 0));
+  const escFin = Math.min(escAct, Math.max(0, +fila.escFin || 0));
+  const pague = (fila.pague === null || fila.pague === undefined)
+    ? proyectado : +fila.pague;
+  const baseBaja = Math.max(pague, proyectado);
+  const devuelve = baja ? DEVUELVE_ESC * (escAct - escFin) * baseBaja : 0;
+
+  const total = baja ? devuelve : (suyo ? 0 : precio) + clausula;
   return {j, val, proyectado, precio, esc, base, clausula, suyo, total,
+          baja, escAct, escFin, pague, baseBaja, devuelve,
+          aPagado: fila.pague !== null && fila.pague !== undefined,
           aMano: fila.precio !== null && fila.precio !== undefined};
+}
+
+/* De dónde ha salido la base de la devolución, dicho en una línea. Si no
+   ha escrito lo que pagó, la casilla lleva el valor de hoy: entonces no
+   se le puede decir "lo que pagaste", porque no lo ha dicho. */
+function textoBase(c){
+  if(c.baseBaja > c.pague) return 'que es lo que vale';
+  return c.aPagado ? 'que es lo que pagaste' : 'que es lo que vale hoy';
 }
 
 function filaBalance(cual, fila, c, i){
@@ -954,12 +980,42 @@ function filaBalance(cual, fila, c, i){
     </div>
 
     <div class="bal-campos">
-      ${c.suyo ? '' : campo(vende ? 'Te dan' : 'Pagas', 'precio', cual, c.precio, fila.precioTxt)}
+      ${(c.suyo || c.baja) ? ''
+        : campo(vende ? 'Te dan' : 'Pagas', 'precio', cual, c.precio, fila.precioTxt)}
       <div class="bal-campo quieto">
         <span>${BAL.__dias ? 'valdrá' : 'vale'}</span>
         <div>${eur(c.proyectado)}</div>
       </div>
     </div>
+
+    ${!vende ? '' : `
+    <label class="bal-chk"><input type="checkbox" data-baja="${cual}|${i}"${
+      c.baja ? ' checked' : ''}><span>No lo vendo, solo le bajo la cláusula</span></label>
+
+    ${!c.baja ? '' : `
+    <div class="bal-campos">
+      <label class="bal-campo">
+        <span>La tengo a</span>
+        <select data-escact="${cual}|${i}">
+          ${MULT.map((m, k) => `<option value="${k}"${k===c.escAct?' selected':''}
+            >×${m.toFixed(1).replace('.', ',')}</option>`).join('')}
+        </select>
+      </label>
+      <label class="bal-campo">
+        <span>La bajo a</span>
+        <select data-escfin="${cual}|${i}">
+          ${MULT.map((m, k) => k > c.escAct ? '' : `<option value="${k}"${
+            k===c.escFin?' selected':''}>×${m.toFixed(1).replace('.', ',')}</option>`).join('')}
+        </select>
+      </label>
+      ${campo('Pagué por él', 'pague', cual, c.pague, fila.pagueTxt)}
+    </div>
+    <p class="bal-nota" data-nota="${cual}|${i}">${
+      c.escAct === c.escFin
+        ? 'Elige a cuánto la tienes y a cuánto la dejas.'
+        : `Te devuelven <b>${eur(c.devuelve)}</b>, que es la mitad de lo que costó
+           subirla. Calculado sobre <b>${eur(c.baseBaja)}</b>, ${
+             textoBase(c)}.`}</p>`}`}
 
     ${vende ? '' : `
     <label class="bal-chk"><input type="checkbox" data-suyo="${cual}|${i}"${
@@ -1035,9 +1091,14 @@ function totalesBalance(){
       const tot = document.querySelector(`[data-tot="${cual}|${i}"]`);
       if(tot) tot.textContent = (cual === 'vende' ? '+' : '−') + eur(c.total);
       const nota = document.querySelector(`[data-nota="${cual}|${i}"]`);
-      if(nota && c.esc) nota.innerHTML = `Subirla cuesta <b>${eur(c.clausula)}</b>` +
+      if(nota && c.baja && c.escAct !== c.escFin) nota.innerHTML =
+        `Te devuelven <b>${eur(c.devuelve)}</b>, que es la mitad de lo que costó` +
+        ` subirla. Calculado sobre <b>${eur(c.baseBaja)}</b>, ` +
+        textoBase(c) + '.';
+      else if(nota && c.esc) nota.innerHTML = `Subirla cuesta <b>${eur(c.clausula)}</b>` +
         ` y la cláusula queda en <b>${eur(c.base * MULT[c.esc])}</b>`;
-      for(const [campo, valor] of [['precio', c.precio], ['base', c.base]]){
+      for(const [campo, valor] of [['precio', c.precio], ['base', c.base],
+                                   ['pague', c.pague]]){
         const le = document.querySelector(`[data-leido="${campo}|${cual}|${i}"]`);
         if(le) le.textContent = euros(valor);
       }
@@ -1052,7 +1113,7 @@ function totalesBalance(){
   const neto = saldo + ingreso - gasto;
   // la horquilla solo afecta a lo que no has escrito tú: si fijas el precio,
   // ese es el precio
-  const flota = v.filter(x => !x.aMano).reduce((a, x) => a + x.total, 0);
+  const flota = v.filter(x => !x.aMano && !x.baja).reduce((a, x) => a + x.total, 0);
   const fijo = ingreso - flota;
   const peor = saldo + fijo + flota * VENTA_MIN - gasto;
   const mejor = saldo + fijo + flota * VENTA_MAX - gasto;
@@ -2164,7 +2225,7 @@ function arrancarBalance(){
   // lee. Si la dejó vacía, vuelve a mandar la proyección.
   cuerpo.addEventListener('focusout', e => {
     const t = e.target;
-    for(const campo of ['precio', 'base']){
+    for(const campo of ['precio', 'base', 'pague']){
       if(t.dataset[campo] === undefined) continue;
       const [cual, i] = parte(t.dataset[campo]);
       const fila = BAL[cual][+i]; if(!fila) return;
@@ -2193,6 +2254,22 @@ function arrancarBalance(){
       BAL[cual][+i].suyo = chk.checked;
       pintarBalance(); return;
     }
+    const bj = e.target.closest('[data-baja]');
+    if(bj){
+      const [cual, i] = parte(bj.dataset.baja);
+      BAL[cual][+i].baja = bj.checked;
+      pintarBalance(); return;
+    }
+    for(const campo of ['escact', 'escfin']){
+      const s = e.target.closest(`[data-${campo}]`);
+      if(!s) continue;
+      const [cual, i] = parte(s.dataset[campo]);
+      const fila = BAL[cual][+i];
+      fila[campo === 'escact' ? 'escAct' : 'escFin'] = +s.value;
+      // la cláusula no se puede dejar más alta de lo que ya estaba
+      if((+fila.escFin || 0) > (+fila.escAct || 0)) fila.escFin = fila.escAct;
+      pintarBalance(); return;
+    }
   });
 
   cuerpo.addEventListener('input', e => {
@@ -2208,7 +2285,7 @@ function arrancarBalance(){
 
     // mientras escribe, la casilla no se toca: solo se guarda lo escrito y
     // se refrescan los números. Repintarla le robaría el cursor.
-    for(const campo of ['precio', 'base']){
+    for(const campo of ['precio', 'base', 'pague']){
       if(t.dataset[campo] !== undefined){
         const [cual, i] = parte(t.dataset[campo]);
         const fila = BAL[cual][+i];
