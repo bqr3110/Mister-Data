@@ -27,7 +27,12 @@ CABECERA = ["partido", "jornada", "fecha", "equipo", "lado", "jugador", "slug",
 #      la hermana. Las 45 de la hermana son justo las de nombre corto
 #      ("Fermin", "Pedri", "Koke"), que es por lo que fallaban esas y no
 #      otras: el cruce de nombres con el campograma tampoco las pillaba.
-VERSION = "4"
+#   5  con el enlace acertando en los 590, se quita el respaldo que cruzaba
+#      nombres por el apellido: era lo que ponia a Marcos Llorente la cara
+#      de Diego Llorente. Y el minuto del cambio ("Altimira 72'") se limpia
+#      al escribir la fila, que 9 jugadores se colaban con el puesto y
+#      quedaban partidos en dos.
+VERSION = "5"
 
 INTERESAN = {
     "Minutos jugados": "min",
@@ -46,6 +51,26 @@ MESES = {"enero":1,"febrero":2,"marzo":3,"abril":4,"mayo":5,"junio":6,
 
 def limpia(t):
     return t.replace("\xa0", " ").strip()
+
+
+def nombre_limpio(n):
+    """Le quita al nombre el minuto del cambio y lo que no es nombre.
+
+    En la tabla, al sustituido le ponen el minuto detras: "Altimira 72'".
+    Si se cuela, ese jugador queda partido en dos ("Altimira" y "Altimira
+    72'") con las estadisticas repartidas entre los dos. Se limpiaba al
+    leer la celda, pero 9 jugadores llegaban igual con el minuto puesto,
+    asi que ahora se limpia tambien al escribir la fila, que es el unico
+    sitio por el que pasan todos.
+    """
+    n = limpia(n or "")
+    # el minuto, con apostrofo recto o tipografico, una o varias veces
+    for _ in range(3):
+        nuevo = re.sub(r"\s*\d{1,3}\s*['’ʼ′]\s*$", "", n).strip()
+        if nuevo == n:
+            break
+        n = nuevo
+    return n
 
 
 def cantidad_y_evento(texto):
@@ -232,13 +257,13 @@ def procesar(fila, cabeceras, fotos, sin_slug):
             if bloque is None:
                 continue
 
-            # el enlace de la fila manda; el campograma queda como respaldo
+            # Solo el enlace de su fila. Antes, si fallaba, se cruzaba el
+            # nombre con el campograma por el apellido, y eso le ponia a
+            # Marcos Llorente la cara de Diego Llorente. Medido sobre la
+            # captura entera, el enlace acierta en los 590 jugadores, asi
+            # que el respaldo solo podia hacer dano: mejor sin foto, con sus
+            # iniciales, que con la cara de otro.
             slug = slug_fila
-            if not slug:
-                for n, s in fichas.items():
-                    if n == nombre or n.endswith(" " + nombre) or nombre.endswith(" " + n):
-                        slug = s
-                        break
 
             # 1 si salio de inicio, 0 si entro desde el banquillo
             if seccion:
@@ -260,7 +285,11 @@ def procesar(fila, cabeceras, fotos, sin_slug):
                     continue
                 filas.append([fila["id"], fila["jornada"], fecha, equipo, lado,
                               nombre, slug, posicion, clave, cant, VERSION])
-    return filas
+
+    # el nombre, limpio, en el unico punto por el que pasan todas las filas
+    for f in filas:
+        f[5] = nombre_limpio(f[5])
+    return [f for f in filas if f[5]]
 
 
 def main():
