@@ -123,7 +123,25 @@ def main():
 
     # valor de mercado
     sin_valor = 0
-    for r in leer("mercado.csv"):
+    filas_mercado = list(leer("mercado.csv"))
+
+    # ¿De que dia es este valor?
+    #
+    # La web de la que tiramos publica los valores un rato mas tarde que el
+    # propio Mister, asi que por la manana todavia tiene los de ayer. Si casi
+    # nadie ha cambiado de valor respecto a la captura anterior, es que aun no
+    # se ha actualizado, y entonces lo que ensenamos es de ayer. Se marca aqui
+    # para que la web lo pueda decir en vez de llamarlo "hoy" y mentir.
+    movidos = sum(1 for r in filas_mercado
+                  if r.get("valor") and r.get("valor_ayer")
+                  and r["valor"] != r["valor_ayer"])
+    hay = sum(1 for r in filas_mercado if r.get("valor"))
+    al_dia = hay and movidos > hay * 0.2
+    fecha_dato = (filas_mercado[0].get("fecha") if al_dia
+                  else filas_mercado[0].get("fecha_ayer")) if filas_mercado else ""
+    print(f"valores del {fecha_dato} ({movidos} de {hay} se han movido hoy)")
+
+    for r in filas_mercado:
         k = buscar(limpia(r["jugador"]), r["equipo"])
         if k is None:
             sin_valor += 1
@@ -192,6 +210,7 @@ def main():
             con_hist += 1
 
     salida = {
+        "fecha": fecha_dato,
         "lugar": lugar,
         "prox": dict(prox),
         "fuentes": NOMBRES,
