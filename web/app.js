@@ -41,13 +41,36 @@ function escudo(equipo, ayuda){
     data-txt="${texto.replace(/"/g, '&quot;')}"></span>`;
 }
 
+/* De cuándo son los valores.
+
+   La web de la que salen publica un rato más tarde que el propio Mister,
+   así que por la mañana todavía enseña los de ayer. web.py apunta en el
+   json a qué día corresponden, y aquí se dice con sus palabras: no es lo
+   mismo "+20k hoy" que "+20k ayer", y llamarlo hoy sin serlo es mentir. */
+let CUANDO = 'hoy';     // 'hoy', 'ayer' o la fecha corta
+let FECHA_LARGA = '';   // "domingo, 4 de octubre", para el detalle
+
+function calcularCuando(){
+  const f = (DATOS && DATOS.fecha) || '';
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(f)){ CUANDO = 'hoy'; FECHA_LARGA = ''; return; }
+  const d = new Date(f + 'T12:00:00');
+  const hoy = new Date(); hoy.setHours(12, 0, 0, 0);
+  const dias = Math.round((hoy - d) / 864e5);
+  CUANDO = dias <= 0 ? 'hoy'
+    : dias === 1 ? 'ayer'
+    : d.toLocaleDateString('es-ES', {day:'numeric', month:'short'});
+  FECHA_LARGA = d.toLocaleDateString('es-ES',
+    {weekday:'long', day:'numeric', month:'long'});
+}
+
 /* La subida del día en las dos unidades: el porcentaje dice si es mucho
    o poco, que 50k no es lo mismo en un jugador de 1M que en uno de 20M. */
 function subidaHoy(cam, val, conHoy){
   if(!cam) return '';
   const pct = val ? (cam / val * 100) : null;
   return `<i class="${cam>0?'sube':'baja'}">${cam>0?'+':''}${(cam/1000).toFixed(0)}k${
-    pct === null ? '' : ` <em>${pct>0?'+':''}${pct.toFixed(2)}%</em>`}${conHoy?' hoy':''}</i>`;
+    pct === null ? '' : ` <em>${pct>0?'+':''}${pct.toFixed(2)}%</em>`}${
+    conHoy ? ' ' + CUANDO : ''}</i>`;
 }
 
 const eur = n => (n === null || n === undefined) ? null
@@ -2333,6 +2356,7 @@ function avisarLleno(){
 
 function arrancar(){
   calcularJornadas();
+  calcularCuando();
   INDICE = {};
   for(const j of DATOS.jugadores) INDICE[clave(j)] = j;
 
@@ -2536,8 +2560,13 @@ function arrancar(){
   document.getElementById('ficha-cerrar').addEventListener('click', () =>
     document.getElementById('ficha').close());
 
-  document.getElementById('cabecera-sub').textContent =
-    `${DATOS.jugadores.length} jugadores · jornadas 1 a ${Math.max(...JORNADAS)}`;
+  // la fecha del dato va aquí, en pequeño: así no hace falta repetirla por
+  // toda la pantalla, pero siempre se puede mirar
+  document.getElementById('cabecera-sub').innerHTML =
+    `${DATOS.jugadores.length} jugadores · jornadas 1 a ${Math.max(...JORNADAS)}` +
+    (FECHA_LARGA ? ` · <span class="sub-fecha" title="Los valores de mercado son de ${
+      FECHA_LARGA}. La web de la que salen publica más tarde que el Mister.">valores de ${
+      CUANDO}</span>` : '');
 
   arrancarComparador();
   arrancarAyudas();
