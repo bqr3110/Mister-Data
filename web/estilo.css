@@ -32,6 +32,10 @@ header{padding:24px 0 16px;border-bottom:2px solid var(--tinta)}
 .titulo{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 h1{font-size:27px;font-weight:600;margin:0;letter-spacing:-.02em}
 .sub{color:var(--tinta2);font-size:14px}
+/* la fecha del dato: que se pueda mirar sin que estorbe. Subrayado de
+   puntos, como una nota al pie, y el detalle en el title */
+.sub-fecha{border-bottom:1px dotted var(--linea);cursor:help;opacity:.75}
+.sub-fecha:hover{opacity:1}
 .tema{margin-left:auto;background:none;border:1px solid var(--linea);color:var(--tinta2);
   border-radius:7px;padding:5px 10px;cursor:pointer;font:inherit;font-size:13px}
 .tema:hover{border-color:var(--acento);color:var(--acento)}
