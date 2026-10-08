@@ -204,6 +204,7 @@ def main():
             continue
         try:
             jug[k]["tp"] = int(r["probabilidad"])
+            jug[k]["tj"] = int(r["jornada"])    # de que jornada es ese %
             con_tit += 1
         except (ValueError, TypeError, KeyError):
             pass
