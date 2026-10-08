@@ -6,21 +6,21 @@
   --neg:#A6392A; --resalte:#E7EEE7; --sombra:rgba(21,35,27,.06);
   /* un color por sistema de puntuacion. Separados tambien para daltonismo,
      y siempre con su nombre al lado: el color acompana, no informa solo. */
-  --f-m2:#0C7D55; --f-cm:#C2410C; --f-as:#1D5FD4; --f-sf:#8B3A9E; --f-md:#6B7280; --f-txt:#FFFFFF;
+  --f-m2:#0C7D55; --f-cm:#C2410C; --f-as:#E01010; --f-sf:#2C3BD6; --f-md:#6B7280; --f-txt:#FFFFFF;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --papel:#111714; --tarjeta:#18201B; --tinta:#E6EDE7; --tinta2:#94A299;
     --linea:#2A352E; --acento:#5FC08F; --casa:#5FC08F; --fuera:#D9A25F;
     --neg:#E0715E; --resalte:#1F2A23; --sombra:rgba(0,0,0,.4);
-    --f-m2:#3ED396; --f-cm:#F29354; --f-as:#9ABBFF; --f-sf:#D96FC8; --f-md:#9CA3AF; --f-txt:#101613;
+    --f-m2:#3ED396; --f-cm:#F29354; --f-as:#F2706E; --f-sf:#8FA0FF; --f-md:#9CA3AF; --f-txt:#101613;
   }
 }
 :root[data-theme="dark"]{
   --papel:#111714; --tarjeta:#18201B; --tinta:#E6EDE7; --tinta2:#94A299;
   --linea:#2A352E; --acento:#5FC08F; --casa:#5FC08F; --fuera:#D9A25F;
   --neg:#E0715E; --resalte:#1F2A23; --sombra:rgba(0,0,0,.4);
-  --f-m2:#3ED396; --f-cm:#F29354; --f-as:#9ABBFF; --f-sf:#D96FC8; --f-md:#9CA3AF; --f-txt:#101613;
+  --f-m2:#3ED396; --f-cm:#F29354; --f-as:#F2706E; --f-sf:#8FA0FF; --f-md:#9CA3AF; --f-txt:#101613;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--papel);color:var(--tinta);
@@ -173,10 +173,15 @@ dialog::backdrop{background:rgba(0,0,0,.45)}
 
 /* logotipos de cada sistema: si el fichero está, manda el logo y el
    nombre se esconde; si no está, la imagen se quita y queda el nombre */
-.logo-f{height:11px;width:auto;vertical-align:-1px;display:inline-block}
-.logo-f ~ .txt-f{display:none}
-.fx-hero-t .logo-f{height:13px;filter:brightness(0) invert(1)}
-.fx-s .logo-f{height:10px;opacity:.85}
+/* El logo del sistema va con su nombre al lado, no en su lugar: el logo se
+   reconoce de un vistazo y el nombre quita toda duda. Muchos vienen con
+   fondo opaco cuadrado (el de MD es negro), asi que se redondean como un
+   icono de app y asi no desentonan sobre el fondo de la ficha. */
+.logo-f{height:14px;width:14px;object-fit:contain;border-radius:3px;
+  vertical-align:-3px;display:inline-block;margin-right:4px;flex:0 0 auto}
+.logo-f ~ .txt-f{display:inline}
+.fx-hero-t .logo-f{height:16px;width:16px;vertical-align:-3px}
+.fx-s .logo-f{height:13px;width:13px}
 
 /* proximos: jornada, escudo del rival y casa o avion.
    Van siempre en una sola linea; si no caben, se desliza en horizontal. */
@@ -1114,3 +1119,15 @@ td .sube em, td .baja em, td em{font-style:normal;font-size:11px;opacity:.65}
 .jer-3{background:color-mix(in srgb,var(--tinta2) 30%,transparent);color:var(--tinta)}
 .jer-2{background:color-mix(in srgb,var(--tinta2) 18%,transparent);color:var(--tinta2)}
 .jer-1{background:transparent;color:var(--tinta2);box-shadow:inset 0 0 0 1px var(--linea)}
+
+/* Jerarquia y probabilidad de ser titular, en la cabecera de la ficha.
+   Es lo primero que se quiere saber de un jugador que no conoces, asi que
+   va junto al nombre y no enterrado entre las estadisticas. */
+.fx-rol{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:5px}
+.fx-rol:empty{display:none}
+.fx-tp{display:inline-flex;align-items:baseline;gap:4px;font-size:11.5px;
+  color:var(--tinta2);cursor:help}
+.fx-tp b{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.fx-tp.si b{color:var(--casa)}
+.fx-tp.quiza b{color:var(--f-cm)}
+.fx-tp.no b{color:var(--neg)}
