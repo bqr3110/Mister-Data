@@ -31,6 +31,7 @@
     <label class="campo"><span>Puntuación</span>
       <select id="fuente">
         <option value="m2" selected>Mixto 2</option>
+        <option value="as">Cronistas AS</option>
         <option value="md">Cronistas MD</option>
         <option value="cm">Cronistas Marca</option>
         <option value="sf">Sofascore · nota 0-10</option>
@@ -117,6 +118,18 @@
           </div>
 
           <label class="casilla"><input type="checkbox" id="ju-ultimo"><span>Jugó el último partido</span></label>
+
+          <div class="linea-num">
+            <span class="etiqueta">Jerarquía en su equipo, al menos</span>
+            <select id="jer-min">
+              <option value="0" selected>da igual</option>
+              <option value="2">Revulsivo</option>
+              <option value="3">Rotación</option>
+              <option value="4">Importante</option>
+              <option value="5">Clave</option>
+            </select>
+          </div>
+
           <button class="limpiar" data-limpiar="juega">quitar</button>
         </div>
       </div>
