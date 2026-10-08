@@ -11,11 +11,22 @@ FUENTES = {
     "mixto": "https://www.futbolfantasy.com/analytics/mister-mixto/puntos",
     "cronistas_md": "https://www.futbolfantasy.com/analytics/mister-cronistas-md/puntos",
     "cronistas_marca": "https://www.futbolfantasy.com/analytics/cronistas-marca/puntos",
+    # El Mister usa los cronistas de AS, no los de MD, y esta web no publica
+    # esa tabla con ese nombre. Pero si publica las picas del cronista de AS
+    # en la pagina de Biwenger, y en Mister la pica vale lo mismo: 0 picas
+    # son -2 puntos, 1 son 2, 2 son 6, 3 son 10 y 4 son 14. Comprobado contra
+    # el Mister en tres casos, mirando la ficha del jugador:
+    #   Zaid Romero  (Getafe)   J6: dos picas -> 6 puntos
+    #   Inigo Vicente (Racing)  J6: una pica  -> 2 puntos
+    #   Nico Williams (Athletic) J5: dos picas -> 6 puntos
+    # Los tres cuadran con lo que da esta tabla.
+    "cronistas_as": "https://www.futbolfantasy.com/analytics/modo-picas/puntos",
 }
 
 PARTIDOS = "datos/partidos.csv"
 EVENTOS = "datos/eventos.csv"
 SALIDA = "datos/puntos.csv"
+TITULARIDAD = "datos/titularidad.csv"
 CABECERA = ["fuente", "jornada", "jugador", "equipo", "puntos", "jugo", "capturado"]
 
 EQUIPOS = [
@@ -59,7 +70,7 @@ def orden_por_equipo():
     return orden
 
 
-def procesar(nombre_fuente, url, cabeceras, orden, hoy):
+def procesar(nombre_fuente, url, cabeceras, orden, hoy, titulares=None):
     r = requests.get(url, headers=cabeceras, timeout=30)
     r.raise_for_status()
     sopa = BeautifulSoup(r.text, "html.parser")
@@ -79,6 +90,15 @@ def procesar(nombre_fuente, url, cabeceras, orden, hoy):
                 break
         if equipo is None:
             continue
+
+        # La columna "Prox. rival" trae la probabilidad de ser titular en la
+        # siguiente jornada: "J8 50%", o con una casita si juega en casa. Es
+        # el mismo numero en las cinco tablas, asi que se apunta una sola vez
+        # y no cuesta ni una peticion de mas.
+        if titulares is not None and len(celdas) > 5:
+            m = re.search(r"J(\d{1,2}).*?(\d{1,3})\s*%", celdas[5])
+            if m:
+                titulares[(jugador, equipo)] = (int(m.group(1)), int(m.group(2)))
 
         racha = celdas[2].split()
         if not racha:
@@ -107,9 +127,10 @@ def main():
     print()
 
     todas = []
+    titulares = {}
     for nombre, url in FUENTES.items():
         try:
-            filas = procesar(nombre, url, cabeceras, orden, hoy)
+            filas = procesar(nombre, url, cabeceras, orden, hoy, titulares)
             print(f"{nombre}: {len(filas)} filas")
             todas.extend(filas)
         except Exception as e:
@@ -120,6 +141,14 @@ def main():
         w = csv.writer(f)
         w.writerow(CABECERA)
         w.writerows(todas)
+
+    if titulares:
+        with open(TITULARIDAD, "w", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            w.writerow(["jugador", "equipo", "jornada", "probabilidad", "capturado"])
+            for (jug, eq), (jor, pct) in sorted(titulares.items()):
+                w.writerow([jug, eq, jor, pct, hoy])
+        print(f"probabilidad de ser titular: {len(titulares)} jugadores")
 
     print(f"\nTotal: {len(todas)} filas")
 
