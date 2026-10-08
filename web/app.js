@@ -1205,7 +1205,7 @@ const GRUPOS = [
   ['Forma y techo',['med5','mej','peor','p10','pneg']],
   ['Casa y fuera', ['cas','fue','dif']],
   ['Ataque',       ['g','a','asg','t','oc']],
-  ['Juego',        ['jer','tp','minU','mpm','p90','ptit','ult']],
+  ['Juego',        ['minU','mpm','p90','ptit','ult']],
   ['Disciplina',   ['y','r']],
   ['Mercado',      ['val','cam']],
 ];
@@ -1438,6 +1438,21 @@ function abrirFicha(f){
     : subidaHoy(f.cam, f.val, true);
   document.getElementById('ficha-val').innerHTML =
     (f.val ? eur(f.val) : '<span class="tenue">sin valor</span>') + cam;
+
+  /* Lo que de verdad decide si vale la pena: el sitio que ocupa en su
+     equipo y lo probable que es que juegue. Va aqui arriba, junto al
+     valor, y no enterrado en la pestaña de estadisticas: es lo primero
+     que quieres saber de un jugador que no conoces. */
+  const jer = f.ref.jer, tp = f.ref.tp;
+  const rol = [];
+  if(jer) rol.push(`<span class="jer jer-${jer}">${JERARQUIA[jer]}</span>`);
+  if(tp !== undefined && tp !== null){
+    const j = f.ref.tj ? ` en la J${f.ref.tj}` : '';
+    rol.push(`<span class="fx-tp ${tp >= 70 ? 'si' : tp >= 35 ? 'quiza' : 'no'}"
+      data-ayuda="Probabilidad de salir de titular${j}, segun los analistas"
+      ><b>${tp}%</b> titular</span>`);
+  }
+  document.getElementById('ficha-rol').innerHTML = rol.join('');
 
   const pr = DATOS.prox[f.e] || [];
   document.getElementById('ficha-prox').innerHTML = pr.length ? pr.map(([n,sd,rival,cuando]) =>
