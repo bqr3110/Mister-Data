@@ -8,8 +8,12 @@ from collections import defaultdict
 DATOS = "datos"
 SALIDA = "web/datos.json"
 
-FUENTES = {"mixto2": "m2", "cronistas_md": "md", "cronistas_marca": "cm"}
-NOMBRES = {"m2": "Mixto 2", "md": "Cronistas MD", "cm": "Cronistas Marca", "sf": "Sofascore"}
+# "as" es el cronista que de verdad usa el Mister para el Mixto 2; "md" se
+# sigue capturando porque no cuesta nada y sirve de contraste
+FUENTES = {"mixto2": "m2", "cronistas_as": "as", "cronistas_md": "md",
+           "cronistas_marca": "cm"}
+NOMBRES = {"m2": "Mixto 2", "as": "Cronistas AS", "cm": "Cronistas Marca",
+           "sf": "Sofascore", "md": "Cronistas MD"}
 
 MAPA_EV = {"goles": "g", "asis": "a", "asis_sg": "asg", "amarillas": "y", "rojas": "r",
            "min": "m", "tiros": "t", "ocasiones": "oc", "nota_sofascore": "sf", "nota_cronista": "cr",
@@ -161,6 +165,50 @@ def main():
             jug[k]["cam"] = int(crudo)
         except (ValueError, TypeError):
             pass
+
+    # ---- jerarquia en el equipo y probabilidad de ser titular ----
+    #
+    # La jerarquia cruza por slug, que es inequivoco (dos jugadores pueden
+    # llamarse igual, pero su ficha no). Del fichero, que guarda historico,
+    # se coge solo la ultima fecha. La probabilidad de titular cruza por
+    # nombre y equipo, como las puntuaciones.
+    porslug = {}
+    for k, v in jug.items():
+        if v.get("f"):
+            porslug.setdefault(v["f"], k)
+
+    ultima, jerarquias = "", {}
+    for r in leer("jerarquias.csv"):
+        if r.get("fecha", "") > ultima:
+            ultima = r["fecha"]
+    con_jer = 0
+    for r in leer("jerarquias.csv"):
+        if r.get("fecha") != ultima:
+            continue
+        k = porslug.get(r.get("slug", ""))
+        if k is None:
+            continue
+        try:
+            jug[k]["jer"] = int(r["orden"])
+            jug[k]["jerN"] = r["nivel"]
+            con_jer += 1
+        except (ValueError, TypeError, KeyError):
+            pass
+    if ultima:
+        print(f"jerarquias del {ultima}: {con_jer} jugadores cruzados")
+
+    con_tit = 0
+    for r in leer("titularidad.csv"):
+        k = buscar(limpia(r["jugador"]), r["equipo"])
+        if k is None:
+            continue
+        try:
+            jug[k]["tp"] = int(r["probabilidad"])
+            con_tit += 1
+        except (ValueError, TypeError, KeyError):
+            pass
+    if con_tit:
+        print(f"probabilidad de ser titular: {con_tit} jugadores")
 
     # ---- historico de valores -> las cinco ventanas de la calculadora ----
     #
