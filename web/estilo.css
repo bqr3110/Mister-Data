@@ -6,21 +6,21 @@
   --neg:#A6392A; --resalte:#E7EEE7; --sombra:rgba(21,35,27,.06);
   /* un color por sistema de puntuacion. Separados tambien para daltonismo,
      y siempre con su nombre al lado: el color acompana, no informa solo. */
-  --f-m2:#0C7D55; --f-cm:#C2410C; --f-md:#1D5FD4; --f-sf:#8B3A9E; --f-txt:#FFFFFF;
+  --f-m2:#0C7D55; --f-cm:#C2410C; --f-as:#1D5FD4; --f-sf:#8B3A9E; --f-md:#6B7280; --f-txt:#FFFFFF;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --papel:#111714; --tarjeta:#18201B; --tinta:#E6EDE7; --tinta2:#94A299;
     --linea:#2A352E; --acento:#5FC08F; --casa:#5FC08F; --fuera:#D9A25F;
     --neg:#E0715E; --resalte:#1F2A23; --sombra:rgba(0,0,0,.4);
-    --f-m2:#3ED396; --f-cm:#F29354; --f-md:#9ABBFF; --f-sf:#D96FC8; --f-txt:#101613;
+    --f-m2:#3ED396; --f-cm:#F29354; --f-as:#9ABBFF; --f-sf:#D96FC8; --f-md:#9CA3AF; --f-txt:#101613;
   }
 }
 :root[data-theme="dark"]{
   --papel:#111714; --tarjeta:#18201B; --tinta:#E6EDE7; --tinta2:#94A299;
   --linea:#2A352E; --acento:#5FC08F; --casa:#5FC08F; --fuera:#D9A25F;
   --neg:#E0715E; --resalte:#1F2A23; --sombra:rgba(0,0,0,.4);
-  --f-m2:#3ED396; --f-cm:#F29354; --f-md:#9ABBFF; --f-sf:#D96FC8; --f-txt:#101613;
+  --f-m2:#3ED396; --f-cm:#F29354; --f-as:#9ABBFF; --f-sf:#D96FC8; --f-md:#9CA3AF; --f-txt:#101613;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--papel);color:var(--tinta);
@@ -1103,3 +1103,14 @@ td .sube em, td .baja em, td em{font-style:normal;font-size:11px;opacity:.65}
   .bal-plazo button{font-size:11.5px;padding:6px 4px}
 }
 @media (prefers-reduced-motion:reduce){ .bal-plazo button:active{transform:none} }
+
+/* La jerarquia en el equipo: cinco escalones. El color va de lleno a
+   apagado segun el peso, para que se lea de un vistazo sin tener que
+   descifrar una leyenda. */
+.jer{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;
+  font-weight:600;letter-spacing:.01em}
+.jer-5{background:var(--f-m2);color:var(--f-txt)}
+.jer-4{background:color-mix(in srgb,var(--f-m2) 62%,transparent);color:var(--f-txt)}
+.jer-3{background:color-mix(in srgb,var(--tinta2) 30%,transparent);color:var(--tinta)}
+.jer-2{background:color-mix(in srgb,var(--tinta2) 18%,transparent);color:var(--tinta2)}
+.jer-1{background:transparent;color:var(--tinta2);box-shadow:inset 0 0 0 1px var(--linea)}
