@@ -28,6 +28,9 @@ jobs:
       - name: Puntuaciones
         run: python scripts/puntos.py
 
+      - name: Jerarquia en el equipo
+        run: python scripts/jerarquias.py
+
       - name: Valor de mercado
         run: python scripts/mercado.py
 
