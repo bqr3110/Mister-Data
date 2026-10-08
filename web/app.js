@@ -105,6 +105,8 @@ const COLS = [
   {k:'e',   t:'Eq',      pega:'c2', insig:'eq'},
   {k:'val', t:'Valor',   pega:'c3', mercado:1},
   {k:'n',   t:'Jugador', pega:'c4', txt:1},
+  {k:'jer', t:'Rol',     rol:1,  noOrd:1, sep:1},
+  {k:'tp',  t:'Titular', tpc:1,  noOrd:1},
   {k:'racha', t:'Racha', racha:1, sep:1},
   {k:'ult', t:'Últ.', ultimos:1},
   {k:'tit', t:'Tit'},
@@ -288,6 +290,8 @@ const AYUDA = {
   pos:  'Posición en el campo',
   e:    'Equipo',
   n:    'Nombre del jugador',
+  jer:  'Qué sitio ocupa en su equipo, según los analistas. No se puede ordenar por aquí',
+  tp:   'Probabilidad de salir de titular en la próxima jornada. No se puede ordenar por aquí',
   val:  'Valor de mercado en Mister',
   racha:'Últimas jornadas. Cuanto más verde, mejor puntuó. Los apagados están fuera por los filtros',
   tit:  'Veces que ha salido de titular. Si entró desde el banquillo no cuenta',
@@ -445,7 +449,7 @@ function pintarTarjetas(filas){
 
 function pintarTabla(filas, k){
   document.getElementById('cabeceras').innerHTML = COLS.map(c =>
-    `<th class="${c.txt?'nom':c.insig?'cen':c.racha?'racha':c.cls==='dif'?'dif':''} ${c.sep?'sep':''} ${c.pega?'pega '+c.pega:''} ${k===c.k?'activo':''}" data-k="${c.k}"${
+    `<th class="${c.txt?'nom':c.insig?'cen':c.racha?'racha':c.cls==='dif'?'dif':''} ${c.sep?'sep':''} ${c.pega?'pega '+c.pega:''} ${k===c.k?'activo':''}${c.noOrd?' quieta':''}"${c.noOrd?'':` data-k="${c.k}"`}${
       AYUDA[c.k] ? ` data-ayuda="${AYUDA[c.k]}"` : ''}>${c.t}${k===c.k?(estado.asc?' ↑':' ↓'):''}</th>`
   ).join('');
 
@@ -460,6 +464,17 @@ function pintarTabla(filas, k){
       if(c.insig === 'eq'){
         const e = EQUIPO[f.e];
         return `<td class="cen${s}">${escudo(f.e, f.e)}</td>`;
+      }
+      // el sitio que ocupa en su equipo y lo probable que es que juegue:
+      // se miran, no se ordenan por ellos
+      if(c.rol) return `<td class="cen${s}">${f.ref.jer
+        ? `<span class="jer jer-${f.ref.jer}">${JERARQUIA[f.ref.jer]}</span>`
+        : '<span class="tenue">·</span>'}</td>`;
+      if(c.tpc){
+        const v = f.ref.tp;
+        if(v === undefined || v === null) return `<td class="cen${s}"><span class="tenue">·</span></td>`;
+        return `<td class="cen${s}"><span class="tp-mini ${
+          v >= 70 ? 'si' : v >= 35 ? 'quiza' : 'no'}">${v}<em>%</em></span></td>`;
       }
       if(c.racha) return `<td class="racha${s}">${pintarRacha(f)}</td>`;
       if(c.txt) return `<td class="nom${s}">${f[c.k]||'<span class="tenue">·</span>'}</td>`;
@@ -1449,8 +1464,8 @@ function abrirFicha(f){
   if(tp !== undefined && tp !== null){
     const j = f.ref.tj ? ` en la J${f.ref.tj}` : '';
     rol.push(`<span class="fx-tp ${tp >= 70 ? 'si' : tp >= 35 ? 'quiza' : 'no'}"
-      data-ayuda="Probabilidad de salir de titular${j}, segun los analistas"
-      ><b>${tp}%</b> titular</span>`);
+      data-ayuda="Probabilidad de salir de titular${j}, según los analistas"
+      ><b>${tp}%</b><span>titular</span></span>`);
   }
   document.getElementById('ficha-rol').innerHTML = rol.join('');
 
