@@ -499,6 +499,9 @@ function pintar(){
       if(estado.juOn    && (estado.juTit ? f.ultTit : f.ult) < estado.juCuantos) return false;
       if(estado.juTotOn && f.ultMin < estado.juTotMin)  return false;
       if(estado.juUltimo && !f.ultimo) return false;
+      // los que no tienen jerarquia conocida no se descartan: no es lo
+      // mismo "es un reserva" que "todavia no lo he capturado"
+      if(estado.jerMin && f.ref.jer !== undefined && f.ref.jer < estado.jerMin) return false;
       return true;
     })
     .filter(f => Object.entries(estado.stats).every(([k,c]) => {
@@ -580,6 +583,8 @@ function listaActivos(){
     estado.juTotOn=false; document.getElementById('ju-tot').checked=false; }});
   if(estado.juUltimo) L.push({t:'Jugó el último partido', q:()=>{
     estado.juUltimo=false; document.getElementById('ju-ultimo').checked=false; }});
+  if(estado.jerMin) L.push({t:`${JERARQUIA[estado.jerMin]} o más`, q:()=>{
+    estado.jerMin=0; document.getElementById('jer-min').value='0'; }});
   if(estado.exGol) L.push({t:'Sin jornadas con gol', q:()=>{
     estado.exGol=false; document.getElementById('ex-gol').checked=false; }});
   if(estado.exRoja) L.push({t:'Sin jornadas con roja', q:()=>{
@@ -636,6 +641,8 @@ function limpiarTodo(){
   estado.exGol = estado.exRoja = estado.exMin = false;
   ['ex-gol','ex-roja','ex-min'].forEach(i => document.getElementById(i).checked = false);
   estado.juOn = estado.juTotOn = estado.juUltimo = estado.juTit = false;
+  estado.jerMin = 0;
+  const jm = document.getElementById('jer-min'); if(jm) jm.value = '0';
   ['ju-min','ju-tot','ju-ultimo','ju-tit'].forEach(i => document.getElementById(i).checked = false);
   estado.excluidas.clear();
   document.querySelectorAll('#jornadas .chip').forEach(c => c.setAttribute('aria-pressed','false'));
@@ -1187,7 +1194,10 @@ function abrirComparador(){
 
 /* Las tres fuentes que componen el Mixto 2. Van con su nombre en texto:
    los logotipos son marcas suyas y no los dibujo. */
-const SUB = ['cm', 'md', 'sf'];
+/* Lo que compone el Mixto 2 del Mister: 25 % cronistas de AS, 25 % cronistas
+   de Marca y 50 % Sofascore. Comprobado contra la app en tres jugadores.
+   MD va al final porque el Mister no lo usa: se guarda como contraste. */
+const SUB = ['as', 'cm', 'sf'];
 
 /* Estadisticas de la ficha: primero el resumen, luego por familias. */
 const GRUPOS = [
@@ -1195,7 +1205,7 @@ const GRUPOS = [
   ['Forma y techo',['med5','mej','peor','p10','pneg']],
   ['Casa y fuera', ['cas','fue','dif']],
   ['Ataque',       ['g','a','asg','t','oc']],
-  ['Juego',        ['minU','mpm','p90','ptit','ult']],
+  ['Juego',        ['jer','tp','minU','mpm','p90','ptit','ult']],
   ['Disciplina',   ['y','r']],
   ['Mercado',      ['val','cam']],
 ];
@@ -1205,11 +1215,50 @@ const ROTULO = {
   g:'Goles', a:'Asis. de gol', asg:'Asis. sin gol', t:'Tiros a puerta',
   oc:'Ocasiones creadas', min:'Minutos', minU:'Minutos', mpm:'Min/partido',
   ult:'Jugados últimos', y:'Amarillas', r:'Rojas', val:'Valor', cam:'Sube hoy',
+  jer:'Jerarquía', tp:'Titular próx.',
   med5:'Media últimos 5', mej:'Mejor jornada', peor:'Peor jornada',
   p10:'Partidazos', pneg:'En negativo', p90:'Puntos/90 min', ptit:'% titular',
 };
 
+/* Lo que no se captura no es un cero.
+
+   "Ocasiones claras creadas" sale en la lista de estadísticas que me
+   interesan, pero la web fuente no la publica: hay 0 filas en toda la
+   temporada. Pintar un 0 es decir que no ha creado ninguna, que es
+   mentira. Se mira una vez, al arrancar: si una estadística es cero para
+   los 461 jugadores y las 7 jornadas, no es que nadie la haya hecho, es
+   que no la tenemos. Así, el día que la fuente la publique, se arregla
+   sola sin tocar nada. */
+let SIN_DATO = new Set();
+
+function calcularSinDato(){
+  SIN_DATO = new Set();
+  const mirar = ['g', 'a', 'asg', 't', 'oc', 'y', 'r'];
+  for(const k of mirar){
+    let alguno = false;
+    for(const j of DATOS.jugadores){
+      for(const n in (j.ev || {})){
+        if(j.ev[n] && j.ev[n][k]){ alguno = true; break; }
+      }
+      if(alguno) break;
+    }
+    if(!alguno) SIN_DATO.add(k);
+  }
+}
+
+const JERARQUIA = {5:'Clave', 4:'Importante', 3:'Rotación', 2:'Revulsivo', 1:'Reserva'};
+
 function valorFicha(f, k){
+  // el sitio que ocupa en su equipo y lo probable que es que juegue: es lo
+  // que no se ve en los puntos, que un suplente con buena media no suma
+  if(k === 'jer') return f.ref.jer
+    ? `<span class="jer jer-${f.ref.jer}">${JERARQUIA[f.ref.jer]}</span>`
+    : '<span class="tenue">·</span>';
+  if(k === 'tp') return (f.ref.tp === undefined || f.ref.tp === null)
+    ? '<span class="tenue">·</span>'
+    : `${f.ref.tp}<span class="tenue">%</span>`;
+  if(SIN_DATO.has(k)) return '<span class="tenue" title="La web de la que' +
+    ' salen los datos no publica esta estadística">·</span>';
   if(k === 'val') return f.val ? eur(f.val) : '<span class="tenue">·</span>';
   if(k === 'cam') return !f.cam ? '<span class="tenue">·</span>'
     : `${f.cam>0?'+':''}${(f.cam/1000).toFixed(0)}k`;
@@ -1302,21 +1351,22 @@ function conFuente(fu, fn){
   try { return fn(); } finally { estado.fuente = antes; }
 }
 
-const ORDEN_SUB = ['m2', 'cm', 'md', 'sf'];
+const ORDEN_SUB = ['m2', 'as', 'cm', 'sf', 'md'];
 
 /* El rotulo de cada sistema. Si algun dia pones los logotipos en
    web/logos/, aparecen solos; mientras no esten, se lee el nombre.
    Los logos no los bajo yo: son marcas de Marca, MD y Sofascore, y
    Mixto 2 no tiene logotipo porque es una cuenta del propio Mister. */
 function rotuloFuente(c){
-  const t = DATOS.fuentes[c].replace('Cronistas ', '');
+  const t = (DATOS.fuentes[c] || c.toUpperCase()).replace('Cronistas ', '');
   if(c === 'm2') return t;
   // el nombre va siempre en el html; el css lo esconde solo si el logo carga.
   // Si no hay logo, la imagen se quita sola y vuelve a verse el nombre.
   return `<img class="logo-f" src="logos/${c}.png" alt="${t}" loading="lazy"
     onerror="this.remove()"><span class="txt-f">${t}</span>`;
 }
-const TONO = {m2:'var(--f-m2)', cm:'var(--f-cm)', md:'var(--f-md)', sf:'var(--f-sf)'};
+const TONO = {m2:'var(--f-m2)', as:'var(--f-as)', cm:'var(--f-cm)',
+              sf:'var(--f-sf)', md:'var(--f-md)'};
 
 /* Todo lo que depende del sistema elegido: el numero grande, las casillas,
    la racha corta, el grafico y las estadisticas. */
@@ -1347,8 +1397,10 @@ function pintarFicha(j){
          fuenteFicha === 'sf' ? ' <em>0-10</em>' : ''}</span>`;
     hero.classList.remove('cambia'); void hero.offsetWidth; hero.classList.add('cambia');
 
+    // solo las fuentes que de verdad trae el json: mientras no haya corrido
+    // una captura con la fuente nueva, esa no está y no se pinta
     document.getElementById('ficha-sub').innerHTML = ORDEN_SUB
-      .filter(c => c !== fuenteFicha).map(c => {
+      .filter(c => c !== fuenteFicha && DATOS.fuentes[c]).map(c => {
         const v = mediaDe(c);
         const eq = (c === 'sf' && v !== null) ? ` ≈ ${notaAPuntos(v)>0?'+':''}${notaAPuntos(v)} pts` : '';
         return `<button class="fx-s" data-fu="${c}" style="--tono:${TONO[c]}"
@@ -1985,6 +2037,8 @@ document.getElementById('barra-filtros').addEventListener('click', e => {
     document.getElementById('nota-rival').hidden = true; pintar(); }
   if(lim === 'juega'){
     estado.juOn = estado.juTotOn = estado.juUltimo = estado.juTit = false;
+  estado.jerMin = 0;
+  const jm = document.getElementById('jer-min'); if(jm) jm.value = '0';
     ['ju-min','ju-tot','ju-ultimo','ju-tit'].forEach(i => document.getElementById(i).checked = false);
     pintar();
   }
@@ -2357,6 +2411,7 @@ function avisarLleno(){
 function arrancar(){
   calcularJornadas();
   calcularCuando();
+  calcularSinDato();
   INDICE = {};
   for(const j of DATOS.jugadores) INDICE[clave(j)] = j;
 
@@ -2409,6 +2464,7 @@ function arrancar(){
   ent('ju-tit').addEventListener('change', e => { estado.juTit = e.target.checked; pintar(); });
   ent('ju-tot').addEventListener('change', e => { estado.juTotOn = e.target.checked; pintar(); });
   ent('ju-ultimo').addEventListener('change', e => { estado.juUltimo = e.target.checked; pintar(); });
+  ent('jer-min').addEventListener('change', e => { estado.jerMin = +e.target.value || 0; pintar(); });
 
   // estadisticas clasicas
   const panelSt = document.getElementById('panel-stats');
