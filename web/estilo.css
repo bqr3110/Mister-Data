@@ -1112,24 +1112,28 @@ td .sube em, td .baja em, td em{font-style:normal;font-size:11px;opacity:.65}
 @media (prefers-reduced-motion:reduce){ .bal-plazo button:active{transform:none} }
 
 /* La jerarquia en el equipo, como las cartas de un fantasy: cada escalon
-   es un material distinto, no el mismo verde mas o menos apagado. Oro,
-   plata y bronce para los tres de arriba; los dos de abajo se apagan.
-   El brillo diagonal es lo que hace que se lea como metal y no como un
-   rectangulo de color. */
+   es un material distinto, no el mismo verde mas o menos apagado. Por
+   encima del oro esta "Dios", que va como las cartas especiales: negra con
+   las letras doradas. Abajo del todo, los descartes, en rojo apagado. */
 .jer{display:inline-block;padding:2px 9px;border-radius:4px;font-size:10.5px;
   font-weight:700;letter-spacing:.04em;text-transform:uppercase;
   white-space:nowrap;line-height:1.45;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.45), 0 1px 2px rgba(0,0,0,.18)}
 
-.jer-5{background:linear-gradient(145deg,#F5D06A 0%,#D9A520 52%,#B8860B 100%);
+.jer-7{background:linear-gradient(145deg,#2E2A22 0%,#1C1A16 55%,#0E0D0B 100%);
+  color:#F2C75C;box-shadow:inset 0 0 0 1px rgba(242,199,92,.55), 0 1px 3px rgba(0,0,0,.3)}
+.jer-6{background:linear-gradient(145deg,#F5D06A 0%,#D9A520 52%,#B8860B 100%);
   color:#3B2A00}
-.jer-4{background:linear-gradient(145deg,#E6EBF0 0%,#B4BCC6 52%,#949DA8 100%);
+.jer-5{background:linear-gradient(145deg,#E6EBF0 0%,#B4BCC6 52%,#949DA8 100%);
   color:#262C34}
-.jer-3{background:linear-gradient(145deg,#E0A574 0%,#BE7740 52%,#9A5A23 100%);
+.jer-4{background:linear-gradient(145deg,#E0A574 0%,#BE7740 52%,#9A5A23 100%);
   color:#2A1603}
-.jer-2{background:linear-gradient(145deg,#7C8A9E 0%,#64748B 52%,#515E72 100%);
+.jer-3{background:linear-gradient(145deg,#7C8A9E 0%,#64748B 52%,#515E72 100%);
   color:#FFF;box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 1px 2px rgba(0,0,0,.18)}
-.jer-1{background:transparent;color:var(--tinta2);font-weight:600;
+.jer-2{background:transparent;color:var(--tinta2);font-weight:600;
+  box-shadow:inset 0 0 0 1px var(--linea)}
+.jer-1{background:transparent;color:var(--neg);font-weight:600;opacity:.8;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--neg) 40%,transparent)}
   box-shadow:inset 0 0 0 1px var(--linea)}
 
 /* En la tabla las etiquetas van en pequeño: la columna es estrecha y a
@@ -1149,7 +1153,11 @@ th.quieta:hover{background:none}
 /* Jerarquia y probabilidad de ser titular, en la cabecera de la ficha.
    Es lo primero que se quiere saber de un jugador que no conoces, asi que
    va junto al nombre y no enterrado entre las estadisticas. */
-.fx-rol{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:6px}
+/* La foto manda la columna de la izquierda, y debajo cuelgan el rol y la
+   probabilidad de ser titular: se leen con la cara, no con las cifras. */
+.fx-cara{display:flex;flex-direction:column;align-items:center;gap:6px;flex:none}
+.fx-rol{display:flex;flex-direction:column;align-items:stretch;gap:4px;margin:0}
+.fx-rol > *{text-align:center;justify-content:center}
 .fx-rol:empty{display:none}
 .fx-rol .jer{font-size:9.5px;padding:2px 8px}
 
