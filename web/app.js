@@ -103,10 +103,10 @@ const COLS = [
   {k:'cmp', t:'',        pega:'c0', cmp:1},
   {k:'pos', t:'Pos',     pega:'c1', insig:'pos'},
   {k:'e',   t:'Eq',      pega:'c2', insig:'eq'},
-  {k:'val', t:'Valor',   pega:'c3', mercado:1},
-  {k:'n',   t:'Jugador', pega:'c4', txt:1},
-  {k:'jer', t:'Rol',     rol:1,  noOrd:1, sep:1},
-  {k:'tp',  t:'Titular', tpc:1,  noOrd:1},
+  {k:'jer', t:'Rol',     pega:'c3', rol:1, noOrd:1},
+  {k:'tp',  t:'Tit%',    pega:'c4', tpc:1, noOrd:1},
+  {k:'val', t:'Valor',   pega:'c5', mercado:1},
+  {k:'n',   t:'Jugador', pega:'c6', txt:1},
   {k:'racha', t:'Racha', racha:1, sep:1},
   {k:'ult', t:'Últ.', ultimos:1},
   {k:'tit', t:'Tit'},
@@ -1261,7 +1261,10 @@ function calcularSinDato(){
   }
 }
 
-const JERARQUIA = {5:'Clave', 4:'Importante', 3:'Rotación', 2:'Revulsivo', 1:'Reserva'};
+/* Los siete escalones de la fuente, de mas a menos peso. "Dios" esta por
+   encima de Clave y "Descarte" por debajo de Reserva. */
+const JERARQUIA = {7:'Dios', 6:'Clave', 5:'Importante', 4:'Rotación',
+                   3:'Revulsivo', 2:'Reserva', 1:'Descarte'};
 
 function valorFicha(f, k){
   // el sitio que ocupa en su equipo y lo probable que es que juegue: es lo
