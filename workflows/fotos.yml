@@ -1,0 +1,43 @@
+name: Fotos
+
+# A mano, como los escudos. Solo baja las caras que falten, asi que
+# pasarlo tras unas cuantas jornadas cuesta poco.
+on:
+  workflow_dispatch:
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # version fija: pillow abre imagenes bajadas de internet, que es
+      # justo donde han aparecido sus agujeros historicamente
+      - run: pip install requests==2.32.3 pillow==11.0.0
+
+      - name: Descargar fotos
+        run: python scripts/fotos.py
+
+      - name: Guardar
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          # datos/fotos.csv tambien: ahi quedan las urls ya resueltas, y sin
+          # el la proxima pasada volveria a entrar en la ficha de cada uno
+          git add web/fotos/ datos/fotos.csv
+          git diff --staged --quiet && echo "nada nuevo" && exit 0
+          git commit -m "Fotos de los jugadores"
+          # esto tarda sus minutos: si mientras tanto main ha avanzado, el push
+          # se rechazaria y se perderia todo lo descargado. Rebase y reintento.
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "reintento $i"
+            sleep 5
+          done
+          exit 1

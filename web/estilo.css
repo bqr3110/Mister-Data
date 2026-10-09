@@ -695,13 +695,16 @@ td.racha{white-space:nowrap;line-height:1}
 /* ---------- primeras columnas fijas al hacer scroll lateral ---------- */
 .pega{position:sticky;background:var(--tarjeta);z-index:1}
 th.pega{z-index:4}
-td.pega.c0,th.pega.c0{left:0;width:34px;padding-left:6px;padding-right:2px}
-td.pega.c1,th.pega.c1{left:34px;width:46px}
-td.pega.c2,th.pega.c2{left:80px;width:54px}
-td.pega.c3,th.pega.c3{left:134px;width:76px;padding-left:4px;padding-right:4px}
-td.pega.c4,th.pega.c4{left:210px;width:48px;padding-left:2px;padding-right:6px}
-td.pega.c5,th.pega.c5{left:258px;width:82px}
-td.pega.c6,th.pega.c6{left:340px;min-width:140px;box-shadow:1px 0 0 var(--linea)}
+/* Los "left" los pone fijarPegadas() midiendo la tabla ya pintada, no se
+   escriben aqui: en una tabla el ancho real lo decide el contenido, asi que
+   encadenarlos a mano se descuadraba en cuanto aparecia un rol largo. Y por
+   lo mismo tampoco se fija el ancho: con width:54px el escudo se salia de
+   su celda y "IMPORTANTE" se montaba encima de la columna siguiente. */
+td.pega,th.pega{white-space:nowrap}
+td.pega.c0,th.pega.c0{width:34px;padding-left:6px;padding-right:2px}
+td.pega.c3,th.pega.c3{padding-left:6px;padding-right:6px}
+td.pega.c4,th.pega.c4{padding-left:4px;padding-right:8px}
+td.pega.c6,th.pega.c6{min-width:140px;box-shadow:1px 0 0 var(--linea)}
 th.pega.c0{cursor:default}
 th.pega.c0:hover{color:var(--tinta2)}
 tbody tr:nth-child(even) td.pega{background:color-mix(in srgb,var(--tarjeta) 97%,var(--tinta))}
@@ -1174,3 +1177,136 @@ th.quieta:hover{background:none}
 .fx-tp.si{--tp-c:var(--casa)}
 .fx-tp.quiza{--tp-c:var(--fuera)}
 .fx-tp.no{--tp-c:var(--neg)}
+
+/* ================================================================
+   LO QUE LE VIENE POR DELANTE · la dificultad del rival
+   Verde y naranja quemado, no verde y rojo: la pareja verde/rojo es
+   justo la que no distingue un daltonico (separacion 7,2 en deuteranopia;
+   esta pasa con 9,9). Y encima va una barra de tres tramos, que no
+   depende del color, y el detalle en el texto al pasar por encima.
+   ================================================================ */
+:root{ --dif-ok:#0C7D55; --dif-med:#8A9690; --dif-mal:#C2410C; }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --dif-ok:#3ED396; --dif-med:#94A299; --dif-mal:#F29354; }
+}
+:root[data-theme="dark"]{ --dif-ok:#3ED396; --dif-med:#94A299; --dif-mal:#F29354; }
+
+.fx-p{flex-direction:column;gap:3px;padding:5px 8px 6px;position:relative}
+.fx-p .fila-p{display:flex;align-items:center;gap:5px}
+.fx-p u{text-decoration:none;font-size:9.5px;color:var(--tinta2);letter-spacing:.01em}
+/* tres tramos: uno encendido si es asequible, tres si es un hueso */
+.fx-p .tramos{display:flex;gap:2px;width:100%}
+.fx-p .tramos i{flex:1;height:3px;border-radius:2px;background:var(--linea);font-size:0}
+.fx-p .tramos i.on{background:var(--dif-c,var(--dif-med))}
+.fx-p.d1,.fx-p.d2{--dif-c:var(--dif-ok)}
+.fx-p.d3{--dif-c:var(--dif-med)}
+.fx-p.d4,.fx-p.d5{--dif-c:var(--dif-mal)}
+/* el color vive en los tramos, no en el borde: con cinco rivales duros
+   seguidos, cinco cajas con borde naranja tapaban el resto de la ficha */
+
+/* ================================================================
+   SE HA MOVIDO DE ESCALON
+   El chivatazo que mas vale: el que sube empieza a puntuar y todavia
+   esta barato. Sale de comparar la captura de hoy con la de ayer.
+   ================================================================ */
+.fx-mov{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;
+  padding:3px 7px;border-radius:6px;letter-spacing:.01em;cursor:help;
+  text-transform:none;justify-content:center}
+.fx-mov.sube{background:var(--resalte);color:var(--casa);box-shadow:inset 0 0 0 1px var(--casa)}
+.fx-mov.baja{background:var(--resalte);color:var(--neg);box-shadow:inset 0 0 0 1px var(--neg)}
+td .mov{font-style:normal;font-size:8.5px;margin-left:3px;vertical-align:1px;cursor:help}
+td .mov.sube{color:var(--casa)}
+td .mov.baja{color:var(--neg)}
+
+/* ================================================================
+   LA GRAFICA DEL VALOR
+   Una sola serie, asi que no lleva leyenda: el titulo dice de quien es.
+   Linea de 2px, rejilla recesiva y los numeros con los colores del texto,
+   nunca con el de la linea.
+   ================================================================ */
+.g-caja{position:relative;padding:4px 0 0}
+.g-cab{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  margin-bottom:10px;flex-wrap:wrap}
+.g-titulo{font-size:13px;font-weight:600;line-height:1.3}
+.g-titulo span{display:block;font-weight:400;font-size:11.5px;color:var(--tinta2)}
+.g-balance{font-size:17px;font-weight:600;white-space:nowrap;line-height:1.1;text-align:right}
+.g-balance em{display:block;font-style:normal;font-size:11.5px;font-weight:500;color:var(--tinta2)}
+.g-balance.sube{color:var(--casa)}
+.g-balance.baja{color:var(--neg)}
+
+.g-svg{display:block;width:100%;height:auto;touch-action:pan-y;overflow:visible}
+.g-rejilla{stroke:var(--linea);stroke-width:1}
+.g-eje{fill:var(--tinta2);font-size:9.5px;font-family:inherit}
+.g-area{fill:var(--acento);opacity:.1;stroke:none}
+.g-linea{fill:none;stroke:var(--acento);stroke-width:2;
+  stroke-linejoin:round;stroke-linecap:round}
+.g-cruz{stroke:var(--tinta2);stroke-width:1;stroke-dasharray:3 3}
+.g-punto{fill:var(--acento);stroke:var(--tarjeta);stroke-width:2}
+.g-zona{fill:transparent;cursor:crosshair}
+.g-cursor[hidden]{display:none}
+
+.g-globo{position:absolute;top:52px;width:104px;padding:6px 8px;pointer-events:none;
+  background:var(--tarjeta);border:1px solid var(--linea);border-radius:8px;
+  box-shadow:0 6px 18px var(--sombra);text-align:center;line-height:1.25}
+.g-globo[hidden]{display:none}
+.g-globo b{display:block;font-size:13px;font-weight:600}
+.g-globo span{display:block;font-size:10.5px;color:var(--tinta2)}
+.g-globo i{font-style:normal;font-size:10.5px;font-weight:600}
+.g-globo i.sube{color:var(--casa)}
+.g-globo i.baja{color:var(--neg)}
+.g-pie{margin:10px 0 0;font-size:11.5px;color:var(--tinta2);line-height:1.4}
+.fx-nada{margin:0;font-size:13px;color:var(--tinta2)}
+
+/* ================================================================
+   BOTONES
+   Antes los tres de la cabecera eran iguales y grises, asi que no se
+   veia que dos son acciones y el otro es un ajuste. Ahora los dos de
+   accion tienen cuerpo y el del tema se queda en un icono.
+   ================================================================ */
+.cab-btns{margin-left:auto;display:flex;align-items:center;gap:8px}
+.tema{margin-left:0}
+.tema.accion{background:var(--tarjeta);border:1px solid var(--linea);color:var(--tinta);
+  font-size:13.5px;font-weight:500;padding:7px 15px;border-radius:9px;
+  box-shadow:0 1px 2px var(--sombra);display:inline-flex;align-items:center;gap:7px;
+  transition:transform 120ms var(--ease-out),border-color 120ms ease,
+    box-shadow 160ms var(--ease-out)}
+.tema.accion:hover{border-color:var(--acento);color:var(--acento);
+  box-shadow:0 3px 10px var(--sombra)}
+.tema.accion:active{transform:scale(.97)}
+.tema.accion svg{width:15px;height:15px;flex:none;stroke:currentColor;
+  fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+/* el del tema no es una accion del dia a dia: solo el icono */
+.tema.icono{padding:7px;border-radius:9px;line-height:0;color:var(--tinta2)}
+.tema.icono svg{width:16px;height:16px;stroke:currentColor;fill:none;
+  stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.tema.icono:hover{border-color:var(--acento);color:var(--acento)}
+.tema.icono:active{transform:scale(.94)}
+
+/* los de la ficha: que se vean como botones, no como etiquetas */
+.fx-btn{background:var(--resalte);border-color:transparent;font-weight:500;
+  box-shadow:inset 0 0 0 1px var(--linea)}
+.fx-btn:hover{background:var(--tarjeta);box-shadow:inset 0 0 0 1px var(--acento)}
+.fx-btn.cmp{box-shadow:0 2px 8px var(--sombra)}
+.fx-btn.cmp:hover{background:var(--acento);box-shadow:0 4px 12px var(--sombra)}
+
+@media (max-width:700px){
+  .cab-btns{gap:6px}
+  .tema.accion{font-size:12.5px;padding:6px 11px;gap:5px}
+  .tema.accion svg{width:14px;height:14px}
+  .g-balance{font-size:15px}
+  .g-caja{padding:0}
+  .fx-p u{font-size:9px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tema.accion:active,.tema.icono:active{transform:none}
+  .tema.accion,.tema.icono{transition:none}
+}
+@media (prefers-contrast:more){
+  .fx-btn{border-color:var(--tinta);box-shadow:none}
+  .tema.accion,.tema.icono{border-color:var(--tinta)}
+}
+
+/* un partido europeo no es uno de Liga: se marca para que se note de un
+   vistazo que ese dia hay viaje entre semana y probable rotacion */
+.fx-p.eu{border-style:dashed}
+.fx-p.eu b{color:var(--acento);font-weight:700;letter-spacing:.03em}

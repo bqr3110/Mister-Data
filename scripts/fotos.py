@@ -86,7 +86,7 @@ def encoge(bruto):
 def main():
     os.makedirs(DESTINO, exist_ok=True)
     os.makedirs("datos", exist_ok=True)
-    cab = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
+    cab = {"User-Agent": "Mister-Data/1.0 (+https://github.com/bqr3110/Mister-Data; proyecto personal, no comercial)"}
 
     # lo que ya sabemos de otras pasadas
     conocidas = {}

@@ -111,12 +111,12 @@ const COLS = [
   {k:'ult', t:'Últ.', ultimos:1},
   {k:'tit', t:'Tit'},
   {k:'pj',  t:'PJ'},
+  {k:'tot', t:'Total',   dec:1},
   {k:'med', t:'Media',   dec:2},
   {k:'mdn', t:'Mediana', dec:1},
   {k:'cas', t:'Casa', sep:1,    dec:2, cls:'casa'},
   {k:'fue', t:'Fuera',   dec:2, cls:'fuera'},
   {k:'dif', t:'Casa − fuera', cls:'dif', dec:2, dif:1},
-  {k:'tot', t:'Total',   dec:1},
   {k:'g',   t:'G', sep:1},
   {k:'atot', t:'Asis'},
   {k:'y',   t:'Am'},
@@ -129,10 +129,10 @@ const COLS = [
 const estado = {
   fuente:'m2', buscar:'', sede:'', minpj:1,
   pos:new Set(), equipos:new Set(), modoEq:'incluir', rivales:new Set(),
-  valMin:null, valMax:null, camMin:null,
+  valMin:null, valMax:null, camMin:null, tpMin:null,
   exGol:false, exRoja:false, exMin:false, minMinutos:45,
   excluidas:new Set(), rangos:[], stats:{},
-  orden:'med', asc:false,
+  orden:'tot', asc:false,
   carro:[], atrib:['med','mdn','cas','fue','pj'],
   ultN:5, juOn:false, juCuantos:3, juMinutos:15, juTit:false,
   juTotOn:false, juTotMin:180, juUltimo:false,
@@ -175,11 +175,31 @@ function actividad(j){
           ultimo: ult.length ? minutosEn(j, ult[ult.length-1]) >= estado.juMinutos : false};
 }
 
+/* ¿Se puede valorar su media? Una media de 9 sacada de un solo partido no
+   dice nada: hacen falta tres de los cinco ultimos partidos de SU equipo.
+   Esto es fijo a proposito, no depende de los filtros de arriba, para que
+   la columna Media signifique siempre lo mismo. En la ficha sale igual. */
+const MED_DE = 5, MED_MIN = 3;
+
+function recientes(j, pts){
+  const ult = (JUGADAS[j.e] || JORNADAS).slice(-MED_DE);
+  let n = 0;
+  for(const x of ult) if(pts[x] !== undefined && pts[x] !== null) n++;
+  return {rec:n, recDe:ult.length};
+}
+
 const mediana = v => { if(!v.length) return null;
   const o=[...v].sort((a,b)=>a-b), m=o.length>>1;
   return o.length%2 ? o[m] : +((o[m-1]+o[m])/2).toFixed(2); };
 const prom = v => v.length ? v.reduce((a,b)=>a+b,0)/v.length : null;
 const esNota = () => estado.fuente === 'sf';
+
+/* Al principio de temporada, con dos jornadas jugadas, pedir tres de cinco
+   dejaria la columna entera en blanco: se pide lo que se pueda. */
+function valeLaMedia(j, pts){
+  const {rec, recDe} = recientes(j, pts);
+  return {rec, recDe, medOk: rec >= Math.min(MED_MIN, recDe)};
+}
 
 function calcular(j, ignorarMin){
   const pts = j.p[estado.fuente];
@@ -226,7 +246,7 @@ function calcular(j, ignorarMin){
   const malo  = nota ? 6 : 0;
   return {n:j.n, e:j.e, pos:j.pos||'', nc:j.nc, ref:j, usadas, disp:Object.keys(pts).length,
     pj:todos.length, tot:+todos.reduce((x,z)=>x+z,0).toFixed(1),
-    med:prom(todos), mdn:mediana(todos),
+    med:prom(todos), mdn:mediana(todos), ...valeLaMedia(j, pts),
     cas, fue, dif:(cas!==null&&fue!==null)?cas-fue:null,
     g,a,asg,y,r,min,tit,t,oc, atot:a+asg, minU, titU, hayTit,
     mpm: todos.length ? Math.round(minU/todos.length) : null,
@@ -298,7 +318,9 @@ const AYUDA = {
   ult:  'Cuántos de los últimos partidos de su equipo ha jugado. Se mira sobre los partidos reales, sin que le afecten tus exclusiones',
   ultMin:'Minutos sumados en los últimos partidos de su equipo',
   pj:   'Partidos jugados que entran en el cálculo. Si ves 4/6, es que dos quedan fuera por tus filtros',
-  med:  'Media de puntos por partido',
+  med:  'Media de puntos por partido. En la tabla solo sale si ha jugado 3 de los ' +
+        '5 últimos partidos de su equipo: con menos, una media no dice nada. ' +
+        'En su ficha está siempre',
   mdn:  'Mediana: el valor del medio. Un partidazo suelto no la infla, así que dice mejor lo que suele hacer',
   cas:  'Media de puntos jugando en casa',
   fue:  'Media de puntos jugando fuera',
@@ -364,7 +386,7 @@ const esMovil = () => MOVIL.matches;
 
 // etiquetas cortas para las tarjetas, donde no cabe "Casa − fuera"
 // columnas de la tira horizontal: el orden en que se leen en el movil
-const TIRA = ['med','mdn','cas','fue','dif','ult','pj','tot','tit','g','atot','min','mpm','y','r','val','cam'];
+const TIRA = ['tot','med','mdn','cas','fue','dif','ult','pj','tit','g','atot','min','mpm','y','r','val','cam'];
 const CORTO = {ult:'Jugados', tit:'Titular', atot:'Asis', med:'Media', mdn:'Mediana', dif:'Casa−fuera', mpm:'Min/P', tot:'Total',
                cas:'Casa', fue:'Fuera', min:'Min', val:'Valor', cam:'Hoy'};
 const RACHA_TJ = 5;   // partidos visibles en la racha de la tarjeta
@@ -382,6 +404,7 @@ function valorTira(f, k){
   }
   if(k === 'ult') return `${f.ult}<span class="tenue">/${f.ultDe}</span>`;
   if(k === 'pj' && f.pj !== f.disp) return `${f.pj}<span class="tenue">/${f.disp}</span>`;
+  if(k === 'med' && !f.medOk) return '<span class="tenue">·</span>';
   return fmt(f[k], c.dec);
 }
 
@@ -447,6 +470,32 @@ function pintarTarjetas(filas){
     ? `<button class="tj-mas" id="tj-mas">Ver ${quedan} jugador${quedan===1?'':'es'} más</button>` : '');
 }
 
+/* Las columnas de la izquierda se quedan fijas al deslizar. Para eso cada
+   una necesita saber cuanto miden TODAS las de su izquierda, y eso estaba
+   escrito a mano en el css. El problema: en una tabla el navegador reparte
+   los anchos segun el contenido, asi que si un dia aparece un rol largo
+   ("Importante") la columna crece, el left siguiente se queda corto y las
+   cabeceras se montan unas encima de otras ("RoTit%"). Asi que se miden
+   despues de pintar, que es la unica forma de que siempre cuadren. */
+let remedir = null;
+
+function fijarPegadas(){
+  const tabla = document.querySelector('.tabla-caja table');
+  if(!tabla) return;
+  const cab = [...tabla.querySelectorAll('#cabeceras th.pega')];
+  if(!cab.length) return;
+  const cuerpo = tabla.querySelector('#cuerpo tr');
+  let x = 0;
+  cab.forEach((th, i) => {
+    const td = cuerpo ? cuerpo.children[i] : null;
+    th.style.left = x + 'px';
+    if(td) td.parentElement.parentElement
+      .querySelectorAll(`tr > :nth-child(${i + 1})`).forEach(c => { c.style.left = x + 'px'; });
+    // el ancho real que ha acabado teniendo la columna, no el que suponiamos
+    x += Math.round(th.getBoundingClientRect().width);
+  });
+}
+
 function pintarTabla(filas, k){
   document.getElementById('cabeceras').innerHTML = COLS.map(c =>
     `<th class="${c.txt?'nom':c.insig?'cen':c.racha?'racha':c.cls==='dif'?'dif':''} ${c.sep?'sep':''} ${c.pega?'pega '+c.pega:''} ${k===c.k?'activo':''}${c.noOrd?' quieta':''}"${c.noOrd?'':` data-k="${c.k}"`}${
@@ -467,9 +516,15 @@ function pintarTabla(filas, k){
       }
       // el sitio que ocupa en su equipo y lo probable que es que juegue:
       // se miran, no se ordenan por ellos
-      if(c.rol) return `<td class="cen${s}">${f.ref.jer
-        ? `<span class="jer jer-${f.ref.jer}">${JERARQUIA[f.ref.jer]}</span>`
-        : '<span class="tenue">·</span>'}</td>`;
+      if(c.rol){
+        const j0 = f.ref.jer0, jh = f.ref.jer;
+        const mov = (j0 !== undefined && jh !== undefined)
+          ? `<i class="mov ${jh > j0 ? 'sube' : 'baja'}" title="Estaba en ${
+              JERARQUIA[j0]}">${jh > j0 ? '▲' : '▼'}</i>` : '';
+        return `<td class="cen${s}">${jh
+          ? `<span class="jer jer-${jh}">${JERARQUIA[jh]}</span>${mov}`
+          : '<span class="tenue">·</span>'}</td>`;
+      }
       if(c.tpc){
         const v = f.ref.tp;
         if(v === undefined || v === null) return `<td class="cen${s}"><span class="tenue">·</span></td>`;
@@ -488,12 +543,22 @@ function pintarTabla(filas, k){
         return `<td class="${f.cam>0?'sube':f.cam<0?'baja':'tenue'}">${sig}${
           (f.cam/1000).toFixed(0)}k${pc}</td>`;
       }
+      if(c.k==='med' && !f.medOk) return `<td class="${s}"><span class="tenue"` +
+        ` title="Solo ha jugado ${f.rec} de los ${f.recDe} ultimos partidos de` +
+        ` su equipo: la media no dice gran cosa. En su ficha esta">·</span></td>`;
       let cls = (c.cls || '') + s;
       if(c.dif) cls = 'dif' + s + ' ' + (f.dif===null ? '' : f.dif>0 ? 'dif-pos' : f.dif<0 ? 'dif-neg' : '');
       if(c.k==='g' && estado.exGol && f.g>0) return `<td class="fuera sep" title="Jornadas descartadas">${f.g} ✕</td>`;
       return `<td class="${cls}">${fmt(f[c.k], c.dec)}</td>`;
     }).join('') + '</tr>'
   ).join('') : `<tr><td class="vacio" colspan="${COLS.length}">Ningún jugador cumple estos filtros. Prueba a bajar los partidos mínimos.</td></tr>`;
+
+  // una vez pintada ya se puede medir. Y otra vez un poco despues: si un
+  // escudo no carga, su recambio de texto entra cuando la imagen falla, que
+  // es despues de esto, y puede ensanchar la columna.
+  fijarPegadas();
+  clearTimeout(remedir);
+  remedir = setTimeout(fijarPegadas, 400);
 }
 
 function pintar(){
@@ -517,6 +582,9 @@ function pintar(){
       // los que no tienen jerarquia conocida no se descartan: no es lo
       // mismo "es un reserva" que "todavia no lo he capturado"
       if(estado.jerMin && f.ref.jer !== undefined && f.ref.jer < estado.jerMin) return false;
+      // la titularidad si descarta a los que no la tienen: un jugador sin
+      // probabilidad publicada es que no entra en la convocatoria
+      if(estado.tpMin !== null && !(f.ref.tp >= estado.tpMin)) return false;
       return true;
     })
     .filter(f => Object.entries(estado.stats).every(([k,c]) => {
@@ -537,6 +605,7 @@ function pintar(){
   const k = estado.orden;
   filas.sort((x,z)=>{
     let A=x[k], B=z[k];
+    if(k==='med'){ if(!x.medOk) A=null; if(!z.medOk) B=null; }
     if(typeof A==='string') return estado.asc ? A.localeCompare(B) : B.localeCompare(A);
     if(A===null||A===undefined) return 1;
     if(B===null||B===undefined) return -1;
@@ -600,6 +669,8 @@ function listaActivos(){
     estado.juUltimo=false; document.getElementById('ju-ultimo').checked=false; }});
   if(estado.jerMin) L.push({t:`${JERARQUIA[estado.jerMin]} o más`, q:()=>{
     estado.jerMin=0; document.getElementById('jer-min').value='0'; }});
+  if(estado.tpMin !== null) L.push({t:`Titular al ${estado.tpMin}% o más`, q:()=>{
+    estado.tpMin=null; document.getElementById('tp-min').value=''; }});
   if(estado.exGol) L.push({t:'Sin jornadas con gol', q:()=>{
     estado.exGol=false; document.getElementById('ex-gol').checked=false; }});
   if(estado.exRoja) L.push({t:'Sin jornadas con roja', q:()=>{
@@ -644,6 +715,12 @@ function pintarActivos(){
   window.__activos = L;
 }
 
+function limpiarRol(){
+  estado.jerMin = 0; estado.tpMin = null;
+  const jm = document.getElementById('jer-min'); if(jm) jm.value = '0';
+  const tm = document.getElementById('tp-min');  if(tm) tm.value = '';
+}
+
 function limpiarTodo(){
   estado.sede = ''; ponerSede('');
   estado.minpj = 1; document.getElementById('minpj').value = 1;
@@ -656,9 +733,8 @@ function limpiarTodo(){
   estado.exGol = estado.exRoja = estado.exMin = false;
   ['ex-gol','ex-roja','ex-min'].forEach(i => document.getElementById(i).checked = false);
   estado.juOn = estado.juTotOn = estado.juUltimo = estado.juTit = false;
-  estado.jerMin = 0;
-  const jm = document.getElementById('jer-min'); if(jm) jm.value = '0';
   ['ju-min','ju-tot','ju-ultimo','ju-tit'].forEach(i => document.getElementById(i).checked = false);
+  limpiarRol();
   estado.excluidas.clear();
   document.querySelectorAll('#jornadas .chip').forEach(c => c.setAttribute('aria-pressed','false'));
   estado.rangos = []; pintarRangos();
@@ -689,6 +765,7 @@ function cuentas(){
     equipos: estado.equipos.size,
     valor: (estado.valMin!==null?1:0)+(estado.valMax!==null?1:0)+(estado.camMin!==null?1:0),
     juega: (estado.juOn?1:0)+(estado.juTotOn?1:0)+(estado.juUltimo?1:0),
+    rol: (estado.jerMin?1:0)+(estado.tpMin!==null?1:0),
     excluir: estado.rivales.size + estado.excluidas.size
              + (estado.exGol?1:0) + (estado.exRoja?1:0) + (estado.exMin?1:0),
     stats: Object.values(estado.stats).filter(c =>
@@ -1359,6 +1436,146 @@ function panelStats(f){
   }).join('');
 }
 
+/* ================================================================
+   LO QUE LE VIENE POR DELANTE
+   Un rival no es igual de duro para todos: al delantero le importa lo
+   que ENCAJA el rival, y al portero lo que MARCA (si le marcan, se queda
+   sin la porteria a cero). Asi que la dificultad se mira con un ojo o con
+   el otro segun donde juegue. Sale de los resultados, no de los puntos,
+   asi que no cambia al cambiar de sistema de puntuacion.
+   ================================================================ */
+
+const DEFENSIVO = pos => pos === 'Portero' || pos === 'Defensa';
+
+/* Los cinco quintiles del dato se pintan en tres: con siete jornadas de
+   muestra, distinguir "asequible" de "muy asequible" seria fingir una
+   precision que no hay. El numero exacto de goles va en el texto. */
+const TRAMOS = {1:1, 2:1, 3:2, 4:3, 5:3};
+const DUREZA = {1:'asequible', 2:'normal', 3:'difícil'};
+const COMPETICION = {CH:'Champions', EL:'Europa League', EU:'competición europea'};
+
+function calendario(f){
+  const pr = DATOS.prox[f.e] || [];
+  if(!pr.length) return '';
+  const def = DEFENSIVO(f.pos);
+  return pr.map(([n, sd, rival, cuando, comp]) => {
+    const d = (DATOS.dureza || {})[rival];
+    // 0 = lo que encaja el rival (le importa al que ataca)
+    // 1 = lo que marca el rival (le importa al que defiende)
+    // De los equipos europeos no hay datos, y no se inventan: van sin tramos.
+    const niv = d ? d[def ? 1 : 0] : 0;
+    const t = TRAMOS[niv] || 0;
+    const detalle = d
+      ? (def ? `${rival} marca ${d[3]} goles por partido`
+             : `${rival} encaja ${d[2]} goles por partido`) + `, en ${d[4]} partidos`
+      : comp ? 'de los equipos europeos no tengo datos'
+             : 'todavía sin datos de ese rival';
+    const tramos = t ? '<span class="tramos">' +
+      [1,2,3].map(i => `<i class="${i <= t ? 'on' : ''}">·</i>`).join('') + '</span>' : '';
+    const rotulo = comp || ('J' + n);
+    const quees = comp ? `${COMPETICION[comp] || comp} J${n}` : `J${n}`;
+    return `<span class="fx-p d${niv}${comp ? ' eu' : ''}" data-ayuda="${quees}: ${
+      sd === 'C' ? 'en casa contra' : 'fuera, contra'} ${rival}${cuando ? ' · ' + cuando : ''}${
+      t ? ' · ' + DUREZA[t] + (def ? ' para un defensa' : ' para atacar') : ''} (${detalle})">
+      <span class="fila-p"><b>${rotulo}</b>${escudo(rival, rival)}<i>${
+        sd === 'C' ? '🏠' : '✈️'}</i></span>${
+      cuando ? `<u>${cuando.split(' ').slice(0, 2).join(' ')}</u>` : ''}${tramos}</span>`;
+  }).join('');
+}
+
+/* ================================================================
+   LA EVOLUCION DEL VALOR
+   Una linea y nada mas: una sola serie, asi que no hace falta leyenda
+   (el titulo ya dice de quien es). El eje NO empieza en cero y se avisa:
+   un jugador de 20M que se mueve 300k no se veria desde el cero.
+   ================================================================ */
+
+const G = {an:560, al:150, iz:52, de:12, ar:14, ab:26};
+
+// en español el decimal va con coma, como en el resto de la aplicacion
+const coma = t => String(t).replace('.', ',');
+
+function fechaCorta(iso){
+  const [a, m, d] = iso.split('-');
+  return `${+d} ${['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'][+m-1]}`;
+}
+
+function graficaValor(j){
+  const v = j.v;
+  if(!v || v.length < 2) return '<p class="fx-nada">Todavía no hay histórico de su valor. ' +
+    'Se va guardando cada día, así que esto se llena solo.</p>';
+
+  // el eje de fechas viene recortado por delante igual que la serie
+  const eje = (DATOS.eje || []).slice(-v.length);
+  const pts = v.map((y, i) => [i, y]).filter(([, y]) => y !== null);
+  const ys = pts.map(([, y]) => y);
+  let min = Math.min(...ys), max = Math.max(...ys);
+  // un poco de aire arriba y abajo, y si no se ha movido nada, un rango minimo
+  const margen = Math.max((max - min) * 0.12, max * 0.004, 1);
+  min -= margen; max += margen;
+
+  const {an, al, iz, de, ar, ab} = G;
+  const px = i => iz + (v.length === 1 ? 0 : i * (an - iz - de) / (v.length - 1));
+  const py = y => ar + (max - y) * (al - ar - ab) / (max - min || 1);
+
+  // tres lineas de referencia, las de siempre: abajo, medio y arriba
+  const refs = [min + margen, (min + max) / 2, max - margen];
+  const grid = refs.map(y => `<line class="g-rejilla" x1="${iz}" x2="${an - de}"
+    y1="${py(y).toFixed(1)}" y2="${py(y).toFixed(1)}"/>
+    <text class="g-eje" x="${iz - 7}" y="${(py(y) + 3.5).toFixed(1)}" text-anchor="end"
+      >${coma((y / 1000).toFixed(1))}M</text>`).join('');
+
+  const linea = pts.map(([i, y], n) =>
+    `${n ? 'L' : 'M'}${px(i).toFixed(1)} ${py(y).toFixed(1)}`).join(' ');
+  const area = `${linea} L${px(pts[pts.length-1][0]).toFixed(1)} ${py(min).toFixed(1)}
+    L${px(pts[0][0]).toFixed(1)} ${py(min).toFixed(1)} Z`;
+
+  // las fechas de los extremos y la del medio, no las veinte
+  const marcas = [0, Math.floor((v.length - 1) / 2), v.length - 1]
+    .filter((x, i, a) => a.indexOf(x) === i && eje[x])
+    .map(i => `<text class="g-eje" x="${px(i).toFixed(1)}" y="${al - 6}"
+      text-anchor="${i === 0 ? 'start' : i === v.length - 1 ? 'end' : 'middle'}"
+      >${fechaCorta(eje[i])}</text>`).join('');
+
+  // una zona sensible por dia: el raton no tiene que acertarle al punto
+  const zonas = pts.map(([i, y]) => {
+    const ancho = (an - iz - de) / Math.max(v.length - 1, 1);
+    const sube = i ? y - (v[i-1] ?? y) : 0;
+    return `<rect class="g-zona" x="${(px(i) - ancho/2).toFixed(1)}" y="${ar}"
+      width="${ancho.toFixed(1)}" height="${al - ar - ab}"
+      data-x="${px(i).toFixed(1)}" data-y="${py(y).toFixed(1)}"
+      data-f="${eje[i] || ''}" data-v="${y}" data-s="${sube}"/>`;
+  }).join('');
+
+  const primero = ys[0], ultimo = ys[ys.length - 1];
+  const dif = ultimo - primero;
+  const pct = primero ? (dif / primero * 100) : 0;
+
+  return `<div class="g-caja">
+    <div class="g-cab">
+      <div class="g-titulo">Valor de ${j.n}<span>desde el ${fechaCorta(eje[0])}</span></div>
+      <div class="g-balance ${dif > 0 ? 'sube' : dif < 0 ? 'baja' : ''}">
+        ${dif > 0 ? '+' : ''}${coma((dif / 1000).toFixed(2))}M
+        <em>${pct > 0 ? '+' : ''}${coma(pct.toFixed(1))}%</em></div>
+    </div>
+    <svg class="g-svg" viewBox="0 0 ${an} ${al}" role="img"
+      aria-label="Evolución del valor de ${j.n} desde el ${fechaCorta(eje[0])}">
+      ${grid}
+      <path class="g-area" d="${area}"/>
+      <path class="g-linea" d="${linea}"/>
+      ${marcas}
+      <g class="g-cursor" hidden>
+        <line class="g-cruz" y1="${ar}" y2="${al - ab}"/>
+        <circle class="g-punto" r="4.5"/>
+      </g>
+      ${zonas}
+    </svg>
+    <div class="g-globo" hidden></div>
+    <p class="g-pie">El eje no empieza en cero: así se ve el movimiento de los últimos
+      días, que es de lo que van las subidas. Toca la gráfica para ver cada día.</p>
+  </div>`;
+}
+
 /* La ficha puede mirarse con otro sistema de puntuacion sin tocar la lista
    de detras. Se cambia la fuente un instante, se calcula, y se devuelve. */
 let fuenteFicha = 'm2';
@@ -1430,6 +1647,7 @@ function pintarFicha(j){
 
     document.getElementById('ficha-racha5').innerHTML = pintarRacha(f, 5);
     document.getElementById('pes-partidos').innerHTML = panelPartidos(f);
+    document.getElementById('pes-valor').innerHTML = graficaValor(j);
     document.getElementById('pes-stats').innerHTML = panelStats(f);
   });
   estado.sede = sedeAntes;
@@ -1461,9 +1679,18 @@ function abrirFicha(f){
      equipo y lo probable que es que juegue. Va aqui arriba, junto al
      valor, y no enterrado en la pestaña de estadisticas: es lo primero
      que quieres saber de un jugador que no conoces. */
-  const jer = f.ref.jer, tp = f.ref.tp;
+  const jer = f.ref.jer, tp = f.ref.tp, jer0 = f.ref.jer0;
   const rol = [];
   if(jer) rol.push(`<span class="jer jer-${jer}">${JERARQUIA[jer]}</span>`);
+  /* Si se ha movido de escalon desde la captura anterior, se dice. Es el
+     dato que mas vale de todos: el que sube empieza a puntuar y todavia
+     esta barato, y el que baja hay que quitarselo de encima. */
+  if(jer0 !== undefined && jer !== undefined){
+    const sube = jer > jer0;
+    rol.push(`<span class="fx-mov ${sube ? 'sube' : 'baja'}"
+      data-ayuda="Estaba en ${JERARQUIA[jer0]}${f.ref.jerD ? ' el ' + fechaCorta(f.ref.jerD) : ''}"
+      >${sube ? '▲' : '▼'} desde ${JERARQUIA[jer0]}</span>`);
+  }
   if(tp !== undefined && tp !== null){
     const j = f.ref.tj ? ` en la J${f.ref.tj}` : '';
     rol.push(`<span class="fx-tp ${tp >= 70 ? 'si' : tp >= 35 ? 'quiza' : 'no'}"
@@ -1472,10 +1699,7 @@ function abrirFicha(f){
   }
   document.getElementById('ficha-rol').innerHTML = rol.join('');
 
-  const pr = DATOS.prox[f.e] || [];
-  document.getElementById('ficha-prox').innerHTML = pr.length ? pr.map(([n,sd,rival,cuando]) =>
-    `<span class="fx-p" data-ayuda="J${n} ${sd==='C'?'en casa contra':'fuera contra'} ${rival}${cuando?' · '+cuando:''}">
-      <b>J${n}</b>${escudo(rival, rival)}<i>${sd==='C'?'🏠':'✈️'}</i></span>`).join('') : '';
+  document.getElementById('ficha-prox').innerHTML = calendario(f);
 
   fuenteFicha = estado.fuente;   // arranca con lo que tengas elegido fuera
   sedeFicha = estado.sede;
@@ -2070,11 +2294,10 @@ document.getElementById('barra-filtros').addEventListener('click', e => {
     document.getElementById('nota-rival').hidden = true; pintar(); }
   if(lim === 'juega'){
     estado.juOn = estado.juTotOn = estado.juUltimo = estado.juTit = false;
-  estado.jerMin = 0;
-  const jm = document.getElementById('jer-min'); if(jm) jm.value = '0';
     ['ju-min','ju-tot','ju-ultimo','ju-tit'].forEach(i => document.getElementById(i).checked = false);
     pintar();
   }
+  if(lim === 'rol'){ limpiarRol(); pintar(); }
   if(lim === 'valor'){
     estado.valMin = estado.valMax = estado.camMin = null;
     ['val-min','val-max','cam-min'].forEach(i => document.getElementById(i).value = '');
@@ -2174,11 +2397,51 @@ function arrancarComparador(){
     pintarFicha(window.__ficha.ref);
   });
 
+  /* El cursor de la grafica. Se mueve con el dedo o con el raton y no hay
+     que acertarle al punto: cada dia tiene una franja entera de ancho. */
+  const panelV = document.getElementById('pes-valor');
+
+  function moverCursor(e){
+    const z = e.target.closest('.g-zona');
+    const svg = panelV.querySelector('.g-svg');
+    const globo = panelV.querySelector('.g-globo');
+    if(!z || !svg || !globo) return;
+    const cur = svg.querySelector('.g-cursor');
+    cur.hidden = false;
+    cur.querySelector('.g-cruz').setAttribute('x1', z.dataset.x);
+    cur.querySelector('.g-cruz').setAttribute('x2', z.dataset.x);
+    cur.querySelector('.g-punto').setAttribute('cx', z.dataset.x);
+    cur.querySelector('.g-punto').setAttribute('cy', z.dataset.y);
+
+    const sube = +z.dataset.s;
+    globo.hidden = false;
+    globo.className = 'g-globo';
+    globo.innerHTML = `<b>${coma((+z.dataset.v / 1000).toFixed(2))}M</b>
+      <span>${z.dataset.f ? fechaCorta(z.dataset.f) : ''}</span>${
+      sube ? `<i class="${sube > 0 ? 'sube' : 'baja'}">${sube > 0 ? '+' : ''}${sube}k</i>` : ''}`;
+    // el globo sigue al cursor dentro de la caja, sin salirse por los lados
+    const caja = svg.getBoundingClientRect();
+    const x = caja.width * (+z.dataset.x / 560);
+    globo.style.left = Math.max(4, Math.min(caja.width - 104, x - 52)) + 'px';
+  }
+
+  function soltarCursor(){
+    const cur = panelV.querySelector('.g-cursor'), globo = panelV.querySelector('.g-globo');
+    if(cur) cur.hidden = true;
+    if(globo) globo.hidden = true;
+  }
+
+  panelV.addEventListener('pointermove', moverCursor);
+  panelV.addEventListener('pointerdown', moverCursor);
+  panelV.addEventListener('pointerleave', soltarCursor);
+  panelV.addEventListener('pointercancel', soltarCursor);
+
   document.getElementById('fx-pestanas').addEventListener('click', e => {
     const b = e.target.closest('.fx-pes'); if(!b) return;
     document.querySelectorAll('.fx-pes').forEach(x => x.classList.toggle('act', x === b));
     document.getElementById('pes-partidos').hidden = b.dataset.pes !== 'partidos';
-    document.getElementById('pes-stats').hidden = b.dataset.pes !== 'stats';
+    document.getElementById('pes-valor').hidden    = b.dataset.pes !== 'valor';
+    document.getElementById('pes-stats').hidden    = b.dataset.pes !== 'stats';
     document.querySelector('.fx-cuerpo').scrollTop = 0;
   });
 
@@ -2498,6 +2761,11 @@ function arrancar(){
   ent('ju-tot').addEventListener('change', e => { estado.juTotOn = e.target.checked; pintar(); });
   ent('ju-ultimo').addEventListener('change', e => { estado.juUltimo = e.target.checked; pintar(); });
   ent('jer-min').addEventListener('change', e => { estado.jerMin = +e.target.value || 0; pintar(); });
+  ent('tp-min').addEventListener('input', e => {
+    const v = e.target.value.trim();
+    estado.tpMin = v === '' ? null : +v;
+    pintar();
+  });
 
   // estadisticas clasicas
   const panelSt = document.getElementById('panel-stats');
@@ -2671,9 +2939,34 @@ document.getElementById('btn-tema').addEventListener('click', () => {
 });
 try { const t = localStorage.getItem('tema'); if(t) document.documentElement.setAttribute('data-theme', t); } catch(_){}
 
+/* Los nombres, los equipos y el "Sab 10/10" salen de raspar una web ajena
+   y luego se pintan con innerHTML. Si algun dia llegara un nombre con
+   etiquetas dentro, se ejecutarian en la web. web.py ya les quita los
+   angulos al generar el json, pero esto se vuelve a hacer aqui a proposito:
+   es el borde de entrada, asi que un campo nuevo que se olvide de pasar por
+   alla sigue estando cubierto. Sin angulos no hay etiqueta posible. */
+function sinAngulos(t){
+  return typeof t === 'string' ? t.replace(/[<>]/g, '') : t;
+}
+
+function sanear(d){
+  if(!d) return d;
+  for(const j of d.jugadores || []){
+    for(const c of ['n', 'nc', 'e', 'pos', 'jerN', 'f']) if(c in j) j[c] = sinAngulos(j[c]);
+  }
+  for(const e in d.prox || {}){
+    d.prox[e] = d.prox[e].map(x => x.map(sinAngulos));   // tambien la competicion
+  }
+  d.equipos = (d.equipos || []).map(sinAngulos);
+  d.posiciones = (d.posiciones || []).map(sinAngulos);
+  for(const c in d.fuentes || {}) d.fuentes[c] = sinAngulos(d.fuentes[c]);
+  d.fecha = sinAngulos(d.fecha);
+  return d;
+}
+
 fetch('datos.json?v=' + Date.now())
   .then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-  .then(d => { DATOS = d; arrancar(); })
+  .then(d => { DATOS = sanear(d); arrancar(); })
   .catch(e => {
     document.getElementById('cargando').hidden = true;
     const c = document.getElementById('error');

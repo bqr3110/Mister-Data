@@ -108,7 +108,7 @@ def procesar(equipo, slug, cabeceras):
 
 
 def main():
-    cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
+    cabeceras = {"User-Agent": "Mister-Data/1.0 (+https://github.com/bqr3110/Mister-Data; proyecto personal, no comercial)"}
 
     # lo ya guardado de otros dias se conserva; lo de hoy se reescribe
     hoy = date.today().isoformat()

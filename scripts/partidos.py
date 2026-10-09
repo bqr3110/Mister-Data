@@ -9,7 +9,7 @@ SALIDA = "datos/partidos.csv"
 
 
 def main():
-    cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
+    cabeceras = {"User-Agent": "Mister-Data/1.0 (+https://github.com/bqr3110/Mister-Data; proyecto personal, no comercial)"}
     r = requests.get(URL, headers=cabeceras, timeout=30)
     r.raise_for_status()
     sopa = BeautifulSoup(r.text, "html.parser")

@@ -35,7 +35,7 @@ def slug(nombre):
 
 def main():
     os.makedirs(DESTINO, exist_ok=True)
-    cab = {"User-Agent": "Mozilla/5.0"}
+    cab = {"User-Agent": "Mister-Data/1.0 (+https://github.com/bqr3110/Mister-Data; proyecto personal, no comercial)"}
     hechos, fallos = 0, []
 
     for nombre, num in sorted(EQUIPOS.items()):

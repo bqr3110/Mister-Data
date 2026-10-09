@@ -1,0 +1,42 @@
+DÓNDE VA CADA COSA
+==================
+
+Este zip ya trae las carpetas con el nombre que tienen en el repo, así que
+lo más rápido es arrastrarlas en GitHub: botón "Add file" > "Upload files",
+y sueltas la carpeta entera. GitHub respeta la ruta y machaca los ficheros
+que ya existen.
+
+  carpeta scripts/   ->  va a scripts/        (arrastrar la carpeta entera)
+  carpeta web/       ->  va a web/            (arrastrar la carpeta entera)
+  README.md          ->  va a la raíz
+  LICENSE            ->  va a la raíz
+
+  carpeta workflows/ ->  OJO, esta NO se arrastra igual.
+                         Su sitio real es .github/workflows/ y esa carpeta
+                         empieza por punto, así que el ordenador te la
+                         esconde y al arrastrarla se perdería la ruta.
+                         Son solo tres ficheros: ábrelos en GitHub uno a uno
+                         (.github/workflows/diario.yml, fotos.yml y
+                         escudos.yml), dale al lápiz y pega el contenido.
+
+EN QUÉ ORDEN
+============
+
+1. scripts/ y web/ y los dos de la raíz, todo de una vez.
+2. Los tres .yml a mano.
+3. Lanzas "Captura" y, cuando acabe, "Publicar".
+
+El único fichero NUEVO es scripts/europa.py. Todos los demás ya existen y
+solo hay que reemplazarlos.
+
+QUÉ MIRAR CUANDO ACABE LA CAPTURA
+=================================
+
+En el registro de "Captura", en el paso "Calendario europeo", tiene que
+salir algo así:
+
+  Champions: 36 partidos · Atlético, Barcelona, Betis, Real Madrid, Villarreal
+  Europa League: 16 partidos · Celta, Real Sociedad
+
+Si ahí pone "no esta publicada (404)" o un error, dímelo: ese script es el
+único que no he podido probar contra la web de verdad.

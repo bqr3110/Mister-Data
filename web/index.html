@@ -17,9 +17,17 @@
   <div class="titulo">
     <h1>Ojeador</h1>
     <span class="sub" id="cabecera-sub"></span>
-    <button class="tema" id="abrir-bal">Balance</button>
-    <button class="tema" id="abrir-cmp">Comparador</button>
-    <button class="tema" id="btn-tema">Cambiar tema</button>
+    <div class="cab-btns">
+      <button class="tema accion" id="abrir-bal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 7h14M7 7l-2.5 6h5L7 7zM17 7l-2.5 6h5L17 7z"/></svg>
+        Balance</button>
+      <button class="tema accion" id="abrir-cmp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        Comparador</button>
+      <button class="tema icono" id="btn-tema" aria-label="Cambiar tema" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 109 9 7 7 0 01-9-9z"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -119,8 +127,21 @@
 
           <label class="casilla"><input type="checkbox" id="ju-ultimo"><span>Jugó el último partido</span></label>
 
+          <button class="limpiar" data-limpiar="juega">quitar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <button class="filtro" data-p="rol" aria-expanded="false">Rol</button>
+      <div class="pop" id="pop-rol" hidden>
+        <div class="pop-cuerpo">
+          <span class="etiqueta">Lo que dicen los analistas de él: el sitio que
+            ocupa en su equipo y lo probable que es que salga de titular en la
+            próxima jornada.</span>
+
           <div class="linea-num">
-            <span class="etiqueta">Jerarquía en su equipo, al menos</span>
+            <span class="etiqueta">Jerarquía, al menos</span>
             <select id="jer-min">
               <option value="0" selected>da igual</option>
               <option value="2">Reserva</option>
@@ -132,7 +153,13 @@
             </select>
           </div>
 
-          <button class="limpiar" data-limpiar="juega">quitar</button>
+          <div class="linea-num">
+            <span class="etiqueta">Sale de titular con</span>
+            <input type="number" id="tp-min" min="0" max="100" step="5" placeholder="—">
+            <span class="uni">% de probabilidad o más</span>
+          </div>
+
+          <button class="limpiar" data-limpiar="rol">quitar</button>
         </div>
       </div>
     </div>
@@ -298,6 +325,7 @@
   <div class="fx-barra">
     <div class="fx-pestanas" id="fx-pestanas">
       <button class="fx-pes act" data-pes="partidos">Últimos partidos</button>
+      <button class="fx-pes" data-pes="valor">Valor</button>
       <button class="fx-pes" data-pes="stats">Estadísticas</button>
     </div>
     <div class="fx-sede" id="fx-sede">
@@ -309,6 +337,7 @@
 
   <div class="fx-cuerpo">
     <div class="fx-panel" id="pes-partidos"></div>
+    <div class="fx-panel" id="pes-valor" hidden></div>
     <div class="fx-panel" id="pes-stats" hidden></div>
   </div>
 </dialog>

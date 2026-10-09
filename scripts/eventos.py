@@ -293,7 +293,7 @@ def procesar(fila, cabeceras, fotos, sin_slug):
 
 
 def main():
-    cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
+    cabeceras = {"User-Agent": "Mister-Data/1.0 (+https://github.com/bqr3110/Mister-Data; proyecto personal, no comercial)"}
 
     partidos = list(csv.DictReader(open(PARTIDOS, encoding="utf-8")))
     terminados = [p for p in partidos if p["terminado"] == "1"]

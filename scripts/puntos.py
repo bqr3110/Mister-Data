@@ -117,7 +117,7 @@ def procesar(nombre_fuente, url, cabeceras, orden, hoy, titulares=None):
 
 
 def main():
-    cabeceras = {"User-Agent": "Mozilla/5.0 (proyecto personal, uso no comercial)"}
+    cabeceras = {"User-Agent": "Mister-Data/1.0 (+https://github.com/bqr3110/Mister-Data; proyecto personal, no comercial)"}
     hoy = date.today().isoformat()
     orden = orden_por_equipo()
 
