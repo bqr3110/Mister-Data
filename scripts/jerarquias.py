@@ -34,14 +34,21 @@ EQUIPOS = {
 
 URL = "https://www.futbolfantasy.com/laliga/equipos/{}/jerarquias"
 
-# de mas a menos peso. El numero es lo que se guarda, para poder pedir
-# "de Rotacion para arriba" con una sola comparacion
+# De mas a menos peso. El numero es lo que se guarda, para poder pedir "de
+# Rotacion para arriba" con una sola comparacion.
+#
+# Son siete, no cinco: por encima de Clave hay un escalon llamado "Dios"
+# (ahi estan Yamal y Raphinha) y por debajo de Reservas estan los
+# "Descartes". Al principio solo mire la pagina del Athletic, que no tiene
+# ninguno de los dos, y por eso 26 jugadores se quedaban sin jerarquia.
 NIVELES = {
-    "clave": 5,
-    "importantes": 4,
-    "rotacion": 3,
-    "revulsivos": 2,
-    "reservas": 1,
+    "dios": 7,
+    "clave": 6,
+    "importantes": 5,
+    "rotacion": 4,
+    "revulsivos": 3,
+    "reservas": 2,
+    "descartes": 1,
 }
 
 
