@@ -1,7 +1,7 @@
 jugador,equipo,jornada,probabilidad,capturado
 Aaron Ndive Mayol Mayol,Valencia,9,30,2026-10-15
 Aarón Martín Aarón,Racing,9,30,2026-10-15
-Abde Ezzalzouli Abde,Betis,9,80,2026-10-15
+Abde Ezzalzouli Abde,Betis,9,70,2026-10-15
 Abde Rebbach Rebbach,Alavés,9,70,2026-10-15
 Abdel Abqar Abqar,Getafe,9,50,2026-10-15
 Abdoulaye Faye Faye,Celta,9,20,2026-10-15
@@ -56,8 +56,8 @@ Anthony Gordon Gordon,Barcelona,9,50,2026-10-15
 Antonio Blanco Blanco,Alavés,9,80,2026-10-15
 Antonio Rüdiger Rüdiger,Real Madrid,9,50,2026-10-15
 Antonio Sivera Sivera,Alavés,9,95,2026-10-15
-Antony Antony,Betis,9,70,2026-10-15
-Arda Güler Güler,Real Madrid,9,70,2026-10-15
+Antony Antony,Betis,9,60,2026-10-15
+Arda Güler Güler,Real Madrid,9,80,2026-10-15
 Arnau Comas Comas,Deportivo,9,0,2026-10-15
 Arnau Martínez Arnau,Valencia,9,30,2026-10-15
 Arnau Ortiz Ortiz,Atlético,9,20,2026-10-15
@@ -67,11 +67,11 @@ Arsen Zakharyan Zakharyan,Real Sociedad,9,30,2026-10-15
 Asier Osambela Osambela,Osasuna,9,50,2026-10-15
 Asier Villalibre Villalibre,Racing,9,10,2026-10-15
 Augusto Batalla Batalla,Rayo,9,0,2026-10-15
-Aurélien Tchouaméni Tchouaméni,Real Madrid,9,80,2026-10-15
+Aurélien Tchouaméni Tchouaméni,Real Madrid,9,60,2026-10-15
 Axel Tape Tape,Levante,9,20,2026-10-15
 Aymeric Laporte Laporte,Athletic,9,60,2026-10-15
 Ayoze Pérez Ayoze,Villarreal,9,70,2026-10-15
-Bernardo Silva Bernardo Silva,Real Madrid,9,30,2026-10-15
+Bernardo Silva Bernardo Silva,Real Madrid,9,40,2026-10-15
 Beñat Gerenabarrena Gerenabarrena,Athletic,9,70,2026-10-15
 Beñat Prados Prados,Athletic,9,20,2026-10-15
 Beñat Turrientes Turrientes,Real Sociedad,9,30,2026-10-15
@@ -88,7 +88,7 @@ Carl Starfelt Starfelt,Celta,9,0,2026-10-15
 Carles Aleñá Aleñá,Alavés,9,40,2026-10-15
 Carlos Benavidez Protesoni,Alavés,9,30,2026-10-15
 Carlos Dotor Dotor,Málaga,9,50,2026-10-15
-Carlos Espí Carlos Espí,Real Madrid,9,10,2026-10-15
+Carlos Espí Carlos Espí,Real Madrid,9,15,2026-10-15
 Carlos López Carlos López,Málaga,9,5,2026-10-15
 Carlos Macià Carlos Macià,Villarreal,9,30,2026-10-15
 Carlos Puga Puga,Málaga,9,30,2026-10-15
@@ -104,9 +104,10 @@ Cucho Hernández Cucho,Betis,9,70,2026-10-15
 César Tárrega Tárrega,Valencia,9,40,2026-10-15
 Dakonam Djené Djené,Getafe,9,90,2026-10-15
 Dani Barcia Barcia,Deportivo,9,0,2026-10-15
-Dani Ceballos Ceballos,Betis,9,30,2026-10-15
+Dani Ceballos Ceballos,Betis,9,50,2026-10-15
 Dani Cárdenas Cárdenas,Rayo,9,10,2026-10-15
 Dani Lorenzo Lorenzo,Málaga,9,70,2026-10-15
+Dani Olmo Olmo,Barcelona,9,50,2026-10-15
 Dani Requena Requena,Levante,9,50,2026-10-15
 Dani Vivian Vivian,Athletic,9,20,2026-10-15
 Daniel Raba Raba,Valencia,9,50,2026-10-15
@@ -129,24 +130,24 @@ Edu Expósito Edu Expósito,Espanyol,9,80,2026-10-15
 Eduardo Camavinga Camavinga,Real Madrid,9,40,2026-10-15
 Einar Galilea Galilea,Málaga,9,30,2026-10-15
 Emil Audero Audero,Rayo,9,90,2026-10-15
-Endrick Endrick,Real Madrid,9,5,2026-10-15
+Endrick Endrick,Real Madrid,9,30,2026-10-15
 Eneko Jauregi Jauregi,Málaga,9,20,2026-10-15
 Enes Ünal Enes Ünal,Getafe,9,40,2026-10-15
 Enzo Bardelli Bardeli,Levante,9,40,2026-10-15
 Eric Garcia Eric Garcia,Barcelona,9,50,2026-10-15
 Ezequiel Ponce Ponce,Elche,9,10,2026-10-15
-Facundo Bernal Bernal,Betis,9,50,2026-10-15
+Facundo Bernal Bernal,Betis,9,70,2026-10-15
 Facundo Buonanotte Buonanotte,Elche,9,30,2026-10-15
 Facundo González Facu González,Racing,9,30,2026-10-15
 Federico Redondo Redondo,Elche,9,50,2026-10-15
 Federico Valverde Valverde,Real Madrid,9,90,2026-10-15
-Fermín López Fermín,Barcelona,9,50,2026-10-15
+Fermín López Fermín,Barcelona,9,60,2026-10-15
 Fernando Calero Calero,Málaga,9,70,2026-10-15
 Fernando Niño Fer Niño,Elche,9,80,2026-10-15
 Ferran Jutglà Jutglà,Celta,9,70,2026-10-15
 Filip Ugrinic Ugrinic,Valencia,9,50,2026-10-15
 Florian Lejeune Lejeune,Rayo,9,95,2026-10-15
-Fran García Fran García,Betis,9,60,2026-10-15
+Fran García Fran García,Betis,9,50,2026-10-15
 Fran González Fran González,Sevilla,9,5,2026-10-15
 Fran Pérez Fran Pérez,Rayo,9,20,2026-10-15
 Francho Serrano Francho,Getafe,9,50,2026-10-15
@@ -182,7 +183,7 @@ Hugo Novoa Novoa,Alavés,9,30,2026-10-15
 Hugo Rincón Rincón,Athletic,9,20,2026-10-15
 Hugo Sotelo Sotelo,Levante,9,0,2026-10-15
 Hugo Álvarez Hugo Álvarez,Celta,9,70,2026-10-15
-Héctor Bellerín Bellerín,Betis,9,60,2026-10-15
+Héctor Bellerín Bellerín,Betis,9,80,2026-10-15
 Héctor Fort Fort,Real Sociedad,9,70,2026-10-15
 Iago Aspas Aspas,Celta,9,50,2026-10-15
 Ibrahima Konaté Konaté,Real Madrid,9,60,2026-10-15
@@ -196,7 +197,7 @@ Ilaix Moriba Moriba,Celta,9,70,2026-10-15
 Ilias Akhomach Akhomach,Villarreal,9,80,2026-10-15
 Ionut Radu Radu,Celta,9,95,2026-10-15
 Isaac Romero Romero,Sevilla,9,0,2026-10-15
-Isco Alarcón Isco,Betis,9,60,2026-10-15
+Isco Alarcón Isco,Betis,9,50,2026-10-15
 Isi Palazón Isi,Rayo,9,50,2026-10-15
 Iván Azón Iván Azón,Getafe,9,40,2026-10-15
 Iván Balliu Balliu,Rayo,9,50,2026-10-15
@@ -309,7 +310,7 @@ Marc Bernal Bernal,Barcelona,9,40,2026-10-15
 Marc Casadó Casadó,Deportivo,9,0,2026-10-15
 Marc Cucurella Cucurella,Real Madrid,9,60,2026-10-15
 Marc Pubill Pubill,Atlético,9,50,2026-10-15
-Marc Roca Marc Roca,Betis,9,50,2026-10-15
+Marc Roca Marc Roca,Betis,9,40,2026-10-15
 Marcos Alonso M. Alonso,Celta,9,80,2026-10-15
 Marcos Fernández Marcos,Espanyol,9,30,2026-10-15
 Marcos Llorente M. Llorente,Atlético,9,70,2026-10-15
@@ -339,7 +340,7 @@ Nacho Pérez Nacho Pérez,Levante,9,50,2026-10-15
 Nahuel Tenaglia Tenaglia,Alavés,9,90,2026-10-15
 Natan Natan,Betis,9,50,2026-10-15
 Nathan-Dylan Saliba Saliba,Villarreal,9,70,2026-10-15
-Nelson Deossa Deossa,Betis,9,50,2026-10-15
+Nelson Deossa Deossa,Betis,9,40,2026-10-15
 Nemanja Gudelj Gudelj,Getafe,9,80,2026-10-15
 Nico Guillén Guillén,Sevilla,9,0,2026-10-15
 Nico Serrano Serrano,Athletic,9,10,2026-10-15
@@ -404,7 +405,7 @@ Robin Le Normand Le Normand,Atlético,9,50,2026-10-15
 Rockson Yeboah Yeboah,Osasuna,9,30,2026-10-15
 Rodri Hernández Rodri,Barcelona,9,70,2026-10-15
 Rodrigo Mendoza Mendoza,Atlético,9,10,2026-10-15
-Rodrigo Riquelme Riquelme,Betis,9,30,2026-10-15
+Rodrigo Riquelme Riquelme,Betis,9,50,2026-10-15
 Roger Brugué Brugui,Levante,9,70,2026-10-15
 Roger Hinojo Hinojo,Espanyol,9,30,2026-10-15
 Romain Del Castillo Del Castillo,Osasuna,9,0,2026-10-15
@@ -457,7 +458,7 @@ Wojciech Szczesny Szczesny,Barcelona,9,0,2026-10-15
 Xanet Oláiz Oláiz,Alavés,9,30,2026-10-15
 Xavi Espart Espart,Barcelona,9,50,2026-10-15
 Ximo Navarro Ximo,Deportivo,9,60,2026-10-15
-Yan Diomande Y. Diomande,Real Madrid,9,70,2026-10-15
+Yan Diomande Y. Diomande,Real Madrid,9,60,2026-10-15
 Yangel Herrera Herrera,Real Sociedad,9,70,2026-10-15
 Yanis Musuayi Musuayi,Levante,9,50,2026-10-15
 Yassir Zabiri Zabiri,Racing,9,90,2026-10-15
@@ -484,7 +485,7 @@ Zakaria Eddahchouri Eddahchouri,Deportivo,9,10,2026-10-15
 Álvaro Núñez Á. Núñez,Celta,9,50,2026-10-15
 Álvaro Valles Valles,Betis,9,80,2026-10-15
 Ángel Fortuño Fortuño,Espanyol,9,50,2026-10-15
-Ángel Ortiz Ortiz,Betis,9,40,2026-10-15
+Ángel Ortiz Ortiz,Betis,9,20,2026-10-15
 Ángel Pérez Ángel Pérez,Alavés,9,0,2026-10-15
 Íñigo Ruiz de Galarreta R. de Galarreta,Athletic,9,70,2026-10-15
 Íñigo Sainz-Maza Sainz-Maza,Racing,9,10,2026-10-15
