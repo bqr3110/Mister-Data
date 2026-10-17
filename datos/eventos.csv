@@ -12011,3 +12011,146 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad,v
 22496,8,2026-10-12 21:00,Sevilla,visitante,Romero,isaac-romero,Delantero,nota_sofascore,6.9,5
 22496,8,2026-10-12 21:00,Sevilla,visitante,Romero,isaac-romero,Delantero,min,22.0,5
 22496,8,2026-10-12 21:00,Sevilla,visitante,Romero,isaac-romero,Delantero,goles,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Leo Román,leo-roman,Portero,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Leo Román,leo-roman,Portero,nota_cronista,2.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Leo Román,leo-roman,Portero,nota_sofascore,6.3,5
+22504,9,2026-10-16 21:00,Deportivo,local,Leo Román,leo-roman,Portero,min,90.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Ximo,ximo-navarro,Defensa,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Ximo,ximo-navarro,Defensa,nota_cronista,5.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Ximo,ximo-navarro,Defensa,nota_sofascore,6.9,5
+22504,9,2026-10-16 21:00,Deportivo,local,Ximo,ximo-navarro,Defensa,min,62.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Giménez,jose-maria-gimenez,Defensa,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Giménez,jose-maria-gimenez,Defensa,nota_cronista,7.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Giménez,jose-maria-gimenez,Defensa,nota_sofascore,7.1,5
+22504,9,2026-10-16 21:00,Deportivo,local,Giménez,jose-maria-gimenez,Defensa,min,90.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Quagliata,giacomo-quagliata,Defensa,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Quagliata,giacomo-quagliata,Defensa,nota_cronista,8.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Quagliata,giacomo-quagliata,Defensa,nota_sofascore,6.9,5
+22504,9,2026-10-16 21:00,Deportivo,local,Quagliata,giacomo-quagliata,Defensa,min,90.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Ede,bright-ede,Defensa,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Ede,bright-ede,Defensa,nota_cronista,7.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Ede,bright-ede,Defensa,nota_sofascore,6.6,5
+22504,9,2026-10-16 21:00,Deportivo,local,Ede,bright-ede,Defensa,min,85.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Riki,riki-rodriguez,Mediocampista,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Riki,riki-rodriguez,Mediocampista,nota_cronista,6.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Riki,riki-rodriguez,Mediocampista,nota_sofascore,6.5,5
+22504,9,2026-10-16 21:00,Deportivo,local,Riki,riki-rodriguez,Mediocampista,min,80.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Mario,mario-soriano,Mediocampista,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Mario,mario-soriano,Mediocampista,nota_cronista,6.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Mario,mario-soriano,Mediocampista,nota_sofascore,6.5,5
+22504,9,2026-10-16 21:00,Deportivo,local,Mario,mario-soriano,Mediocampista,min,90.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Luismi,luismi-cruz,Mediocampista,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Luismi,luismi-cruz,Mediocampista,nota_cronista,5.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Luismi,luismi-cruz,Mediocampista,nota_sofascore,6.3,5
+22504,9,2026-10-16 21:00,Deportivo,local,Luismi,luismi-cruz,Mediocampista,min,62.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Luismi,luismi-cruz,Mediocampista,amarillas,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Villares,diego-villares,Mediocampista,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Villares,diego-villares,Mediocampista,nota_cronista,6.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Villares,diego-villares,Mediocampista,nota_sofascore,6.5,5
+22504,9,2026-10-16 21:00,Deportivo,local,Villares,diego-villares,Mediocampista,min,90.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Villares,diego-villares,Mediocampista,asis_sg,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Yeremay,yeremay-hernandez,Delantero,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Yeremay,yeremay-hernandez,Delantero,nota_cronista,8.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Yeremay,yeremay-hernandez,Delantero,nota_sofascore,7.7,5
+22504,9,2026-10-16 21:00,Deportivo,local,Yeremay,yeremay-hernandez,Delantero,min,80.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Bil Nsongo,bil-nsongo,Delantero,titular,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Bil Nsongo,bil-nsongo,Delantero,nota_cronista,7.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Bil Nsongo,bil-nsongo,Delantero,nota_sofascore,7.4,5
+22504,9,2026-10-16 21:00,Deportivo,local,Bil Nsongo,bil-nsongo,Delantero,min,90.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Bil Nsongo,bil-nsongo,Delantero,goles,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Álvaro,alvaro-fernandez,Portero,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Angeliño,angelino,Defensa,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Angeliño,angelino,Defensa,nota_cronista,4.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Angeliño,angelino,Defensa,nota_sofascore,6.8,5
+22504,9,2026-10-16 21:00,Deportivo,local,Angeliño,angelino,Defensa,min,10.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Altimira,adria-altimira,Defensa,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Altimira,adria-altimira,Defensa,nota_cronista,5.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Altimira,adria-altimira,Defensa,nota_sofascore,6.4,5
+22504,9,2026-10-16 21:00,Deportivo,local,Altimira,adria-altimira,Defensa,min,28.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Altimira,adria-altimira,Defensa,amarillas,1.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Loureiro,miguel-loureiro,Defensa,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Loureiro,miguel-loureiro,Defensa,nota_sofascore,6.9,5
+22504,9,2026-10-16 21:00,Deportivo,local,Loureiro,miguel-loureiro,Defensa,min,5.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Noubi,lucas-noubi,Defensa,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Yayo González,yayo-gonzalez,Mediocampista,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Asp Jensen,jonathan-asp-jensen,Mediocampista,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Asp Jensen,jonathan-asp-jensen,Mediocampista,nota_cronista,4.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Asp Jensen,jonathan-asp-jensen,Mediocampista,nota_sofascore,6.3,5
+22504,9,2026-10-16 21:00,Deportivo,local,Asp Jensen,jonathan-asp-jensen,Mediocampista,min,10.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Noé Carrillo,noe-carrillo,Mediocampista,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,A. Traoré,adama-traore-cachas,Delantero,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,A. Traoré,adama-traore-cachas,Delantero,nota_cronista,6.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,A. Traoré,adama-traore-cachas,Delantero,nota_sofascore,6.7,5
+22504,9,2026-10-16 21:00,Deportivo,local,A. Traoré,adama-traore-cachas,Delantero,min,28.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Mella,david-mella,Delantero,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Ochoa,martin-ochoa,Delantero,titular,0.0,5
+22504,9,2026-10-16 21:00,Deportivo,local,Kevin Sánchez,kevin-sanchez,Delantero,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ryan,mat-ryan,Portero,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ryan,mat-ryan,Portero,nota_cronista,7.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ryan,mat-ryan,Portero,nota_sofascore,6.7,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ryan,mat-ryan,Portero,min,90.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,De la Fuente,adrian-de-la-fuente,Defensa,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,De la Fuente,adrian-de-la-fuente,Defensa,nota_cronista,7.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,De la Fuente,adrian-de-la-fuente,Defensa,nota_sofascore,7.8,5
+22504,9,2026-10-16 21:00,Levante,visitante,De la Fuente,adrian-de-la-fuente,Defensa,min,90.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,De la Fuente,adrian-de-la-fuente,Defensa,amarillas,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Manu Sánchez,manu-sanchez,Defensa,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Manu Sánchez,manu-sanchez,Defensa,nota_cronista,5.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Manu Sánchez,manu-sanchez,Defensa,nota_sofascore,6.3,5
+22504,9,2026-10-16 21:00,Levante,visitante,Manu Sánchez,manu-sanchez,Defensa,min,90.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Nacho Pérez,nacho-perez-1,Defensa,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Nacho Pérez,nacho-perez-1,Defensa,nota_cronista,5.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Nacho Pérez,nacho-perez-1,Defensa,nota_sofascore,6.6,5
+22504,9,2026-10-16 21:00,Levante,visitante,Nacho Pérez,nacho-perez-1,Defensa,min,76.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ndukwe,ifeanyi-ndukwe,Defensa,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ndukwe,ifeanyi-ndukwe,Defensa,nota_cronista,6.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ndukwe,ifeanyi-ndukwe,Defensa,nota_sofascore,6.8,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ndukwe,ifeanyi-ndukwe,Defensa,min,90.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Oriol Rey,oriol-rey,Mediocampista,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Oriol Rey,oriol-rey,Mediocampista,nota_cronista,5.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Oriol Rey,oriol-rey,Mediocampista,nota_sofascore,6.4,5
+22504,9,2026-10-16 21:00,Levante,visitante,Oriol Rey,oriol-rey,Mediocampista,min,69.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Requena,dani-requena,Mediocampista,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Requena,dani-requena,Mediocampista,nota_cronista,7.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Requena,dani-requena,Mediocampista,nota_sofascore,7.5,5
+22504,9,2026-10-16 21:00,Levante,visitante,Requena,dani-requena,Mediocampista,min,90.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Requena,dani-requena,Mediocampista,goles,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Requena,dani-requena,Mediocampista,tiros,2.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Thiago,thiago-fernandez,Mediocampista,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Thiago,thiago-fernandez,Mediocampista,nota_cronista,4.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Thiago,thiago-fernandez,Mediocampista,nota_sofascore,7.5,5
+22504,9,2026-10-16 21:00,Levante,visitante,Thiago,thiago-fernandez,Mediocampista,min,89.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Bardeli,enzo-bardelli,Mediocampista,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Bardeli,enzo-bardelli,Mediocampista,nota_cronista,4.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Bardeli,enzo-bardelli,Mediocampista,nota_sofascore,6.8,5
+22504,9,2026-10-16 21:00,Levante,visitante,Bardeli,enzo-bardelli,Mediocampista,min,69.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Iván Romero,ivan-romero,Delantero,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Iván Romero,ivan-romero,Delantero,nota_cronista,5.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Iván Romero,ivan-romero,Delantero,nota_sofascore,6.8,5
+22504,9,2026-10-16 21:00,Levante,visitante,Iván Romero,ivan-romero,Delantero,min,90.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Iván Romero,ivan-romero,Delantero,amarillas,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Brugui,roger-brugue,Mediocampista,titular,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Brugui,roger-brugue,Mediocampista,nota_cronista,6.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Brugui,roger-brugue,Mediocampista,nota_sofascore,6.7,5
+22504,9,2026-10-16 21:00,Levante,visitante,Brugui,roger-brugue,Mediocampista,min,90.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Cuñat Campos,pablo-campos,Portero,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Galdin,igor-galdin,Portero,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Mandi,aissa-mandi,Defensa,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Toljan,jeremy-toljan,Defensa,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Toljan,jeremy-toljan,Defensa,nota_sofascore,6.9,5
+22504,9,2026-10-16 21:00,Levante,visitante,Toljan,jeremy-toljan,Defensa,min,14.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Víctor García,victor-garcia-1,Mediocampista,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Víctor García,victor-garcia-1,Mediocampista,min,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Jorge Cabello,jorge-cabello,Defensa,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Olasagasti,jon-ander-olasagasti,Mediocampista,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Olasagasti,jon-ander-olasagasti,Mediocampista,nota_cronista,6.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Olasagasti,jon-ander-olasagasti,Mediocampista,nota_sofascore,6.9,5
+22504,9,2026-10-16 21:00,Levante,visitante,Olasagasti,jon-ander-olasagasti,Mediocampista,min,21.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Cortés,paco-cortes,Mediocampista,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Tape,axel-tape,Mediocampista,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ratkov,petar-ratkov,Delantero,titular,0.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ratkov,petar-ratkov,Delantero,nota_cronista,5.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ratkov,petar-ratkov,Delantero,nota_sofascore,7.2,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ratkov,petar-ratkov,Delantero,min,21.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Ratkov,petar-ratkov,Delantero,asis,1.0,5
+22504,9,2026-10-16 21:00,Levante,visitante,Musuayi,yanis-musuayi,Delantero,titular,0.0,5
