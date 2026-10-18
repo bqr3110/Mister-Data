@@ -1,0 +1,57 @@
+competicion,id,jornada,local,visitante,terminado,resultado,cuando
+Champions,24112,1,B. Dortmund,Villarreal,1,3-2,
+Champions,24114,1,Lille,Betis,1,2-3,
+Champions,24115,1,Real Madrid,Inter,1,2-1,
+Champions,24116,1,Barcelona,Feyenoord,1,5-1,
+Champions,24118,1,Liverpool,Atlético,1,2-1,
+Champions,24131,2,Atlético,Man United,1,2-0,
+Champions,24132,2,Galatasaray,Barcelona,1,1-4,
+Champions,24136,2,Villarreal,Napoli,1,3-1,
+Champions,24139,2,Roma,Real Madrid,1,3-4,
+Champions,24143,2,Betis,Porto,1,3-2,
+Champions,24150,3,Liverpool,Villarreal,0,,Mar 20/10 21:00h
+Champions,24152,3,PSG,Barcelona,0,,Mar 20/10 21:00h
+Champions,24154,3,Stuttgart,Atlético,0,,Mar 20/10 21:00h
+Champions,24161,3,Betis,Feyenoord,0,,Mie 21/10 21:00h
+Champions,24162,3,Real Madrid,RB Leipzig,0,,Mie 21/10 21:00h
+Champions,24166,4,Atlético,Bayern,0,,Mar 03/11 21:00h
+Champions,24168,4,Barcelona,Aston Villa,0,,Mar 03/11 21:00h
+Champions,24172,4,Villarreal,PSG,0,,Mar 03/11 21:00h
+Champions,24173,4,AEK,Real Madrid,0,,Mie 04/11 18:45h
+Champions,24175,4,B. Dortmund,Betis,0,,Mie 04/11 21:00h
+Champions,24189,5,Real Madrid,PSV,0,,Mar 24/11 21:00h
+Champions,24190,5,Slo. Bratislava,Betis,0,,Mar 24/11 21:00h
+Champions,24191,5,Slavia Praga,Villarreal,0,,Mie 25/11 18:45h
+Champions,24192,5,Sabah,Barcelona,0,,Mie 25/11 18:45h
+Champions,24193,5,Atlético,Viking,0,,Mie 25/11 21:00h
+Champions,24201,6,Villarreal,Sabah,0,,Mar 08/12 18:45h
+Champions,24205,6,Barcelona,Man City,0,,Mar 08/12 21:00h
+Champions,24209,6,Betis,Como,0,,Mie 09/12 18:45h
+Champions,24211,6,Arsenal,Real Madrid,0,,Mie 09/12 21:00h
+Champions,24215,6,PSV,Atlético,0,,Mie 09/12 21:00h
+Champions,24218,7,Bodø/Glimt,Atlético,0,,Mar 19/01 18:45h
+Champions,24225,7,Real Madrid,LASK,0,,Mar 19/01 21:00h
+Champions,24227,7,Fenerbahçe,Villarreal,0,,Mie 20/01 18:45h
+Champions,24233,7,Betis,Arsenal,0,,Mie 20/01 21:00h
+Champions,24234,7,Sporting CP,Barcelona,0,,Mie 20/01 21:00h
+Champions,24238,8,Atlético,Fenerbahçe,0,,Mie 27/01 21:00h
+Champions,24241,8,Barcelona,Como,0,,Mie 27/01 21:00h
+Champions,24242,8,Bayern,Betis,0,,Mie 27/01 21:00h
+Champions,24251,8,Shakhtar,Real Madrid,0,,Mie 27/01 21:00h
+Champions,24252,8,Villarreal,Man United,0,,Mie 27/01 21:00h
+Europa League,24258,1,Omonia,Celta,1,1-0,
+Europa League,24271,1,Real Sociedad,Bournemouth,1,1-2,
+Europa League,24278,2,Union Saint-Gilloise,Real Sociedad,1,1-1,
+Europa League,24282,2,Celta,Juventus,1,1-2,
+Europa League,24300,3,Celtic,Celta,0,,Jue 22/10 21:00h
+Europa League,24303,3,Lillestrøm,Real Sociedad,0,,Jue 22/10 21:00h
+Europa League,24315,4,Real Sociedad,O. Lyon,0,,Jue 05/11 18:45h
+Europa League,24320,4,Celta,Union Saint-Gilloise,0,,Jue 05/11 21:00h
+Europa League,24327,5,Celta,Bournemouth,0,,Jue 26/11 18:45h
+Europa League,24335,5,Crystal Palace,Real Sociedad,0,,Jue 26/11 21:00h
+Europa League,24348,6,O. Marsella,Celta,0,,Jue 10/12 18:45h
+Europa League,24360,6,Real Sociedad,Torreense,0,,Jue 10/12 21:00h
+Europa League,24369,7,Real Sociedad,V. Plzen,0,,Jue 21/01 18:45h
+Europa League,24375,7,Hapoel Beer Sheva,Celta,0,,Jue 21/01 21:00h
+Europa League,24384,8,Celta,Lillestrøm,0,,Jue 28/01 21:00h
+Europa League,24387,8,Juventus,Real Sociedad,0,,Jue 28/01 21:00h
