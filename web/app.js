@@ -127,7 +127,7 @@ const COLS = [
 ];
 
 const estado = {
-  fuente:'m2', buscar:'', sede:'', minpj:1,
+  fuente:'m2', buscar:'', sede:'', verFuera:false,
   pos:new Set(), equipos:new Set(), modoEq:'incluir', rivales:new Set(),
   valMin:null, valMax:null, camMin:null, tpMin:null,
   exGol:false, exRoja:false, exMin:false, minMinutos:45,
@@ -201,7 +201,7 @@ function valeLaMedia(j, pts){
   return {rec, recDe, medOk: rec >= Math.min(MED_MIN, recDe)};
 }
 
-function calcular(j, ignorarMin){
+function calcular(j){
   const pts = j.p[estado.fuente];
   if(!pts) return null;
 
@@ -234,7 +234,6 @@ function calcular(j, ignorarMin){
     if(sede==='C') casa.push(p); else if(sede==='F') fuera.push(p);
   }
 
-  if(!ignorarMin && todos.length < estado.minpj) return null;
   const cas = prom(casa), fue = prom(fuera);
 
   /* Lo que de verdad decide un fichaje no es solo la media: es si ahora
@@ -276,6 +275,17 @@ function nivel(v){
   const p = esNota() ? notaAPuntos(v) : v;
   return p < 0 ? 'nr' : p === 0 ? 'n0' : p < 5 ? 'na' : p < 10 ? 'nv' : 'nz';
 }
+/* El marcador de ese partido visto desde su equipo: "3-1" es lo que metio
+   el suyo primero, aunque jugara fuera. */
+function marcador(equipo, jornada){
+  const p = (DATOS.partidos || {})[jornada + '|' + equipo];
+  return p ? p[0] : '';
+}
+function fichaPartido(equipo, jornada){
+  const p = (DATOS.partidos || {})[jornada + '|' + equipo];
+  return p && p[1] ? p[1] : '';
+}
+
 function pintarRacha(f, tope){
   const pts = f.ref.p[estado.fuente] || {};
   // si se está mirando solo casa o solo fuera, la racha es la de esos partidos
@@ -290,9 +300,12 @@ function pintarRacha(f, tope){
     // con Sofascore la nota no dice nada por sí sola: se añade lo que vale en Mister
     const equiv = (v !== undefined && esNota())
       ? ` → ${notaAPuntos(v) > 0 ? '+' : ''}${notaAPuntos(v)} pts` : '';
-    const t = v===undefined ? `J${n}: no jugó`
-      : `J${n} ${sede==='C'?'casa':'fuera'}: ${v}${equiv}`;
-    return `<i class="pt ${nivel(v)}${dentro?'':' off'}" data-ayuda="${t}">${v===undefined?'':v}</i>`;
+    const m = marcador(f.e, n);
+    const t = (v===undefined ? `J${n}: no jugó`
+      : `J${n} ${sede==='C'?'casa':'fuera'}: ${v}${equiv}`) +
+      (m ? ` · acabó ${m}` : '') + ' · tócalo para verlo';
+    return `<i class="pt ${nivel(v)}${dentro?'':' off'}" data-j="${n}" data-ayuda="${t}"
+      role="button" tabindex="0">${v===undefined?'':v}</i>`;
   }).join('');
 }
 
@@ -532,7 +545,11 @@ function pintarTabla(filas, k){
           v >= 70 ? 'si' : v >= 35 ? 'quiza' : 'no'}">${v}<em>%</em></span></td>`;
       }
       if(c.racha) return `<td class="racha${s}">${pintarRacha(f)}</td>`;
-      if(c.txt) return `<td class="nom${s}">${f[c.k]||'<span class="tenue">·</span>'}</td>`;
+      if(c.txt) return `<td class="nom${s}"><button class="mio${
+        esMio(f.ref) ? ' on' : ''}" data-mio="${clave(f.ref)}"
+        title="${esMio(f.ref) ? 'Quitar de mi equipo' : 'Marcar como mío'}"
+        aria-pressed="${esMio(f.ref)}">★</button>${
+        f[c.k]||'<span class="tenue">·</span>'}</td>`;
       if(c.ultimos) return `<td class="${f.ult===0?'fuera':''}${s}">${f.ult}<span class="tenue">/${f.ultDe}</span></td>`;
       if(c.k==='pj' && f.pj !== f.disp) return `<td class="sep">${f.pj}<span class="tenue">/${f.disp}</span></td>`;
       if(c.mercado) return `<td class="val${s}">${f.val===null||f.val===undefined?'<span class="tenue">·</span>':eur(f.val)}</td>`;
@@ -551,7 +568,7 @@ function pintarTabla(filas, k){
       if(c.k==='g' && estado.exGol && f.g>0) return `<td class="fuera sep" title="Jornadas descartadas">${f.g} ✕</td>`;
       return `<td class="${cls}">${fmt(f[c.k], c.dec)}</td>`;
     }).join('') + '</tr>'
-  ).join('') : `<tr><td class="vacio" colspan="${COLS.length}">Ningún jugador cumple estos filtros. Prueba a bajar los partidos mínimos.</td></tr>`;
+  ).join('') : `<tr><td class="vacio" colspan="${COLS.length}">Ningún jugador cumple estos filtros.</td></tr>`;
 
   // una vez pintada ya se puede medir. Y otra vez un poco despues: si un
   // escudo no carga, su recambio de texto entra cuando la imagen falla, que
@@ -562,8 +579,14 @@ function pintarTabla(filas, k){
 }
 
 function pintar(){
+  const bn = document.getElementById('me-n');
+  if(bn){ bn.textContent = MIOS.size; bn.hidden = !MIOS.size; }
   const q = estado.buscar.toLowerCase();
   let filas = DATOS.jugadores
+    /* Los que se fueron de la liga en verano siguen en los datos con las
+       jornadas que llegaron a jugar, y se colaban en cualquier busqueda.
+       Se esconden salvo que se pidan: borrarlos perderia su historial. */
+    .filter(j => estado.verFuera || !j.fue)
     .filter(j => !estado.equipos.size ||
       (estado.modoEq==='incluir' ? estado.equipos.has(j.e) : !estado.equipos.has(j.e)))
     .filter(j => !estado.pos.size || estado.pos.has(j.pos))
@@ -642,8 +665,9 @@ function pintar(){
 function listaActivos(){
   const L = [];
   if(estado.sede) L.push({t:'Solo ' + (estado.sede==='C'?'casa':'fuera'), q:()=>ponerSede('')});
-  if(estado.minpj > 1) L.push({t:`Mínimo ${estado.minpj} partidos`, q:()=>{
-    estado.minpj = 1; document.getElementById('minpj').value = 1; }});
+  if(estado.verFuera) L.push({t:'Incluyendo a los que ya no están en la liga', q:()=>{
+    estado.verFuera = false;
+    const c = document.getElementById('ver-fuera'); if(c) c.checked = false; }});
   for(const p of estado.pos) L.push({t:p, q:()=>{
     estado.pos.delete(p); marcarCasilla('panel-pos', p, false); }});
   if(estado.equipos.size) L.push({
@@ -723,7 +747,8 @@ function limpiarRol(){
 
 function limpiarTodo(){
   estado.sede = ''; ponerSede('');
-  estado.minpj = 1; document.getElementById('minpj').value = 1;
+  estado.verFuera = false;
+  const vf = document.getElementById('ver-fuera'); if(vf) vf.checked = false;
   estado.pos.clear(); todasCasillas('panel-pos', false);
   estado.equipos.clear(); todasCasillas('panel-equipos', false);
   estado.rivales.clear(); todasCasillas('panel-rivales', false);
@@ -958,6 +983,116 @@ function pintarComparador(){
    - Y todo se mueve: en diez días el que vendes vale otra cosa y el
      que compras también.
    ================================================================ */
+
+/* ================================================================
+   MI EQUIPO
+   Los jugadores que son tuyos. Se guardan SOLO en este navegador
+   (localStorage): no salen de aqui, no se suben al repositorio y
+   nadie que abra la web los ve. La pega de eso es que son de este
+   navegador: por eso hay un codigo para llevarselos a otro.
+   ================================================================ */
+
+const MIOS = new Set();
+try {
+  const g = JSON.parse(localStorage.getItem('mios') || '[]');
+  if(Array.isArray(g)) g.forEach(k => MIOS.add(k));
+} catch(_){}
+const guardarMios = () => { try {
+  localStorage.setItem('mios', JSON.stringify([...MIOS]));
+} catch(_){} };
+
+const esMio = j => MIOS.has(clave(j));
+
+function alternarMio(k){
+  const on = !MIOS.has(k);
+  if(on) MIOS.add(k); else MIOS.delete(k);
+  guardarMios();
+
+  /* Solo se repinta la estrella que se ha tocado. Repintar la tabla entera
+     por marcar un jugador cuesta 450 filas y, peor, devuelve el scroll
+     arriba justo cuando estabas mirando a alguien. */
+  document.querySelectorAll(`[data-mio="${CSS.escape(k)}"]`).forEach(b => {
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-pressed', on);
+    b.title = on ? 'Quitar de mi equipo' : 'Marcar como mío';
+  });
+  const bn = document.getElementById('me-n');
+  if(bn){ bn.textContent = MIOS.size; bn.hidden = !MIOS.size; }
+  if(document.getElementById('miequipo').open) pintarMiEquipo();
+}
+
+/* El resumen de la plantilla: lo que vale, lo que se ha movido hoy y lo
+   que le viene a cada uno. */
+function pintarMiEquipo(){
+  const js = DATOS.jugadores.filter(esMio);
+  const cuerpo = document.getElementById('me-cuerpo');
+  const pie = document.getElementById('me-pie');
+
+  if(!js.length){
+    cuerpo.innerHTML = `<p class="me-vacio">Todavía no has marcado a ninguno.
+      Abre la ficha de un jugador y dale a <b>Es mío</b>, o toca la estrella
+      que hay junto a su nombre en la lista.</p>
+      <p class="me-nota">Esto se guarda solo en este navegador: no se sube a
+      ningún sitio y nadie más lo ve.</p>`;
+    pie.innerHTML = '';
+    return;
+  }
+
+  const filas = js.map(j => {
+    const f = calcular(j);
+    const pr = (DATOS.prox[j.e] || []).filter(x => !x[4])[0];
+    const iPos = POS_IDX[j.pos];
+    const d = pr && iPos !== undefined ? durezaDe(pr[2], iPos) : null;
+    const t = d ? TRAMOS[d[0]] : 0;
+    return {j, f, pr, t, d};
+  }).sort((a, b) => (b.j.val || 0) - (a.j.val || 0));
+
+  const total = filas.reduce((x, r) => x + (r.j.val || 0), 0);
+  const hoy = filas.reduce((x, r) => x + (r.j.cam || 0), 0);
+
+  cuerpo.innerHTML = `<table class="me-t">
+    <thead><tr><th></th><th class="me-n">Jugador</th><th>Rol</th><th>Valor</th>
+      <th>Hoy</th><th>Media</th><th>Siguiente</th><th></th></tr></thead>
+    <tbody>${filas.map(({j, f, pr, t, d}) => `<tr data-k="${clave(j)}">
+      <td class="cen">${escudo(j.e, j.e)}</td>
+      <td class="me-n"><button class="me-abre" data-abre="${clave(j)}">${j.n}</button></td>
+      <td class="cen">${j.jer ? `<span class="jer jer-${j.jer}">${JERARQUIA[j.jer]}</span>`
+        : '<span class="tenue">·</span>'}</td>
+      <td class="val">${j.val ? eur(j.val) : '<span class="tenue">·</span>'}</td>
+      <td class="${j.cam > 0 ? 'sube' : j.cam < 0 ? 'baja' : 'tenue'}">${
+        j.cam ? (j.cam > 0 ? '+' : '') + (j.cam / 1000).toFixed(0) + 'k' : '0k'}</td>
+      <td>${f && f.medOk ? fmt(f.med, 2) : '<span class="tenue">·</span>'}</td>
+      <td class="me-p">${pr
+        ? `<span class="me-riv">${escudo(pr[2], pr[2])}${pr[1] === 'C' ? '🏠' : '✈️'}</span>${
+            t ? `<span class="ce-d t${t}">${DUREZA[t]}</span>` : ''}`
+        : '<span class="tenue">·</span>'}</td>
+      <td class="cen"><button class="me-quita" data-quita="${clave(j)}"
+        title="Quitar de mi equipo">&times;</button></td>
+    </tr>`).join('')}</tbody></table>`;
+
+  const suben = filas.filter(r => (r.j.cam || 0) > 0).length;
+  const bajan = filas.filter(r => (r.j.cam || 0) < 0).length;
+  pie.innerHTML = `<div class="me-tot">
+      <div><span>Lo que vale tu plantilla</span><b>${eur(total)}</b></div>
+      <div><span>Se ha movido hoy</span><b class="${hoy > 0 ? 'sube' : hoy < 0 ? 'baja' : ''}">${
+        hoy > 0 ? '+' : ''}${(hoy / 1000).toFixed(0)}k</b></div>
+      <div><span>Suben / bajan</span><b>${suben} / ${bajan}</b></div>
+      <div><span>Jugadores</span><b>${filas.length}</b></div>
+    </div>
+    <p class="me-nota">Guardado solo en este navegador. Para llevártelo a otro,
+      copia este código y pégalo allí:</p>
+    <div class="me-codigo">
+      <input type="text" id="me-cod" readonly value="${btoa(unescape(encodeURIComponent(
+        JSON.stringify([...MIOS])))).replace(/=+$/, '')}">
+      <button class="fx-btn" id="me-copiar">Copiar</button>
+      <button class="fx-btn" id="me-pegar">Pegar uno</button>
+    </div>`;
+}
+
+function abrirMiEquipo(){
+  pintarMiEquipo();
+  document.getElementById('miequipo').showModal();
+}
 
 const BAL = {vende:[], compra:[], saldo:0, dias:null};
 try {
@@ -1369,6 +1504,48 @@ function valorFicha(f, k){
 
 /* Pestaña "Últimos partidos": una columna por jornada, como en el Mister.
    La altura dice cuantos puntos; el color, en que tramo de la escala cae. */
+/* Lo que paso en ese partido, al tocarlo. La racha dice "11 puntos"; esto
+   dice contra quien, como acabo y que hizo para sacarlos. */
+function detallePartido(j, n){
+  const f = calcular(j);
+  if(!f) return '';
+  const pts = j.p[fuenteFicha] || {};
+  const v = pts[n];
+  const ev = j.ev[n] || {};
+  const [sede, rival] = (DATOS.lugar[n + '|' + j.e] || '|').split('|');
+  const m = marcador(j.e, n);
+  const url = fichaPartido(j.e, n);
+
+  const hizo = [];
+  if(ev.g) hizo.push(ev.g === 1 ? 'un gol' : `${ev.g} goles`);
+  const asis = (ev.a || 0) + (ev.asg || 0);
+  if(asis) hizo.push(asis === 1 ? 'una asistencia' : `${asis} asistencias`);
+  if(ev.y) hizo.push(ev.y === 1 ? 'amarilla' : 'dos amarillas');
+  if(ev.r) hizo.push('roja');
+  if(ev.t) hizo.push(`${ev.t} ${ev.t === 1 ? 'tiro' : 'tiros'}`);
+
+  const local = sede === 'C';
+  return `<div class="fx-pt">
+    <button class="fx-pt-x" aria-label="Cerrar">&times;</button>
+    <div class="fx-pt-cab">
+      <span class="fx-pt-j">J${n}</span>
+      <span class="fx-pt-eq">${escudo(local ? j.e : rival, local ? j.e : rival)}</span>
+      <b class="fx-pt-m">${m || '—'}</b>
+      <span class="fx-pt-eq">${escudo(local ? rival : j.e, local ? rival : j.e)}</span>
+      <span class="fx-pt-sd">${local ? 'en casa' : 'fuera'}</span>
+    </div>
+    ${v === undefined
+      ? `<p class="fx-pt-l">${j.n} no jugó este partido.</p>`
+      : `<p class="fx-pt-l"><b class="${nivel(v)} fx-pt-p">${v}</b> ${
+          esNota() ? 'de nota' : v === 1 || v === -1 ? 'punto' : 'puntos'}${
+          ev.m !== undefined ? ` · ${ev.m} min` : ''}${
+          ev.tit === 1 ? ' · titular' : ev.tit === 0 ? ' · salió del banquillo' : ''}${
+          hizo.length ? ' · ' + hizo.join(', ') : ''}</p>`}
+    ${url ? `<a class="fx-pt-a" href="${url}" target="_blank" rel="noopener">
+      Ver la ficha del partido ↗</a>` : ''}
+  </div>`;
+}
+
 function panelPartidos(f){
   const pts = f.ref.p[estado.fuente] || {};
   // con casa o fuera elegido, las otras jornadas no se apagan: desaparecen
@@ -1397,9 +1574,12 @@ function panelPartidos(f){
         (ev.m !== undefined ? ` · ${ev.m} min` : '') +
         (ev.tit === 1 ? ' · titular' : ev.tit === 0 ? ' · suplente' : '')
       : `J${n} contra ${rival}: no jugó`;
+    const res = marcador(f.e, n);
+    const t2 = t + (res ? ` · acabó ${res}` : '');
 
     const cuenta = f.usadas.includes(n);
-    return `<div class="gr-col${jugado && !cuenta ? ' fuera-filtro' : ''}" data-ayuda="${t}">
+    return `<div class="gr-col${jugado && !cuenta ? ' fuera-filtro' : ''}" data-j="${n}"
+      role="button" tabindex="0" data-ayuda="${t2} · tócalo para verlo">
       <div class="gr-pista${hay?' doble':''}">
         ${jugado
           ? `<div class="gr-barra ${nivel(v)}${v<0?' neg':''}" style="height:${alto}%">
@@ -1445,29 +1625,52 @@ function panelStats(f){
    asi que no cambia al cambiar de sistema de puntuacion.
    ================================================================ */
 
-const DEFENSIVO = pos => pos === 'Portero' || pos === 'Defensa';
+/* La dureza del rival va por posicion real, no por "ataca o defiende":
+   al Rayo un delantero le saca casi seis puntos y un defensa poco mas de
+   dos. Son dos equipos distintos segun donde juegues. */
+const POS_IDX = {Portero:0, Defensa:1, Mediocampista:2, Delantero:3};
+const POS_CORTA = {0:'un portero', 1:'un defensa', 2:'un medio', 3:'un delantero'};
 
-/* Los cinco quintiles del dato se pintan en tres: con siete jornadas de
-   muestra, distinguir "asequible" de "muy asequible" seria fingir una
-   precision que no hay. El numero exacto de goles va en el texto. */
+/* Los cinco quintiles se pintan en tres: con ocho jornadas, distinguir
+   "asequible" de "muy asequible" seria fingir precision. El numero exacto
+   de puntos va en el texto, que es donde si cabe el matiz. */
 const TRAMOS = {1:1, 2:1, 3:2, 4:3, 5:3};
 const DUREZA = {1:'asequible', 2:'normal', 3:'difícil'};
 const COMPETICION = {CH:'Champions', EL:'Europa League', EU:'competición europea'};
 
+/* Lo que reparte ese rival a esa posicion: [nivel 1-5, puntos, actuaciones] */
+function durezaDe(rival, iPos){
+  const d = (DATOS.dureza || {})[rival];
+  return d ? d[iPos] : null;
+}
+
+const POCA_MUESTRA = 15;
+
+function frasePuntos(rival, iPos){
+  const d = durezaDe(rival, iPos);
+  if(!d) return 'todavía sin datos de ese rival';
+  const med = (DATOS.mediaLiga || {})[iPos];
+  const dif = med ? d[1] - med : null;
+  /* De porteros solo hay uno por partido, asi que su numero va con ocho
+     datos y no con cuarenta como el de un defensa. Se dice, en vez de
+     presentarlo como si valiera lo mismo. */
+  const flojo = d[2] < POCA_MUESTRA;
+  return `${rival} le deja ${coma(d[1].toFixed(2))} puntos a ${POS_CORTA[iPos]}` +
+    (dif === null ? '' : `, ${coma(Math.abs(dif).toFixed(2))} ${
+      dif < 0 ? 'menos' : 'más'} que un rival medio`) +
+    ` · ${d[2]} actuaciones${flojo ? ', pocas: tómatelo con pinzas' : ''}`;
+}
+
 function calendario(f){
   const pr = DATOS.prox[f.e] || [];
   if(!pr.length) return '';
-  const def = DEFENSIVO(f.pos);
+  const iPos = POS_IDX[f.pos];
   return pr.map(([n, sd, rival, cuando, comp]) => {
-    const d = (DATOS.dureza || {})[rival];
-    // 0 = lo que encaja el rival (le importa al que ataca)
-    // 1 = lo que marca el rival (le importa al que defiende)
     // De los equipos europeos no hay datos, y no se inventan: van sin tramos.
-    const niv = d ? d[def ? 1 : 0] : 0;
+    const d = iPos === undefined ? null : durezaDe(rival, iPos);
+    const niv = d ? d[0] : 0;
     const t = TRAMOS[niv] || 0;
-    const detalle = d
-      ? (def ? `${rival} marca ${d[3]} goles por partido`
-             : `${rival} encaja ${d[2]} goles por partido`) + `, en ${d[4]} partidos`
+    const detalle = d ? frasePuntos(rival, iPos)
       : comp ? 'de los equipos europeos no tengo datos'
              : 'todavía sin datos de ese rival';
     const tramos = t ? '<span class="tramos">' +
@@ -1476,11 +1679,174 @@ function calendario(f){
     const quees = comp ? `${COMPETICION[comp] || comp} J${n}` : `J${n}`;
     return `<span class="fx-p d${niv}${comp ? ' eu' : ''}" data-ayuda="${quees}: ${
       sd === 'C' ? 'en casa contra' : 'fuera, contra'} ${rival}${cuando ? ' · ' + cuando : ''}${
-      t ? ' · ' + DUREZA[t] + (def ? ' para un defensa' : ' para atacar') : ''} (${detalle})">
+      t ? ' · ' + DUREZA[t] : ''} (${detalle})">
       <span class="fila-p"><b>${rotulo}</b>${escudo(rival, rival)}<i>${
         sd === 'C' ? '🏠' : '✈️'}</i></span>${
       cuando ? `<u>${cuando.split(' ').slice(0, 2).join(' ')}</u>` : ''}${tramos}</span>`;
   }).join('');
+}
+
+/* ================================================================
+   EL CALENDARIO DE TODOS, EN UNA REJILLA
+   La ficha contesta "¿que le viene a este?". Esto contesta la otra
+   mitad: "¿a quien fichó?". Veinte equipos por filas, las proximas
+   jornadas por columnas, y la dificultad en color. Las columnas son
+   jornadas de Liga para que se puedan comparar entre equipos; los
+   partidos europeos no ocupan columna, se marcan con un avion en la
+   jornada a la que llegan con viaje entre semana encima.
+   ================================================================ */
+
+const CAL = {pos:3, n:5, orden:'facil'};
+
+/* "Sab 10/10 16:15h" -> un numero con el que comparar fechas.
+   La temporada cruza el año: de enero a junio es el año siguiente. */
+function dia(cuando){
+  const m = /(\d{1,2})\/(\d{1,2})/.exec(cuando || '');
+  if(!m) return null;
+  const d = +m[1], mes = +m[2];
+  const hoy = new Date();
+  const año = hoy.getFullYear() + (mes < 7 && hoy.getMonth() >= 6 ? 1 : 0);
+  return Date.UTC(año, mes - 1, d) / 86400000;   // en dias, que es lo que importa
+}
+
+const DIAS_EUROPA = 4;   // un partido europeo pesa si cae en los 4 dias de antes
+
+function filaCalendario(eq){
+  const pr = DATOS.prox[eq] || [];
+  const liga = pr.filter(x => !x[4]).slice(0, CAL.n);
+  const euro = pr.filter(x => x[4]);
+  const i = CAL.pos;
+
+  const celdas = liga.map(([n, sd, rival, cuando]) => {
+    const d = durezaDe(rival, i);
+    const niv = d ? d[0] : 0;
+    const t = TRAMOS[niv] || 0;
+    // ¿llega con viaje europeo encima? Eso es rotacion probable.
+    const f = dia(cuando);
+    const previo = f === null ? null : euro.find(e => {
+      const fe = dia(e[3]);
+      return fe !== null && fe < f && f - fe <= DIAS_EUROPA;
+    });
+    const detalle = frasePuntos(rival, i);
+    return `<td class="cal-c t${t}"${previo
+      ? ` data-eu="${COMPETICION[previo[4]] || previo[4]}"` : ''
+      } data-ayuda="J${n} ${sd === 'C' ? 'en casa contra' : 'fuera, contra'} ${rival}${
+        cuando ? ' · ' + cuando : ''}${t ? ' · ' + DUREZA[t] : ''} (${detalle})${
+        previo ? ` · llega de jugar ${COMPETICION[previo[4]]} el ${previo[3]}` : ''}">
+      <span class="cal-r">${escudo(rival, rival)}</span>
+      <span class="cal-sd ${sd === 'C' ? 'casa' : 'fuera'}">${sd}</span>
+      ${previo ? '<i class="cal-eu" aria-label="viene de jugar en Europa">✈</i>' : ''}</td>`;
+  });
+
+  // los huecos, si a ese equipo le quedan menos partidos publicados
+  while(celdas.length < CAL.n) celdas.push('<td class="cal-c vacia"></td>');
+  return {eq, celdas, liga, media: mediaDureza(liga, i)};
+}
+
+/* La media del tramo, de 1 (todo asequible) a 3 (todo hueso). Los rivales
+   sin datos no cuentan en vez de contar como normales: inventar un 2 le
+   cambiaria la nota al equipo. */
+function mediaDureza(liga, i){
+  const vs = liga.map(([, , r]) => {
+    const d = durezaDe(r, i);
+    return d ? TRAMOS[d[0]] : null;
+  }).filter(v => v !== null);
+  return vs.length ? vs.reduce((a, b) => a + b, 0) / vs.length : null;
+}
+
+function pintarCalendario(){
+  const filas = (DATOS.equipos || []).map(filaCalendario);
+
+  if(CAL.orden === 'nombre') filas.sort((a, b) => a.eq.localeCompare(b.eq));
+  else filas.sort((a, b) => {
+    const A = a.media === null ? 9 : a.media, B = b.media === null ? 9 : b.media;
+    return CAL.orden === 'facil' ? A - B : B - A;
+  });
+
+  // los numeros de jornada de la cabecera: cada equipo va por donde va
+  // (hay aplazados), asi que se rotula con la jornada mas repetida
+  const cab = [];
+  for(let c = 0; c < CAL.n; c++){
+    const cuenta = {};
+    for(const f of filas) if(f.liga[c]) cuenta[f.liga[c][0]] = (cuenta[f.liga[c][0]] || 0) + 1;
+    const top = Object.entries(cuenta).sort((a, b) => b[1] - a[1])[0];
+    cab.push(top ? 'J' + top[0] : '—');
+  }
+
+  document.getElementById('cal-cuerpo').innerHTML = `<table class="cal-t">
+    <thead><tr><th class="cal-eq">Equipo</th>${
+      cab.map(t => `<th>${t}</th>`).join('')}<th class="cal-m">Nota</th></tr></thead>
+    <tbody>${filas.map(f => `<tr data-eq="${f.eq}">
+      <td class="cal-eq" title="Ver su calendario entero">${escudo(f.eq, f.eq)}<span>${f.eq}</span></td>
+      ${f.celdas.join('')}
+      <td class="cal-m"><span class="cal-nota t${
+        f.media === null ? 0 : Math.round(f.media)}">${
+        f.media === null ? '·' : coma(f.media.toFixed(2))}</span></td></tr>`).join('')}
+    </tbody></table>`;
+
+  const mejor = filas.filter(f => f.media !== null)[CAL.orden === 'dificil' ? filas.length - 1 : 0];
+  document.getElementById('cal-sub').textContent =
+    `próximas ${CAL.n} jornadas · para ${POS_CORTA[CAL.pos]}`;
+  const med = (DATOS.mediaLiga || {})[CAL.pos];
+  document.getElementById('cal-pie').innerHTML =
+    `<p>La nota va de <b>1</b> (todo asequible) a <b>3</b> (todo hueso) y sale de
+     <b>los puntos que cada rival le deja a ${POS_CORTA[CAL.pos]}</b> en lo que va de liga${
+     med ? `, siendo ${coma(med.toFixed(2))} lo que deja un rival medio` : ''}.
+     Pasa por encima de una celda para ver el número y cuántas actuaciones lo respaldan.
+     El avión marca al equipo que llega a esa jornada habiendo jugado en Europa entre
+     semana: ahí suele haber rotación.</p>`;
+}
+
+/* La rejilla ensena cinco jornadas de los veinte equipos. Esto ensena la
+   temporada entera de uno solo: lo jugado con su resultado y lo que queda,
+   con el dia y lo duro que es cada rival. */
+function calendarioEquipo(eq){
+  const i = CAL.pos;
+  const jugados = JORNADAS
+    .map(n => [n, (DATOS.lugar[n + '|' + eq] || '|').split('|')])
+    .filter(([n, [sede]]) => sede && marcador(eq, n))
+    .map(([n, [sede, rival]]) => {
+      const m = marcador(eq, n);
+      const [a, b] = m.split('-').map(Number);
+      return `<li class="ce-f ${a > b ? 'gana' : a < b ? 'pierde' : 'empata'}">
+        <span class="ce-j">J${n}</span>
+        ${escudo(rival, rival)}
+        <span class="ce-r">${rival}</span>
+        <span class="ce-sd">${sede === 'C' ? '🏠' : '✈️'}</span>
+        <b class="ce-m">${m}</b>
+        ${fichaPartido(eq, n) ? `<a class="ce-a" href="${fichaPartido(eq, n)}"
+          target="_blank" rel="noopener" aria-label="Ficha del partido">↗</a>` : ''}
+      </li>`;
+    });
+
+  const quedan = (DATOS.prox[eq] || []).map(([n, sd, rival, cuando, comp]) => {
+    const d = comp ? null : durezaDe(rival, i);
+    const t = d ? TRAMOS[d[0]] : 0;
+    return `<li class="ce-f futura${comp ? ' eu' : ''}" ${
+      d ? `data-ayuda="${frasePuntos(rival, i)}"` : ''}>
+      <span class="ce-j">${comp || 'J' + n}</span>
+      ${escudo(rival, rival)}
+      <span class="ce-r">${rival}</span>
+      <span class="ce-sd">${sd === 'C' ? '🏠' : '✈️'}</span>
+      <span class="ce-c">${cuando || ''}</span>
+      ${t ? `<span class="ce-d t${t}">${DUREZA[t]}</span>` : '<span class="ce-d"></span>'}
+    </li>`;
+  });
+
+  return `<div class="ce">
+    <button class="ce-volver" id="ce-volver">← Todos los equipos</button>
+    <div class="ce-cab">${escudo(eq, eq)}<h3>${eq}</h3>
+      <span class="ce-sub">lo duro que es cada rival para ${POS_CORTA[i]}</span></div>
+    ${quedan.length ? `<h4 class="ce-t">Lo que le queda</h4>
+      <ul class="ce-l">${quedan.join('')}</ul>` : ''}
+    ${jugados.length ? `<h4 class="ce-t">Lo que lleva jugado</h4>
+      <ul class="ce-l">${jugados.reverse().join('')}</ul>` : ''}
+  </div>`;
+}
+
+function abrirCalendario(){
+  pintarCalendario();
+  document.getElementById('calendario').showModal();
 }
 
 /* ================================================================
@@ -1609,7 +1975,7 @@ function pintarFicha(j){
   const sedeAntes = estado.sede;
   estado.sede = sedeFicha;
   conFuente(fuenteFicha, () => {
-    const f = calcular(j, true);
+    const f = calcular(j);
     window.__ficha = f;
 
     // el número grande y los tres pequeños miran la temporada entera del jugador,
@@ -1706,6 +2072,12 @@ function abrirFicha(f){
   document.querySelectorAll('#fx-sede button').forEach(b =>
     b.classList.toggle('act', b.dataset.sd === sedeFicha));
   pintarFicha(f.ref);
+
+  const bm = document.getElementById('ficha-mio');
+  bm.dataset.mio = k;
+  bm.classList.toggle('on', MIOS.has(k));
+  bm.textContent = MIOS.has(k) ? '★ Es mío' : '☆ Es mío';
+  bm.setAttribute('aria-pressed', MIOS.has(k));
 
   // el botón no marca una casilla: lleva al comparador con este jugador ya dentro
   const btn = document.getElementById('ficha-cmp');
@@ -2206,6 +2578,119 @@ function panelClausula(f){
     ${bloqueHistorico(T)}`;
 }
 
+const TITULO_CALC = {puja:'Puja ideal', clausula:'Subir cláusula', progreso:'Progreso'};
+
+/* ================================================================
+   PROGRESO HACIA UN VALOR
+   "Pagué 18,75 por este tío hace un mes: ¿voy ganando o perdiendo, y
+   cuánto le falta para llegar?" El ritmo sale de su propio historico
+   de valores, no de una formula: lo que ha hecho en los ultimos dias
+   es la mejor pista de lo que va a hacer en los proximos.
+   ================================================================ */
+
+/* Lo que se ha movido de media al dia en las ultimas N jornadas de
+   mercado. Se mide sobre su serie real, saltando los huecos. */
+function ritmoDiario(j, dias){
+  const v = (j.v || []).filter(x => x !== null);
+  if(v.length < 2) return null;
+  const trozo = v.slice(-Math.min(dias + 1, v.length));
+  if(trozo.length < 2) return null;
+  return (trozo[trozo.length - 1] - trozo[0]) * 1000 / (trozo.length - 1);
+}
+
+function panelProgreso(f){
+  const c = CALC.__j;
+  if(c.objetivo === undefined || c.objetivo === null) c.objetivo = '';
+
+  const val = f.val;
+  const obj = leerDinero(c.objetivo);
+  const ritmos = [[7, 'la última semana'], [15, 'los últimos quince días'],
+                  [30, 'el último mes']];
+  const elegido = c.ritmo || 15;
+  const r = ritmoDiario(f.ref, elegido);
+
+  let veredicto = '';
+  if(obj){
+    const falta = obj - val;
+    const pct = (val - obj) / obj * 100;
+    // "0,0% por encima" se lee raro: por debajo de un 0,2% es que esta ahi
+    if(Math.abs(falta) < Math.max(obj * 0.002, 1000)){
+      veredicto = `<p class="pg-l">Está prácticamente en ese valor
+        (${falta > 0 ? 'le faltan' : 'lo pasa por'} ${euros(Math.abs(falta))}).</p>`;
+    } else if(falta < 0){
+      veredicto = `<p class="pg-l pg-arriba"><b>Ya lo ha pasado.</b> Vale
+        ${euros(-falta)} más que eso, un ${coma(pct.toFixed(1))}% por encima.</p>`;
+    } else {
+      // ¿cuanto tardaria al ritmo que lleva?
+      let cuando = '';
+      if(r === null) cuando = 'Todavía no hay histórico suyo para estimar el ritmo.';
+      else if(r <= 0) cuando = `Al ritmo de ${elegido === 7 ? 'la última semana'
+        : elegido === 15 ? 'los últimos quince días' : 'el último mes'} <b>no llega</b>:
+        está ${r < 0 ? 'bajando' : 'parado'}${r < 0 ? ` ${euros(-r)} al día` : ''}.`;
+      else {
+        const d = Math.ceil(falta / r);
+        cuando = d > 400
+          ? `Al ritmo que lleva tardaría más de un año.`
+          : `Al ritmo que lleva (<b>${euros(r)} al día</b>) llegaría en
+             <b>${d} ${d === 1 ? 'día' : 'días'}</b>${d <= 90
+               ? `, sobre el ${fechaEn(d)}` : ''}.`;
+      }
+      veredicto = `<p class="pg-l pg-abajo">Le faltan <b>${euros(falta)}</b>
+        (${coma(Math.abs(pct).toFixed(1))}% por debajo). ${cuando}</p>`;
+    }
+  }
+
+  return `<div class="pg">
+    <div class="pg-fila">
+      <label for="pg-obj">Lo que pagaste, o el valor al que quieres llegar</label>
+      <div class="pg-caja">
+        <input type="text" id="pg-obj" inputmode="decimal" autocomplete="off"
+          spellcheck="false" placeholder="18,75" value="${c.objetivo}">
+        <button class="fx-btn" id="pg-ahora">Lo que vale hoy</button>
+      </div>
+    </div>
+    <div class="pg-hoy">Hoy vale <b>${euros(val)}</b>${
+      f.cam ? ` · ${f.cam > 0 ? '+' : ''}${(f.cam / 1000).toFixed(0)}k ${CUANDO}` : ''}</div>
+    ${veredicto}
+    <div class="pg-fila">
+      <label>Qué ritmo uso para la cuenta</label>
+      <div class="segmento chico" id="pg-ritmo">${ritmos.map(([n, t]) => {
+        const rr = ritmoDiario(f.ref, n);
+        return `<button data-v="${n}" aria-pressed="${n === elegido}"
+          title="${t}">${n} d<em>${rr === null ? ' ·'
+            : ' ' + (rr > 0 ? '+' : '') + (rr / 1000).toFixed(1) + 'k'}</em></button>`;
+      }).join('')}</div>
+    </div>
+    <p class="pg-nota">El ritmo es lo que se ha movido de media al día en ese plazo,
+      sacado de su propio histórico. No es una predicción: si deja de jugar o se
+      lesiona, deja de valer. Sirve para ver si va o no va.</p>
+  </div>`;
+}
+
+/* Mientras escribes el objetivo no se repinta el panel entero: eso te
+   quitaria el foco de la caja a cada tecla, que es justo el fallo que
+   tuvo el Balance. Solo se recalcula el veredicto. */
+function actualizarProgreso(){
+  const f = window.__ficha;
+  if(!f || CALC.cual !== 'progreso') return;
+  const caja = document.querySelector('#ficha-calc .pg');
+  if(!caja) return;
+  const nuevo = document.createElement('div');
+  nuevo.innerHTML = panelProgreso(f);
+  const viejoV = caja.querySelector('.pg-l'), nuevoV = nuevo.querySelector('.pg-l');
+  if(nuevoV){
+    if(viejoV) viejoV.replaceWith(nuevoV);
+    else caja.querySelector('.pg-hoy').after(nuevoV);
+  } else if(viejoV) viejoV.remove();
+}
+
+/* "sobre el 3 de noviembre" */
+function fechaEn(dias){
+  const d = new Date();
+  d.setDate(d.getDate() + dias);
+  return d.toLocaleDateString('es-ES', {day:'numeric', month:'long'});
+}
+
 function panelCalculo(cual){
   const f = window.__ficha;
   const caja = document.getElementById('ficha-calc');
@@ -2231,10 +2716,11 @@ function panelCalculo(cual){
 
   caja.hidden = false;
   caja.innerHTML = `
-    <div class="fx-calc-cab">${CALC.cual === 'puja' ? 'Puja ideal' : 'Subir cláusula'}
+    <div class="fx-calc-cab">${TITULO_CALC[CALC.cual] || ''}
       <span class="cc-quien">${f.n} · ${euros(f.val)}</span>
       <button class="fx-x" id="fx-cerrar-calc" aria-label="Cerrar">&times;</button></div>
-    <div class="cc-cuerpo">${CALC.cual === 'puja' ? panelPuja(f) : panelClausula(f)}</div>`;
+    <div class="cc-cuerpo">${CALC.cual === 'puja' ? panelPuja(f)
+      : CALC.cual === 'progreso' ? panelProgreso(f) : panelClausula(f)}</div>`;
   guardarCalc();
 }
 
@@ -2244,6 +2730,12 @@ function refrescarCalculo(){
   const f = window.__ficha;
   const caja = document.getElementById('ficha-calc');
   if(!f || !f.val || caja.hidden) return;
+  if(CALC.cual === 'progreso'){
+    const c = document.querySelector('#ficha-calc .cc-cuerpo');
+    if(c) c.innerHTML = panelProgreso(f);
+    guardarCalc();
+    return;
+  }
   CALC.__soloSalida = true;
   const s = CALC.cual === 'puja' ? panelPuja(f) : panelClausula(f);
   CALC.__soloSalida = false;
@@ -2305,7 +2797,15 @@ document.getElementById('barra-filtros').addEventListener('click', e => {
   }
 });
 
+/* Cerrar los paneles al tocar fuera. Con una trampa: varios paneles se
+   repintan enteros al tocarlos ("+ añadir condición", la X de quitar, el
+   selector de métrica), asi que para cuando el clic llega aqui el elemento
+   que lo recibio ya no existe y closest('.grupo') da null, como si se
+   hubiera tocado fuera. Resultado: el panel se cerraba justo despues de
+   añadir la condicion y habia que reabrirlo para rellenarla. Si el target
+   ya no esta en el documento, el clic fue dentro: no se cierra nada. */
 document.addEventListener('click', e => {
+  if(!e.target.isConnected) return;
   if(!e.target.closest('.grupo')) cerrarPops(null);
 });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') cerrarPops(null); });
@@ -2323,6 +2823,9 @@ function ponerSede(v){
 
 function pintarRangos(){
   const caja = document.getElementById('rangos');
+  // la primera fila sale puesta: pedirla a mano era un paso de mas para
+  // llegar a lo mismo, porque nadie abre "Mas" para no poner ninguna
+  if(!estado.rangos.length) estado.rangos.push({k:'med', min:null, max:null});
   caja.innerHTML = estado.rangos.map((c,i) => {
     const v = x => x===null ? '' : x;
     return `<div class="rango" data-i="${i}">
@@ -2436,6 +2939,41 @@ function arrancarComparador(){
   panelV.addEventListener('pointerleave', soltarCursor);
   panelV.addEventListener('pointercancel', soltarCursor);
 
+  /* Tocar un partido, venga de la racha de arriba o de la barra de abajo,
+     abre su detalle. Siempre en el mismo sitio: debajo de la barra. */
+  function verPartido(n){
+    const j = window.__ficha && window.__ficha.ref;
+    if(!j) return;
+    const panel = document.getElementById('pes-partidos');
+    let caja = document.getElementById('fx-pt-caja');
+    if(!caja){
+      caja = document.createElement('div');
+      caja.id = 'fx-pt-caja';
+      panel.prepend(caja);
+    }
+    caja.innerHTML = detallePartido(j, +n);
+    // si venia de la racha de arriba, hay que estar en esta pestaña
+    const bot = document.querySelector('.fx-pes[data-pes="partidos"]');
+    if(bot && !bot.classList.contains('act')) bot.click();
+    // no todos los navegadores lo tienen, y no vale la pena romper por esto
+    if(caja.scrollIntoView) caja.scrollIntoView({block:'nearest', behavior:'smooth'});
+  }
+
+  document.getElementById('ficha').addEventListener('click', e => {
+    if(e.target.closest('.fx-pt-x')){
+      const c = document.getElementById('fx-pt-caja'); if(c) c.innerHTML = '';
+      return;
+    }
+    if(e.target.closest('.fx-pt-a')) return;        // el enlace hace lo suyo
+    const p = e.target.closest('[data-j]');
+    if(p) verPartido(p.dataset.j);
+  });
+  document.getElementById('ficha').addEventListener('keydown', e => {
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    const p = e.target.closest('[data-j]');
+    if(p){ e.preventDefault(); verPartido(p.dataset.j); }
+  });
+
   document.getElementById('fx-pestanas').addEventListener('click', e => {
     const b = e.target.closest('.fx-pes'); if(!b) return;
     document.querySelectorAll('.fx-pes').forEach(x => x.classList.toggle('act', x === b));
@@ -2459,6 +2997,13 @@ function arrancarComparador(){
 
   cajaCalc.addEventListener('click', e => {
     if(e.target.id === 'fx-cerrar-calc'){ cajaCalc.hidden = true; return; }
+
+    if(e.target.id === 'pg-ahora'){
+      CALC.__j.objetivo = escribirDinero(window.__ficha.val);
+      refrescarCalculo(); return;
+    }
+    const rb = e.target.closest('#pg-ritmo button');
+    if(rb){ CALC.__j.ritmo = +rb.dataset.v; refrescarCalculo(); return; }
 
     const m = e.target.closest('[data-modo]');
     if(m){ CALC.modo = m.dataset.modo; panelCalculo(); return; }
@@ -2490,6 +3035,12 @@ function arrancarComparador(){
   cajaCalc.addEventListener('input', e => {
     const t = e.target, v = t.value;
     switch(t.id){
+      case 'pg-obj':
+        // texto libre, como en el Balance: "18,75" son 18.750.000
+        CALC.__j.objetivo = v;
+        guardarCalc();
+        actualizarProgreso();
+        return;
       case 'cc-dias':   CALC.dias = +v; break;
       case 'cc-esc':    CALC.escalon = +v; break;
       case 'cc-precio': CALC.__j.precio = v === '' ? null : +v; break;
@@ -2545,7 +3096,7 @@ function arrancarComparador(){
       j.n.toLowerCase().includes(q) || j.nc.toLowerCase().includes(q)).slice(0, 8);
     sug.hidden = !hallados.length;
     sug.innerHTML = hallados.map(j => {
-      const k = clave(j), f = calcular(j, true), p = POS[j.pos], e = EQUIPO[j.e];
+      const k = clave(j), f = calcular(j), p = POS[j.pos], e = EQUIPO[j.e];
       return `<button class="sg${enCarro(k)?' puesto':''}" data-sug="${k}">
         ${p?insignia(p[0],p[1],j.pos):''}${escudo(j.e, j.e)}
         <span class="sg-n">${j.n}</span>
@@ -2568,6 +3119,89 @@ function arrancarComparador(){
 function arrancarBalance(){
   const dlg = document.getElementById('balance');
   document.getElementById('abrir-bal').addEventListener('click', abrirBalance);
+  document.getElementById('abrir-cal').addEventListener('click', abrirCalendario);
+  document.getElementById('abrir-me').addEventListener('click', abrirMiEquipo);
+  document.getElementById('me-cerrar').addEventListener('click',
+    () => document.getElementById('miequipo').close());
+
+  document.getElementById('miequipo').addEventListener('click', e => {
+    const q = e.target.closest('[data-quita]');
+    if(q){ alternarMio(q.dataset.quita); return; }
+    const a = e.target.closest('[data-abre]');
+    if(a){
+      const f = (window.__filas || []).find(x => clave(x.ref) === a.dataset.abre);
+      if(f){ document.getElementById('miequipo').close(); abrirFicha(f); }
+      return;
+    }
+    if(e.target.id === 'me-copiar'){
+      const i = document.getElementById('me-cod');
+      i.select();
+      try { document.execCommand('copy'); } catch(_){}
+      if(navigator.clipboard) navigator.clipboard.writeText(i.value).catch(()=>{});
+      e.target.textContent = 'Copiado';
+      setTimeout(() => { e.target.textContent = 'Copiar'; }, 1400);
+      return;
+    }
+    if(e.target.id === 'me-pegar'){
+      const txt = prompt('Pega aquí el código de tu equipo:');
+      if(!txt) return;
+      try {
+        const lista = JSON.parse(decodeURIComponent(escape(atob(txt.trim()))));
+        if(!Array.isArray(lista)) throw new Error('no es una lista');
+        MIOS.clear(); lista.forEach(x => MIOS.add(x));
+        guardarMios(); pintarMiEquipo(); pintar();
+      } catch(_){
+        alert('Ese código no vale. Tiene que ser el que sale en "Mi equipo" del otro navegador.');
+      }
+    }
+  });
+
+  // la estrella de la lista y el botón de la ficha
+  document.getElementById('cuerpo').addEventListener('click', e => {
+    const b = e.target.closest('[data-mio]');
+    if(b){ e.stopPropagation(); alternarMio(b.dataset.mio); }
+  }, true);
+  document.getElementById('ficha-mio').addEventListener('click', e => {
+    alternarMio(e.currentTarget.dataset.mio);
+    e.currentTarget.classList.toggle('on', MIOS.has(e.currentTarget.dataset.mio));
+    e.currentTarget.textContent = MIOS.has(e.currentTarget.dataset.mio) ? '★ Es mío' : '☆ Es mío';
+  });
+  document.getElementById('cal-cerrar').addEventListener('click',
+    () => document.getElementById('calendario').close());
+  for(const [caja, campo] of [['cal-ojo', 'pos'], ['cal-n', 'n']]){
+    document.getElementById(caja).addEventListener('click', e => {
+      const b = e.target.closest('button'); if(!b) return;
+      CAL[campo] = +b.dataset.v;
+      document.querySelectorAll(`#${caja} button`).forEach(x =>
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+      // si se esta viendo un equipo suelto, se repinta ese, no la rejilla
+      const dentro = document.querySelector('.ce-cab h3');
+      if(dentro) document.getElementById('cal-cuerpo').innerHTML =
+        calendarioEquipo(dentro.textContent);
+      else pintarCalendario();
+    });
+  }
+  document.getElementById('cal-orden').addEventListener('change', e => {
+    CAL.orden = e.target.value; pintarCalendario();
+  });
+  /* En la rejilla: el escudo y el nombre abren el calendario de ese equipo;
+     el resto de la fila lleva a la lista filtrada por el. Dos destinos
+     distintos en la misma fila, asi que el nombre lo dice. */
+  document.getElementById('cal-cuerpo').addEventListener('click', e => {
+    if(e.target.closest('.ce-a')) return;          // el enlace hace lo suyo
+    if(e.target.closest('#ce-volver')){ pintarCalendario(); return; }
+    const tr = e.target.closest('tr[data-eq]'); if(!tr) return;
+    if(e.target.closest('.cal-eq')){
+      document.getElementById('cal-cuerpo').innerHTML = calendarioEquipo(tr.dataset.eq);
+      document.getElementById('cal-sub').textContent = 'la temporada entera';
+      return;
+    }
+    estado.equipos = new Set([tr.dataset.eq]);
+    estado.modoEq = 'incluir';
+    marcarCasilla('panel-equipos', tr.dataset.eq, true);
+    document.getElementById('calendario').close();
+    pintar();
+  });
   document.getElementById('bal-cerrar').addEventListener('click', () => dlg.close());
   dlg.addEventListener('click', e => { if(e.target === dlg) dlg.close(); });
 
@@ -2829,6 +3463,7 @@ function arrancar(){
     if(e.target.classList.contains('quitar')){
       estado.rangos.splice(+e.target.closest('.rango').dataset.i, 1);
       pintarRangos(); pintar();
+      return;
     }
   });
   cajaRangos.addEventListener('input', e => {
@@ -2854,8 +3489,8 @@ function arrancar(){
   });
   document.getElementById('buscar').addEventListener('input', e => { estado.buscar = e.target.value; pintar(); });
   document.getElementById('fuente').addEventListener('change', e => { estado.fuente = e.target.value; pintar(); });
-  document.getElementById('minpj').addEventListener('input', e => {
-    estado.minpj = Math.max(1, +e.target.value||1); pintar(); });
+  document.getElementById('ver-fuera').addEventListener('change', e => {
+    estado.verFuera = e.target.checked; pintar(); });
 
   document.getElementById('cabeceras').addEventListener('click', e => {
     const th = e.target.closest('th'); if(!th) return;
