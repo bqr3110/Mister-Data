@@ -59,7 +59,7 @@ def main():
     hoy = date.today()
 
     # calendario y proximos partidos
-    lugar, prox = {}, defaultdict(list)
+    lugar, prox, partidos = {}, defaultdict(list), {}
     lugar_equipos = set()
     for p in leer("partidos.csv"):
         lugar_equipos.add(p["local"])
@@ -67,6 +67,13 @@ def main():
         j = int(p["jornada"])
         lugar[f"{j}|{p['local']}"] = "C|" + p["visitante"]
         lugar[f"{j}|{p['visitante']}"] = "F|" + p["local"]
+        # el marcador y el enlace a la ficha, para poder tocar un cuadro de
+        # la racha y ver de donde sale esa puntuacion
+        res = limpia(p.get("resultado", ""))
+        if p["terminado"] == "1" and "-" in res:
+            a, b = res.split("-", 1)
+            partidos[f"{j}|{p['local']}"] = [f"{a}-{b}", p.get("url", "")]
+            partidos[f"{j}|{p['visitante']}"] = [f"{b}-{a}", p.get("url", "")]
         if p["terminado"] != "1":
             # "cuando" es el unico texto libre que sale de aqui a la web
             # ("Sab 10/10 16:15h"): se limpia como los nombres. Los equipos
@@ -115,43 +122,6 @@ def main():
 
     for e in prox:
         prox[e] = sorted(prox[e], key=cuando_ordena)[:8]
-
-    # ---- lo dura que tiene cada equipo la papeleta ----
-    #
-    # Dos numeros distintos, porque un rival no es igual de duro para todos:
-    #   - al delantero le importa lo que ENCAJA el rival (si no encaja, no marcas)
-    #   - al portero y al defensa le importa lo que MARCA el rival (si marca,
-    #     te quedas sin los puntos de porteria a cero)
-    # Salen del resultado de los partidos ya jugados, asi que no dependen de
-    # que fuente de puntos tengas elegida. Con siete jornadas es orientativo.
-    gf, gc, pjs = defaultdict(int), defaultdict(int), defaultdict(int)
-    for p in leer("partidos.csv"):
-        if p["terminado"] != "1" or "-" not in (p.get("resultado") or ""):
-            continue
-        try:
-            a, b = (int(x) for x in p["resultado"].split("-", 1))
-        except ValueError:
-            continue
-        for eq, mete, recibe in ((p["local"], a, b), (p["visitante"], b, a)):
-            gf[eq] += mete
-            gc[eq] += recibe
-            pjs[eq] += 1
-
-    def quintiles(valores):
-        """Reparte los veinte equipos en cinco cajones, de 1 a 5."""
-        orden = sorted(valores, key=lambda x: valores[x])
-        n = len(orden) or 1
-        return {eq: min(5, int(i * 5 / n) + 1) for i, eq in enumerate(orden)}
-
-    enc = {e: gc[e] / pjs[e] for e in pjs if pjs[e]}   # encaja por partido
-    met = {e: gf[e] / pjs[e] for e in pjs if pjs[e]}   # marca por partido
-    # 5 = el rival mas duro. Encaja poco -> duro para el que ataca.
-    # Marca mucho -> duro para el que defiende.
-    q_enc = quintiles({e: -v for e, v in enc.items()})
-    q_met = quintiles(met)
-    dureza = {e: [q_enc.get(e, 3), q_met.get(e, 3),
-                  round(enc.get(e, 0), 2), round(met.get(e, 0), 2), pjs.get(e, 0)]
-              for e in sorted(set(enc) | set(met))}
 
     # puntuaciones
     jug = {}
@@ -401,10 +371,89 @@ def main():
         jug[k]["v"] = v
         con_serie += 1
 
+    # ---- lo dura que tiene cada rival, por posicion ----
+    #
+    # Antes esto salia de los goles que el rival marca y encaja. Era lo que
+    # habia a mano, pero mide lo que no es: al Mister no le pagan los goles
+    # del equipo, le pagan los puntos de TU jugador. Un equipo puede encajar
+    # poco y aun asi repartir puntos a los medios que le desbordan.
+    #
+    # Asi que ahora se mira eso directamente: cuantos puntos reparte cada
+    # rival a los que juegan contra el, separados por posicion. Con los
+    # mismos partidos hay mucha mas muestra: en vez de ocho numeros por
+    # equipo (los goles de cada jornada) salen cientos, uno por jugador y
+    # partido. Solo cuentan los que pisaron el campo: el cero de un suplente
+    # que no sale no dice nada del rival.
+    POSICIONES = ["Portero", "Defensa", "Mediocampista", "Delantero"]
+    concede = defaultdict(lambda: defaultdict(list))
+    for v in jug.values():
+        pos = v.get("pos") or ""
+        if pos not in POSICIONES:
+            continue
+        for nj, punto in (v.get("p", {}).get("m2") or {}).items():
+            if punto is None:
+                continue
+            ev = (v.get("ev", {}) or {}).get(nj) or {}
+            if not ev.get("m"):
+                continue
+            sede_rival = lugar.get(f"{nj}|{v['e']}", "")
+            if "|" not in sede_rival:
+                continue
+            concede[sede_rival.split("|", 1)[1]][pos].append(punto)
+
+    def quintiles(valores):
+        """Reparte los equipos en cinco cajones, de 1 a 5, de menos a mas."""
+        orden = sorted(valores, key=lambda x: valores[x])
+        n = len(orden) or 1
+        return {eq: min(5, int(i * 5 / n) + 1) for i, eq in enumerate(orden)}
+
+    liga, medias, cuantos, niveles = {}, {}, {}, {}
+    for pos in POSICIONES:
+        todos = [x for eq in concede for x in concede[eq].get(pos, [])]
+        liga[pos] = sum(todos) / len(todos) if todos else 0
+        m = {eq: sum(vs) / len(vs)
+             for eq, vs in ((eq, concede[eq].get(pos, [])) for eq in concede) if vs}
+        medias[pos] = m
+        cuantos[pos] = {eq: len(concede[eq].get(pos, [])) for eq in concede}
+        # 5 = el mas duro, o sea el que menos reparte
+        niveles[pos] = quintiles({eq: -x for eq, x in m.items()})
+
+    # por equipo y posicion: [nivel 1-5, puntos que reparte, actuaciones]
+    dureza = {}
+    for eq in sorted(concede):
+        d = {}
+        for i, pos in enumerate(POSICIONES):
+            if eq in medias[pos]:
+                d[str(i)] = [niveles[pos][eq], round(medias[pos][eq], 2),
+                             cuantos[pos][eq]]
+        if d:
+            dureza[eq] = d
+    media_liga = {str(i): round(liga[pos], 2) for i, pos in enumerate(POSICIONES)}
+    print("puntos que reparte un rival medio: " +
+          ", ".join(f"{pos[:4]} {liga[pos]:.2f}" for pos in POSICIONES))
+
+    # ---- los que ya no estan en la liga ----
+    #
+    # Se fueron en verano pero siguen en los datos con las jornadas que
+    # llegaron a jugar, y se colaban en cualquier busqueda. La firma son
+    # tres cosas A LA VEZ: el Mister ya no les pone valor, no salen en la
+    # jerarquia de ningun equipo y no tienen probabilidad de ser titular.
+    # Por separado fallan: Javier Hernandez (Espanyol) no tiene valor y sin
+    # embargo es Clave con un 80%, o sea que sigue aqui.
+    fuera = 0
+    for v in jug.values():
+        if not v.get("val") and v.get("jer") is None and v.get("tp") is None:
+            v["fue"] = 1
+            if v["p"]:
+                fuera += 1
+    print(f"ya no estan en la liga: {fuera} jugadores")
+
     salida = {
         "fecha": fecha_dato,
+        "mediaLiga": media_liga,
         "eje": eje,
         "lugar": lugar,
+        "partidos": partidos,
         "prox": dict(prox),
         "dureza": dureza,
         "fuentes": NOMBRES,
