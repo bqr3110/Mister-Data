@@ -3,7 +3,25 @@ name: Captura
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */2 * * *"
+    # Antes esto era "cada dos horas" todo el rato, lo que significaba doce
+    # capturas al dia incluso un martes de madrugada, cuando no hay nada que
+    # capturar. Pero bajarlo a dos al dia tampoco vale: cuando hay partido,
+    # los puntos tienen que entrar cuanto antes.
+    #
+    # Asi que se pide donde hace falta y no donde no. OJO: GitHub ejecuta los
+    # cron en UTC y no entiende husos horarios, asi que en invierno todo esto
+    # cae una hora antes en hora española. Por eso las franjas van holgadas.
+
+    # todos los dias: los valores de mercado, que la fuente publica por la
+    # mañana (7:40 UTC = 9:40 en verano, 8:40 en invierno)
+    - cron: "40 7 * * *"
+
+    # de viernes a lunes, cada hora desde que empiezan los partidos hasta
+    # que acaba el ultimo (12-23 UTC = de las 14h a medianoche en verano)
+    - cron: "0 12-23 * * 5,6,0,1"
+
+    # y el cierre de la noche, que ya cae en el dia siguiente en UTC
+    - cron: "0 0 * * 6,0,1,2"
 
 jobs:
   capturar:
@@ -17,13 +35,18 @@ jobs:
         with:
           python-version: "3.11"
 
-      - run: pip install requests beautifulsoup4
+      # con version fija: estos scripts corren con permiso de escritura sobre
+      # el repo, asi que no interesa que una version nueva entre sola
+      - run: pip install requests==2.32.3 beautifulsoup4==4.12.3
 
       - name: Calendario y estado de partidos
         run: python scripts/partidos.py
 
       - name: Eventos de los partidos nuevos
         run: python scripts/eventos.py
+
+      - name: Calendario europeo
+        run: python scripts/europa.py
 
       - name: Puntuaciones
         run: python scripts/puntos.py

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Ojeador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="envoltorio">
+
+<header>
+  <div class="titulo">
+    <h1>Ojeador</h1>
+    <span class="sub" id="cabecera-sub"></span>
+    <div class="cab-btns">
+      <button class="tema accion" id="abrir-bal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 7h14M7 7l-2.5 6h5L7 7zM17 7l-2.5 6h5L17 7z"/></svg>
+        Balance</button>
+      <button class="tema accion" id="abrir-me">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6.1L12 16.8 6.7 19.7l1.1-6.1L3.4 9.4l6-.8z"/></svg>
+        Mi equipo <span class="pill" id="me-n" hidden>0</span></button>
+      <button class="tema accion" id="abrir-cal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18M7 3v4M17 3v4M4 5h16v16H4zM8 13h2M14 13h2M8 17h2M14 17h2"/></svg>
+        Calendario</button>
+      <button class="tema accion" id="abrir-cmp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        Comparador</button>
+      <button class="tema icono" id="btn-tema" aria-label="Cambiar tema" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 109 9 7 7 0 01-9-9z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="controles" hidden>
+  <div class="fila">
+    <label class="campo busca"><span>Buscar jugador</span>
+      <input type="text" id="buscar" placeholder="Sancet, Mbappé…" autocomplete="off"></label>
+
+    <label class="campo"><span>Puntuación</span>
+      <select id="fuente">
+        <option value="m2" selected>Mixto 2</option>
+        <option value="as">Cronistas AS</option>
+        <option value="md">Cronistas MD</option>
+        <option value="cm">Cronistas Marca</option>
+        <option value="sf">Sofascore · nota 0-10</option>
+      </select></label>
+
+    <div class="campo"><span>Dónde juega</span>
+      <div class="segmento" id="sede">
+        <button data-v="" aria-pressed="true">Todo</button>
+        <button data-v="C" aria-pressed="false">Casa</button>
+        <button data-v="F" aria-pressed="false">Fuera</button>
+      </div></div>
+
+    <div class="campo"><span>Jugadores</span>
+      <label class="casilla alta"><input type="checkbox" id="ver-fuera">
+        <span>Incluir a los que ya no están en la liga</span></label></div>
+  </div>
+
+  <div class="barra-filtros" id="barra-filtros">
+    <div class="grupo">
+      <button class="filtro" data-p="pos" aria-expanded="false">Posición</button>
+      <div class="pop" id="pop-pos" hidden>
+        <div class="pop-cuerpo columnas" id="panel-pos"></div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <button class="filtro" data-p="equipos" aria-expanded="false">Equipos</button>
+      <div class="pop ancho" id="pop-equipos" hidden>
+        <div class="pop-cab">
+          <div class="segmento chico" id="modo-eq">
+            <button data-v="incluir" aria-pressed="true">Solo estos</button>
+            <button data-v="excluir" aria-pressed="false">Todos menos</button>
+          </div>
+          <button class="limpiar" data-limpiar="equipos">quitar</button>
+        </div>
+        <div class="pop-cuerpo rejilla" id="panel-equipos"></div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <button class="filtro" data-p="valor" aria-expanded="false">Valor</button>
+      <div class="pop" id="pop-valor" hidden>
+        <div class="pop-cuerpo">
+          <div class="linea-num">
+            <span class="etiqueta">desde</span>
+            <input type="number" id="val-min" step="0.1" min="0" placeholder="—"><span class="uni">M</span>
+            <span class="etiqueta">hasta</span>
+            <input type="number" id="val-max" step="0.1" min="0" placeholder="—"><span class="uni">M</span>
+          </div>
+          <div class="linea-num">
+            <span class="etiqueta">subida de hoy desde</span>
+            <input type="number" id="cam-min" step="1" placeholder="—"><span class="uni">k</span>
+          </div>
+          <button class="limpiar" data-limpiar="valor">quitar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <button class="filtro" data-p="juega" aria-expanded="false">Juega</button>
+      <div class="pop ancho" id="pop-juega" hidden>
+        <div class="pop-cuerpo">
+          <span class="etiqueta">Para quitar de en medio a los que llevan tiempo sin jugar.
+            Se mira sobre los partidos reales de su equipo: tus exclusiones no cuentan aquí.</span>
+
+          <div class="linea-num">
+            <span class="etiqueta">Mirando sus últimos</span>
+            <input type="number" id="ult-n" value="5" min="1" max="20">
+            <span class="uni">partidos</span>
+          </div>
+
+          <label class="casilla"><input type="checkbox" id="ju-min"><span>Jugó al menos…</span></label>
+          <div class="linea-num sangrada">
+            <input type="number" id="ju-cuantos" value="3" min="1" max="20">
+            <span class="uni">de ellos, con</span>
+            <input type="number" id="ju-minutos" value="15" min="1" max="90">
+            <span class="uni">min o más cada uno</span>
+          </div>
+          <label class="casilla sangrada"><input type="checkbox" id="ju-tit"><span>y saliendo de titular</span></label>
+
+          <label class="casilla"><input type="checkbox" id="ju-tot"><span>Sumó al menos…</span></label>
+          <div class="linea-num sangrada">
+            <input type="number" id="ju-totmin" value="180" min="1" max="1800">
+            <span class="uni">minutos entre todos ellos</span>
+          </div>
+
+          <label class="casilla"><input type="checkbox" id="ju-ultimo"><span>Jugó el último partido</span></label>
+
+          <button class="limpiar" data-limpiar="juega">quitar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <button class="filtro" data-p="rol" aria-expanded="false">Rol</button>
+      <div class="pop" id="pop-rol" hidden>
+        <div class="pop-cuerpo">
+          <span class="etiqueta">Lo que dicen los analistas de él: el sitio que
+            ocupa en su equipo y lo probable que es que salga de titular en la
+            próxima jornada.</span>
+
+          <div class="linea-num">
+            <span class="etiqueta">Jerarquía, al menos</span>
+            <select id="jer-min">
+              <option value="0" selected>da igual</option>
+              <option value="2">Reserva</option>
+              <option value="3">Revulsivo</option>
+              <option value="4">Rotación</option>
+              <option value="5">Importante</option>
+              <option value="6">Clave</option>
+              <option value="7">Dios</option>
+            </select>
+          </div>
+
+          <div class="linea-num">
+            <span class="etiqueta">Sale de titular con</span>
+            <input type="number" id="tp-min" min="0" max="100" step="5" placeholder="—">
+            <span class="uni">% de probabilidad o más</span>
+          </div>
+
+          <button class="limpiar" data-limpiar="rol">quitar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <button class="filtro" data-p="excluir" aria-expanded="false">Excluir</button>
+      <div class="pop ancho" id="pop-excluir" hidden>
+        <div class="pop-cuerpo">
+          <span class="etiqueta">Quitar del cálculo…</span>
+
+          <label class="casilla"><input type="checkbox" id="ex-gol"><span>Partidos con gol</span></label>
+          <label class="casilla"><input type="checkbox" id="ex-roja"><span>Partidos con roja</span></label>
+
+          <div class="sub">
+            <button class="sub-cab" data-sub="minutos" aria-expanded="false">Jugó menos de X minutos</button>
+            <div class="sub-cuerpo" data-sub-de="minutos" hidden>
+              <label class="casilla"><input type="checkbox" id="ex-min"><span>quitar los partidos de menos de</span></label>
+              <div class="linea-num">
+                <input type="range" id="minminutos" value="45" min="5" max="90" step="5">
+                <output id="out-min">45 min</output>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <button class="sub-cab" data-sub="rivales" aria-expanded="false">Partidos contra</button>
+            <div class="sub-cuerpo" data-sub-de="rivales" hidden>
+              <div class="rejilla" id="panel-rivales"></div>
+              <div class="nota" id="nota-rival" hidden>Los jugadores de esos equipos no pierden ningún partido, así que la comparación deja de ser homogénea.</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <button class="sub-cab" data-sub="jornadas" aria-expanded="false">Jornada nº</button>
+            <div class="sub-cuerpo" data-sub-de="jornadas" hidden>
+              <div class="jornadas" id="jornadas"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <button class="filtro" data-p="stats" aria-expanded="false">Estadísticas</button>
+      <div class="pop ancho" id="pop-stats" hidden>
+        <div class="pop-cuerpo" id="panel-stats"></div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <button class="filtro" data-p="cond" aria-expanded="false">Más</button>
+      <div class="pop ancho" id="pop-cond" hidden>
+        <div class="pop-cuerpo">
+          <span class="etiqueta">Deja fuera a quien no cumpla</span>
+          <div class="rangos" id="rangos"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activos" id="activos"></div>
+</div>
+
+<div id="cargando">Cargando datos…</div>
+<div id="error" hidden></div>
+
+<div class="resumen" id="resumen"></div>
+
+<div class="barra-orden" id="barra-orden" hidden>
+  <div class="tira" id="tira"></div>
+</div>
+
+<div class="tabla-caja" hidden>
+  <table>
+    <thead><tr id="cabeceras"></tr></thead>
+    <tbody id="cuerpo"></tbody>
+  </table>
+</div>
+
+<div class="tarjetas" id="tarjetas" hidden></div>
+
+</div>
+
+<div class="velo" id="velo" hidden></div>
+
+<div class="carro" id="carro" hidden>
+  <button class="carro-abrir" id="carro-abrir">Comparar <span id="carro-n">0</span></button>
+  <button class="carro-vaciar" id="carro-vaciar" aria-label="Vaciar">&times;</button>
+</div>
+
+<dialog id="comparador">
+  <div class="cmp-cab">
+    <h2>Comparador</h2>
+    <span class="sub" id="cmp-sub"></span>
+    <button class="cerrar" id="cmp-cerrar" aria-label="Cerrar">&times;</button>
+  </div>
+
+  <div class="cmp-anadir">
+    <input type="text" id="cmp-buscar" placeholder="Añadir jugador por nombre…" autocomplete="off">
+    <div class="cmp-sug" id="cmp-sug" hidden></div>
+  </div>
+
+  <div class="cmp-seccion">
+    <button class="sub-cab cmp-sec" id="cmp-cab-atrib" aria-expanded="false">Qué datos comparo</button>
+    <div class="cmp-atrib" id="cmp-atrib" hidden></div>
+  </div>
+
+  <div class="cmp-cuerpo" id="cmp-cuerpo"></div>
+  <div class="cmp-pie" id="cmp-pie"></div>
+</dialog>
+
+<dialog id="balance">
+  <div class="cmp-cab">
+    <h2>Balance</h2>
+    <span class="sub" id="bal-sub"></span>
+    <button class="cerrar" id="bal-cerrar" aria-label="Cerrar">&times;</button>
+  </div>
+
+  <div class="bal-cuerpo" id="bal-cuerpo"></div>
+
+  <div class="bal-pie">
+    <div class="bal-caja">
+      <label for="bal-saldo">Lo que tienes ahora</label>
+      <input type="text" id="bal-saldo" inputmode="decimal" placeholder="0"
+        autocomplete="off" spellcheck="false">
+    </div>
+    <div class="bal-total" id="bal-total"></div>
+  </div>
+</dialog>
+
+<dialog id="miequipo">
+  <div class="cmp-cab">
+    <h2>Mi equipo</h2>
+    <span class="sub">guardado solo en este navegador</span>
+    <button class="cerrar" id="me-cerrar" aria-label="Cerrar">&times;</button>
+  </div>
+  <div class="me-cuerpo" id="me-cuerpo"></div>
+  <div class="me-pie" id="me-pie"></div>
+</dialog>
+
+<dialog id="calendario">
+  <div class="cmp-cab">
+    <h2>Calendario</h2>
+    <span class="sub" id="cal-sub"></span>
+    <button class="cerrar" id="cal-cerrar" aria-label="Cerrar">&times;</button>
+  </div>
+
+  <div class="cal-mandos">
+    <div class="campo"><span>Lo duro que es para…</span>
+      <div class="segmento chico" id="cal-ojo">
+        <button data-v="0" aria-pressed="false">Portero</button>
+        <button data-v="1" aria-pressed="false">Defensa</button>
+        <button data-v="2" aria-pressed="false">Medio</button>
+        <button data-v="3" aria-pressed="true">Delantero</button>
+      </div></div>
+    <div class="campo"><span>Jornadas</span>
+      <div class="segmento chico" id="cal-n">
+        <button data-v="3" aria-pressed="false">3</button>
+        <button data-v="5" aria-pressed="true">5</button>
+        <button data-v="8" aria-pressed="false">8</button>
+      </div></div>
+    <label class="campo"><span>Ordenar</span>
+      <select id="cal-orden">
+        <option value="facil" selected>Mejor calendario primero</option>
+        <option value="dificil">Peor calendario primero</option>
+        <option value="nombre">Por nombre</option>
+      </select></label>
+  </div>
+
+  <div class="cal-cuerpo" id="cal-cuerpo"></div>
+  <div class="cal-pie" id="cal-pie"></div>
+</dialog>
+
+<dialog id="ficha">
+  <div class="fx-cab">
+    <button class="cerrar" id="ficha-cerrar" aria-label="Cerrar">&times;</button>
+
+    <div class="fx-id">
+      <div class="fx-cara">
+        <div class="fx-foto" id="ficha-foto"></div>
+        <div class="fx-rol" id="ficha-rol"></div>
+      </div>
+      <div class="fx-quien">
+        <div class="fx-arriba" id="ficha-arriba"></div>
+        <h2 id="ficha-nombre"></h2>
+        <div class="fx-val" id="ficha-val"></div>
+        <div class="fx-racha5" id="ficha-racha5"></div>
+      </div>
+    </div>
+
+    <div class="fx-punt">
+      <div class="fx-hero" id="ficha-hero"></div>
+      <div class="fx-sub" id="ficha-sub"></div>
+    </div>
+  </div>
+
+  <div class="fx-prox" id="ficha-prox"></div>
+
+  <div class="fx-acciones">
+    <button class="fx-btn" data-calc="puja">Puja ideal</button>
+    <button class="fx-btn" data-calc="clausula">Subir cláusula</button>
+    <button class="fx-btn" data-calc="progreso">Progreso</button>
+    <button class="fx-btn mio-btn" id="ficha-mio" aria-pressed="false">☆ Es mío</button>
+    <button class="fx-btn cmp" id="ficha-cmp"></button>
+  </div>
+  <div class="fx-calc" id="ficha-calc" hidden></div>
+
+  <div class="fx-barra">
+    <div class="fx-pestanas" id="fx-pestanas">
+      <button class="fx-pes act" data-pes="partidos">Últimos partidos</button>
+      <button class="fx-pes" data-pes="valor">Valor</button>
+      <button class="fx-pes" data-pes="stats">Estadísticas</button>
+    </div>
+    <div class="fx-sede" id="fx-sede">
+      <button class="act" data-sd="">Todo</button>
+      <button data-sd="C">Casa</button>
+      <button data-sd="F">Fuera</button>
+    </div>
+  </div>
+
+  <div class="fx-cuerpo">
+    <div class="fx-panel" id="pes-partidos"></div>
+    <div class="fx-panel" id="pes-valor" hidden></div>
+    <div class="fx-panel" id="pes-stats" hidden></div>
+  </div>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>

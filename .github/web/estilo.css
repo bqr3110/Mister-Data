@@ -1,0 +1,1545 @@
+:root{
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --ease-in-out:cubic-bezier(0.77,0,0.175,1);
+  --papel:#F1F4EF; --tarjeta:#FFFFFF; --tinta:#15231B; --tinta2:#5B6B61;
+  --linea:#D6DDD6; --acento:#1C6B49; --casa:#1C6B49; --fuera:#8C5A22;
+  --neg:#A6392A; --resalte:#E7EEE7; --sombra:rgba(21,35,27,.06);
+  /* un color por sistema de puntuacion. Separados tambien para daltonismo,
+     y siempre con su nombre al lado: el color acompana, no informa solo. */
+  --f-m2:#0C7D55; --f-cm:#C2410C; --f-as:#E01010; --f-sf:#2C3BD6; --f-md:#6B7280; --f-txt:#FFFFFF;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --papel:#111714; --tarjeta:#18201B; --tinta:#E6EDE7; --tinta2:#94A299;
+    --linea:#2A352E; --acento:#5FC08F; --casa:#5FC08F; --fuera:#D9A25F;
+    --neg:#E0715E; --resalte:#1F2A23; --sombra:rgba(0,0,0,.4);
+    --f-m2:#3ED396; --f-cm:#F29354; --f-as:#F2706E; --f-sf:#8FA0FF; --f-md:#9CA3AF; --f-txt:#101613;
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#111714; --tarjeta:#18201B; --tinta:#E6EDE7; --tinta2:#94A299;
+  --linea:#2A352E; --acento:#5FC08F; --casa:#5FC08F; --fuera:#D9A25F;
+  --neg:#E0715E; --resalte:#1F2A23; --sombra:rgba(0,0,0,.4);
+  --f-m2:#3ED396; --f-cm:#F29354; --f-as:#F2706E; --f-sf:#8FA0FF; --f-md:#9CA3AF; --f-txt:#101613;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:15px;line-height:1.45;font-variant-numeric:tabular-nums}
+.envoltorio{max-width:1460px;margin:0 auto;padding:0 16px 64px}
+
+header{padding:24px 0 16px;border-bottom:2px solid var(--tinta)}
+.titulo{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+h1{font-size:27px;font-weight:600;margin:0;letter-spacing:-.02em}
+.sub{color:var(--tinta2);font-size:14px}
+/* la fecha del dato: que se pueda mirar sin que estorbe. Subrayado de
+   puntos, como una nota al pie, y el detalle en el title */
+.sub-fecha{border-bottom:1px dotted var(--linea);cursor:help;opacity:.75}
+.sub-fecha:hover{opacity:1}
+.tema{margin-left:auto;background:none;border:1px solid var(--linea);color:var(--tinta2);
+  border-radius:7px;padding:5px 10px;cursor:pointer;font:inherit;font-size:13px}
+.tema:hover{border-color:var(--acento);color:var(--acento)}
+
+.controles{padding:16px 0;border-bottom:1px solid var(--linea)}
+.fila{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.campo{display:flex;flex-direction:column;gap:5px;min-width:0}
+.campo > span{font-size:12.5px;color:var(--tinta2)}
+input[type=text],input[type=number],select{font:inherit;font-size:14px;padding:7px 10px;
+  border:1px solid var(--linea);border-radius:7px;background:var(--tarjeta);color:var(--tinta);min-width:0}
+input[type=text]{width:200px}
+input[type=number]{width:72px}
+select{min-width:158px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--acento);outline-offset:1px}
+
+.segmento{display:flex;border:1px solid var(--linea);border-radius:7px;overflow:hidden}
+.segmento button{font:inherit;font-size:14px;padding:7px 14px;border:0;background:var(--tarjeta);
+  color:var(--tinta2);cursor:pointer;border-right:1px solid var(--linea)}
+.segmento button:last-child{border-right:0}
+.segmento button[aria-pressed=true]{background:var(--acento);color:var(--papel);font-weight:500}
+.segmento.chico button{font-size:13px;padding:4px 10px}
+
+
+
+
+.bloque{display:flex;flex-direction:column;gap:9px}
+.cab-bloque{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.etiqueta{font-size:12.5px;color:var(--tinta2)}
+
+.limpiar{border:0;background:none;color:var(--acento);font:inherit;font-size:13px;cursor:pointer;text-decoration:underline;padding:0}
+.casilla{display:flex;align-items:center;gap:7px;font-size:14px;cursor:pointer}
+
+.excl{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.excl .conmin{display:flex;align-items:center;gap:7px;font-size:14px}
+.jornadas{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.chip{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--linea);
+  background:var(--tarjeta);color:var(--tinta2);border-radius:20px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--neg);border-color:var(--neg);color:#fff;text-decoration:line-through}
+
+.resumen{padding:12px 0 8px;font-size:13.5px;color:var(--tinta2);display:flex;gap:16px;flex-wrap:wrap}
+.aviso{color:var(--fuera)}
+.pista{display:none}
+.solo-movil{display:none}
+.solo-escritorio{display:inline}
+.escala{font-size:11.5px;border:1px solid var(--linea);border-radius:4px;padding:1px 5px;color:var(--tinta2)}
+
+.tabla-caja{overflow-x:auto;border:1px solid var(--linea);border-radius:10px;background:var(--tarjeta)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--linea)}
+th{position:sticky;top:0;background:var(--tarjeta);z-index:2;font-weight:500;font-size:12.5px;
+  color:var(--tinta2);cursor:pointer;user-select:none;border-bottom:1.5px solid var(--tinta)}
+th:hover{color:var(--acento)}
+th.activo{color:var(--acento);font-weight:600}
+td.nom,th.nom{text-align:left;font-weight:500}
+td.sinjugar{color:var(--fuera)}
+td.cen,th.cen{text-align:center;padding-left:6px;padding-right:6px}
+td.txt,th.txt{text-align:left;color:var(--tinta2);font-size:13px}
+th.dif,td.dif{border-left:1px solid var(--linea);border-right:1px solid var(--linea)}
+tbody tr:hover td{background:var(--resalte)}
+tbody tr{cursor:pointer}
+.casa{color:var(--casa)}
+.fuera{color:var(--fuera)}
+.dif-pos{color:var(--casa);font-weight:600}
+.dif-neg{color:var(--fuera);font-weight:600}
+.tenue{color:var(--tinta2)}
+.vacio{padding:40px;text-align:center;color:var(--tinta2)}
+
+dialog{border:1px solid var(--linea);border-radius:12px;background:var(--tarjeta);color:var(--tinta);
+  padding:0;max-width:720px;width:calc(100% - 32px);box-shadow:0 12px 40px var(--sombra)}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+/* ---------- ficha del jugador ---------- */
+/* la ficha entera baja de una pieza: no hay un cajon que se desplace por dentro */
+#ficha{max-width:680px;max-height:90vh;overflow-y:auto;overscroll-behavior:contain}
+
+/* cabecera: identidad a la izquierda, puntuacion a la derecha */
+.fx-cab{position:relative;display:flex;gap:16px;align-items:flex-start;
+  padding:18px 20px 14px;flex:none;flex-wrap:wrap}
+/* la X: un boton redondo de verdad, no un aspa suelta encima del contenido */
+/* z-index por debajo de la barra de pestañas: al subir, pasa por detrás, no por encima */
+#ficha .cerrar{position:absolute;top:12px;right:12px;z-index:2;width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;
+  border:0;border-radius:50%;background:var(--resalte);color:var(--tinta2);
+  font-size:17px;line-height:1;
+  transition:transform 110ms var(--ease-out),background-color 110ms ease,color 110ms ease}
+#ficha .cerrar:hover{background:var(--neg);color:#fff}
+#ficha .cerrar:active{transform:scale(.9)}
+
+.fx-id{display:flex;gap:13px;align-items:flex-start;flex:1 1 230px;min-width:0}
+.fx-foto{flex:none;width:58px;height:58px;border-radius:50%;overflow:hidden;
+  background:var(--resalte);display:flex;align-items:center;justify-content:center}
+.fx-foto img{width:100%;height:100%;object-fit:cover}
+.fx-ini{font-size:20px;font-weight:600;color:var(--tinta2)}
+.fx-quien{min-width:0;flex:1}
+.fx-arriba{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tinta2)}
+.fx-arriba .esc{width:17px;height:17px}
+.fx-pos{font-weight:600}
+.fx-quien h2{margin:1px 0 2px;font-size:21px;font-weight:600;letter-spacing:-.02em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fx-val{font-size:14px;font-weight:600}
+.fx-val i{font-style:normal;font-weight:500;margin-left:7px;font-size:12px}
+.fx-racha5{margin-top:8px;line-height:1;white-space:nowrap}
+.fx-racha5 .pt{animation:asoma 240ms var(--ease-out) backwards}
+.fx-racha5 .pt:nth-child(2){animation-delay:30ms}
+.fx-racha5 .pt:nth-child(3){animation-delay:60ms}
+.fx-racha5 .pt:nth-child(4){animation-delay:90ms}
+.fx-racha5 .pt:nth-child(5){animation-delay:120ms}
+@keyframes asoma{from{opacity:0;transform:scale(.8)}}
+
+.fx-punt{display:flex;align-items:center;gap:12px;flex:none;padding-right:30px}
+.fx-hero{display:flex;flex-direction:column;align-items:flex-end}
+.fx-hero-n{font-size:40px;font-weight:600;line-height:1;letter-spacing:-.03em;
+  font-variant-numeric:proportional-nums}
+/* el sistema elegido va en macizo; los otros tres, en tinte */
+.fx-hero-t{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  margin-top:6px;padding:3px 9px;border-radius:6px;
+  background:var(--tono,var(--tinta2));color:var(--f-txt)}
+/* las otras tres fuentes son botones: tocas una y la ficha se recalcula */
+.fx-sub{display:flex;flex-direction:column;gap:4px}
+.fx-s{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  font:inherit;font-size:10.5px;color:var(--tinta);cursor:pointer;min-width:118px;
+  border:0;border-left:3px solid var(--tono,var(--linea));
+  background:color-mix(in srgb,var(--tono,var(--linea)) 13%,transparent);
+  padding:3px 8px;border-radius:3px 7px 7px 3px;text-align:left;
+  transition:transform 110ms var(--ease-out),background-color 110ms ease}
+.fx-s em{font-style:normal;letter-spacing:.02em;font-weight:500}
+.fx-s b{font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.fx-s:hover{background:color-mix(in srgb,var(--tono,var(--linea)) 26%,transparent)}
+/* la respuesta va en el down, no al soltar */
+.fx-s:active{transform:scale(.95)}
+
+/* al cambiar de sistema, el numero grande confirma el cambio */
+.fx-hero.cambia .fx-hero-n{animation:llega 260ms var(--ease-out)}
+@keyframes llega{from{opacity:0;transform:translateY(5px) scale(.97)}}
+.fx-hero-t em{font-style:normal;font-size:9px;opacity:.75;letter-spacing:0}
+
+/* logotipos de cada sistema: si el fichero está, manda el logo y el
+   nombre se esconde; si no está, la imagen se quita y queda el nombre */
+/* El logo del sistema va con su nombre al lado, no en su lugar: el logo se
+   reconoce de un vistazo y el nombre quita toda duda. Muchos vienen con
+   fondo opaco cuadrado (el de MD es negro), asi que se redondean como un
+   icono de app y asi no desentonan sobre el fondo de la ficha. */
+.logo-f{height:14px;width:14px;object-fit:contain;border-radius:3px;
+  vertical-align:-3px;display:inline-block;margin-right:4px;flex:0 0 auto}
+.logo-f ~ .txt-f{display:inline}
+.fx-hero-t .logo-f{height:16px;width:16px;vertical-align:-3px}
+.fx-s .logo-f{height:13px;width:13px}
+
+/* proximos: jornada, escudo del rival y casa o avion.
+   Van siempre en una sola linea; si no caben, se desliza en horizontal. */
+.fx-prox{display:flex;gap:6px;flex-wrap:nowrap;padding:0 20px 14px;flex:none;
+  overflow-x:auto;scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 20px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 20px),transparent)}
+.fx-prox::-webkit-scrollbar{display:none}
+.fx-prox:empty{display:none}
+.fx-p{display:inline-flex;align-items:center;gap:5px;padding:4px 8px 4px 6px;flex:none;
+  border:1px solid var(--linea);border-radius:8px;font-size:11.5px;cursor:help}
+.fx-p b{font-weight:600;color:var(--tinta2);font-size:11px}
+.fx-p i{font-style:normal;font-size:10.5px}
+.fx-p .esc{width:18px;height:18px}
+
+/* pestanas a la izquierda, casa/fuera a la derecha, en la misma linea */
+/* al bajar por la ficha las pestañas se quedan arriba: siempre sabes dónde estás */
+.fx-barra{display:flex;align-items:flex-end;gap:12px;padding:0 20px;flex:none;
+  position:sticky;top:0;z-index:4;background:var(--tarjeta);
+  border-bottom:1px solid var(--linea)}
+.fx-pestanas{display:flex;gap:2px;flex:1;min-width:0}
+.fx-pes{font:inherit;font-size:13px;padding:9px 2px;margin-right:20px;border:0;background:none;
+  color:var(--tinta2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;
+  white-space:nowrap;transition:color 120ms ease,border-color 120ms ease}
+.fx-pes:hover{color:var(--tinta)}
+.fx-pes:active{transform:scale(.97)}
+.fx-pes.act{color:var(--acento);font-weight:600;border-bottom-color:var(--acento)}
+
+/* total / casa / fuera: filtra la racha, el grafico y las estadisticas a la vez */
+.fx-sede{display:flex;flex:none;gap:2px;align-self:center;margin-bottom:4px;padding:2px;
+  border:1px solid var(--linea);border-radius:8px;background:var(--papel)}
+.fx-sede button{font:inherit;font-size:11.5px;padding:3px 9px;border:0;border-radius:6px;
+  background:none;color:var(--tinta2);cursor:pointer;white-space:nowrap;
+  transition:transform 110ms var(--ease-out),background-color 130ms ease,color 130ms ease}
+.fx-sede button:hover{color:var(--tinta)}
+.fx-sede button:active{transform:scale(.94)}
+.fx-sede button.act{background:var(--tarjeta);color:var(--tinta);font-weight:600;
+  box-shadow:0 1px 3px var(--sombra)}
+
+.fx-cuerpo{padding:14px 20px 6px}
+.fx-panel{animation:entra 220ms var(--ease-out)}
+.fx-panel[hidden]{display:none}
+@keyframes entra{from{opacity:0;transform:translateY(6px)}}
+
+/* las barras crecen desde la base: dice que lo que mide es la altura */
+.gr-barra{animation:crece 320ms var(--ease-out) backwards;transform-origin:bottom center}
+.gr-barra.neg{transform-origin:top center}
+@keyframes crece{from{transform:scaleY(0);opacity:.35}}
+
+/* grafico de partidos: una columna por jornada, al estilo del propio Mister */
+.gr{display:flex;gap:6px;align-items:flex-end;overflow-x:auto;padding-bottom:6px;
+  scrollbar-width:none}
+.gr::-webkit-scrollbar{display:none}
+.gr-col{flex:none;width:44px;display:flex;flex-direction:column;align-items:center;cursor:help}
+.gr-pista{width:100%;height:132px;display:flex;align-items:flex-end;justify-content:center}
+.gr-pista.doble{align-items:center}
+.gr-barra{width:100%;border-radius:6px 6px 2px 2px;display:flex;flex-direction:column;
+  align-items:center;padding-top:4px;gap:3px;min-height:16px;position:relative}
+.gr-barra.neg{align-self:flex-start;border-radius:2px 2px 6px 6px;justify-content:flex-end;
+  padding-top:0;padding-bottom:4px}
+.gr-n{font-size:13px;font-weight:700;line-height:1}
+.gr-ev{font-size:9px;line-height:1.3;display:flex;flex-direction:column;align-items:center;gap:2px}
+.gr-as{font-style:normal;font-weight:700;font-size:11px}
+.gr-am,.gr-ro{width:6px;height:8px;border-radius:1px;display:block}
+.gr-am{background:#E9C317}
+.gr-ro{background:#C6394B}
+.gr-no{width:60%;height:5px;border-radius:3px;background:var(--linea);opacity:.6;align-self:flex-end}
+.gr-pie{display:flex;flex-direction:column;align-items:center;gap:2px;padding-top:7px}
+.gr-pie .esc{width:19px;height:19px}
+.gr-s{font-style:normal;font-size:9px;font-weight:600;color:var(--tinta2);line-height:1}
+.gr-pie b{font-size:10.5px;font-weight:500;color:var(--tinta2)}
+
+/* estadisticas por familias. El resumen en grande; el resto en filas
+   apretadas a dos o tres columnas, que es donde cabe de verdad la informacion. */
+.fx-g{padding-bottom:11px}
+.fx-g h3{margin:0 0 5px;font-size:10px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--tinta2)}
+
+.fx-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.fx-b{display:flex;flex-direction:column;gap:1px;padding:4px 2px 6px 0;min-width:0;cursor:help}
+.fx-b b{font-size:21px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.fx-b span{font-size:10px;color:var(--tinta2);overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.fx-b.casa b{color:var(--casa)}
+.fx-b.fuera b{color:var(--fuera)}
+.fx-b.neg b{color:var(--neg)}
+
+.fx-filas{display:grid;grid-template-columns:repeat(3,1fr);gap:0 18px}
+.fx-f{display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  padding:3px 0;border-bottom:1px solid var(--linea);min-width:0;cursor:help}
+.fx-f span{font-size:11.5px;color:var(--tinta2);overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.fx-f b{font-size:13px;font-weight:600;flex:none;font-variant-numeric:tabular-nums}
+.fx-f.casa b{color:var(--casa)}
+.fx-f.fuera b{color:var(--fuera)}
+.fx-f.neg b{color:var(--neg)}
+
+/* jornada que el filtro de casa/fuera deja fuera del calculo: sigue ahi, pero apagada */
+.gr-col.fuera-filtro{opacity:.3}
+
+/* acciones, ancladas abajo como en el Mister */
+.fx-acciones{display:flex;gap:7px;flex-wrap:wrap;padding:11px 20px;
+  border-top:1px solid var(--linea);flex:none}
+.fx-btn{font:inherit;font-size:12.5px;padding:8px 14px;border-radius:18px;
+  border:1px solid var(--linea);background:var(--tarjeta);color:var(--tinta);cursor:pointer;
+  transition:transform 120ms var(--ease-out),border-color 120ms ease,color 120ms ease}
+.fx-btn:hover{border-color:var(--acento);color:var(--acento)}
+.fx-btn:active{transform:scale(.96)}
+/* es la acción principal de la ficha: lleva derecho al comparador */
+.fx-btn.cmp{margin-left:auto;background:var(--acento);border-color:var(--acento);color:var(--papel)}
+.fx-btn.cmp:hover{color:var(--papel);filter:brightness(1.08)}
+
+.fx-calc{margin:0 20px 14px;border:1px solid var(--acento);border-radius:10px;
+  background:var(--resalte);overflow:hidden;flex:none}
+.fx-calc[hidden]{display:none}
+.fx-calc-cab{position:relative;padding:9px 14px;font-size:13px;font-weight:600;
+  border-bottom:1px solid color-mix(in srgb,var(--acento) 30%,transparent)}
+.fx-x{position:absolute;top:5px;right:8px;border:0;background:none;color:var(--tinta2);
+  font-size:18px;line-height:1;cursor:pointer;padding:2px 5px}
+.fx-calc-cab .cc-quien{font-weight:400;color:var(--tinta2);font-size:12px;margin-left:8px}
+
+/* ---------- calculadoras de puja y cláusula ---------- */
+.cc-cuerpo{padding:12px 14px 13px}
+.cc-rot{margin:0;font-size:11px;color:var(--tinta2)}
+.cc-grande{margin:1px 0 0;font-size:27px;font-weight:600;line-height:1.1;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums}
+.cc-sub{margin:2px 0 0;font-size:12px;color:var(--tinta2)}
+.cc-sub.sube{color:var(--casa)}
+.cc-sub.baja{color:var(--fuera)}
+.cc-plazo{margin:6px 0 0;font-size:13px;font-weight:600}
+#cc-cuentas > .cc-rot{margin-top:13px}
+
+.cc-modo{display:flex;gap:2px;margin:12px 0 0;padding:2px;border-radius:8px;
+  border:1px solid var(--linea);background:var(--tarjeta)}
+.cc-modo button{flex:1;font:inherit;font-size:12px;padding:5px 8px;border:0;border-radius:6px;
+  background:none;color:var(--tinta2);cursor:pointer;
+  transition:transform 110ms var(--ease-out),background-color 130ms ease,color 130ms ease}
+.cc-modo button:active{transform:scale(.97)}
+.cc-modo button.act{background:var(--acento);color:var(--papel);font-weight:600}
+
+/* el veredicto: lo primero que se mira */
+.cc-veredicto{display:inline-block;margin:7px 0 0;padding:3px 10px;border-radius:14px;
+  font-size:12px;font-weight:600}
+.cc-veredicto.bien{background:var(--casa);color:var(--papel)}
+.cc-veredicto.justo{background:var(--fuera);color:var(--papel)}
+.cc-veredicto.mal{background:var(--neg);color:#fff}
+.cc-porque{margin:11px 0 0;font-size:12px;color:var(--tinta2);line-height:1.5}
+.cc-porque b{color:var(--tinta);font-weight:600}
+
+/* de dónde sale la cuenta cuando proyecta por partidos */
+.cc-cuenta{display:grid;grid-template-columns:repeat(4,1fr);gap:2px 8px;margin-top:11px;
+  padding-top:9px;border-top:1px solid var(--linea)}
+.cc-cuenta div{display:flex;flex-direction:column;gap:1px;min-width:0}
+.cc-cuenta b{font-size:16px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.cc-cuenta span{font-size:9.5px;color:var(--tinta2);line-height:1.25}
+.cc-cuenta .sube b{color:var(--casa)}
+.cc-cuenta .baja b{color:var(--neg)}
+.cc-metodo{margin-top:11px}
+
+.cc-rango{display:flex;align-items:center;gap:10px;margin-top:8px}
+.cc-rango input[type=range]{flex:1;min-width:0}
+.cc-rango output{font-size:13px;font-weight:600;color:var(--tinta);min-width:46px;text-align:right}
+.cc-escn{display:flex;justify-content:space-between;font-size:9.5px;color:var(--tinta2);
+  padding:0 2px;margin-top:-4px}
+.cc-escn .act{color:var(--acento);font-weight:700}
+
+.cc-campo{display:flex;flex-direction:column;gap:3px;margin-top:10px;min-width:0}
+.cc-campo label{font-size:11px;color:var(--tinta2)}
+.cc-campo input{width:100%;font-size:13.5px;padding:6px 9px}
+.cc-par{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cc-chk{display:flex;align-items:center;gap:7px;font-size:13px;cursor:pointer;margin-top:11px}
+.cc-chk input{accent-color:var(--acento);width:15px;height:15px}
+
+.cc-cuentas{margin-top:11px;border-top:1px solid var(--linea)}
+.cc-cuentas div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  padding:5px 0;font-size:12px;color:var(--tinta2)}
+.cc-cuentas b{font-weight:600;color:var(--tinta);font-variant-numeric:tabular-nums}
+.cc-cuentas .tot{border-top:1px solid var(--linea);color:var(--tinta);font-weight:600}
+.cc-cuentas .tot b{font-size:15px}
+
+/* la proyección */
+.cc-graf{margin-top:11px}
+.g-svg{display:block;width:100%;height:auto}
+.g-area{fill:var(--acento);opacity:.1}
+.g-linea{fill:none;stroke:var(--acento);stroke-width:2;
+  stroke-linejoin:round;stroke-linecap:round}
+.g-ref{stroke:var(--neg);stroke-width:1.2;stroke-dasharray:4 4}
+.g-pt{fill:var(--neg);stroke:var(--tarjeta);stroke-width:2}
+.g-pies{display:flex;justify-content:space-between;font-size:9.5px;color:var(--tinta2);
+  margin-top:-2px;padding:0 4px}
+
+/* plegables: lo que se rellena una vez y se queda guardado */
+.cc-plg{margin-top:12px;border-top:1px solid var(--linea)}
+.cc-plg summary{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  padding:8px 0 6px;font-size:12px;color:var(--tinta2);cursor:pointer;list-style:none}
+.cc-plg summary::-webkit-details-marker{display:none}
+.cc-plg summary span{display:flex;align-items:center;gap:6px}
+.cc-plg summary span::before{content:"";width:0;height:0;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;border-left:5px solid currentColor;opacity:.45;
+  transition:transform 140ms var(--ease-out)}
+.cc-plg[open] summary span::before{transform:rotate(90deg)}
+.cc-plg summary b{font-weight:600;color:var(--tinta);font-variant-numeric:tabular-nums}
+.cc-plg summary b.sube{color:var(--casa)}
+.cc-plg summary b.baja{color:var(--fuera)}
+.cc-pista{margin:0 0 8px;font-size:11px;color:var(--tinta2);opacity:.85}
+
+/* las dos formas de promediar, con su cifra a la vista para poder elegir */
+.cc-peso{display:flex;gap:6px;margin-bottom:8px}
+.cc-peso button{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0;
+  font:inherit;font-size:10.5px;padding:5px 7px;cursor:pointer;text-align:left;
+  border:1px solid var(--linea);border-radius:8px;background:var(--tarjeta);color:var(--tinta2);
+  transition:transform 110ms var(--ease-out),border-color 120ms ease,color 120ms ease}
+.cc-peso button i{font-style:normal;font-size:13.5px;font-weight:600;color:var(--tinta);
+  font-variant-numeric:tabular-nums}
+.cc-peso button:hover{border-color:var(--acento)}
+.cc-peso button:active{transform:scale(.97)}
+.cc-peso button.act{border-color:var(--acento);background:var(--resalte);color:var(--acento)}
+.cc-peso button.act i{color:var(--acento)}
+
+.cc-hist{display:flex;flex-direction:column;gap:5px}
+.cc-h{display:grid;grid-template-columns:62px 1fr 28px 58px;gap:6px;align-items:center}
+.cc-h label{font-size:11.5px;color:var(--tinta2)}
+/* lo que se ha rellenado solo del histórico: se distingue de lo que
+   escribes tú, y en cuanto lo tocas deja de marcarse */
+.cc-h.auto input{border-style:dashed;border-color:color-mix(in srgb,var(--acento) 45%,var(--linea));
+  color:var(--acento)}
+.cc-h.auto label::after{content:"·";margin-left:4px;color:var(--acento);font-weight:700}
+.cc-h input{width:100%;font-size:13px;padding:4px 7px;text-align:right}
+.cc-h i{font-style:normal;font-size:10px;color:var(--tinta2);text-align:right;
+  font-variant-numeric:tabular-nums}
+.cc-uni{font:inherit;font-size:12px;font-weight:600;padding:4px 0;cursor:pointer;
+  border:1px solid var(--linea);border-radius:6px;background:var(--tarjeta);color:var(--tinta2);
+  transition:transform 110ms var(--ease-out),border-color 120ms ease,color 120ms ease}
+.cc-uni:hover{border-color:var(--acento);color:var(--acento)}
+.cc-uni:active{transform:scale(.9)}
+
+@media (prefers-reduced-motion:reduce){
+  .cc-modo button:active,.cc-uni:active{transform:none}
+  .cc-plg summary span::before{transition:none}
+}
+@media (max-width:700px){
+  .cc-cuerpo{padding:12px 12px 13px}
+  .cc-grande{font-size:24px}
+  .cc-h{grid-template-columns:54px 1fr 28px 50px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fx-panel,.gr-barra,.fx-racha5 .pt,.fx-hero.cambia .fx-hero-n{animation:none}
+  .fx-panel{animation:aparece 160ms ease}
+  @keyframes aparece{from{opacity:0}}
+  .fx-s:active,.fx-pes:active,.fx-btn:active,.fx-sede button:active,
+  #ficha .cerrar:active{transform:none}
+}
+
+@media (max-width:700px){
+  #ficha{max-height:94vh}
+  .fx-cab{padding:16px 16px 12px;gap:12px}
+  .fx-punt{padding-right:0;width:100%;justify-content:flex-start;gap:14px}
+  .fx-hero{align-items:flex-start}
+  .fx-hero-n{font-size:36px}
+  .fx-sub{flex:1;max-width:200px}
+  .fx-s{min-width:0}
+  /* mas apretados para que los cinco quepan sin tener que deslizar */
+  .fx-prox{padding:0 16px 12px;gap:4px}
+  .fx-p{padding:3px 6px 3px 5px;gap:3px;font-size:11px;border-radius:7px}
+  .fx-p .esc{width:15px;height:15px}
+  .fx-p b{font-size:10.5px}
+  .fx-p i{font-size:9.5px}
+  /* en movil no caben las dos pestanas y los tres botones en la misma linea:
+     casa/fuera sube a su propia fila y las pestanas ocupan la de abajo */
+  .fx-barra{padding:0 16px;gap:0;flex-wrap:wrap}
+  .fx-sede{order:-1;margin:2px auto 7px;align-self:center}
+  .fx-pestanas{flex:1 0 100%}
+  .fx-pes{margin-right:18px}
+  .fx-cuerpo{padding:13px 16px 6px}
+  .fx-acciones{padding:10px 16px}
+  .fx-calc{margin:0 16px 12px}
+  .fx-b b{font-size:17px}
+  .fx-b span{font-size:9.5px}
+  .fx-filas{grid-template-columns:repeat(2,1fr);gap:0 14px}
+  .gr-col{width:40px}
+  .gr-pista{height:120px}
+}
+
+
+
+.val{color:var(--tinta)}
+.sube{color:var(--casa)}
+.baja{color:var(--neg)}
+#cargando{padding:60px 0;text-align:center;color:var(--tinta2)}
+#error{padding:24px;border:1px solid var(--neg);border-radius:10px;color:var(--neg);
+  background:var(--tarjeta);margin-top:16px}
+.actualizado{font-size:12.5px;color:var(--tinta2)}
+
+
+.rango{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rango select{min-width:172px;font-size:13.5px;padding:5px 8px}
+.rango input{width:88px;font-size:13.5px;padding:5px 8px}
+.rango .uni{font-size:12.5px;color:var(--tinta2);margin-left:-4px}
+.rango .quitar{border:1px solid var(--linea);background:var(--tarjeta);color:var(--tinta2);
+  border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:15px;line-height:1}
+.rango .quitar:hover{border-color:var(--neg);color:var(--neg)}
+
+/* ---------- barra de filtros ---------- */
+.barra-filtros{display:flex;gap:8px;flex-wrap:wrap;padding-top:14px}
+.grupo{position:relative}
+.filtro{font:inherit;font-size:13.5px;padding:6px 13px;border:1px solid var(--linea);
+  border-radius:20px;background:var(--tarjeta);color:var(--tinta);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px}
+.filtro::after{content:"";width:0;height:0;border-left:4px solid transparent;
+  border-right:4px solid transparent;border-top:4px solid currentColor;opacity:.5;margin-left:1px}
+.filtro:hover{border-color:var(--acento);color:var(--acento)}
+.filtro[aria-expanded=true]{border-color:var(--acento);color:var(--acento);background:var(--resalte)}
+.filtro.activo{border-color:var(--acento);background:var(--acento);color:var(--papel);font-weight:500}
+.filtro.activo::after{opacity:.7}
+.filtro .n{font-size:12px;opacity:.8}
+
+.pop{position:absolute;z-index:30;top:calc(100% + 6px);left:0;min-width:230px;
+  background:var(--tarjeta);border:1px solid var(--linea);border-radius:10px;
+  box-shadow:0 10px 32px var(--sombra)}
+.pop[hidden]{display:none}
+.pop.ancho{min-width:340px}
+.pop-cab{display:flex;align-items:center;gap:10px;justify-content:space-between;
+  padding:10px 12px;border-bottom:1px solid var(--linea);flex-wrap:wrap}
+.pop-cuerpo{padding:11px 12px;display:flex;flex-direction:column;gap:10px;max-height:min(58vh,420px);overflow:auto}
+.pop-cuerpo.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:1px 12px}
+.pop-cuerpo.columnas{display:grid;grid-template-columns:1fr 1fr;gap:1px 12px}
+.pop-pie{padding:9px 12px;border-top:1px solid var(--linea);font-size:12.5px;color:var(--fuera)}
+.pop label{display:flex;gap:7px;align-items:center;font-size:13.5px;cursor:pointer;padding:3px 0}
+.pop input[type=checkbox]{accent-color:var(--acento);width:15px;height:15px}
+.pop .etiqueta{font-size:12.5px;color:var(--tinta2)}
+
+.linea-num{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.linea-num.sangrada,.casilla.sangrada{padding-left:22px}
+.linea-num.sangrada{margin-top:-4px}
+.linea-num.sangrada input{width:62px}
+.linea-num input{width:82px}
+.uni{font-size:12.5px;color:var(--tinta2)}
+
+.excl{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.jornadas{display:flex;gap:6px;flex-wrap:wrap}
+
+.rangos{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.rango{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.rango select{min-width:158px;font-size:13.5px;padding:5px 8px}
+.rango input{width:74px;font-size:13.5px;padding:5px 8px}
+.rango .quitar{border:1px solid var(--linea);background:var(--tarjeta);color:var(--tinta2);
+  border-radius:6px;width:25px;height:25px;cursor:pointer;font-size:15px;line-height:1}
+.rango .quitar:hover{border-color:var(--neg);color:var(--neg)}
+
+/* ---------- filtros activos: una linea de texto, sin cajas ---------- */
+.activos{display:flex;align-items:center;gap:4px 9px;flex-wrap:wrap;padding-top:10px;font-size:12.5px}
+.activos:empty{display:none}
+.ac-t{color:var(--tinta2);opacity:.7}
+.ac{color:var(--tinta);cursor:pointer;white-space:nowrap;
+  border-bottom:1px dotted color-mix(in srgb,var(--acento) 55%,transparent);
+  transition:color 120ms ease,border-color 120ms ease}
+.ac i{font-style:normal;color:var(--tinta2);margin-left:4px;opacity:.55;font-size:13px}
+.ac:hover{color:var(--neg);border-bottom-color:transparent}
+.ac:hover i{opacity:1;color:var(--neg)}
+.activos .todos{border:0;background:none;color:var(--tinta2);font:inherit;font-size:12.5px;
+  cursor:pointer;padding:0;opacity:.7;text-decoration:underline}
+.activos .todos:hover{color:var(--neg);opacity:1}
+
+/* ---------- globo de ayuda ---------- */
+.globo{position:fixed;z-index:60;max-width:270px;pointer-events:none;
+  padding:7px 10px;border-radius:7px;font-size:12.5px;line-height:1.4;
+  background:var(--tinta);color:var(--papel);box-shadow:0 6px 20px rgba(0,0,0,.22);
+  opacity:1;transition:opacity 120ms ease,display 120ms allow-discrete}
+.globo[hidden]{display:none;opacity:0}
+@starting-style{ .globo:not([hidden]){opacity:0} }
+[data-ayuda]{cursor:help}
+th[data-ayuda],.mt[data-ayuda],.mas-cmp[data-ayuda],.ins[data-ayuda]{cursor:pointer}
+.ins[data-ayuda]{cursor:default}
+
+/* ---------- movimiento ---------- */
+
+/* popovers: escalan desde su boton (origen arriba-izquierda, donde esta el trigger) */
+.pop{
+  transform-origin:top left;
+  opacity:1;transform:scale(1) translateY(0);
+  transition:opacity 160ms var(--ease-out),
+             transform 160ms var(--ease-out),
+             display 160ms allow-discrete,
+             overlay 160ms allow-discrete;
+}
+.pop[hidden]{display:none;opacity:0;transform:scale(.96) translateY(-6px)}
+@starting-style{ .pop:not([hidden]){opacity:0;transform:scale(.96) translateY(-6px)} }
+
+/* material translucido para el panel flotante */
+@supports (backdrop-filter:blur(1px)){
+  .pop{background:color-mix(in srgb,var(--tarjeta) 86%,transparent);
+       backdrop-filter:blur(18px) saturate(150%)}
+}
+
+/* los filtros activos aparecen sin dar un salto */
+.ac{transition:opacity 140ms var(--ease-out),color 120ms ease,border-color 120ms ease}
+@starting-style{ .ac{opacity:0} }
+
+/* ficha */
+dialog{
+  opacity:1;transform:scale(1);
+  transition:opacity 200ms var(--ease-out),
+             transform 200ms var(--ease-out),
+             display 200ms allow-discrete,
+             overlay 200ms allow-discrete;
+}
+dialog:not([open]){opacity:0;transform:scale(.97)}
+@starting-style{ dialog[open]{opacity:0;transform:scale(.97)} }
+dialog::backdrop{
+  background:rgba(0,0,0,0);
+  transition:background 200ms var(--ease-out),
+             display 200ms allow-discrete,
+             overlay 200ms allow-discrete;
+}
+dialog[open]::backdrop{background:rgba(0,0,0,.45)}
+@starting-style{ dialog[open]::backdrop{background:rgba(0,0,0,0)} }
+
+/* respuesta al pulsar: en el down, no al soltar */
+.filtro,.tema,.segmento button,.chip,.mas{
+  transition:transform 120ms var(--ease-out),
+             background-color 120ms ease,border-color 120ms ease,color 120ms ease;
+}
+.filtro:active,.tema:active,.segmento button:active,.chip:active{transform:scale(.97)}
+
+@media (prefers-reduced-motion:reduce){
+  .pop,.ac,dialog{transition:opacity 140ms ease}
+  .pop[hidden],.pop:not([hidden]),dialog,dialog:not([open]){transform:none}
+  .filtro:active,.tema:active,.segmento button:active,.chip:active{transform:none}
+}
+@media (prefers-reduced-transparency:reduce){
+  .pop{background:var(--tarjeta);backdrop-filter:none}
+}
+
+/* ---------- lectura de la tabla ---------- */
+
+/* separadores entre bloques de columnas: identidad | rendimiento | sede | eventos | mercado */
+th.sep,td.sep{border-left:1px solid var(--linea)}
+th.dif,td.dif{border-right:1px solid var(--linea)}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--tinta) 2.5%,transparent)}
+
+tbody tr:hover td{background:var(--resalte)}
+th{letter-spacing:.01em}
+h1{letter-spacing:-.025em}
+
+
+/* ---------- sub-desplegables dentro de Excluir ---------- */
+.sub{border-top:1px solid var(--linea);padding-top:8px}
+.sub:first-of-type{margin-top:2px}
+.sub-cab{width:100%;text-align:left;font:inherit;font-size:13.5px;color:var(--tinta);
+  background:none;border:0;cursor:pointer;padding:5px 0;display:flex;align-items:center;gap:7px}
+.sub-cab::before{content:"";width:0;height:0;border-top:4px solid transparent;
+  border-bottom:4px solid transparent;border-left:5px solid currentColor;opacity:.45;
+  transition:transform 140ms var(--ease-out)}
+.sub-cab[aria-expanded=true]{color:var(--acento)}
+.sub-cab[aria-expanded=true]::before{transform:rotate(90deg)}
+.sub-cuerpo{display:flex;flex-direction:column;gap:9px;padding:6px 0 4px 12px}
+.sub-cuerpo[hidden]{display:none}
+.sub-cuerpo .rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:1px 10px}
+.sub-cuerpo .nota{font-size:12.5px;color:var(--fuera);padding-top:4px}
+
+input[type=range]{flex:1;min-width:130px;accent-color:var(--acento);height:22px}
+output{font-size:13px;color:var(--tinta);min-width:52px;font-variant-numeric:tabular-nums}
+
+/* ---------- estadisticas ---------- */
+.st{display:grid;grid-template-columns:1fr 74px 74px;gap:8px;align-items:center}
+.st-t{font-size:13.5px}
+.st input{width:100%;font-size:13px;padding:5px 8px}
+
+/* ---------- escudo del equipo (con la abreviatura de reserva) ---------- */
+.esc{display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;flex:none;vertical-align:middle}
+.esc img{width:100%;height:100%;object-fit:contain;display:block}
+.cg-ins .esc{width:26px;height:26px}
+@media (max-width:700px){ .esc{width:20px;height:20px} }
+
+/* ---------- insignias de posicion y equipo ---------- */
+.ins{display:inline-flex;align-items:center;justify-content:center;
+  min-width:34px;padding:2px 6px;border-radius:5px;
+  font-size:11px;font-weight:600;letter-spacing:.03em;line-height:1.5}
+
+/* ---------- racha ---------- */
+td.racha,th.racha{padding-left:10px;padding-right:10px}
+th.racha{cursor:default}
+th.racha:hover{color:var(--tinta2)}
+td.racha{white-space:nowrap;line-height:1}
+.pt{display:inline-flex;align-items:center;justify-content:center;
+  width:19px;height:19px;margin-right:2px;border-radius:4px;
+  font-size:10px;font-style:normal;font-weight:600;font-variant-numeric:tabular-nums}
+.pt.off{opacity:.3}
+.pt.mas{border:0;background:none;color:var(--tinta2);width:13px;margin-right:4px}
+.pv{background:transparent;border:1px dashed var(--linea);color:transparent}
+/* colores de la escala de Mister:
+   azul +10 o mas · verde +5 a +9 · amarillo +1 a +4 · gris 0 · rojo negativo */
+.nr{background:#C6394B;color:#fff}
+.n0{background:#9AA3A0;color:#fff}
+.na{background:#E9A517;color:#3A2A00}
+.nv{background:#2E9E5B;color:#fff}
+.nz{background:#1D7FD4;color:#fff}
+:root[data-theme="dark"] .nr,
+:root:not([data-theme="light"]) .nr{background:#D9556A}
+:root[data-theme="dark"] .n0,
+:root:not([data-theme="light"]) .n0{background:#545E58;color:#D7DEDA}
+:root[data-theme="dark"] .na,
+:root:not([data-theme="light"]) .na{background:#D9A020;color:#241900}
+:root[data-theme="dark"] .nv,
+:root:not([data-theme="light"]) .nv{background:#31A863}
+:root[data-theme="dark"] .nz,
+:root:not([data-theme="light"]) .nz{background:#3A93E0}
+
+/* ---------- primeras columnas fijas al hacer scroll lateral ---------- */
+.pega{position:sticky;background:var(--tarjeta);z-index:1}
+th.pega{z-index:4}
+/* Los "left" los pone fijarPegadas() midiendo la tabla ya pintada, no se
+   escriben aqui: en una tabla el ancho real lo decide el contenido, asi que
+   encadenarlos a mano se descuadraba en cuanto aparecia un rol largo. Y por
+   lo mismo tampoco se fija el ancho: con width:54px el escudo se salia de
+   su celda y "IMPORTANTE" se montaba encima de la columna siguiente. */
+td.pega,th.pega{white-space:nowrap}
+td.pega.c0,th.pega.c0{width:34px;padding-left:6px;padding-right:2px}
+td.pega.c3,th.pega.c3{padding-left:6px;padding-right:6px}
+td.pega.c4,th.pega.c4{padding-left:4px;padding-right:8px}
+td.pega.c6,th.pega.c6{min-width:140px;box-shadow:1px 0 0 var(--linea)}
+th.pega.c0{cursor:default}
+th.pega.c0:hover{color:var(--tinta2)}
+tbody tr:nth-child(even) td.pega{background:color-mix(in srgb,var(--tarjeta) 97%,var(--tinta))}
+tbody tr:hover td.pega{background:var(--resalte)}
+
+/* ================================================================
+   MÓVIL  ·  la tabla se sustituye por una lista de tarjetas
+   ================================================================ */
+
+/* velo oscuro tras las hojas inferiores */
+.velo{position:fixed;inset:0;z-index:25;background:rgba(0,0,0,.42);
+  opacity:1;transition:opacity 200ms var(--ease-out),display 200ms allow-discrete}
+.velo[hidden]{display:none;opacity:0}
+@starting-style{ .velo:not([hidden]){opacity:0} }
+
+/* ---------- tira de metricas: cabecera de columnas y selector de orden ---------- */
+:root{--celda:66px}
+.barra-orden{display:none;position:sticky;top:0;z-index:20;
+  background:var(--papel);padding:6px 0 7px;border-bottom:1px solid var(--linea)}
+.barra-orden[hidden]{display:none}
+.tira{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent)}
+.tira::-webkit-scrollbar{display:none}
+.tira-int{display:flex}
+.mt{flex:none;width:var(--celda);font:inherit;font-size:10.5px;line-height:1.2;
+  padding:5px 2px;border:0;background:none;color:var(--tinta2);cursor:pointer;
+  text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  border-bottom:2px solid transparent;transition:color 120ms ease,border-color 120ms ease}
+.mt.act{color:var(--acento);font-weight:600;border-bottom-color:var(--acento)}
+.mt i{font-style:normal;margin-left:2px}
+
+/* ---------- tarjetas ---------- */
+.tarjetas{display:flex;flex-direction:column;gap:5px}
+.tarjetas[hidden]{display:none}
+.tj{background:var(--tarjeta);border:1px solid var(--linea);border-radius:10px;
+  padding:7px 0 8px;cursor:pointer;
+  transition:transform 120ms var(--ease-out),border-color 120ms ease}
+.tj:active{transform:scale(.985);border-color:var(--acento)}
+.tj{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.tj.puesto{border-color:var(--acento);box-shadow:inset 3px 0 0 var(--acento)}
+.tj.marcando{animation:marcar 300ms var(--ease-out)}
+@keyframes marcar{0%{transform:scale(1)}40%{transform:scale(1.02)}100%{transform:scale(1)}}
+.tj-cab{display:flex;align-items:center;gap:4px;min-width:0;padding:0 10px}
+.tj-n{font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis;flex:1;min-width:0;letter-spacing:-.015em}
+.tj-racha{flex:none;line-height:1;white-space:nowrap}
+.tj-val{font-size:12px;color:var(--tinta);white-space:nowrap;flex:none;
+  display:flex;flex-direction:column;align-items:flex-end;line-height:1.25}
+.tj-val i{font-style:normal;font-size:10px}
+
+/* los numeros viajan con la tira: un solo --dx mueve todas las tarjetas */
+.tj-datos{overflow:hidden;margin-top:6px;touch-action:pan-y;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent)}
+.tj-datos-int{display:flex;transform:translateX(var(--dx,0px))}
+.tj-datos .d{flex:none;width:var(--celda);text-align:center;
+  font-size:12.5px;font-weight:600;color:var(--tinta);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;padding:0 2px}
+.tj-datos .d.act{color:var(--acento)}
+.tj-datos .d.casa{color:var(--casa)}
+.tj-datos .d.fuera{color:var(--fuera)}
+.tj-datos .d.dif-pos{color:var(--casa)}
+.tj-datos .d.dif-neg{color:var(--fuera)}
+.tj-datos .d.sube{color:var(--casa)}
+.tj-datos .d.baja{color:var(--neg)}
+.tj-vacio{padding:40px 16px;text-align:center;color:var(--tinta2)}
+.tj-mas{font:inherit;font-size:14px;padding:13px;margin-top:2px;width:100%;
+  border:1px dashed var(--linea);border-radius:11px;background:none;
+  color:var(--acento);cursor:pointer}
+.tj-mas:active{background:var(--resalte)}
+
+@media (max-width:700px){
+  body{font-size:14px}
+  .envoltorio{padding:0 12px 72px}
+  header{padding:16px 0 12px}
+  h1{font-size:21px}
+  .titulo{gap:9px}
+  .tema{font-size:12px;padding:4px 9px}
+  #cabecera-sub{font-size:12.5px;width:100%;order:3}
+
+  .controles{padding:12px 0 10px}
+  .fila{gap:9px}
+  .campo{flex:1 1 130px}
+  .campo.busca{flex:1 1 100%}
+  .campo.busca input[type=text]{width:100%}
+  select{min-width:0;width:100%}
+  input[type=number]{width:100%}
+  .segmento{width:100%}
+  .segmento button{flex:1;padding:8px 6px}
+
+  /* la barra de filtros no envuelve: se desliza en una línea */
+  .barra-filtros{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    padding:12px 12px 2px;margin:0 -12px;-webkit-overflow-scrolling:touch}
+  .barra-filtros::-webkit-scrollbar{display:none}
+  .filtro{flex:none;padding:9px 15px;font-size:14px}
+
+  .barra-orden{display:block}
+  .tira-int{padding-left:1px}   /* alinea con el borde de la tarjeta */
+  .resumen{padding:10px 0 7px;font-size:12.5px;gap:12px}
+  .pista{display:inline;color:var(--tinta2);opacity:.75}
+  .solo-movil{display:inline}
+  .solo-escritorio{display:none}
+
+  /* los desplegables pasan a ser hojas que suben desde abajo */
+  .pop{position:fixed;inset:auto 0 0 0;width:auto;min-width:0;max-width:none;
+    border-radius:16px 16px 0 0;border-left:0;border-right:0;border-bottom:0;
+    transform-origin:bottom center;padding-top:10px;
+    box-shadow:0 -8px 40px var(--sombra);
+    padding-bottom:env(safe-area-inset-bottom,0)}
+  .pop.ancho{min-width:0}
+  .pop::before{content:"";display:block;width:36px;height:4px;border-radius:3px;
+    background:var(--linea);margin:0 auto 6px}
+  .pop[hidden]{transform:translateY(100%) scale(1)}
+  @starting-style{ .pop:not([hidden]){transform:translateY(100%) scale(1)} }
+  .pop-cuerpo{max-height:62vh;padding:12px 16px 18px;gap:12px}
+  .pop-cab{padding:8px 16px 10px}
+  .pop-cuerpo.rejilla{grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:2px 12px}
+  .pop label{padding:8px 0;font-size:14.5px}
+  .pop input[type=checkbox]{width:18px;height:18px}
+  .chip{padding:8px 13px}
+  .activos{padding-top:9px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    margin:0 -12px;padding-left:12px;padding-right:12px;
+    -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 18px),transparent);
+    mask-image:linear-gradient(to right,#000 calc(100% - 18px),transparent)}
+  .activos::-webkit-scrollbar{display:none}
+  .ac,.activos .todos,.ac-t{flex:none}
+  .globo{display:none!important}
+  .st{grid-template-columns:1fr 66px 66px}
+  .sub-cab{padding:9px 0;font-size:14px}
+
+  /* la tabla desaparece, mandan las tarjetas */
+  .tabla-caja{display:none!important}
+  .ins{min-width:25px;padding:2px 4px;font-size:10px;border-radius:4px;letter-spacing:.02em}
+  .pt{width:17px;height:17px;font-size:9px;margin-right:2px}
+  .pt:last-child{margin-right:0}
+
+  /* ficha a pantalla casi completa */
+  dialog{width:100%;max-width:none;max-height:92vh;margin:auto 0 0;
+    border-radius:16px 16px 0 0;border-bottom:0}
+  .ficha-cuerpo .otra{display:none}
+  .ficha-pie{padding:11px 16px;font-size:12px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .tj:active{transform:none}
+  .velo{transition:none}
+}
+
+/* ================================================================
+   COMPARADOR
+   ================================================================ */
+
+/* el + que manda al comparador, en la lista y en las tarjetas */
+.mas-cmp{flex:none;width:22px;height:22px;border-radius:50%;padding:0;
+  border:1px solid var(--linea);background:var(--tarjeta);color:var(--tinta2);
+  font:inherit;font-size:14px;line-height:1;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:transform 120ms var(--ease-out),background-color 120ms ease,
+             border-color 120ms ease,color 120ms ease}
+.mas-cmp:hover{border-color:var(--acento);color:var(--acento)}
+.mas-cmp:active{transform:scale(.88)}
+.mas-cmp.puesto{background:var(--acento);border-color:var(--acento);color:var(--papel)}
+.mas-cmp.puesto::before{content:"✓"}
+.mas-cmp.puesto{font-size:0}
+.mas-cmp.puesto::before{font-size:12px}
+table .mas-cmp{opacity:.4}
+tbody tr:hover .mas-cmp,.mas-cmp.puesto,.mas-cmp:focus-visible{opacity:1}
+
+/* el carrito flotante */
+.carro{position:fixed;z-index:24;left:50%;transform:translateX(-50%);
+  bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  display:flex;align-items:stretch;gap:1px;
+  border-radius:24px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.28)}
+.carro[hidden]{display:none}
+.carro button{font:inherit;border:0;background:var(--acento);color:var(--papel);cursor:pointer}
+.carro-abrir{font-size:14px;font-weight:500;padding:11px 18px;white-space:nowrap}
+.carro-abrir span{display:inline-flex;align-items:center;justify-content:center;
+  min-width:20px;height:20px;margin-left:7px;border-radius:10px;
+  background:rgba(255,255,255,.25);font-size:12.5px;font-weight:600;padding:0 5px}
+.carro-vaciar{font-size:19px;line-height:1;padding:0 15px}
+.carro-vaciar:hover{background:var(--neg)}
+.carro{transition:opacity 180ms var(--ease-out),transform 180ms var(--ease-out),
+        display 180ms allow-discrete}
+.carro[hidden]{opacity:0;transform:translateX(-50%) translateY(14px)}
+@starting-style{ .carro:not([hidden]){opacity:0;transform:translateX(-50%) translateY(14px)} }
+@media (max-width:700px){
+  @starting-style{ .carro:not([hidden]){opacity:0;transform:translateY(14px)} }
+}
+.carro-abrir.lleno{animation:sacudir 420ms var(--ease-out)}
+@keyframes sacudir{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}
+  50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
+
+/* la pantalla del comparador */
+#comparador{max-width:900px;display:flex;flex-direction:column;max-height:88vh}
+.cmp-cab{padding:16px 20px 14px;border-bottom:1px solid var(--linea);
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.cmp-cab h2{margin:0;font-size:20px;font-weight:600}
+.cmp-cab .cerrar{margin-left:auto;border:0;background:none;color:var(--tinta2);
+  font-size:24px;cursor:pointer;line-height:1;padding:0 4px}
+
+.cmp-anadir{padding:12px 20px;border-bottom:1px solid var(--linea);position:relative}
+.cmp-anadir input{width:100%}
+.cmp-sug{position:absolute;left:20px;right:20px;top:calc(100% - 4px);z-index:5;
+  background:var(--tarjeta);border:1px solid var(--linea);border-radius:10px;
+  box-shadow:0 10px 30px var(--sombra);overflow:hidden;max-height:290px;overflow-y:auto}
+.cmp-sug[hidden]{display:none}
+.sg{display:flex;align-items:center;gap:7px;width:100%;padding:9px 12px;
+  font:inherit;font-size:14px;border:0;border-bottom:1px solid var(--linea);
+  background:none;color:var(--tinta);cursor:pointer;text-align:left}
+.sg:last-child{border-bottom:0}
+.sg:hover{background:var(--resalte)}
+.sg-n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.sg-d{font-size:12.5px;color:var(--tinta2);white-space:nowrap}
+.sg-x{width:18px;text-align:center;color:var(--acento);font-weight:600}
+.sg.puesto{color:var(--tinta2)}
+
+.cmp-seccion{padding:10px 20px 4px;border-bottom:1px solid var(--linea)}
+.cmp-atrib{display:flex;flex-wrap:wrap;gap:6px;padding:8px 0 12px}
+.cmp-atrib[hidden]{display:none}
+.at{font:inherit;font-size:13px;padding:5px 11px;border:1px solid var(--linea);
+  border-radius:16px;background:var(--tarjeta);color:var(--tinta2);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:transform 120ms var(--ease-out),background-color 120ms ease,
+             border-color 120ms ease,color 120ms ease}
+.at:hover{border-color:var(--acento);color:var(--acento)}
+.at:active{transform:scale(.96)}
+.at.act{background:var(--acento);border-color:var(--acento);color:var(--papel);font-weight:500}
+.at b{display:inline-flex;align-items:center;justify-content:center;
+  width:16px;height:16px;border-radius:8px;background:rgba(255,255,255,.28);
+  font-size:11px;font-weight:600}
+
+.cmp-cuerpo{flex:1;overflow:auto;padding:0 20px 4px}
+.cmp-vacio{padding:48px 24px;text-align:center;color:var(--tinta2);line-height:1.7}
+
+.cmp-veredicto{font-size:13.5px;color:var(--tinta2);padding:12px 0 10px;
+  position:sticky;top:0;z-index:4;background:var(--tarjeta)}
+.cmp-veredicto b{color:var(--tinta);font-weight:600}
+
+/* rejilla: jugadores en columnas, apartados en filas.
+   Sin fondos ni cajas: solo una raya finisima que guia el ojo a lo ancho. */
+.cg-caja{overflow-x:auto;padding-bottom:14px;-webkit-overflow-scrolling:touch}
+.cg-tabla{border-collapse:collapse;width:100%}
+.cg-tabla th,.cg-tabla td{border:0;background:none;white-space:nowrap}
+.cg-tabla tbody tr{border-bottom:1px solid color-mix(in srgb,var(--linea) 55%,transparent)}
+.cg-tabla tbody tr:last-child{border-bottom:0}
+
+.cg-rot{position:sticky;left:0;z-index:2;background:var(--tarjeta);
+  text-align:left;font-weight:400;font-size:12.5px;color:var(--tinta2);
+  padding:9px 14px 9px 0;min-width:104px;cursor:help}
+.cg-tabla thead .cg-rot{z-index:3}
+
+.cg-jug{position:relative;min-width:76px;padding:2px 8px 9px;vertical-align:bottom;
+  text-align:center;cursor:default}
+.cg-ins{display:flex;gap:3px;justify-content:center;margin-bottom:3px}
+.cg-n{display:block;font-size:12.5px;font-weight:600;color:var(--tinta);
+  overflow:hidden;text-overflow:ellipsis}
+.cg-quitar{position:absolute;top:-5px;right:0;border:0;background:none;
+  color:var(--tinta2);font-size:15px;line-height:1;cursor:pointer;padding:2px 4px;opacity:.45}
+.cg-quitar:hover{color:var(--neg);opacity:1}
+
+/* el numero es el dato; el mejor pesa mas, y nada mas */
+.cg{padding:9px 8px;text-align:center;font-size:14px;font-weight:500;
+  color:var(--tinta2);font-variant-numeric:tabular-nums}
+.cg.mejor{color:var(--tinta);font-weight:700}
+.cg.vacia{color:var(--linea);font-weight:400}
+.cg-racha{text-align:center;line-height:1;padding:7px 8px}
+
+.cmp-pie{padding:11px 20px;border-top:1px solid var(--linea);font-size:12.5px;color:var(--tinta2)}
+
+/* boton del comparador dentro de la ficha */
+.ficha-pie{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ficha-pie > span{flex:1;min-width:180px}
+.ficha-cmp{font:inherit;font-size:13px;padding:7px 13px;border-radius:18px;
+  border:1px solid var(--acento);background:var(--tarjeta);color:var(--acento);
+  cursor:pointer;white-space:nowrap;flex:none;
+  transition:transform 120ms var(--ease-out),background-color 120ms ease}
+.ficha-cmp:active{transform:scale(.96)}
+.ficha-cmp.puesto{background:var(--acento);color:var(--papel)}
+
+@media (max-width:700px){
+  #comparador{max-height:94vh}
+  .cmp-cab{padding:14px 16px 12px}
+  .cmp-anadir{padding:10px 16px}
+  .cmp-sug{left:16px;right:16px}
+  .cmp-seccion{padding:8px 16px 2px}
+  .cmp-cuerpo{padding:0 16px 4px}
+  .cg-rot{min-width:92px;font-size:12px;padding-right:10px}
+  .cg-jug{min-width:66px;padding-left:5px;padding-right:5px}
+  .cg-n{font-size:11.5px}
+  .cg{padding:8px 5px;font-size:13.5px}
+  .cmp-pie{padding:10px 16px}
+  /* el sello de Netlify vive abajo a la derecha: nos apartamos a la izquierda */
+  .carro{left:12px;right:auto;transform:none;
+    bottom:calc(14px + env(safe-area-inset-bottom,0px));max-width:calc(100% - 24px)}
+  .carro[hidden]{transform:translateY(14px)}
+  .carro-abrir{padding:11px 15px}
+  .ficha-cmp{width:100%;text-align:center}
+}
+
+/* el aviso de que esto orienta pero no garantiza */
+.cc-aviso{margin:9px 0 0;font-size:10.5px;color:var(--tinta2);opacity:.8;font-style:italic}
+
+/* el mismo valor a varios plazos, para el que quiera mirar */
+.cc-plazos{display:grid;grid-template-columns:repeat(4,1fr);gap:2px 8px;margin-bottom:10px}
+.cc-plazos div{display:flex;flex-direction:column;gap:1px;min-width:0}
+.cc-plazos b{font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.cc-plazos span{font-size:9.5px;color:var(--tinta2)}
+
+/* el porcentaje al lado de los euros: mismo dato, otra escala */
+.sube em, .baja em{font-style:normal;font-size:.82em;opacity:.7;margin-left:2px}
+td .sube em, td .baja em, td em{font-style:normal;font-size:11px;opacity:.65}
+
+/* ================================================================
+   BALANCE
+   ================================================================ */
+#balance{max-width:880px;max-height:90vh;overflow-y:auto;overscroll-behavior:contain}
+.bal-cuerpo{padding:0 20px}
+
+.bal-plazo{display:flex;align-items:center;gap:12px;margin:14px 0 2px;flex-wrap:wrap}
+.bal-slider{flex:1;min-width:150px;display:flex;align-items:center;gap:9px}
+.bal-slider input[type=range]{flex:1;min-width:0}
+.bal-slider output{font-size:12.5px;font-weight:600;min-width:40px;text-align:right}
+.bal-plazo button{font:inherit;font-size:11.5px;padding:5px 11px;border-radius:16px;
+  border:1px solid var(--linea);background:var(--tarjeta);color:var(--tinta2);cursor:pointer;
+  white-space:nowrap;transition:transform 110ms var(--ease-out),
+  background-color 130ms ease,border-color 130ms ease,color 130ms ease}
+.bal-plazo button:active{transform:scale(.96)}
+.bal-plazo button.act{border-color:var(--acento);background:var(--acento);color:var(--papel);
+  font-weight:600}
+
+/* cada dato editable, como un campo con su etiqueta encima: así se ve
+   de un vistazo qué se puede tocar y qué es solo información */
+.bal-campos{display:flex;gap:8px;margin-top:7px;flex-wrap:wrap}
+.bal-campo{flex:1 1 118px;min-width:0;display:flex;flex-direction:column;gap:2px}
+.bal-campo > span{font-size:9.5px;color:var(--tinta2);letter-spacing:.03em;
+  text-transform:uppercase;font-weight:600}
+.bal-campo input,.bal-campo select{width:100%;font-size:13px;padding:5px 8px;
+  font-variant-numeric:tabular-nums}
+.bal-campo input[type=text]{text-align:right}
+/* el euro que se ha leído de lo escrito, para que se vea al momento */
+.bal-leido{display:block;font-size:10px;font-style:normal;color:var(--tinta2);
+  text-align:right;font-variant-numeric:tabular-nums;padding-right:1px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bal-campo.quieto > div{font-size:13px;padding:5px 0;color:var(--tinta2);
+  font-variant-numeric:tabular-nums}
+.bal-campo.quieto{flex:0 1 82px}
+.bal-chk{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--tinta2);
+  cursor:pointer;margin-top:5px}
+.bal-chk input{accent-color:var(--acento);width:14px;height:14px}
+
+.bal-lados{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:12px 0 6px}
+.bal-lado h3{margin:0 0 8px;font-size:11px;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--tinta2);display:flex;align-items:center;gap:6px}
+.bal-lado h3 span{font-size:10px;background:var(--resalte);border-radius:9px;padding:0 6px;
+  min-width:16px;text-align:center}
+.bal-lado.vende h3{color:var(--casa)}
+.bal-lado.compra h3{color:var(--fuera)}
+
+.bal-f{padding:9px 0;border-bottom:1px solid var(--linea)}
+.bal-quien{display:flex;align-items:center;gap:6px;min-width:0}
+.bal-quien .esc{width:18px;height:18px}
+.bal-n{flex:1;min-width:0;font-size:13.5px;font-weight:600;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
+.bal-x{border:0;background:none;color:var(--tinta2);font-size:16px;line-height:1;
+  cursor:pointer;padding:0 3px;opacity:.5}
+.bal-x:hover{color:var(--neg);opacity:1}
+.bal-quien > b{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;
+  margin-left:auto;white-space:nowrap}
+.bal-nota{margin:5px 0 0;font-size:10.5px;color:var(--tinta2);opacity:.9}
+.bal-nota b{color:var(--tinta);font-weight:600}
+.bal-vacio{margin:0;padding:10px 0;font-size:12px;color:var(--tinta2);opacity:.8}
+
+.bal-busca{position:relative;margin-top:9px}
+.bal-busca input{width:100%;font-size:13px;padding:6px 9px}
+.bal-sug{position:absolute;left:0;right:0;top:calc(100% - 2px);z-index:6;
+  background:var(--tarjeta);border:1px solid var(--linea);border-radius:9px;
+  box-shadow:0 8px 26px var(--sombra);overflow:hidden;max-height:240px;overflow-y:auto}
+.bal-sug[hidden]{display:none}
+
+.bal-pie{padding:12px 20px 16px;border-top:1px solid var(--linea);margin-top:8px}
+.bal-caja{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.bal-caja label{font-size:12px;color:var(--tinta2)}
+.bal-caja input{width:140px;font-size:13.5px;padding:6px 9px}
+
+.bal-cifras{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:9px}
+.bal-cifras div{display:flex;flex-direction:column;gap:1px}
+.bal-cifras span{font-size:10.5px;color:var(--tinta2)}
+.bal-cifras b{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+
+.bal-res{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:11px 14px;border-radius:10px}
+.bal-res span{font-size:13px;font-weight:600}
+.bal-res b{font-size:24px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.bal-res.bien{background:var(--acento);color:var(--papel)}
+.bal-res.mal{background:var(--neg);color:#fff}
+.bal-horquilla{margin:9px 0 0;font-size:11.5px;color:var(--tinta2);line-height:1.5}
+.bal-horquilla b{color:var(--tinta);font-weight:600}
+
+@media (max-width:700px){
+  #balance{max-height:94vh}
+  .bal-cuerpo{padding:0 16px}
+  .bal-lados{grid-template-columns:1fr;gap:14px}
+  .bal-pie{padding:11px 16px 14px}
+  .bal-res b{font-size:21px}
+  .bal-plazo button{font-size:11.5px;padding:6px 4px}
+}
+@media (prefers-reduced-motion:reduce){ .bal-plazo button:active{transform:none} }
+
+/* La jerarquia en el equipo, como las cartas de un fantasy: cada escalon
+   es un material distinto, no el mismo verde mas o menos apagado. Por
+   encima del oro esta "Dios", que va como las cartas especiales: negra con
+   las letras doradas. Abajo del todo, los descartes, en rojo apagado. */
+.jer{display:inline-block;padding:2px 9px;border-radius:4px;font-size:10.5px;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  white-space:nowrap;line-height:1.45;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45), 0 1px 2px rgba(0,0,0,.18)}
+
+.jer-7{background:linear-gradient(145deg,#2E2A22 0%,#1C1A16 55%,#0E0D0B 100%);
+  color:#F2C75C;box-shadow:inset 0 0 0 1px rgba(242,199,92,.55), 0 1px 3px rgba(0,0,0,.3)}
+.jer-6{background:linear-gradient(145deg,#F5D06A 0%,#D9A520 52%,#B8860B 100%);
+  color:#3B2A00}
+.jer-5{background:linear-gradient(145deg,#E6EBF0 0%,#B4BCC6 52%,#949DA8 100%);
+  color:#262C34}
+.jer-4{background:linear-gradient(145deg,#E0A574 0%,#BE7740 52%,#9A5A23 100%);
+  color:#2A1603}
+.jer-3{background:linear-gradient(145deg,#7C8A9E 0%,#64748B 52%,#515E72 100%);
+  color:#FFF;box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 1px 2px rgba(0,0,0,.18)}
+.jer-2{background:transparent;color:var(--tinta2);font-weight:600;
+  box-shadow:inset 0 0 0 1px var(--linea)}
+.jer-1{background:transparent;color:var(--neg);font-weight:600;opacity:.8;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--neg) 40%,transparent)}
+  box-shadow:inset 0 0 0 1px var(--linea)}
+
+/* En la tabla las etiquetas van en pequeño: la columna es estrecha y a
+   tamaño de ficha se cortaban por la mitad ("ROTACIÓN" salia "TACIÓN"). */
+td .jer{font-size:9.5px;padding:1px 6px;letter-spacing:0;text-transform:none;
+  font-weight:600;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+
+/* El porcentaje de titular en la tabla: la cifra manda, el signo se apaga */
+.tp-mini{font-weight:600;font-size:12px;font-variant-numeric:tabular-nums}
+.tp-mini em{font-style:normal;font-size:9.5px;opacity:.55;margin-left:1px}
+.tp-mini.si{color:var(--casa)}
+.tp-mini.quiza{color:var(--fuera)}
+.tp-mini.no{color:var(--neg)}
+th.quieta{cursor:default}
+th.quieta:hover{background:none}
+
+/* Jerarquia y probabilidad de ser titular, en la cabecera de la ficha.
+   Es lo primero que se quiere saber de un jugador que no conoces, asi que
+   va junto al nombre y no enterrado entre las estadisticas. */
+/* La foto manda la columna de la izquierda, y debajo cuelgan el rol y la
+   probabilidad de ser titular: se leen con la cara, no con las cifras. */
+.fx-cara{display:flex;flex-direction:column;align-items:center;gap:6px;flex:none}
+.fx-rol{display:flex;flex-direction:column;align-items:stretch;gap:4px;margin:0}
+.fx-rol > *{text-align:center;justify-content:center}
+.fx-rol:empty{display:none}
+.fx-rol .jer{font-size:9.5px;padding:2px 8px}
+
+/* el porcentaje, en su propia pastilla: tiene que verse al abrir la ficha
+   sin ir a buscarlo, pero por debajo del nombre y del valor */
+.fx-tp{display:inline-flex;align-items:baseline;gap:4px;cursor:help;
+  padding:1px 8px 2px;border-radius:4px;line-height:1.4;
+  background:color-mix(in srgb,var(--tp-c) 13%,transparent);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--tp-c) 30%,transparent)}
+.fx-tp b{font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;
+  color:var(--tp-c);letter-spacing:-.01em}
+.fx-tp span{font-size:9px;color:var(--tinta2);text-transform:uppercase;
+  letter-spacing:.04em;font-weight:600}
+.fx-tp.si{--tp-c:var(--casa)}
+.fx-tp.quiza{--tp-c:var(--fuera)}
+.fx-tp.no{--tp-c:var(--neg)}
+
+/* ================================================================
+   LO QUE LE VIENE POR DELANTE · la dificultad del rival
+   Verde y naranja quemado, no verde y rojo: la pareja verde/rojo es
+   justo la que no distingue un daltonico (separacion 7,2 en deuteranopia;
+   esta pasa con 9,9). Y encima va una barra de tres tramos, que no
+   depende del color, y el detalle en el texto al pasar por encima.
+   ================================================================ */
+:root{ --dif-ok:#0C7D55; --dif-med:#8A9690; --dif-mal:#C2410C; }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --dif-ok:#3ED396; --dif-med:#94A299; --dif-mal:#F29354; }
+}
+:root[data-theme="dark"]{ --dif-ok:#3ED396; --dif-med:#94A299; --dif-mal:#F29354; }
+
+.fx-p{flex-direction:column;gap:3px;padding:5px 8px 6px;position:relative}
+.fx-p .fila-p{display:flex;align-items:center;gap:5px}
+.fx-p u{text-decoration:none;font-size:9.5px;color:var(--tinta2);letter-spacing:.01em}
+/* tres tramos: uno encendido si es asequible, tres si es un hueso */
+.fx-p .tramos{display:flex;gap:2px;width:100%}
+.fx-p .tramos i{flex:1;height:3px;border-radius:2px;background:var(--linea);font-size:0}
+.fx-p .tramos i.on{background:var(--dif-c,var(--dif-med))}
+.fx-p.d1,.fx-p.d2{--dif-c:var(--dif-ok)}
+.fx-p.d3{--dif-c:var(--dif-med)}
+.fx-p.d4,.fx-p.d5{--dif-c:var(--dif-mal)}
+/* el color vive en los tramos, no en el borde: con cinco rivales duros
+   seguidos, cinco cajas con borde naranja tapaban el resto de la ficha */
+
+/* ================================================================
+   SE HA MOVIDO DE ESCALON
+   El chivatazo que mas vale: el que sube empieza a puntuar y todavia
+   esta barato. Sale de comparar la captura de hoy con la de ayer.
+   ================================================================ */
+.fx-mov{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;
+  padding:3px 7px;border-radius:6px;letter-spacing:.01em;cursor:help;
+  text-transform:none;justify-content:center}
+.fx-mov.sube{background:var(--resalte);color:var(--casa);box-shadow:inset 0 0 0 1px var(--casa)}
+.fx-mov.baja{background:var(--resalte);color:var(--neg);box-shadow:inset 0 0 0 1px var(--neg)}
+td .mov{font-style:normal;font-size:8.5px;margin-left:3px;vertical-align:1px;cursor:help}
+td .mov.sube{color:var(--casa)}
+td .mov.baja{color:var(--neg)}
+
+/* ================================================================
+   LA GRAFICA DEL VALOR
+   Una sola serie, asi que no lleva leyenda: el titulo dice de quien es.
+   Linea de 2px, rejilla recesiva y los numeros con los colores del texto,
+   nunca con el de la linea.
+   ================================================================ */
+.g-caja{position:relative;padding:4px 0 0}
+.g-cab{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  margin-bottom:10px;flex-wrap:wrap}
+.g-titulo{font-size:13px;font-weight:600;line-height:1.3}
+.g-titulo span{display:block;font-weight:400;font-size:11.5px;color:var(--tinta2)}
+.g-balance{font-size:17px;font-weight:600;white-space:nowrap;line-height:1.1;text-align:right}
+.g-balance em{display:block;font-style:normal;font-size:11.5px;font-weight:500;color:var(--tinta2)}
+.g-balance.sube{color:var(--casa)}
+.g-balance.baja{color:var(--neg)}
+
+.g-svg{display:block;width:100%;height:auto;touch-action:pan-y;overflow:visible}
+.g-rejilla{stroke:var(--linea);stroke-width:1}
+.g-eje{fill:var(--tinta2);font-size:9.5px;font-family:inherit}
+.g-area{fill:var(--acento);opacity:.1;stroke:none}
+.g-linea{fill:none;stroke:var(--acento);stroke-width:2;
+  stroke-linejoin:round;stroke-linecap:round}
+.g-cruz{stroke:var(--tinta2);stroke-width:1;stroke-dasharray:3 3}
+.g-punto{fill:var(--acento);stroke:var(--tarjeta);stroke-width:2}
+.g-zona{fill:transparent;cursor:crosshair}
+.g-cursor[hidden]{display:none}
+
+.g-globo{position:absolute;top:52px;width:104px;padding:6px 8px;pointer-events:none;
+  background:var(--tarjeta);border:1px solid var(--linea);border-radius:8px;
+  box-shadow:0 6px 18px var(--sombra);text-align:center;line-height:1.25}
+.g-globo[hidden]{display:none}
+.g-globo b{display:block;font-size:13px;font-weight:600}
+.g-globo span{display:block;font-size:10.5px;color:var(--tinta2)}
+.g-globo i{font-style:normal;font-size:10.5px;font-weight:600}
+.g-globo i.sube{color:var(--casa)}
+.g-globo i.baja{color:var(--neg)}
+.g-pie{margin:10px 0 0;font-size:11.5px;color:var(--tinta2);line-height:1.4}
+.fx-nada{margin:0;font-size:13px;color:var(--tinta2)}
+
+/* ================================================================
+   BOTONES
+   Antes los tres de la cabecera eran iguales y grises, asi que no se
+   veia que dos son acciones y el otro es un ajuste. Ahora los dos de
+   accion tienen cuerpo y el del tema se queda en un icono.
+   ================================================================ */
+.cab-btns{margin-left:auto;display:flex;align-items:center;gap:8px}
+.tema{margin-left:0}
+.tema.accion{background:var(--tarjeta);border:1px solid var(--linea);color:var(--tinta);
+  font-size:13.5px;font-weight:500;padding:7px 15px;border-radius:9px;
+  box-shadow:0 1px 2px var(--sombra);display:inline-flex;align-items:center;gap:7px;
+  transition:transform 120ms var(--ease-out),border-color 120ms ease,
+    box-shadow 160ms var(--ease-out)}
+.tema.accion:hover{border-color:var(--acento);color:var(--acento);
+  box-shadow:0 3px 10px var(--sombra)}
+.tema.accion:active{transform:scale(.97)}
+.tema.accion svg{width:15px;height:15px;flex:none;stroke:currentColor;
+  fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+/* el del tema no es una accion del dia a dia: solo el icono */
+.tema.icono{padding:7px;border-radius:9px;line-height:0;color:var(--tinta2)}
+.tema.icono svg{width:16px;height:16px;stroke:currentColor;fill:none;
+  stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.tema.icono:hover{border-color:var(--acento);color:var(--acento)}
+.tema.icono:active{transform:scale(.94)}
+
+/* los de la ficha: que se vean como botones, no como etiquetas */
+.fx-btn{background:var(--resalte);border-color:transparent;font-weight:500;
+  box-shadow:inset 0 0 0 1px var(--linea)}
+.fx-btn:hover{background:var(--tarjeta);box-shadow:inset 0 0 0 1px var(--acento)}
+.fx-btn.cmp{box-shadow:0 2px 8px var(--sombra)}
+.fx-btn.cmp:hover{background:var(--acento);box-shadow:0 4px 12px var(--sombra)}
+
+@media (max-width:700px){
+  .cab-btns{gap:6px}
+  .tema.accion{font-size:12.5px;padding:6px 11px;gap:5px}
+  .tema.accion svg{width:14px;height:14px}
+  .g-balance{font-size:15px}
+  .g-caja{padding:0}
+  .fx-p u{font-size:9px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tema.accion:active,.tema.icono:active{transform:none}
+  .tema.accion,.tema.icono{transition:none}
+}
+@media (prefers-contrast:more){
+  .fx-btn{border-color:var(--tinta);box-shadow:none}
+  .tema.accion,.tema.icono{border-color:var(--tinta)}
+}
+
+/* un partido europeo no es uno de Liga: se marca para que se note de un
+   vistazo que ese dia hay viaje entre semana y probable rotacion */
+.fx-p.eu{border-style:dashed}
+.fx-p.eu b{color:var(--acento);font-weight:700;letter-spacing:.03em}
+
+/* ================================================================
+   EL CALENDARIO DE TODOS
+   Veinte filas y unas pocas columnas. El color dice lo duro que es el
+   rival, pero nunca va solo: debajo de cada celda hay una barra cuyo
+   grosor dice lo mismo, y el detalle esta en el texto al pasar encima.
+   ================================================================ */
+#calendario{max-width:860px;width:calc(100% - 32px)}
+.cal-mandos{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;
+  padding:14px 20px;border-bottom:1px solid var(--linea);flex:none}
+.cal-cuerpo{overflow:auto;padding:0 20px;flex:1 1 auto}
+
+.cal-t{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+.cal-t th{position:sticky;top:0;z-index:2;background:var(--tarjeta);
+  padding:9px 4px;font-size:11.5px;font-weight:600;color:var(--tinta2);
+  text-align:center;border-bottom:1px solid var(--linea);white-space:nowrap}
+.cal-t td{padding:4px;text-align:center;border-bottom:1px solid var(--linea)}
+.cal-t tbody tr{cursor:pointer}
+.cal-t tbody tr:hover td{background:var(--resalte)}
+
+.cal-eq{position:sticky;left:0;z-index:1;background:var(--tarjeta);
+  text-align:left !important;white-space:nowrap;padding-right:12px !important}
+th.cal-eq{z-index:3}
+.cal-t tbody tr:hover .cal-eq{background:var(--resalte)}
+.cal-eq span{margin-left:7px;font-size:12.5px;vertical-align:4px}
+.cal-eq .esc{width:20px;height:20px}
+
+/* la celda de cada partido: escudo del rival, casa o fuera, y la barra */
+.cal-c{position:relative;min-width:58px;cursor:help}
+/* jugar en casa: un fondo apenas insinuado, sin gastar color */
+.cal-c:has(.cal-sd.casa){background:color-mix(in srgb,var(--tinta) 4%,transparent)}
+.cal-c .esc{width:22px;height:22px;display:block;margin:0 auto}
+/* La C y la F van en gris a proposito. En esta celda el verde y el
+   naranja ya significan "rival asequible" y "rival duro"; si ademas
+   pintaramos de verde el jugar en casa, el mismo par de colores diria
+   dos cosas distintas a dos centimetros. La casa se marca con el fondo. */
+.cal-sd{display:block;font-size:9px;font-weight:600;letter-spacing:.06em;
+  color:var(--tinta2);margin-top:1px}
+.cal-sd.casa{font-weight:800;color:var(--tinta)}
+.cal-c::after{content:"";position:absolute;left:6px;right:6px;bottom:2px;
+  height:3px;border-radius:2px;background:var(--linea)}
+.cal-c.t1::after{background:var(--dif-ok)}
+.cal-c.t2::after{background:var(--dif-med)}
+.cal-c.t3::after{background:var(--dif-mal);height:5px}
+.cal-c.t1::after{height:2px}
+.cal-c.vacia::after{display:none}
+/* el avion: viene de jugar en Europa entre semana */
+.cal-eu{position:absolute;top:1px;right:3px;font-size:9px;font-style:normal;
+  opacity:.75;line-height:1}
+
+.cal-m{min-width:52px}
+.cal-nota{display:inline-block;min-width:38px;padding:3px 6px;border-radius:6px;
+  font-size:12px;font-weight:600;background:var(--resalte)}
+.cal-nota.t1{color:var(--dif-ok)}
+.cal-nota.t2{color:var(--tinta2)}
+.cal-nota.t3{color:var(--dif-mal)}
+
+.cal-pie{padding:12px 20px 18px;border-top:1px solid var(--linea);flex:none}
+.cal-pie p{margin:0;font-size:11.5px;color:var(--tinta2);line-height:1.45}
+
+@media (max-width:700px){
+  .cal-mandos{gap:12px;padding:12px 16px}
+  .cal-cuerpo{padding:0 16px}
+  .cal-eq span{display:none}
+  .cal-c{min-width:46px}
+  .cal-t{font-size:12px}
+}
+@media (prefers-contrast:more){
+  .cal-c::after{outline:1px solid var(--tinta)}
+}
+
+/* la casilla de "incluir a los que ya no estan", en la fila de arriba */
+.casilla.alta{display:flex;align-items:center;gap:7px;font-size:13.5px;
+  padding:7px 0;cursor:pointer;white-space:nowrap}
+.casilla.alta span{color:var(--tinta2)}
+.casilla.alta input:checked ~ span{color:var(--tinta)}
+
+/* ================================================================
+   EL PARTIDO, AL TOCARLO
+   La racha dice "11 puntos". Esto dice contra quien, como acabo y
+   que hizo para sacarlos, con el enlace a la ficha del partido.
+   ================================================================ */
+.pt[data-j],.gr-col[data-j]{cursor:pointer}
+.pt[data-j]:focus-visible,.gr-col[data-j]:focus-visible{outline:2px solid var(--acento);
+  outline-offset:1px;border-radius:3px}
+
+#fx-pt-caja:empty{display:none}
+.fx-pt{position:relative;margin:0 0 14px;padding:12px 14px;border-radius:10px;
+  background:var(--resalte);box-shadow:inset 0 0 0 1px var(--linea)}
+.fx-pt-x{position:absolute;top:6px;right:8px;border:0;background:none;cursor:pointer;
+  color:var(--tinta2);font-size:18px;line-height:1;padding:2px 5px;border-radius:5px}
+.fx-pt-x:hover{color:var(--tinta);background:var(--tarjeta)}
+.fx-pt-cab{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.fx-pt-j{font-size:11px;font-weight:700;color:var(--tinta2);letter-spacing:.04em}
+.fx-pt-eq .esc{width:24px;height:24px}
+.fx-pt-m{font-size:19px;font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.fx-pt-sd{font-size:11.5px;color:var(--tinta2)}
+.fx-pt-l{margin:9px 0 0;font-size:13px;line-height:1.5}
+.fx-pt-p{display:inline-block;min-width:26px;padding:1px 6px;border-radius:5px;
+  text-align:center;font-weight:700}
+.fx-pt-a{display:inline-block;margin-top:9px;font-size:12.5px;color:var(--acento);
+  text-decoration:none;font-weight:500}
+.fx-pt-a:hover{text-decoration:underline}
+@media (max-width:700px){
+  .fx-pt{padding:10px 12px}
+  .fx-pt-m{font-size:17px}
+}
+
+/* ================================================================
+   EL CALENDARIO DE UN EQUIPO SOLO
+   La rejilla da cinco jornadas de los veinte; esto da la temporada
+   entera de uno: lo jugado con su marcador y lo que le queda.
+   ================================================================ */
+.ce{padding:4px 0 14px}
+.ce-volver{border:0;background:none;color:var(--acento);font:inherit;font-size:12.5px;
+  cursor:pointer;padding:6px 0;font-weight:500}
+.ce-volver:hover{text-decoration:underline}
+.ce-cab{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+.ce-cab .esc{width:30px;height:30px}
+.ce-cab h3{margin:0;font-size:19px;font-weight:600}
+.ce-sub{font-size:12px;color:var(--tinta2)}
+.ce-t{margin:16px 0 7px;font-size:11.5px;font-weight:600;color:var(--tinta2);
+  text-transform:uppercase;letter-spacing:.05em}
+.ce-l{list-style:none;margin:0;padding:0}
+.ce-f{display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:8px;
+  font-size:13px;border-bottom:1px solid var(--linea)}
+.ce-f:last-child{border-bottom:0}
+.ce-f .esc{width:21px;height:21px;flex:none}
+.ce-j{font-size:10.5px;font-weight:700;color:var(--tinta2);min-width:34px;letter-spacing:.03em}
+.ce-r{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ce-sd{font-size:11px;flex:none}
+.ce-m{font-variant-numeric:tabular-nums;font-weight:600;min-width:34px;text-align:right}
+.ce-c{font-size:11.5px;color:var(--tinta2);white-space:nowrap}
+.ce-a{color:var(--tinta2);text-decoration:none;font-size:12px;padding:0 3px}
+.ce-a:hover{color:var(--acento)}
+/* ganado, empatado, perdido: una barrita a la izquierda, sin gritar */
+.ce-f.gana{box-shadow:inset 3px 0 0 var(--casa)}
+.ce-f.pierde{box-shadow:inset 3px 0 0 var(--neg)}
+.ce-f.empata{box-shadow:inset 3px 0 0 var(--linea)}
+.ce-f.futura{background:var(--resalte)}
+.ce-f.futura.eu{background:none;box-shadow:inset 0 0 0 1px var(--linea)}
+.ce-f.futura.eu .ce-j{color:var(--acento)}
+.ce-d{font-size:10.5px;font-weight:600;min-width:62px;text-align:right}
+.ce-d.t1{color:var(--dif-ok)}
+.ce-d.t2{color:var(--tinta2)}
+.ce-d.t3{color:var(--dif-mal)}
+.cal-eq{cursor:pointer}
+.cal-eq:hover span{text-decoration:underline}
+@media (max-width:700px){
+  .ce-c{display:none}
+  .ce-d{min-width:0}
+}
+
+/* ================================================================
+   MI EQUIPO
+   Vive solo en este navegador. La estrella marca, el diálogo resume.
+   ================================================================ */
+.pill{display:inline-flex;align-items:center;justify-content:center;min-width:18px;
+  height:18px;padding:0 5px;border-radius:9px;background:var(--acento);color:var(--papel);
+  font-size:11px;font-weight:700;line-height:1}
+.pill[hidden]{display:none}
+
+/* la estrella de la lista: apagada hasta que la tocas */
+.mio{border:0;background:none;cursor:pointer;padding:0 5px 0 0;font-size:12px;
+  color:var(--linea);line-height:1;vertical-align:1px;
+  transition:color 140ms ease,transform 140ms var(--ease-out)}
+.mio:hover{color:var(--tinta2);transform:scale(1.15)}
+.mio.on{color:#D9A520}
+.mio.on:hover{color:#C2410C}
+.fx-btn.mio-btn{min-width:92px}
+.fx-btn.mio-btn.on{background:#D9A520;color:#3B2A00;box-shadow:none;font-weight:600}
+
+#miequipo{max-width:880px;width:calc(100% - 32px)}
+.me-cuerpo{overflow:auto;padding:4px 20px 0;flex:1 1 auto}
+.me-vacio{margin:18px 0 10px;font-size:14px;line-height:1.55}
+.me-nota{margin:8px 0 0;font-size:11.5px;color:var(--tinta2);line-height:1.45}
+.me-t{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+.me-t th{position:sticky;top:0;background:var(--tarjeta);padding:9px 6px;
+  font-size:11.5px;font-weight:600;color:var(--tinta2);text-align:right;
+  border-bottom:1px solid var(--linea);white-space:nowrap}
+.me-t th.me-n,.me-t th:first-child{text-align:left}
+.me-t td{padding:7px 6px;text-align:right;border-bottom:1px solid var(--linea);
+  white-space:nowrap}
+.me-t td.cen{text-align:center}
+.me-t td.me-n{text-align:left;width:100%}
+.me-t .esc{width:21px;height:21px}
+.me-abre{border:0;background:none;font:inherit;font-size:13px;color:var(--tinta);
+  cursor:pointer;padding:0;text-align:left}
+.me-abre:hover{color:var(--acento);text-decoration:underline}
+.me-quita{border:0;background:none;color:var(--tinta2);cursor:pointer;font-size:16px;
+  line-height:1;padding:2px 5px;border-radius:5px}
+.me-quita:hover{color:var(--neg);background:var(--resalte)}
+.me-p{text-align:left !important}
+.me-riv{display:inline-flex;align-items:center;gap:4px;margin-right:7px}
+.me-riv .esc{width:19px;height:19px}
+
+.me-pie{padding:12px 20px 18px;border-top:1px solid var(--linea);flex:none}
+.me-tot{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:12px}
+.me-tot div{display:flex;flex-direction:column;gap:2px}
+.me-tot span{font-size:11px;color:var(--tinta2);text-transform:uppercase;letter-spacing:.04em}
+.me-tot b{font-size:17px;font-weight:600}
+.me-codigo{display:flex;gap:7px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.me-codigo input{flex:1;min-width:180px;font-size:11.5px;font-family:ui-monospace,monospace;
+  padding:6px 9px;border:1px solid var(--linea);border-radius:7px;
+  background:var(--resalte);color:var(--tinta2)}
+@media (max-width:700px){
+  .me-cuerpo{padding:4px 14px 0}
+  .me-pie{padding:12px 14px 16px}
+  .me-tot{gap:16px}
+  .me-tot b{font-size:15px}
+  .me-t{font-size:12px}
+}
+
+/* ================================================================
+   PROGRESO HACIA UN VALOR
+   "Pagué 18,75 hace un mes: ¿voy ganando?" El ritmo sale de su propio
+   historico, no de una formula.
+   ================================================================ */
+.pg{display:flex;flex-direction:column;gap:12px}
+.pg-fila{display:flex;flex-direction:column;gap:6px}
+.pg-fila label{font-size:12px;color:var(--tinta2)}
+.pg-caja{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.pg-caja input{font:inherit;font-size:16px;font-weight:600;padding:8px 11px;width:140px;
+  border:1px solid var(--linea);border-radius:8px;background:var(--tarjeta);color:var(--tinta)}
+.pg-hoy{font-size:13px;color:var(--tinta2)}
+.pg-hoy b{color:var(--tinta);font-weight:600}
+.pg-l{margin:0;padding:10px 12px;border-radius:9px;font-size:13.5px;line-height:1.5;
+  background:var(--tarjeta);box-shadow:inset 0 0 0 1px var(--linea)}
+.pg-l.pg-arriba{box-shadow:inset 0 0 0 1px var(--casa)}
+.pg-l.pg-arriba b{color:var(--casa)}
+.pg-l.pg-abajo{box-shadow:inset 0 0 0 1px var(--fuera)}
+#pg-ritmo button em{font-style:normal;opacity:.75;font-size:11px;margin-left:3px}
+.pg-nota{margin:0;font-size:11.5px;color:var(--tinta2);line-height:1.45}

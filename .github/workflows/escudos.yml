@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - run: pip install requests
+      - run: pip install requests==2.32.3
 
       - name: Descargar escudos
         run: python scripts/escudos.py
@@ -27,5 +27,13 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add web/escudos/
-          git diff --staged --quiet || git commit -m "Escudos de los equipos"
-          git push
+          git diff --staged --quiet && echo "nada nuevo" && exit 0
+          git commit -m "Escudos de los equipos"
+          # el mismo reintento que los demas: si main ha avanzado mientras
+          # esto corria, el push se rechazaria y se perderia la descarga
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "reintento $i"
+            sleep 5
+          done
+          exit 1
