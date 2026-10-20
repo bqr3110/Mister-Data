@@ -13335,3 +13335,159 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad,v
 22510,9,2026-10-18 21:00,Sevilla,visitante,Stassin,lucas-stassin,Delantero,nota_sofascore,6.6,5
 22510,9,2026-10-18 21:00,Sevilla,visitante,Stassin,lucas-stassin,Delantero,min,34.0,5
 22510,9,2026-10-18 21:00,Sevilla,visitante,Stassin,lucas-stassin,Delantero,asis,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Soria,david-soria,Portero,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Soria,david-soria,Portero,nota_cronista,7.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Soria,david-soria,Portero,nota_sofascore,7.5,5
+22506,9,2026-10-19 21:00,Getafe,local,Soria,david-soria,Portero,min,90.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Carvajal,daniel-carvajal,Defensa,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Carvajal,daniel-carvajal,Defensa,nota_cronista,6.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Carvajal,daniel-carvajal,Defensa,nota_sofascore,6.8,5
+22506,9,2026-10-19 21:00,Getafe,local,Mojica,johan-mojica,Defensa,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Mojica,johan-mojica,Defensa,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Mojica,johan-mojica,Defensa,nota_sofascore,6.7,5
+22506,9,2026-10-19 21:00,Getafe,local,Mojica,johan-mojica,Defensa,min,90.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Femenia,kiko-femenia,Defensa,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Femenia,kiko-femenia,Defensa,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Femenia,kiko-femenia,Defensa,nota_sofascore,6.2,5
+22506,9,2026-10-19 21:00,Getafe,local,Femenia,kiko-femenia,Defensa,min,45.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Femenia,kiko-femenia,Defensa,amarillas,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Djené,dakonam-djene,Defensa,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Djené,dakonam-djene,Defensa,nota_cronista,4.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Djené,dakonam-djene,Defensa,nota_sofascore,4.4,5
+22506,9,2026-10-19 21:00,Getafe,local,Djené,dakonam-djene,Defensa,min,28.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Djené,dakonam-djene,Defensa,amarillas,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Djené,dakonam-djene,Defensa,rojas,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Gudelj,nemanja-gudelj,Mediocampista,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Gudelj,nemanja-gudelj,Mediocampista,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Gudelj,nemanja-gudelj,Mediocampista,nota_sofascore,6.5,5
+22506,9,2026-10-19 21:00,Getafe,local,Gudelj,nemanja-gudelj,Mediocampista,min,90.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Gudelj,nemanja-gudelj,Mediocampista,amarillas,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Valou,jean-ives-valou,Defensa,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Valou,jean-ives-valou,Defensa,nota_cronista,6.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Valou,jean-ives-valou,Defensa,nota_sofascore,7.1,5
+22506,9,2026-10-19 21:00,Getafe,local,Valou,jean-ives-valou,Defensa,min,90.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Terrats,terrats,Mediocampista,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Terrats,terrats,Mediocampista,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Terrats,terrats,Mediocampista,nota_sofascore,6.5,5
+22506,9,2026-10-19 21:00,Getafe,local,Terrats,terrats,Mediocampista,min,32.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Mario Martín,mario-martin,Mediocampista,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Mario Martín,mario-martin,Mediocampista,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Mario Martín,mario-martin,Mediocampista,nota_sofascore,6.4,5
+22506,9,2026-10-19 21:00,Getafe,local,Mario Martín,mario-martin,Mediocampista,min,45.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Enes Ünal,enes-unal,Delantero,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Enes Ünal,enes-unal,Delantero,nota_cronista,6.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Enes Ünal,enes-unal,Delantero,nota_sofascore,7.2,5
+22506,9,2026-10-19 21:00,Getafe,local,Enes Ünal,enes-unal,Delantero,min,87.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Enes Ünal,enes-unal,Delantero,amarillas,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Satriano,martin-satriano,Delantero,titular,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Satriano,martin-satriano,Delantero,nota_cronista,8.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Satriano,martin-satriano,Delantero,nota_sofascore,8.2,5
+22506,9,2026-10-19 21:00,Getafe,local,Satriano,martin-satriano,Delantero,min,90.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Satriano,martin-satriano,Delantero,goles,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Satriano,martin-satriano,Delantero,tiros,3.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Ferrer,diego-ferrer,Portero,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Letácek,jiri-letacek,Portero,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Abqar,abdel-abqar,Defensa,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Abqar,abdel-abqar,Defensa,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Abqar,abdel-abqar,Defensa,nota_sofascore,6.7,5
+22506,9,2026-10-19 21:00,Getafe,local,Abqar,abdel-abqar,Defensa,min,58.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Sazonov,saba-sazonov,Defensa,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Andrés García,andres-garcia,Defensa,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Andrés García,andres-garcia,Defensa,nota_cronista,6.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Andrés García,andres-garcia,Defensa,nota_sofascore,6.9,5
+22506,9,2026-10-19 21:00,Getafe,local,Andrés García,andres-garcia,Defensa,min,45.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Davinchi,davinchi,Defensa,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Boselli,sebastian-boselli,Defensa,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Boselli,sebastian-boselli,Defensa,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Boselli,sebastian-boselli,Defensa,nota_sofascore,6.9,5
+22506,9,2026-10-19 21:00,Getafe,local,Boselli,sebastian-boselli,Defensa,min,10.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Francho,francho-serrano,Mediocampista,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Francho,francho-serrano,Mediocampista,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Francho,francho-serrano,Mediocampista,nota_sofascore,7.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Francho,francho-serrano,Mediocampista,min,45.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Francho,francho-serrano,Mediocampista,asis,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Francho,francho-serrano,Mediocampista,asis_sg,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Francho,francho-serrano,Mediocampista,amarillas,1.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Risco,alberto-risco,Mediocampista,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Mayoral,borja-mayoral,Delantero,titular,0.0,5
+22506,9,2026-10-19 21:00,Getafe,local,Mayoral,borja-mayoral,Delantero,nota_sofascore,6.4,5
+22506,9,2026-10-19 21:00,Getafe,local,Mayoral,borja-mayoral,Delantero,min,3.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Audero,emil-audero,Portero,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Audero,emil-audero,Portero,nota_cronista,7.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Audero,emil-audero,Portero,nota_sofascore,7.1,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Audero,emil-audero,Portero,min,90.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Lejeune,florian-lejeune,Defensa,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Lejeune,florian-lejeune,Defensa,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Lejeune,florian-lejeune,Defensa,nota_sofascore,8.1,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Lejeune,florian-lejeune,Defensa,min,90.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Mujaid,mujaid-sadick,Defensa,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Mujaid,mujaid-sadick,Defensa,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Mujaid,mujaid-sadick,Defensa,nota_sofascore,6.9,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Mujaid,mujaid-sadick,Defensa,min,90.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pedrosa,adria-pedrosa,Defensa,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pedrosa,adria-pedrosa,Defensa,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pedrosa,adria-pedrosa,Defensa,nota_sofascore,6.3,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pedrosa,adria-pedrosa,Defensa,min,90.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Balliu,ivan-balliu,Defensa,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Balliu,ivan-balliu,Defensa,nota_cronista,6.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Balliu,ivan-balliu,Defensa,nota_sofascore,6.7,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Balliu,ivan-balliu,Defensa,min,59.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Balliu,ivan-balliu,Defensa,asis_sg,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Balliu,ivan-balliu,Defensa,amarillas,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Álvaro García,alvaro-garcia,Mediocampista,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Álvaro García,alvaro-garcia,Mediocampista,nota_cronista,9.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Álvaro García,alvaro-garcia,Mediocampista,nota_sofascore,7.1,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Álvaro García,alvaro-garcia,Mediocampista,min,80.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Álvaro García,alvaro-garcia,Mediocampista,goles,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Unai López,unai-lopez,Mediocampista,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Unai López,unai-lopez,Mediocampista,nota_cronista,6.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Unai López,unai-lopez,Mediocampista,nota_sofascore,7.7,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Unai López,unai-lopez,Mediocampista,min,80.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,De Frutos,jorge-de-frutos,Mediocampista,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,De Frutos,jorge-de-frutos,Mediocampista,nota_cronista,6.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,De Frutos,jorge-de-frutos,Mediocampista,nota_sofascore,7.2,5
+22506,9,2026-10-19 21:00,Rayo,visitante,De Frutos,jorge-de-frutos,Mediocampista,min,65.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,De Frutos,jorge-de-frutos,Mediocampista,asis,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,De Frutos,jorge-de-frutos,Mediocampista,asis_sg,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Isi,isi-palazon,Mediocampista,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Isi,isi-palazon,Mediocampista,nota_cronista,6.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Isi,isi-palazon,Mediocampista,nota_sofascore,6.4,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Isi,isi-palazon,Mediocampista,min,59.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pathé Ciss,pathe-ciss,Mediocampista,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pathé Ciss,pathe-ciss,Mediocampista,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pathé Ciss,pathe-ciss,Mediocampista,nota_sofascore,7.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pathé Ciss,pathe-ciss,Mediocampista,min,90.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pathé Ciss,pathe-ciss,Mediocampista,amarillas,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Camello,sergio-camello,Delantero,titular,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Camello,sergio-camello,Delantero,nota_cronista,6.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Camello,sergio-camello,Delantero,nota_sofascore,6.3,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Camello,sergio-camello,Delantero,min,90.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Camello,sergio-camello,Delantero,amarillas,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Cárdenas,dani-cardenas,Portero,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Kumbulla,marash-kumbulla,Defensa,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pelayo,pelayo-fernandez,Defensa,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Vertrouwd,jozhua-vertrouwd,Defensa,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pedro Díaz,pedro-diaz,Mediocampista,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pedro Díaz,pedro-diaz,Mediocampista,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pedro Díaz,pedro-diaz,Mediocampista,nota_sofascore,6.7,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Pedro Díaz,pedro-diaz,Mediocampista,min,31.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Valentín,scar-valentin,Mediocampista,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Valentín,scar-valentin,Mediocampista,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Valentín,scar-valentin,Mediocampista,nota_sofascore,7.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Valentín,scar-valentin,Mediocampista,min,31.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Valentín,scar-valentin,Mediocampista,asis_sg,1.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Tsitaishvili,georgiy-tsitaishvili,Mediocampista,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Tsitaishvili,georgiy-tsitaishvili,Mediocampista,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Tsitaishvili,georgiy-tsitaishvili,Mediocampista,nota_sofascore,6.8,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Tsitaishvili,georgiy-tsitaishvili,Mediocampista,min,25.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Fran Pérez,fran-perez,Mediocampista,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Fran Pérez,fran-perez,Mediocampista,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Fran Pérez,fran-perez,Mediocampista,nota_sofascore,6.3,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Fran Pérez,fran-perez,Mediocampista,min,10.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Rayane,rayane-belaid,Mediocampista,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Bouare,gnangoro-bouare,Mediocampista,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Alemão,alemo,Delantero,titular,0.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Alemão,alemo,Delantero,nota_cronista,5.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Alemão,alemo,Delantero,nota_sofascore,6.5,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Alemão,alemo,Delantero,min,10.0,5
+22506,9,2026-10-19 21:00,Rayo,visitante,Iván Alonso,ivan-alonso,Delantero,titular,0.0,5
