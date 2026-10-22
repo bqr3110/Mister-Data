@@ -1580,41 +1580,32 @@ th.cal-eq{z-index:3}
    ================================================================ */
 @media (max-width:700px){
 
+  /* QUE NADA PUEDA ENSANCHAR LA PÁGINA.
+     Sin esto, abrir el calendario estiraba el viewport de 390 a 695 y la web
+     se quedaba desescalada para siempre: cerrar el calendario no la devolvia.
+     clip (y no hidden) porque hidden en html mata el position:sticky. */
+  html{overflow-x:clip}
+  body{overflow-x:clip;max-width:100%}
+
   /* LOS DIÁLOGOS: una hoja que sube desde abajo y ocupa la pantalla */
-  dialog, #ficha, #comparador, #balance, #calendario, #miequipo{
+  /* OJO con el [open]: sin el, este display:flex pisaba el display:none que
+     el navegador le pone a un dialogo cerrado. El calendario cerrado seguia
+     ocupando sitio con su tabla de 504px, el documento pasaba a 695 y la web
+     se quedaba desescalada hasta recargar. */
+  dialog:not([open]){display:none}
+  dialog[open], #ficha[open], #comparador[open], #balance[open],
+  #calendario[open], #miequipo[open]{
     width:100%;max-width:100%;margin:auto 0 0;
     border-radius:16px 16px 0 0;border-left:0;border-right:0;border-bottom:0;
     max-height:92vh;display:flex;flex-direction:column}
-  dialog{padding:0}
+  dialog[open]{padding:0}
   .cmp-cab{padding:14px 16px 12px;flex:none}
   .cmp-cab h2{font-size:18px}
 
-  /* MI EQUIPO: doce columnas no caben. Cada jugador pasa a ser una
-     ficha y cada dato lleva su nombre delante. */
-  .me-mandos{padding:12px 16px;gap:14px}
-  .me-mandos .campo{flex:1 1 100%}
-  .me-mandos select{width:100%;min-width:0}
-  .me-cuerpo{padding:10px 14px 0}
-  .me-t, .me-t tbody, .me-t tr, .me-t td{display:block;width:auto}
-  .me-t thead{display:none}
-  .me-t tr{position:relative;margin-bottom:10px;padding:10px 12px 8px;
-    border:1px solid var(--linea);border-radius:11px;background:var(--tarjeta)}
-  .me-t td{border:0;padding:3px 0;text-align:left;display:flex;
-    align-items:baseline;justify-content:space-between;gap:12px}
-  .me-t td[data-r]::before{content:attr(data-r);font-size:11.5px;color:var(--tinta2);
-    flex:none}
-  /* el escudo y el nombre forman la cabecera de la ficha */
-  .me-t td:first-child{position:absolute;top:10px;left:12px;padding:0}
-  .me-t td.me-n{padding-left:30px;margin-bottom:4px;border-bottom:1px solid var(--linea);
-    padding-bottom:7px}
-  .me-t td.me-n button{font-size:15px;font-weight:600}
-  .me-t td:nth-child(3){position:absolute;top:9px;right:34px;padding:0}
-  .me-t td.cen:last-child{position:absolute;top:7px;right:6px;padding:0}
-  .me-t .me-pag{width:92px;text-align:right}
-  .me-t .me-pc{display:inline;margin-left:6px}
-  .me-tot{gap:14px 20px}
-  .me-tot b{font-size:15px}
-  .me-codigo input{min-width:0;flex:1 1 100%}
+  /* MI EQUIPO */
+  .me-mandos{padding:10px 14px}
+  .me-cuerpo{padding:8px 14px 0}
+  .me-pie{padding:10px 14px 16px}
 
   /* EL CALENDARIO: se desliza en horizontal con el equipo pegado */
   .cal-mandos{padding:12px 16px;gap:12px}
@@ -1691,4 +1682,101 @@ th.cal-eq{z-index:3}
   .cmp-cab{padding-right:44px}
   .cmp-cab .cerrar{top:10px;right:10px}
   .cmp-cab .sub{display:block;width:100%}
+}
+
+/* ================================================================
+   MI EQUIPO
+   Una lista, no una tabla. Cada jugador trae lo justo (quién es y el
+   dato que estés mirando) y se abre para lo suyo: lo que pagaste y a
+   qué clausula lo tienes. Los filtros, detras de un boton: se tocan
+   una vez cada mucho y no merecen estar siempre ocupando sitio.
+   ================================================================ */
+.me-mandos{display:flex;flex-direction:column;gap:8px;padding:10px 20px;
+  border-bottom:1px solid var(--linea);flex:none;position:relative}
+.me-mandos[hidden]{display:none}
+
+.me-filtros{align-self:flex-start;font:inherit;font-size:12.5px;padding:5px 12px;
+  border:1px solid var(--linea);border-radius:16px;background:var(--tarjeta);
+  color:var(--tinta2);cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  transition:border-color 120ms ease,color 120ms ease}
+.me-filtros:hover{border-color:var(--acento);color:var(--acento)}
+.me-filtros.activo{border-color:var(--acento);color:var(--acento);font-weight:600}
+
+/* la tira de datos: tocas uno y la lista se ordena por él */
+.me-tira{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent);
+  mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent)}
+.me-tira::-webkit-scrollbar{display:none}
+.me-tira .mt{flex:none;font:inherit;font-size:12px;padding:5px 11px;border:0;
+  border-radius:14px;background:var(--resalte);color:var(--tinta2);cursor:pointer;
+  white-space:nowrap;transition:background-color 120ms ease,color 120ms ease}
+.me-tira .mt i{font-style:normal;margin-left:3px;font-size:10px}
+.me-tira .mt.act{background:var(--acento);color:var(--papel);font-weight:600}
+
+.me-pop{position:absolute;top:100%;left:20px;right:20px;z-index:6;margin-top:4px;
+  padding:14px;border:1px solid var(--linea);border-radius:12px;background:var(--tarjeta);
+  box-shadow:0 10px 30px var(--sombra);display:flex;flex-direction:column;gap:14px}
+.me-pop[hidden]{display:none}
+.me-pop .casilla{display:flex;align-items:center;gap:7px;font-size:13px;
+  padding:3px 0;cursor:pointer}
+
+/* la lista */
+.me-l{list-style:none;margin:0;padding:0}
+.me-f{border-bottom:1px solid var(--linea)}
+.me-f:last-child{border-bottom:0}
+.me-cab{width:100%;display:flex;align-items:center;gap:10px;padding:11px 2px;
+  font:inherit;border:0;background:none;color:var(--tinta);cursor:pointer;text-align:left}
+.me-cab .esc{width:23px;height:23px;flex:none}
+.me-nom{flex:1;min-width:0;font-size:14.5px;font-weight:500;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
+.me-dato{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;
+  white-space:nowrap}
+.me-dato.sube{color:var(--casa)}
+.me-dato.baja{color:var(--neg)}
+.me-fl{flex:none;width:0;height:0;border-left:4.5px solid transparent;
+  border-right:4.5px solid transparent;border-top:5px solid var(--tinta2);
+  opacity:.55;transition:transform 160ms var(--ease-out)}
+.me-f.abierta .me-fl{transform:rotate(180deg)}
+.me-f.abierta{background:var(--resalte);border-radius:11px;margin:2px 0}
+.me-f.abierta .me-cab{padding-left:10px;padding-right:10px}
+
+.me-det{padding:2px 10px 12px;animation:entra 180ms var(--ease-out)}
+.me-par{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:5px 0}
+.me-par > span{font-size:12.5px;color:var(--tinta2)}
+.me-par{cursor:pointer}
+.me-pag{width:104px;font:inherit;font-size:13.5px;padding:6px 9px;text-align:right;
+  border:1px solid var(--linea);border-radius:7px;background:var(--tarjeta);color:var(--tinta)}
+.me-pag:focus{border-color:var(--acento);outline:none}
+.me-clau{font:inherit;font-size:13.5px;padding:6px 9px;min-width:150px;
+  border:1px solid var(--linea);border-radius:7px;background:var(--tarjeta);color:var(--tinta)}
+.me-clau-r{margin:4px 0 8px;font-size:12px;color:var(--tinta2);line-height:1.5}
+.me-clau-r b{color:var(--tinta);font-weight:600;font-size:13px}
+
+.me-mini{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 16px;margin:0 0 10px}
+.me-mini div{display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  padding:3px 0;border-bottom:1px solid var(--linea);min-width:0}
+.me-mini dt{font-size:11.5px;color:var(--tinta2)}
+.me-mini dd{margin:0;font-size:13px;font-weight:600;white-space:nowrap}
+.me-mini dd.sube{color:var(--casa)}
+.me-mini dd.baja{color:var(--neg)}
+.me-mini .esc{width:18px;height:18px;vertical-align:-4px}
+.me-acc{display:flex;gap:7px;flex-wrap:wrap}
+
+.me-vacio{margin:20px 0;font-size:14px;line-height:1.55}
+.me-tot{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-end}
+.me-cod-btn{margin-left:auto;font:inherit;font-size:12px;border:0;background:none;
+  color:var(--acento);cursor:pointer;padding:4px 0;text-decoration:underline}
+.me-codigo[hidden]{display:none}
+
+@media (max-width:700px){
+  .me-mandos{padding:10px 14px}
+  .me-pop{left:14px;right:14px}
+  .me-cuerpo{padding:4px 14px 0}
+  .me-pie{padding:10px 14px 16px}
+  .me-mini{grid-template-columns:1fr}
+  .me-tot{gap:16px}
+  .me-tot b{font-size:15px}
+  .me-clau{min-width:0;flex:1}
+  .me-codigo input{flex:1 1 100%;min-width:0}
 }
