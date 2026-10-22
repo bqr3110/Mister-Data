@@ -1,5 +1,6 @@
 import glob
 import csv
+import hashlib
 import json
 import os
 import re
@@ -448,8 +449,88 @@ def main():
                 fuera += 1
     print(f"ya no estan en la liga: {fuera} jugadores")
 
+    # ---- la clasificacion y el descanso entre partidos ----
+    #
+    # La clasificacion es la de verdad (tres puntos la victoria, uno el
+    # empate), no un invento: sirve para ordenar la rejilla como se ordena
+    # una liga, que es como uno mira un calendario.
+    #
+    # El descanso son los dias enteros que pasan entre un partido y el
+    # siguiente, contando tambien los de Europa. Es lo que de verdad dice
+    # si va a haber rotacion: tres dias entre Champions y Liga significa
+    # que el entrenador mueve el once, juegue donde juegue.
+    pts_liga, pj_liga = defaultdict(int), defaultdict(int)
+    for p in leer("partidos.csv"):
+        if p["terminado"] != "1" or "-" not in (p.get("resultado") or ""):
+            continue
+        try:
+            a, b = (int(x) for x in p["resultado"].split("-", 1))
+        except ValueError:
+            continue
+        pj_liga[p["local"]] += 1
+        pj_liga[p["visitante"]] += 1
+        if a > b:
+            pts_liga[p["local"]] += 3
+        elif b > a:
+            pts_liga[p["visitante"]] += 3
+        else:
+            pts_liga[p["local"]] += 1
+            pts_liga[p["visitante"]] += 1
+
+    clasificacion = {e: [pts_liga.get(e, 0), pj_liga.get(e, 0)]
+                     for e in sorted(set(pj_liga) | set(pts_liga))}
+
+    # la fecha real de cada partido jugado sale de los eventos, que si la
+    # traen; la de los que quedan, del texto "Sab 10/10 16:15h"
+    jugado_el = {}
+    for e in leer("eventos.csv"):
+        f, eq, j = e.get("fecha", ""), e.get("equipo", ""), e.get("jornada", "")
+        if f and eq and j:
+            jugado_el[f"{j}|{eq}"] = f[:10]
+
+    def dia_de(texto):
+        m = re.search(r"(\d{1,2})/(\d{1,2})", texto or "")
+        if not m:
+            return None
+        d, mes = int(m.group(1)), int(m.group(2))
+        año = hoy.year + (1 if mes < 7 and hoy.month >= 7 else 0)
+        return f"{año}-{mes:02d}-{d:02d}"
+
+    # para cada equipo, todos sus partidos con fecha, de los dos torneos
+    agenda = defaultdict(list)
+    for p in leer("partidos.csv"):
+        j = p["jornada"]
+        for eq in (p["local"], p["visitante"]):
+            f = jugado_el.get(f"{j}|{eq}") or (dia_de(p.get("cuando", ""))
+                                               if p["terminado"] != "1" else None)
+            if f:
+                agenda[eq].append(f)
+    for p in leer("europa.csv"):
+        for eq in (p["local"], p["visitante"]):
+            if eq not in agenda:
+                continue
+            f = dia_de(p.get("cuando", ""))
+            if f:
+                agenda[eq].append(f)
+
+    def dias(a, b):
+        """Dias enteros entre dos fechas en texto."""
+        from datetime import date as _d
+        ya, ma, da = (int(x) for x in a.split("-"))
+        yb, mb, db = (int(x) for x in b.split("-"))
+        return (_d(yb, mb, db) - _d(ya, ma, da)).days
+
+    # el descanso con el que llega cada equipo a cada partido futuro
+    descanso = {}
+    for eq, fechas in agenda.items():
+        fs = sorted(set(fechas))
+        for antes, f in zip(fs, fs[1:]):
+            descanso[f"{eq}|{f}"] = dias(antes, f)
+
     salida = {
         "fecha": fecha_dato,
+        "clasificacion": clasificacion,
+        "descanso": descanso,
         "mediaLiga": media_liga,
         "eje": eje,
         "lugar": lugar,
@@ -471,6 +552,38 @@ def main():
     print(f"jugadores con historico de valores: {con_hist}")
     print(f"serie de valores para la grafica: {con_serie} jugadores, {len(eje)} dias")
     print(f"json: {round(os.path.getsize(SALIDA)/1024)} KB")
+
+    sellar_version()
+
+
+def sellar_version():
+    """Le pone a app.js y estilo.css un numero de version en el index.
+
+    El navegador guarda app.js y estilo.css para no bajarlos cada vez, y eso
+    esta bien hasta que cambian: entonces puede acabar con el index nuevo y
+    el app.js viejo, una mezcla que no ha existido nunca y que peta de
+    formas rarisimas (un control que el index ya no tiene y el js todavia
+    busca). Ha pasado dos veces y las dos costo averiguar que no era un
+    fallo del codigo.
+
+    Con la version pegada al nombre, si cambia el contenido cambia la
+    direccion y el navegador no tiene de donde sacar la vieja. El numero
+    es un resumen del propio contenido: si no tocas nada, no cambia.
+    """
+    indice = os.path.join("web", "index.html")
+    if not os.path.exists(indice):
+        return
+    firma = hashlib.sha1()
+    for f in ("app.js", "estilo.css"):
+        ruta = os.path.join("web", f)
+        if os.path.exists(ruta):
+            firma.update(open(ruta, "rb").read())
+    v = firma.hexdigest()[:8]
+    html = open(indice, encoding="utf-8").read()
+    nuevo = re.sub(r"(app\.js|estilo\.css)\?v=[A-Za-z0-9]+", r"\1?v=" + v, html)
+    if nuevo != html:
+        open(indice, "w", encoding="utf-8").write(nuevo)
+    print(f"version de app.js y estilo.css: {v}")
 
 
 if __name__ == "__main__":
