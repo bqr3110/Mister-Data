@@ -1543,3 +1543,152 @@ th.cal-eq{z-index:3}
 .pg-l.pg-abajo{box-shadow:inset 0 0 0 1px var(--fuera)}
 #pg-ritmo button em{font-style:normal;opacity:.75;font-size:11px;margin-left:3px}
 .pg-nota{margin:0;font-size:11.5px;color:var(--tinta2);line-height:1.45}
+
+/* la rejilla, ahora en orden de clasificacion y cronologica */
+.cal-pos{width:24px;text-align:right !important;color:var(--tinta2);
+  font-size:11px;font-weight:600;padding-right:2px !important}
+.cal-pts{font-style:normal;margin-left:7px;font-size:11px;font-weight:700;
+  color:var(--tinta2);background:var(--resalte);padding:1px 5px;border-radius:5px}
+/* los dias de descanso: el numero pequeno de cada partido */
+.cal-d{display:block;font-size:9px;color:var(--tinta2);margin-top:1px;line-height:1}
+.cal-c.justo .cal-d{color:var(--dif-mal);font-weight:700}
+.cal-c.eu{background:repeating-linear-gradient(135deg,transparent 0 5px,
+  color-mix(in srgb,var(--tinta) 5%,transparent) 5px 10px)}
+.cal-c.eu .cal-eu{position:static;display:block;font-size:8.5px;font-weight:700;
+  color:var(--acento);letter-spacing:.04em;margin-top:1px;opacity:1}
+.cal-d-ej{color:var(--dif-mal)}
+
+/* los mandos de Mi equipo */
+.me-mandos{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;
+  padding:12px 20px;border-bottom:1px solid var(--linea);flex:none}
+.me-mandos[hidden]{display:none}
+.me-casillas{display:flex;gap:12px;flex-wrap:wrap}
+.me-casillas .casilla{display:flex;align-items:center;gap:5px;font-size:12.5px;
+  color:var(--tinta2);cursor:pointer;white-space:nowrap}
+.me-pag{width:74px;font:inherit;font-size:12.5px;padding:4px 7px;text-align:right;
+  border:1px solid var(--linea);border-radius:6px;background:var(--tarjeta);color:var(--tinta)}
+.me-pag:focus{border-color:var(--acento);outline:none}
+.me-pc{display:block;font-style:normal;font-size:10px;opacity:.8;font-weight:500}
+
+/* ================================================================
+   EL MÓVIL
+   Va al final del fichero a proposito. Las reglas de pantalla
+   estrecha que habia a mitad del css las pisaban las que fueron
+   llegando despues (los dialogos acababan midiendo 437px en una
+   pantalla de 390). Lo que va aqui gana por orden, que es la unica
+   forma de que no se repita.
+   ================================================================ */
+@media (max-width:700px){
+
+  /* LOS DIÁLOGOS: una hoja que sube desde abajo y ocupa la pantalla */
+  dialog, #ficha, #comparador, #balance, #calendario, #miequipo{
+    width:100%;max-width:100%;margin:auto 0 0;
+    border-radius:16px 16px 0 0;border-left:0;border-right:0;border-bottom:0;
+    max-height:92vh;display:flex;flex-direction:column}
+  dialog{padding:0}
+  .cmp-cab{padding:14px 16px 12px;flex:none}
+  .cmp-cab h2{font-size:18px}
+
+  /* MI EQUIPO: doce columnas no caben. Cada jugador pasa a ser una
+     ficha y cada dato lleva su nombre delante. */
+  .me-mandos{padding:12px 16px;gap:14px}
+  .me-mandos .campo{flex:1 1 100%}
+  .me-mandos select{width:100%;min-width:0}
+  .me-cuerpo{padding:10px 14px 0}
+  .me-t, .me-t tbody, .me-t tr, .me-t td{display:block;width:auto}
+  .me-t thead{display:none}
+  .me-t tr{position:relative;margin-bottom:10px;padding:10px 12px 8px;
+    border:1px solid var(--linea);border-radius:11px;background:var(--tarjeta)}
+  .me-t td{border:0;padding:3px 0;text-align:left;display:flex;
+    align-items:baseline;justify-content:space-between;gap:12px}
+  .me-t td[data-r]::before{content:attr(data-r);font-size:11.5px;color:var(--tinta2);
+    flex:none}
+  /* el escudo y el nombre forman la cabecera de la ficha */
+  .me-t td:first-child{position:absolute;top:10px;left:12px;padding:0}
+  .me-t td.me-n{padding-left:30px;margin-bottom:4px;border-bottom:1px solid var(--linea);
+    padding-bottom:7px}
+  .me-t td.me-n button{font-size:15px;font-weight:600}
+  .me-t td:nth-child(3){position:absolute;top:9px;right:34px;padding:0}
+  .me-t td.cen:last-child{position:absolute;top:7px;right:6px;padding:0}
+  .me-t .me-pag{width:92px;text-align:right}
+  .me-t .me-pc{display:inline;margin-left:6px}
+  .me-tot{gap:14px 20px}
+  .me-tot b{font-size:15px}
+  .me-codigo input{min-width:0;flex:1 1 100%}
+
+  /* EL CALENDARIO: se desliza en horizontal con el equipo pegado */
+  .cal-mandos{padding:12px 16px;gap:12px}
+  .cal-mandos .campo{flex:1 1 100%}
+  .cal-mandos select{width:100%}
+  .cal-mandos .segmento{width:100%}
+  .cal-mandos .segmento button{flex:1}
+  .cal-cuerpo{padding:0 12px}
+  .cal-t{font-size:11.5px}
+  .cal-pos{display:none}
+  .cal-eq{max-width:112px}
+  .cal-eq span{display:inline-block;max-width:66px;overflow:hidden;
+    text-overflow:ellipsis;white-space:nowrap;vertical-align:-5px}
+  .cal-pts{margin-left:4px;padding:1px 4px}
+  .cal-c{min-width:52px}
+  .cal-pie{padding:12px 16px 16px}
+
+  /* LA FICHA */
+  .fx-cab{padding:16px 16px 12px;gap:12px}
+  .fx-punt{padding-right:24px;gap:10px;flex:1 1 100%}
+  .fx-hero-n{font-size:34px}
+  .fx-sub{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+  .fx-s{min-width:0}
+  .fx-acciones{padding:10px 16px;gap:6px}
+  .fx-btn{font-size:12px;padding:7px 12px}
+  .fx-btn.cmp{margin-left:0}
+  .fx-calc{margin:0 16px 12px}
+  .fx-cuerpo{padding:12px 16px 6px}
+  .fx-tiles{grid-template-columns:repeat(3,1fr)}
+  .fx-filas{grid-template-columns:repeat(2,1fr);gap:0 14px}
+  .fx-pt-cab{gap:7px}
+
+  /* LA CABECERA DE LA PÁGINA */
+  header{padding:14px 0 10px}
+  h1{font-size:22px}
+  .titulo{gap:8px}
+  /* los cuatro botones no caben en 390px. Los de accion se deslizan, pero
+     el del tema se queda anclado a la derecha: si se desliza fuera de la
+     pantalla, no hay forma de dar con el. */
+  .cab-btns{width:100%;margin-left:0;gap:0}
+  .cab-btns .tema.accion{flex:none}
+  .cab-acciones{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
+    flex:1;min-width:0;padding:2px 2px 4px 0}
+  .cab-acciones::-webkit-scrollbar{display:none}
+  .tema.icono{flex:none;margin-left:6px;align-self:center}
+  .envoltorio{padding:0 12px 48px}
+
+  /* LOS CONTROLES DE ARRIBA */
+  .fila{gap:10px}
+  .fila .campo{flex:1 1 100%}
+  .busca input,.fila select{width:100%}
+  .casilla.alta{white-space:normal}
+}
+
+/* pantallas muy estrechas */
+@media (max-width:380px){
+  .me-t .me-pag{width:80px}
+  .cal-eq span{max-width:50px}
+  .fx-hero-n{font-size:30px}
+}
+
+/* la estrella en las tarjetas del movil: sin ella no habia forma de
+   marcar a nadie desde el telefono, que es justo donde se usa */
+.tj .mio{font-size:15px;padding:2px 4px;margin:-2px 0 -2px -2px;order:-1}
+@media (max-width:700px){
+  .tj .mio{font-size:17px;padding:4px 6px}
+}
+
+/* la X de los diálogos, siempre en la esquina: con un subtitulo de dos
+   lineas se caia a su propio renglon y quedaba suelta en medio */
+.cmp-cab{position:relative;padding-right:46px}
+.cmp-cab .cerrar{position:absolute;top:12px;right:12px;margin-left:0}
+@media (max-width:700px){
+  .cmp-cab{padding-right:44px}
+  .cmp-cab .cerrar{top:10px;right:10px}
+  .cmp-cab .sub{display:block;width:100%}
+}
