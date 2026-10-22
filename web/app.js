@@ -461,7 +461,7 @@ let largo = false;      // true si la ultima pulsacion fue larga (mandar al comp
 function pintarTarjetas(filas){
   const caja = document.getElementById('tarjetas');
   if(!filas.length){
-    caja.innerHTML = '<div class="tj-vacio">Ningún jugador cumple estos filtros.<br>Prueba a bajar los partidos mínimos.</div>';
+    caja.innerHTML = '<div class="tj-vacio">Ningún jugador cumple estos filtros.</div>';
     return;
   }
   const quedan = filas.length - tope;
@@ -473,6 +473,9 @@ function pintarTarjetas(filas){
     return `<article class="tj" data-i="${i}" data-k="${f.n + '|' + f.e}">
       <div class="tj-cab">
         ${p ? insignia(p[0], p[1], f.pos) : ''}${escudo(f.e, f.e)}
+        <button class="mio${esMio(f.ref) ? ' on' : ''}" data-mio="${clave(f.ref)}"
+          title="${esMio(f.ref) ? 'Quitar de mi equipo' : 'Marcar como mío'}"
+          aria-pressed="${esMio(f.ref)}">★</button>
         <span class="tj-n">${f.n}</span>
         <span class="tj-racha">${pintarRacha(f, RACHA_TJ)}</span>
         <span class="tj-val">${val}${cam}</span>
@@ -1023,12 +1026,51 @@ function alternarMio(k){
 
 /* El resumen de la plantilla: lo que vale, lo que se ha movido hoy y lo
    que le viene a cada uno. */
+const ME = {orden:'val', sede:'', exGol:false, exRoja:false, exMin:false, minMin:45};
+try { Object.assign(ME, JSON.parse(localStorage.getItem('miequipo') || '{}')); } catch(_){}
+const guardarME = () => { try {
+  localStorage.setItem('miequipo', JSON.stringify(ME));
+} catch(_){} };
+
+/* Lo que pagaste por cada uno. Igual que la lista de jugadores: vive solo
+   en este navegador. Sirve para saber si vas ganando sin teclearlo otra
+   vez en cada calculadora. */
+const PAGADO = {};
+try { Object.assign(PAGADO, JSON.parse(localStorage.getItem('pagado') || '{}')); } catch(_){}
+const guardarPagado = () => { try {
+  localStorage.setItem('pagado', JSON.stringify(PAGADO));
+} catch(_){} };
+
+/* Las mismas cuentas que la lista, pero con los filtros de aqui. Se tocan
+   los del estado y se devuelven a su sitio, que es como lo hace la ficha
+   con el casa/fuera. */
+function conFiltrosME(fn){
+  const g = {sede:estado.sede, exGol:estado.exGol, exRoja:estado.exRoja,
+             exMin:estado.exMin, minMinutos:estado.minMinutos};
+  Object.assign(estado, {sede:ME.sede, exGol:ME.exGol, exRoja:ME.exRoja,
+                         exMin:ME.exMin, minMinutos:ME.minMin});
+  try { return fn(); } finally { Object.assign(estado, g); }
+}
+
+const ME_ORDEN = [
+  ['val', 'Lo que vale'],
+  ['cam', 'Lo que sube hoy, en euros'],
+  ['campc', 'Lo que sube hoy, en %'],
+  ['gana', 'Lo que llevas ganado'],
+  ['med', 'Media'],
+  ['mdn', 'Mediana'],
+  ['tot', 'Puntos totales'],
+  ['jer', 'Sitio en su equipo'],
+];
+
 function pintarMiEquipo(){
   const js = DATOS.jugadores.filter(esMio);
   const cuerpo = document.getElementById('me-cuerpo');
   const pie = document.getElementById('me-pie');
+  const mandos = document.getElementById('me-mandos');
 
   if(!js.length){
+    mandos.hidden = true;
     cuerpo.innerHTML = `<p class="me-vacio">Todavía no has marcado a ninguno.
       Abre la ficha de un jugador y dale a <b>Es mío</b>, o toca la estrella
       que hay junto a su nombre en la lista.</p>
@@ -1037,32 +1079,75 @@ function pintarMiEquipo(){
     pie.innerHTML = '';
     return;
   }
+  mandos.hidden = false;
+  mandos.innerHTML = `
+    <label class="campo"><span>Ordenar por</span>
+      <select id="me-orden">${ME_ORDEN.map(([k, t]) =>
+        `<option value="${k}"${k === ME.orden ? ' selected' : ''}>${t}</option>`).join('')}</select></label>
+    <div class="campo"><span>Qué partidos cuento</span>
+      <div class="segmento chico" id="me-sede">
+        <button data-v="" aria-pressed="${ME.sede === ''}">Todo</button>
+        <button data-v="C" aria-pressed="${ME.sede === 'C'}">Casa</button>
+        <button data-v="F" aria-pressed="${ME.sede === 'F'}">Fuera</button>
+      </div></div>
+    <div class="campo"><span>Dejar fuera</span>
+      <div class="me-casillas">
+        <label class="casilla"><input type="checkbox" id="me-exgol"${ME.exGol ? ' checked' : ''}><span>los que marcó</span></label>
+        <label class="casilla"><input type="checkbox" id="me-exroja"${ME.exRoja ? ' checked' : ''}><span>con roja</span></label>
+        <label class="casilla"><input type="checkbox" id="me-exmin"${ME.exMin ? ' checked' : ''}><span>de menos de ${ME.minMin} min</span></label>
+      </div></div>`;
 
-  const filas = js.map(j => {
+  const filas = conFiltrosME(() => js.map(j => {
     const f = calcular(j);
     const pr = (DATOS.prox[j.e] || []).filter(x => !x[4])[0];
     const iPos = POS_IDX[j.pos];
     const d = pr && iPos !== undefined ? durezaDe(pr[2], iPos) : null;
-    const t = d ? TRAMOS[d[0]] : 0;
-    return {j, f, pr, t, d};
-  }).sort((a, b) => (b.j.val || 0) - (a.j.val || 0));
+    const pag = PAGADO[clave(j)] || null;
+    return {j, f, pr, t: d ? TRAMOS[d[0]] : 0,
+            pag, gana: pag && j.val ? j.val - pag : null,
+            campc: j.val && j.cam ? j.cam / j.val * 100 : null};
+  }));
+
+  const val = (r, k) => k === 'val' ? r.j.val
+    : k === 'cam' ? r.j.cam
+    : k === 'campc' ? r.campc
+    : k === 'gana' ? r.gana
+    : k === 'jer' ? r.j.jer
+    : (r.f ? r.f[k] : null);
+  filas.sort((a, b) => {
+    const A = val(a, ME.orden), B = val(b, ME.orden);
+    if(A === null || A === undefined) return 1;
+    if(B === null || B === undefined) return -1;
+    return B - A;
+  });
 
   const total = filas.reduce((x, r) => x + (r.j.val || 0), 0);
   const hoy = filas.reduce((x, r) => x + (r.j.cam || 0), 0);
+  const pagado = filas.reduce((x, r) => x + (r.pag || 0), 0);
+  const conPago = filas.filter(r => r.pag).length;
 
   cuerpo.innerHTML = `<table class="me-t">
     <thead><tr><th></th><th class="me-n">Jugador</th><th>Rol</th><th>Valor</th>
-      <th>Hoy</th><th>Media</th><th>Siguiente</th><th></th></tr></thead>
-    <tbody>${filas.map(({j, f, pr, t, d}) => `<tr data-k="${clave(j)}">
+      <th>Pagaste</th><th>Llevas</th><th>Hoy</th><th>Media</th><th>Mdn</th>
+      <th>PJ</th><th>Siguiente</th><th></th></tr></thead>
+    <tbody>${filas.map(({j, f, pr, t, pag, gana, campc}) => `<tr data-k="${clave(j)}">
       <td class="cen">${escudo(j.e, j.e)}</td>
       <td class="me-n"><button class="me-abre" data-abre="${clave(j)}">${j.n}</button></td>
       <td class="cen">${j.jer ? `<span class="jer jer-${j.jer}">${JERARQUIA[j.jer]}</span>`
         : '<span class="tenue">·</span>'}</td>
-      <td class="val">${j.val ? eur(j.val) : '<span class="tenue">·</span>'}</td>
-      <td class="${j.cam > 0 ? 'sube' : j.cam < 0 ? 'baja' : 'tenue'}">${
-        j.cam ? (j.cam > 0 ? '+' : '') + (j.cam / 1000).toFixed(0) + 'k' : '0k'}</td>
-      <td>${f && f.medOk ? fmt(f.med, 2) : '<span class="tenue">·</span>'}</td>
-      <td class="me-p">${pr
+      <td class="val" data-r="Valor">${j.val ? eur(j.val) : '<span class="tenue">·</span>'}</td>
+      <td data-r="Pagaste"><input class="me-pag" type="text" inputmode="decimal" autocomplete="off"
+        data-pag="${clave(j)}" placeholder="—"
+        value="${pag ? escribirDinero(pag) : ''}"></td>
+      <td data-r="Llevas" class="${gana > 0 ? 'sube' : gana < 0 ? 'baja' : 'tenue'}">${
+        gana === null ? '·' : (gana > 0 ? '+' : '') + eur(gana)}</td>
+      <td data-r="Hoy" class="${j.cam > 0 ? 'sube' : j.cam < 0 ? 'baja' : 'tenue'}">${
+        j.cam ? (j.cam > 0 ? '+' : '') + (j.cam / 1000).toFixed(0) + 'k' : '0k'}${
+        campc ? `<em class="me-pc">${campc > 0 ? '+' : ''}${coma(campc.toFixed(2))}%</em>` : ''}</td>
+      <td data-r="Media">${f && f.medOk ? fmt(f.med, 2) : '<span class="tenue">·</span>'}</td>
+      <td data-r="Mediana">${f ? fmt(f.mdn, 1) : '<span class="tenue">·</span>'}</td>
+      <td data-r="Partidos">${f ? f.pj : '·'}</td>
+      <td class="me-p" data-r="Siguiente">${pr
         ? `<span class="me-riv">${escudo(pr[2], pr[2])}${pr[1] === 'C' ? '🏠' : '✈️'}</span>${
             t ? `<span class="ce-d t${t}">${DUREZA[t]}</span>` : ''}`
         : '<span class="tenue">·</span>'}</td>
@@ -1070,23 +1155,42 @@ function pintarMiEquipo(){
         title="Quitar de mi equipo">&times;</button></td>
     </tr>`).join('')}</tbody></table>`;
 
-  const suben = filas.filter(r => (r.j.cam || 0) > 0).length;
-  const bajan = filas.filter(r => (r.j.cam || 0) < 0).length;
+  const dif = total - pagado;
   pie.innerHTML = `<div class="me-tot">
-      <div><span>Lo que vale tu plantilla</span><b>${eur(total)}</b></div>
+      <div><span>Lo que vale</span><b>${eur(total)}</b></div>
       <div><span>Se ha movido hoy</span><b class="${hoy > 0 ? 'sube' : hoy < 0 ? 'baja' : ''}">${
         hoy > 0 ? '+' : ''}${(hoy / 1000).toFixed(0)}k</b></div>
-      <div><span>Suben / bajan</span><b>${suben} / ${bajan}</b></div>
+      ${conPago ? `<div><span>Pagaste (${conPago} de ${filas.length})</span><b>${eur(pagado)}</b></div>
+      <div><span>Llevas ganado</span><b class="${dif > 0 ? 'sube' : dif < 0 ? 'baja' : ''}">${
+        dif > 0 ? '+' : ''}${eur(dif)}</b></div>` : ''}
       <div><span>Jugadores</span><b>${filas.length}</b></div>
     </div>
-    <p class="me-nota">Guardado solo en este navegador. Para llevártelo a otro,
-      copia este código y pégalo allí:</p>
+    <p class="me-nota">Todo esto se guarda solo en este navegador, lo que pagaste
+      incluido. Para llevártelo a otro, copia el código:</p>
     <div class="me-codigo">
-      <input type="text" id="me-cod" readonly value="${btoa(unescape(encodeURIComponent(
-        JSON.stringify([...MIOS])))).replace(/=+$/, '')}">
+      <input type="text" id="me-cod" readonly value="${codigoEquipo()}">
       <button class="fx-btn" id="me-copiar">Copiar</button>
       <button class="fx-btn" id="me-pegar">Pegar uno</button>
     </div>`;
+}
+
+/* El codigo que se lleva a otro navegador: los jugadores y lo que pagaste */
+function codigoEquipo(){
+  const pag = {};
+  for(const k of MIOS) if(PAGADO[k]) pag[k] = PAGADO[k];
+  const payload = JSON.stringify({m:[...MIOS], p:pag});
+  return btoa(unescape(encodeURIComponent(payload))).replace(/=+$/, '');
+}
+
+function leerCodigoEquipo(txt){
+  const bruto = JSON.parse(decodeURIComponent(escape(atob(txt.trim()))));
+  // los codigos viejos eran solo la lista de jugadores
+  const lista = Array.isArray(bruto) ? bruto : bruto.m;
+  if(!Array.isArray(lista)) throw new Error('no es una lista');
+  MIOS.clear(); lista.forEach(x => MIOS.add(x));
+  for(const k in PAGADO) delete PAGADO[k];
+  if(!Array.isArray(bruto) && bruto.p) Object.assign(PAGADO, bruto.p);
+  guardarMios(); guardarPagado();
 }
 
 function abrirMiEquipo(){
@@ -1696,7 +1800,7 @@ function calendario(f){
    jornada a la que llegan con viaje entre semana encima.
    ================================================================ */
 
-const CAL = {pos:3, n:5, orden:'facil'};
+const CAL = {pos:3, n:5, orden:'liga'};
 
 /* "Sab 10/10 16:15h" -> un numero con el que comparar fechas.
    La temporada cruza el año: de enero a junio es el año siguiente. */
@@ -1712,40 +1816,50 @@ function dia(cuando){
 const DIAS_EUROPA = 4;   // un partido europeo pesa si cae en los 4 dias de antes
 
 function filaCalendario(eq){
-  const pr = DATOS.prox[eq] || [];
-  const liga = pr.filter(x => !x[4]).slice(0, CAL.n);
-  const euro = pr.filter(x => x[4]);
+  /* Todos sus partidos por jugar, de los dos torneos, en el orden en que
+     se juegan. Antes esto iba por jornadas de Liga en columnas alineadas
+     entre equipos; pero lo que decide una rotacion no es la jornada, es
+     que te caigan tres partidos en siete dias. Asi que manda el calendario
+     de verdad y los europeos ocupan su sitio como uno mas. */
   const i = CAL.pos;
+  const todos = [...(DATOS.prox[eq] || [])].slice(0, CAL.n);
 
-  const celdas = liga.map(([n, sd, rival, cuando]) => {
-    const d = durezaDe(rival, i);
+  const celdas = todos.map(([n, sd, rival, cuando, comp]) => {
+    const d = comp ? null : durezaDe(rival, i);
     const niv = d ? d[0] : 0;
     const t = TRAMOS[niv] || 0;
-    // ¿llega con viaje europeo encima? Eso es rotacion probable.
-    const f = dia(cuando);
-    const previo = f === null ? null : euro.find(e => {
-      const fe = dia(e[3]);
-      return fe !== null && fe < f && f - fe <= DIAS_EUROPA;
-    });
-    const detalle = frasePuntos(rival, i);
-    return `<td class="cal-c t${t}"${previo
-      ? ` data-eu="${COMPETICION[previo[4]] || previo[4]}"` : ''
-      } data-ayuda="J${n} ${sd === 'C' ? 'en casa contra' : 'fuera, contra'} ${rival}${
-        cuando ? ' · ' + cuando : ''}${t ? ' · ' + DUREZA[t] : ''} (${detalle})${
-        previo ? ` · llega de jugar ${COMPETICION[previo[4]]} el ${previo[3]}` : ''}">
+    const f = fechaISO(cuando);
+    const desc = f ? (DATOS.descanso || {})[eq + '|' + f] : undefined;
+    // con tres dias o menos entre partidos, el entrenador mueve el once
+    const justo = desc !== undefined && desc <= 3;
+    return `<td class="cal-c t${t}${comp ? ' eu' : ''}${justo ? ' justo' : ''}"
+      data-ayuda="${comp ? COMPETICION[comp] + ' · ' : 'J' + n + ' · '}${
+        sd === 'C' ? 'en casa contra' : 'fuera, contra'} ${rival}${
+        cuando ? ' · ' + cuando : ''}${
+        desc === undefined ? '' : ` · ${desc} ${desc === 1 ? 'día' : 'días'} desde el anterior`}${
+        t ? ' · ' + DUREZA[t] : ''}${d ? ' (' + frasePuntos(rival, i) + ')' : ''}">
       <span class="cal-r">${escudo(rival, rival)}</span>
       <span class="cal-sd ${sd === 'C' ? 'casa' : 'fuera'}">${sd}</span>
-      ${previo ? '<i class="cal-eu" aria-label="viene de jugar en Europa">✈</i>' : ''}</td>`;
+      ${desc === undefined ? '' : `<span class="cal-d">${desc}d</span>`}
+      ${comp ? `<i class="cal-eu">${comp}</i>` : ''}</td>`;
   });
 
-  // los huecos, si a ese equipo le quedan menos partidos publicados
   while(celdas.length < CAL.n) celdas.push('<td class="cal-c vacia"></td>');
-  return {eq, celdas, liga, media: mediaDureza(liga, i)};
+  const soloLiga = todos.filter(x => !x[4]);
+  const cl = (DATOS.clasificacion || {})[eq] || [0, 0];
+  return {eq, celdas, liga: soloLiga, media: mediaDureza(soloLiga, i),
+          pts: cl[0], pj: cl[1], todos};
 }
 
-/* La media del tramo, de 1 (todo asequible) a 3 (todo hueso). Los rivales
-   sin datos no cuentan en vez de contar como normales: inventar un 2 le
-   cambiaria la nota al equipo. */
+/* "Sab 10/10 16:15h" -> "2026-10-10", para poder cruzar con el descanso */
+function fechaISO(cuando){
+  const m = /(\d{1,2})\/(\d{1,2})/.exec(cuando || '');
+  if(!m) return null;
+  const d = +m[1], mes = +m[2], hoy = new Date();
+  const año = hoy.getFullYear() + (mes < 7 && hoy.getMonth() >= 6 ? 1 : 0);
+  return `${año}-${String(mes).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+}
+
 function mediaDureza(liga, i){
   const vs = liga.map(([, , r]) => {
     const d = durezaDe(r, i);
@@ -1758,48 +1872,42 @@ function pintarCalendario(){
   const filas = (DATOS.equipos || []).map(filaCalendario);
 
   if(CAL.orden === 'nombre') filas.sort((a, b) => a.eq.localeCompare(b.eq));
+  else if(CAL.orden === 'liga') filas.sort((a, b) => b.pts - a.pts || a.eq.localeCompare(b.eq));
   else filas.sort((a, b) => {
     const A = a.media === null ? 9 : a.media, B = b.media === null ? 9 : b.media;
     return CAL.orden === 'facil' ? A - B : B - A;
   });
 
-  // los numeros de jornada de la cabecera: cada equipo va por donde va
-  // (hay aplazados), asi que se rotula con la jornada mas repetida
-  const cab = [];
-  for(let c = 0; c < CAL.n; c++){
-    const cuenta = {};
-    for(const f of filas) if(f.liga[c]) cuenta[f.liga[c][0]] = (cuenta[f.liga[c][0]] || 0) + 1;
-    const top = Object.entries(cuenta).sort((a, b) => b[1] - a[1])[0];
-    cab.push(top ? 'J' + top[0] : '—');
-  }
+  // en cronologico cada equipo va por su sitio, asi que la cabecera no
+  // puede rotular jornadas: numera los partidos que le quedan
+  const cab = Array.from({length: CAL.n}, (_, c) => c === 0 ? 'El próximo' : (c + 1) + 'º');
 
   document.getElementById('cal-cuerpo').innerHTML = `<table class="cal-t">
-    <thead><tr><th class="cal-eq">Equipo</th>${
+    <thead><tr><th class="cal-pos"></th><th class="cal-eq">Equipo</th>${
       cab.map(t => `<th>${t}</th>`).join('')}<th class="cal-m">Nota</th></tr></thead>
-    <tbody>${filas.map(f => `<tr data-eq="${f.eq}">
-      <td class="cal-eq" title="Ver su calendario entero">${escudo(f.eq, f.eq)}<span>${f.eq}</span></td>
+    <tbody>${filas.map((f, n) => `<tr data-eq="${f.eq}">
+      <td class="cal-pos">${CAL.orden === 'liga' ? n + 1 : ''}</td>
+      <td class="cal-eq" title="Ver su calendario entero">${escudo(f.eq, f.eq)}<span>${f.eq}</span>${
+        CAL.orden === 'liga' ? `<em class="cal-pts">${f.pts}</em>` : ''}</td>
       ${f.celdas.join('')}
       <td class="cal-m"><span class="cal-nota t${
         f.media === null ? 0 : Math.round(f.media)}">${
         f.media === null ? '·' : coma(f.media.toFixed(2))}</span></td></tr>`).join('')}
     </tbody></table>`;
 
-  const mejor = filas.filter(f => f.media !== null)[CAL.orden === 'dificil' ? filas.length - 1 : 0];
   document.getElementById('cal-sub').textContent =
-    `próximas ${CAL.n} jornadas · para ${POS_CORTA[CAL.pos]}`;
+    `lo que le viene a cada uno · dificultad para ${POS_CORTA[CAL.pos]}`;
   const med = (DATOS.mediaLiga || {})[CAL.pos];
   document.getElementById('cal-pie').innerHTML =
-    `<p>La nota va de <b>1</b> (todo asequible) a <b>3</b> (todo hueso) y sale de
-     <b>los puntos que cada rival le deja a ${POS_CORTA[CAL.pos]}</b> en lo que va de liga${
-     med ? `, siendo ${coma(med.toFixed(2))} lo que deja un rival medio` : ''}.
-     Pasa por encima de una celda para ver el número y cuántas actuaciones lo respaldan.
-     El avión marca al equipo que llega a esa jornada habiendo jugado en Europa entre
-     semana: ahí suele haber rotación.</p>`;
+    `<p>Los partidos van <b>en el orden en que se juegan</b>, con los de Europa
+     entre medias. El número de cada uno son los <b>días de descanso</b> desde el
+     anterior: <b class="cal-d-ej">3d</b> o menos y el entrenador suele mover el once.
+     La nota va de <b>1</b> (todo asequible) a <b>3</b> (todo hueso) y sale de los puntos
+     que cada rival le deja a ${POS_CORTA[CAL.pos]}${
+     med ? `, siendo ${coma(med.toFixed(2))} lo que deja un rival medio` : ''};
+     solo cuenta los partidos de Liga, porque de los equipos europeos no hay datos.</p>`;
 }
 
-/* La rejilla ensena cinco jornadas de los veinte equipos. Esto ensena la
-   temporada entera de uno solo: lo jugado con su resultado y lo que queda,
-   con el dia y lo duro que es cada rival. */
 function calendarioEquipo(eq){
   const i = CAL.pos;
   const jugados = JORNADAS
@@ -2600,7 +2708,11 @@ function ritmoDiario(j, dias){
 
 function panelProgreso(f){
   const c = CALC.__j;
+  /* Si ya apuntaste en Mi equipo lo que pagaste por el, no hay que
+     volver a teclearlo: se pone solo y puedes cambiarlo si quieres. */
+  const pagado = PAGADO[f.n + '|' + f.e];
   if(c.objetivo === undefined || c.objetivo === null) c.objetivo = '';
+  if(c.objetivo === '' && pagado) c.objetivo = escribirDinero(pagado);
 
   const val = f.val;
   const obj = leerDinero(c.objetivo);
@@ -2698,6 +2810,9 @@ function panelCalculo(cual){
 
   if(cual) CALC.cual = cual;
   CALC.__j = fichaDe(f.n + '|' + f.e);
+  // lo mismo para la cláusula: lo que pagaste ya está apuntado
+  const yaPagado = PAGADO[f.n + '|' + f.e];
+  if(!CALC.__j.compra && yaPagado) CALC.__j.compra = yaPagado;
 
   /* Las cinco ventanas salen del histórico de valores, que se guarda a
      diario. Van todas en %, para que se lean juntas sin mezclar unidades.
@@ -3124,6 +3239,27 @@ function arrancarBalance(){
   document.getElementById('me-cerrar').addEventListener('click',
     () => document.getElementById('miequipo').close());
 
+  document.getElementById('miequipo').addEventListener('change', e => {
+    const t = e.target;
+    if(t.id === 'me-orden'){ ME.orden = t.value; guardarME(); pintarMiEquipo(); return; }
+    const cas = {'me-exgol':'exGol', 'me-exroja':'exRoja', 'me-exmin':'exMin'}[t.id];
+    if(cas){ ME[cas] = t.checked; guardarME(); pintarMiEquipo(); }
+  });
+
+  /* Lo que pagaste. Mientras escribes no se repinta la tabla: eso te
+     sacaria de la casilla a cada tecla. Solo se apunta el numero. */
+  document.getElementById('miequipo').addEventListener('input', e => {
+    const c = e.target.closest('[data-pag]');
+    if(!c) return;
+    const v = leerDinero(c.value);
+    if(v) PAGADO[c.dataset.pag] = v; else delete PAGADO[c.dataset.pag];
+    guardarPagado();
+  });
+  // al salir de la casilla ya se recalculan los totales
+  document.getElementById('miequipo').addEventListener('focusout', e => {
+    if(e.target.closest('[data-pag]')) pintarMiEquipo();
+  });
+
   document.getElementById('miequipo').addEventListener('click', e => {
     const q = e.target.closest('[data-quita]');
     if(q){ alternarMio(q.dataset.quita); return; }
@@ -3145,22 +3281,22 @@ function arrancarBalance(){
     if(e.target.id === 'me-pegar'){
       const txt = prompt('Pega aquí el código de tu equipo:');
       if(!txt) return;
-      try {
-        const lista = JSON.parse(decodeURIComponent(escape(atob(txt.trim()))));
-        if(!Array.isArray(lista)) throw new Error('no es una lista');
-        MIOS.clear(); lista.forEach(x => MIOS.add(x));
-        guardarMios(); pintarMiEquipo(); pintar();
-      } catch(_){
+      try { leerCodigoEquipo(txt); pintarMiEquipo(); pintar(); }
+      catch(_){
         alert('Ese código no vale. Tiene que ser el que sale en "Mi equipo" del otro navegador.');
       }
     }
+    const sb = e.target.closest('#me-sede button');
+    if(sb){ ME.sede = sb.dataset.v; guardarME(); pintarMiEquipo(); return; }
   });
 
   // la estrella de la lista y el botón de la ficha
-  document.getElementById('cuerpo').addEventListener('click', e => {
-    const b = e.target.closest('[data-mio]');
-    if(b){ e.stopPropagation(); alternarMio(b.dataset.mio); }
-  }, true);
+  for(const id of ['cuerpo', 'tarjetas']){
+    document.getElementById(id).addEventListener('click', e => {
+      const b = e.target.closest('[data-mio]');
+      if(b){ e.stopPropagation(); e.preventDefault(); alternarMio(b.dataset.mio); }
+    }, true);
+  }
   document.getElementById('ficha-mio').addEventListener('click', e => {
     alternarMio(e.currentTarget.dataset.mio);
     e.currentTarget.classList.toggle('on', MIOS.has(e.currentTarget.dataset.mio));
