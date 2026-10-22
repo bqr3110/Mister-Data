@@ -1014,7 +1014,10 @@ function alternarMio(k){
   /* Solo se repinta la estrella que se ha tocado. Repintar la tabla entera
      por marcar un jugador cuesta 450 filas y, peor, devuelve el scroll
      arriba justo cuando estabas mirando a alguien. */
-  document.querySelectorAll(`[data-mio="${CSS.escape(k)}"]`).forEach(b => {
+  /* CSS.escape no está en todos los sitios (ni en las pruebas), así que
+     se filtra a mano, que para esto da igual y no falla en ninguno. */
+  document.querySelectorAll('[data-mio]').forEach(b => {
+    if(b.dataset.mio !== k) return;
     b.classList.toggle('on', on);
     b.setAttribute('aria-pressed', on);
     b.title = on ? 'Quitar de mi equipo' : 'Marcar como mío';
@@ -1026,7 +1029,7 @@ function alternarMio(k){
 
 /* El resumen de la plantilla: lo que vale, lo que se ha movido hoy y lo
    que le viene a cada uno. */
-const ME = {orden:'val', sede:'', exGol:false, exRoja:false, exMin:false, minMin:45};
+const ME = {orden:'val', sede:'', exGol:false, exRoja:false, exMin:false, minMin:45, abierto:null};
 try { Object.assign(ME, JSON.parse(localStorage.getItem('miequipo') || '{}')); } catch(_){}
 const guardarME = () => { try {
   localStorage.setItem('miequipo', JSON.stringify(ME));
@@ -1037,6 +1040,13 @@ const guardarME = () => { try {
    vez en cada calculadora. */
 const PAGADO = {};
 try { Object.assign(PAGADO, JSON.parse(localStorage.getItem('pagado') || '{}')); } catch(_){}
+
+/* A qué escalón de cláusula tienes a cada uno (0 = ×1,5 … 5 = ×4) */
+const CLAU = {};
+try { Object.assign(CLAU, JSON.parse(localStorage.getItem('clausulas') || '{}')); } catch(_){}
+const guardarClau = () => { try {
+  localStorage.setItem('clausulas', JSON.stringify(CLAU));
+} catch(_){} };
 const guardarPagado = () => { try {
   localStorage.setItem('pagado', JSON.stringify(PAGADO));
 } catch(_){} };
@@ -1052,16 +1062,41 @@ function conFiltrosME(fn){
   try { return fn(); } finally { Object.assign(estado, g); }
 }
 
-const ME_ORDEN = [
-  ['val', 'Lo que vale'],
-  ['cam', 'Lo que sube hoy, en euros'],
-  ['campc', 'Lo que sube hoy, en %'],
-  ['gana', 'Lo que llevas ganado'],
-  ['med', 'Media'],
-  ['mdn', 'Mediana'],
-  ['tot', 'Puntos totales'],
-  ['jer', 'Sitio en su equipo'],
+/* Lo que se puede mirar de cada uno. El primero es el que manda al abrir
+   y cualquiera vale para ordenar: se toca y ya. */
+const ME_COLS = [
+  ['val',   'Valor',    j => j.val],
+  ['cam',   'Hoy',      j => j.cam],
+  ['campc', 'Hoy %',    (j, r) => r.campc],
+  ['gana',  'Ganas',    (j, r) => r.gana],
+  ['clau',  'Cláusula', (j, r) => r.clau],
+  ['med',   'Media',    (j, r) => r.f && r.f.medOk ? r.f.med : null],
+  ['mdn',   'Mediana',  (j, r) => r.f ? r.f.mdn : null],
+  ['tot',   'Total',    (j, r) => r.f ? r.f.tot : null],
+  ['pj',    'Partidos', (j, r) => r.f ? r.f.pj : null],
+  ['jer',   'Rol',      j => j.jer],
 ];
+
+/* Cómo se escribe cada cosa cuando es la columna que se está mirando */
+function meValor(k, r){
+  const v = (ME_COLS.find(c => c[0] === k) || [])[2];
+  const x = v ? v(r.j, r) : null;
+  if(x === null || x === undefined) return '<span class="tenue">·</span>';
+  if(k === 'val' || k === 'gana' || k === 'clau')
+    return (k === 'gana' && x > 0 ? '+' : '') + eur(x);
+  if(k === 'cam') return (x > 0 ? '+' : '') + (x / 1000).toFixed(0) + 'k';
+  if(k === 'campc') return (x > 0 ? '+' : '') + coma(x.toFixed(2)) + '%';
+  if(k === 'jer') return `<span class="jer jer-${x}">${JERARQUIA[x]}</span>`;
+  if(k === 'med') return fmt(x, 2);
+  if(k === 'mdn' || k === 'tot') return fmt(x, 1);
+  return String(x);
+}
+const meSigno = (k, r) => {
+  const v = (ME_COLS.find(c => c[0] === k) || [])[2];
+  const x = v ? v(r.j, r) : null;
+  return (k === 'cam' || k === 'campc' || k === 'gana') && x
+    ? (x > 0 ? ' sube' : ' baja') : '';
+};
 
 function pintarMiEquipo(){
   const js = DATOS.jugadores.filter(esMio);
@@ -1072,30 +1107,12 @@ function pintarMiEquipo(){
   if(!js.length){
     mandos.hidden = true;
     cuerpo.innerHTML = `<p class="me-vacio">Todavía no has marcado a ninguno.
-      Abre la ficha de un jugador y dale a <b>Es mío</b>, o toca la estrella
-      que hay junto a su nombre en la lista.</p>
-      <p class="me-nota">Esto se guarda solo en este navegador: no se sube a
-      ningún sitio y nadie más lo ve.</p>`;
+      Toca la estrella que hay junto al nombre de un jugador en la lista,
+      o ábrelo y dale a <b>Es mío</b>.</p>`;
     pie.innerHTML = '';
     return;
   }
   mandos.hidden = false;
-  mandos.innerHTML = `
-    <label class="campo"><span>Ordenar por</span>
-      <select id="me-orden">${ME_ORDEN.map(([k, t]) =>
-        `<option value="${k}"${k === ME.orden ? ' selected' : ''}>${t}</option>`).join('')}</select></label>
-    <div class="campo"><span>Qué partidos cuento</span>
-      <div class="segmento chico" id="me-sede">
-        <button data-v="" aria-pressed="${ME.sede === ''}">Todo</button>
-        <button data-v="C" aria-pressed="${ME.sede === 'C'}">Casa</button>
-        <button data-v="F" aria-pressed="${ME.sede === 'F'}">Fuera</button>
-      </div></div>
-    <div class="campo"><span>Dejar fuera</span>
-      <div class="me-casillas">
-        <label class="casilla"><input type="checkbox" id="me-exgol"${ME.exGol ? ' checked' : ''}><span>los que marcó</span></label>
-        <label class="casilla"><input type="checkbox" id="me-exroja"${ME.exRoja ? ' checked' : ''}><span>con roja</span></label>
-        <label class="casilla"><input type="checkbox" id="me-exmin"${ME.exMin ? ' checked' : ''}><span>de menos de ${ME.minMin} min</span></label>
-      </div></div>`;
 
   const filas = conFiltrosME(() => js.map(j => {
     const f = calcular(j);
@@ -1103,78 +1120,123 @@ function pintarMiEquipo(){
     const iPos = POS_IDX[j.pos];
     const d = pr && iPos !== undefined ? durezaDe(pr[2], iPos) : null;
     const pag = PAGADO[clave(j)] || null;
-    return {j, f, pr, t: d ? TRAMOS[d[0]] : 0,
-            pag, gana: pag && j.val ? j.val - pag : null,
+    /* La cláusula se calcula sobre lo que pagaste, salvo que hoy valga
+       más: entonces sobre lo que vale. Por eso, si el valor te adelanta,
+       la cláusula sube sola sin que toques nada. */
+    const base = Math.max(pag || 0, j.val || 0);
+    const esc = CLAU[clave(j)];
+    return {j, f, pr, t: d ? TRAMOS[d[0]] : 0, pag, base, esc,
+            clau: esc === undefined ? null : base * MULT[esc],
+            gana: pag && j.val ? j.val - pag : null,
             campc: j.val && j.cam ? j.cam / j.val * 100 : null};
   }));
 
-  const val = (r, k) => k === 'val' ? r.j.val
-    : k === 'cam' ? r.j.cam
-    : k === 'campc' ? r.campc
-    : k === 'gana' ? r.gana
-    : k === 'jer' ? r.j.jer
-    : (r.f ? r.f[k] : null);
+  const col = ME_COLS.find(c => c[0] === ME.orden) || ME_COLS[0];
   filas.sort((a, b) => {
-    const A = val(a, ME.orden), B = val(b, ME.orden);
+    const A = col[2](a.j, a), B = col[2](b.j, b);
     if(A === null || A === undefined) return 1;
     if(B === null || B === undefined) return -1;
     return B - A;
   });
 
+  const nf = (ME.sede ? 1 : 0) + (ME.exGol ? 1 : 0) + (ME.exRoja ? 1 : 0) + (ME.exMin ? 1 : 0);
+  mandos.innerHTML = `
+    <button class="me-filtros${nf ? ' activo' : ''}" id="me-abrir-filtros"
+      aria-expanded="false">Filtros${nf ? ` <span class="pill">${nf}</span>` : ''}</button>
+    <div class="me-tira" id="me-tira">${ME_COLS.map(([k, t]) =>
+      `<button class="mt${k === ME.orden ? ' act' : ''}" data-me="${k}"
+        aria-pressed="${k === ME.orden}">${t}${k === ME.orden ? '<i>↓</i>' : ''}</button>`).join('')}</div>
+    <div class="me-pop" id="me-pop" hidden>
+      <div class="campo"><span>Qué partidos cuento</span>
+        <div class="segmento chico" id="me-sede">
+          <button data-v="" aria-pressed="${ME.sede === ''}">Todo</button>
+          <button data-v="C" aria-pressed="${ME.sede === 'C'}">Casa</button>
+          <button data-v="F" aria-pressed="${ME.sede === 'F'}">Fuera</button>
+        </div></div>
+      <div class="campo"><span>Dejar fuera</span>
+        <label class="casilla"><input type="checkbox" id="me-exgol"${ME.exGol ? ' checked' : ''}><span>los partidos en que marcó</span></label>
+        <label class="casilla"><input type="checkbox" id="me-exroja"${ME.exRoja ? ' checked' : ''}><span>los partidos con roja</span></label>
+        <label class="casilla"><input type="checkbox" id="me-exmin"${ME.exMin ? ' checked' : ''}><span>los de menos de ${ME.minMin} minutos</span></label>
+      </div>
+      <button class="limpiar" id="me-limpiar">quitar los filtros</button>
+    </div>`;
+
+  cuerpo.innerHTML = `<ul class="me-l">${filas.map(r => {
+    const k = clave(r.j), abierto = ME.abierto === k;
+    return `<li class="me-f${abierto ? ' abierta' : ''}" data-k="${k}">
+      <button class="me-cab" data-abrir="${k}" aria-expanded="${abierto}">
+        ${escudo(r.j.e, r.j.e)}
+        <span class="me-nom">${r.j.n}</span>
+        <span class="me-dato${meSigno(ME.orden, r)}">${meValor(ME.orden, r)}</span>
+        <i class="me-fl" aria-hidden="true"></i>
+      </button>
+      ${abierto ? detalleMio(r) : ''}</li>`;
+  }).join('')}</ul>`;
+
   const total = filas.reduce((x, r) => x + (r.j.val || 0), 0);
   const hoy = filas.reduce((x, r) => x + (r.j.cam || 0), 0);
   const pagado = filas.reduce((x, r) => x + (r.pag || 0), 0);
   const conPago = filas.filter(r => r.pag).length;
-
-  cuerpo.innerHTML = `<table class="me-t">
-    <thead><tr><th></th><th class="me-n">Jugador</th><th>Rol</th><th>Valor</th>
-      <th>Pagaste</th><th>Llevas</th><th>Hoy</th><th>Media</th><th>Mdn</th>
-      <th>PJ</th><th>Siguiente</th><th></th></tr></thead>
-    <tbody>${filas.map(({j, f, pr, t, pag, gana, campc}) => `<tr data-k="${clave(j)}">
-      <td class="cen">${escudo(j.e, j.e)}</td>
-      <td class="me-n"><button class="me-abre" data-abre="${clave(j)}">${j.n}</button></td>
-      <td class="cen">${j.jer ? `<span class="jer jer-${j.jer}">${JERARQUIA[j.jer]}</span>`
-        : '<span class="tenue">·</span>'}</td>
-      <td class="val" data-r="Valor">${j.val ? eur(j.val) : '<span class="tenue">·</span>'}</td>
-      <td data-r="Pagaste"><input class="me-pag" type="text" inputmode="decimal" autocomplete="off"
-        data-pag="${clave(j)}" placeholder="—"
-        value="${pag ? escribirDinero(pag) : ''}"></td>
-      <td data-r="Llevas" class="${gana > 0 ? 'sube' : gana < 0 ? 'baja' : 'tenue'}">${
-        gana === null ? '·' : (gana > 0 ? '+' : '') + eur(gana)}</td>
-      <td data-r="Hoy" class="${j.cam > 0 ? 'sube' : j.cam < 0 ? 'baja' : 'tenue'}">${
-        j.cam ? (j.cam > 0 ? '+' : '') + (j.cam / 1000).toFixed(0) + 'k' : '0k'}${
-        campc ? `<em class="me-pc">${campc > 0 ? '+' : ''}${coma(campc.toFixed(2))}%</em>` : ''}</td>
-      <td data-r="Media">${f && f.medOk ? fmt(f.med, 2) : '<span class="tenue">·</span>'}</td>
-      <td data-r="Mediana">${f ? fmt(f.mdn, 1) : '<span class="tenue">·</span>'}</td>
-      <td data-r="Partidos">${f ? f.pj : '·'}</td>
-      <td class="me-p" data-r="Siguiente">${pr
-        ? `<span class="me-riv">${escudo(pr[2], pr[2])}${pr[1] === 'C' ? '🏠' : '✈️'}</span>${
-            t ? `<span class="ce-d t${t}">${DUREZA[t]}</span>` : ''}`
-        : '<span class="tenue">·</span>'}</td>
-      <td class="cen"><button class="me-quita" data-quita="${clave(j)}"
-        title="Quitar de mi equipo">&times;</button></td>
-    </tr>`).join('')}</tbody></table>`;
-
   const dif = total - pagado;
   pie.innerHTML = `<div class="me-tot">
-      <div><span>Lo que vale</span><b>${eur(total)}</b></div>
-      <div><span>Se ha movido hoy</span><b class="${hoy > 0 ? 'sube' : hoy < 0 ? 'baja' : ''}">${
+      <div><span>Vale</span><b>${eur(total)}</b></div>
+      <div><span>Hoy</span><b class="${hoy > 0 ? 'sube' : hoy < 0 ? 'baja' : ''}">${
         hoy > 0 ? '+' : ''}${(hoy / 1000).toFixed(0)}k</b></div>
-      ${conPago ? `<div><span>Pagaste (${conPago} de ${filas.length})</span><b>${eur(pagado)}</b></div>
-      <div><span>Llevas ganado</span><b class="${dif > 0 ? 'sube' : dif < 0 ? 'baja' : ''}">${
+      ${conPago ? `<div><span>Ganas</span><b class="${dif > 0 ? 'sube' : dif < 0 ? 'baja' : ''}">${
         dif > 0 ? '+' : ''}${eur(dif)}</b></div>` : ''}
       <div><span>Jugadores</span><b>${filas.length}</b></div>
+      <button class="me-cod-btn" id="me-cod-btn" aria-expanded="false">Llevármelo a otro móvil</button>
     </div>
-    <p class="me-nota">Todo esto se guarda solo en este navegador, lo que pagaste
-      incluido. Para llevártelo a otro, copia el código:</p>
-    <div class="me-codigo">
+    <div class="me-codigo" id="me-codigo" hidden>
       <input type="text" id="me-cod" readonly value="${codigoEquipo()}">
       <button class="fx-btn" id="me-copiar">Copiar</button>
       <button class="fx-btn" id="me-pegar">Pegar uno</button>
     </div>`;
 }
 
-/* El codigo que se lleva a otro navegador: los jugadores y lo que pagaste */
+/* La ficha de cada uno: lo que pagaste y a qué cláusula lo tienes. */
+function detalleMio(r){
+  const k = clave(r.j);
+  const base = r.base;
+  return `<div class="me-det">
+    <label class="me-par">
+      <span>Pagaste</span>
+      <input class="me-pag" type="text" inputmode="decimal" autocomplete="off"
+        data-pag="${k}" placeholder="—"
+        value="${r.pag ? escribirDinero(r.pag) : ''}">
+    </label>
+    <label class="me-par">
+      <span>Cláusula</span>
+      <select class="me-clau" data-clau="${k}">
+        <option value=""${r.esc === undefined ? ' selected' : ''}>no la he tocado</option>
+        ${MULT.map((m, n) => `<option value="${n}"${n === r.esc ? ' selected' : ''}
+          >×${coma(String(m))}</option>`).join('')}
+      </select>
+    </label>
+    ${r.clau !== null ? `<p class="me-clau-r">La tienes en <b>${eur(r.clau)}</b>,
+      que es ×${coma(String(MULT[r.esc]))} sobre ${eur(base)}${
+      r.pag && r.j.val > r.pag
+        ? ' — su valor de hoy, que ya pasó lo que pagaste'
+        : r.pag ? ' — lo que pagaste' : ' — su valor de hoy'}.</p>`
+      : '<p class="me-clau-r tenue">Elige a qué cláusula lo tienes y te digo en cuánto queda.</p>'}
+    <dl class="me-mini">
+      ${r.pag ? `<div><dt>Llevas</dt><dd class="${r.gana > 0 ? 'sube' : r.gana < 0 ? 'baja' : ''}">${
+        r.gana > 0 ? '+' : ''}${eur(r.gana)}</dd></div>` : ''}
+      <div><dt>Media</dt><dd>${r.f && r.f.medOk ? fmt(r.f.med, 2) : '·'}</dd></div>
+      <div><dt>Mediana</dt><dd>${r.f ? fmt(r.f.mdn, 1) : '·'}</dd></div>
+      <div><dt>Partidos</dt><dd>${r.f ? r.f.pj : '·'}</dd></div>
+      ${r.j.jer ? `<div><dt>Rol</dt><dd><span class="jer jer-${r.j.jer}">${JERARQUIA[r.j.jer]}</span></dd></div>` : ''}
+      ${r.pr ? `<div><dt>Siguiente</dt><dd>${escudo(r.pr[2], r.pr[2])} ${
+        r.pr[1] === 'C' ? 'en casa' : 'fuera'}${
+        r.t ? ` <span class="ce-d t${r.t}">${DUREZA[r.t]}</span>` : ''}</dd></div>` : ''}
+    </dl>
+    <div class="me-acc">
+      <button class="fx-btn" data-abre="${k}">Ver su ficha</button>
+      <button class="fx-btn" data-quita="${k}">Quitar de mi equipo</button>
+    </div>
+  </div>`;
+}
+
 function codigoEquipo(){
   const pag = {};
   for(const k of MIOS) if(PAGADO[k]) pag[k] = PAGADO[k];
@@ -3241,7 +3303,12 @@ function arrancarBalance(){
 
   document.getElementById('miequipo').addEventListener('change', e => {
     const t = e.target;
-    if(t.id === 'me-orden'){ ME.orden = t.value; guardarME(); pintarMiEquipo(); return; }
+    const cl = t.closest('[data-clau]');
+    if(cl){
+      if(cl.value === '') delete CLAU[cl.dataset.clau];
+      else CLAU[cl.dataset.clau] = +cl.value;
+      guardarClau(); pintarMiEquipo(); return;
+    }
     const cas = {'me-exgol':'exGol', 'me-exroja':'exRoja', 'me-exmin':'exMin'}[t.id];
     if(cas){ ME[cas] = t.checked; guardarME(); pintarMiEquipo(); }
   });
@@ -3257,6 +3324,8 @@ function arrancarBalance(){
   });
   // al salir de la casilla ya se recalculan los totales
   document.getElementById('miequipo').addEventListener('focusout', e => {
+    // repintar recalcula la cláusula con la base nueva, y el desplegable
+    // sigue abierto porque ME.abierto no se toca
     if(e.target.closest('[data-pag]')) pintarMiEquipo();
   });
 
@@ -3288,6 +3357,33 @@ function arrancarBalance(){
     }
     const sb = e.target.closest('#me-sede button');
     if(sb){ ME.sede = sb.dataset.v; guardarME(); pintarMiEquipo(); return; }
+
+    const mt = e.target.closest('[data-me]');
+    if(mt){ ME.orden = mt.dataset.me; guardarME(); pintarMiEquipo(); return; }
+
+    if(e.target.closest('#me-abrir-filtros')){
+      const pop = document.getElementById('me-pop');
+      pop.hidden = !pop.hidden;
+      e.target.closest('#me-abrir-filtros').setAttribute('aria-expanded', !pop.hidden);
+      return;
+    }
+    if(e.target.id === 'me-limpiar'){
+      ME.sede = ''; ME.exGol = ME.exRoja = ME.exMin = false;
+      guardarME(); pintarMiEquipo(); return;
+    }
+    if(e.target.closest('#me-cod-btn')){
+      const c = document.getElementById('me-codigo');
+      c.hidden = !c.hidden;
+      e.target.closest('#me-cod-btn').setAttribute('aria-expanded', !c.hidden);
+      return;
+    }
+    // el desplegable de cada jugador: solo uno abierto a la vez
+    const ab = e.target.closest('[data-abrir]');
+    if(ab){
+      ME.abierto = ME.abierto === ab.dataset.abrir ? null : ab.dataset.abrir;
+      pintarMiEquipo();
+      return;
+    }
   });
 
   // la estrella de la lista y el botón de la ficha
