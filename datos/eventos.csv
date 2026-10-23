@@ -13614,3 +13614,155 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad,v
 22478,6,2026-10-21 20:00,Athletic,visitante,N. Williams,nico-williams,Delantero,nota_sofascore,6.9,5
 22478,6,2026-10-21 20:00,Athletic,visitante,N. Williams,nico-williams,Delantero,min,9.0,5
 22478,6,2026-10-21 20:00,Athletic,visitante,Imga,christian-imga,Delantero,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Sivera,antonio-sivera,Portero,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Sivera,antonio-sivera,Portero,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Sivera,antonio-sivera,Portero,nota_sofascore,6.8,5
+22516,10,2026-10-23 21:00,Alavés,local,Sivera,antonio-sivera,Portero,min,90.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Tenaglia,nahuel-tenaglia,Defensa,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Tenaglia,nahuel-tenaglia,Defensa,nota_cronista,7.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Tenaglia,nahuel-tenaglia,Defensa,nota_sofascore,7.2,5
+22516,10,2026-10-23 21:00,Alavés,local,Tenaglia,nahuel-tenaglia,Defensa,min,90.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Tenaglia,nahuel-tenaglia,Defensa,amarillas,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Valentini,nicolas-valentini,Defensa,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Valentini,nicolas-valentini,Defensa,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Valentini,nicolas-valentini,Defensa,nota_sofascore,6.3,5
+22516,10,2026-10-23 21:00,Alavés,local,Valentini,nicolas-valentini,Defensa,min,55.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,nota_cronista,8.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,nota_sofascore,7.2,5
+22516,10,2026-10-23 21:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,min,90.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Koski,ville-koski,Defensa,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Koski,ville-koski,Defensa,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Koski,ville-koski,Defensa,nota_sofascore,6.9,5
+22516,10,2026-10-23 21:00,Alavés,local,Koski,ville-koski,Defensa,min,90.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Aleñá,carles-alena,Mediocampista,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Aleñá,carles-alena,Mediocampista,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Aleñá,carles-alena,Mediocampista,nota_sofascore,6.8,5
+22516,10,2026-10-23 21:00,Alavés,local,Aleñá,carles-alena,Mediocampista,min,45.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,nota_sofascore,6.9,5
+22516,10,2026-10-23 21:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,min,75.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Ibáñez,pablo-ibanez,Mediocampista,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Ibáñez,pablo-ibanez,Mediocampista,nota_cronista,7.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Ibáñez,pablo-ibanez,Mediocampista,nota_sofascore,7.1,5
+22516,10,2026-10-23 21:00,Alavés,local,Ibáñez,pablo-ibanez,Mediocampista,min,90.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Rebbach,abde-rebbach,Mediocampista,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Rebbach,abde-rebbach,Mediocampista,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Rebbach,abde-rebbach,Mediocampista,nota_sofascore,6.2,5
+22516,10,2026-10-23 21:00,Alavés,local,Rebbach,abde-rebbach,Mediocampista,min,55.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Mariano,mariano-diaz,Delantero,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Mariano,mariano-diaz,Delantero,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Mariano,mariano-diaz,Delantero,nota_sofascore,6.7,5
+22516,10,2026-10-23 21:00,Alavés,local,Mariano,mariano-diaz,Delantero,min,66.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Boyé,lucas-boye,Delantero,titular,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Boyé,lucas-boye,Delantero,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Boyé,lucas-boye,Delantero,nota_sofascore,6.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Boyé,lucas-boye,Delantero,min,90.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Boyé,lucas-boye,Delantero,amarillas,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Adrián,adrian-rodriguez,Portero,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Montero,ruben-montero,Portero,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Jonny,jonny-castro,Defensa,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Novoa,hugo-novoa,Defensa,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Novoa,hugo-novoa,Defensa,nota_cronista,7.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Novoa,hugo-novoa,Defensa,nota_sofascore,7.3,5
+22516,10,2026-10-23 21:00,Alavés,local,Novoa,hugo-novoa,Defensa,min,45.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Youssef,youssef-enriquez,Defensa,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Youssef,youssef-enriquez,Defensa,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Youssef,youssef-enriquez,Defensa,nota_sofascore,6.5,5
+22516,10,2026-10-23 21:00,Alavés,local,Youssef,youssef-enriquez,Defensa,min,35.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Oláiz,xanet-olaiz,Defensa,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Denis Suárez,denis-suarez,Mediocampista,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Denis Suárez,denis-suarez,Mediocampista,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Denis Suárez,denis-suarez,Mediocampista,nota_sofascore,7.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Denis Suárez,denis-suarez,Mediocampista,min,35.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Protesoni,carlos-benavidez,Mediocampista,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Diallo,selu-diallo,Mediocampista,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Toni Martinez,antonio-martinez,Delantero,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Toni Martinez,antonio-martinez,Delantero,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Toni Martinez,antonio-martinez,Delantero,nota_sofascore,6.5,5
+22516,10,2026-10-23 21:00,Alavés,local,Toni Martinez,antonio-martinez,Delantero,min,24.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Toni Martinez,antonio-martinez,Delantero,tiros,2.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Miguel,miguel-rodriguez-1,Delantero,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Aitor Mañas,aitor-manas,Delantero,titular,0.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Aitor Mañas,aitor-manas,Delantero,nota_cronista,7.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Aitor Mañas,aitor-manas,Delantero,nota_sofascore,7.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Aitor Mañas,aitor-manas,Delantero,min,15.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Aitor Mañas,aitor-manas,Delantero,goles,1.0,5
+22516,10,2026-10-23 21:00,Alavés,local,Aitor Mañas,aitor-manas,Delantero,tiros,2.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Herrero,alfonso-herrero,Portero,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Herrero,alfonso-herrero,Portero,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Herrero,alfonso-herrero,Portero,nota_sofascore,6.9,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Herrero,alfonso-herrero,Portero,min,90.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Galilea,einar-galilea,Defensa,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Galilea,einar-galilea,Defensa,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Galilea,einar-galilea,Defensa,nota_sofascore,7.3,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Galilea,einar-galilea,Defensa,min,90.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Puga,carlos-puga,Defensa,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Puga,carlos-puga,Defensa,nota_cronista,7.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Puga,carlos-puga,Defensa,nota_sofascore,7.7,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Puga,carlos-puga,Defensa,min,77.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Aznou,adam-aznou,Defensa,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Aznou,adam-aznou,Defensa,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Aznou,adam-aznou,Defensa,nota_sofascore,6.6,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Aznou,adam-aznou,Defensa,min,68.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Rafita,rafa-garrido,Defensa,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Rafita,rafa-garrido,Defensa,nota_cronista,7.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Rafita,rafa-garrido,Defensa,nota_sofascore,7.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Rafita,rafa-garrido,Defensa,min,90.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Recio,angel-recio,Defensa,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Recio,angel-recio,Defensa,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Recio,angel-recio,Defensa,nota_sofascore,6.7,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Recio,angel-recio,Defensa,min,90.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Enríquez,ramon-enriquez,Mediocampista,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Enríquez,ramon-enriquez,Mediocampista,nota_cronista,7.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Enríquez,ramon-enriquez,Mediocampista,nota_sofascore,7.3,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Enríquez,ramon-enriquez,Mediocampista,min,68.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Enríquez,ramon-enriquez,Mediocampista,asis,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Enríquez,ramon-enriquez,Mediocampista,asis_sg,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Larrubia,david-larrubia,Mediocampista,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Larrubia,david-larrubia,Mediocampista,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Larrubia,david-larrubia,Mediocampista,nota_sofascore,7.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Larrubia,david-larrubia,Mediocampista,min,90.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Dotor,carlos-dotor,Mediocampista,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Dotor,carlos-dotor,Mediocampista,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Dotor,carlos-dotor,Mediocampista,nota_sofascore,6.7,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Dotor,carlos-dotor,Mediocampista,min,87.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Dotor,carlos-dotor,Mediocampista,amarillas,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Lorenzo,dani-lorenzo-1,Mediocampista,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Lorenzo,dani-lorenzo-1,Mediocampista,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Lorenzo,dani-lorenzo-1,Mediocampista,nota_sofascore,6.9,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Lorenzo,dani-lorenzo-1,Mediocampista,min,90.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Niño,adrian-nino,Delantero,titular,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Niño,adrian-nino,Delantero,nota_cronista,8.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Niño,adrian-nino,Delantero,nota_sofascore,8.1,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Niño,adrian-nino,Delantero,min,77.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Niño,adrian-nino,Delantero,goles,1.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Carlos López,carlos-lopez,Portero,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Céspedes,andres-cespedes,Portero,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Calero,fernando-calero,Defensa,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Berrocal,juan-berrocal,Defensa,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Berrocal,juan-berrocal,Defensa,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Berrocal,juan-berrocal,Defensa,nota_sofascore,6.4,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Berrocal,juan-berrocal,Defensa,min,13.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Salinas,jose-salinas,Defensa,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Salinas,jose-salinas,Defensa,nota_cronista,6.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Salinas,jose-salinas,Defensa,nota_sofascore,6.4,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Salinas,jose-salinas,Defensa,min,22.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Pastor,lex-pastor,Defensa,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Cajuste,jens-cajuste,Mediocampista,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Cajuste,jens-cajuste,Mediocampista,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Cajuste,jens-cajuste,Mediocampista,nota_sofascore,6.5,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Cajuste,jens-cajuste,Mediocampista,min,3.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Merino,izan-merino,Mediocampista,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Rafa Rodríguez,rafa-rodriguez,Mediocampista,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Rafa Rodríguez,rafa-rodriguez,Mediocampista,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Rafa Rodríguez,rafa-rodriguez,Mediocampista,nota_sofascore,6.5,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Rafa Rodríguez,rafa-rodriguez,Mediocampista,min,22.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Juani,juani,Mediocampista,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Jauregi,eneko-jauregi,Delantero,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Haitam,haitam-abaida,Delantero,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Chupete,chupete,Delantero,titular,0.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Chupete,chupete,Delantero,nota_cronista,5.0,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Chupete,chupete,Delantero,nota_sofascore,6.8,5
+22516,10,2026-10-23 21:00,Málaga,visitante,Chupete,chupete,Delantero,min,13.0,5
