@@ -1029,7 +1029,8 @@ function alternarMio(k){
 
 /* El resumen de la plantilla: lo que vale, lo que se ha movido hoy y lo
    que le viene a cada uno. */
-const ME = {orden:'val', sede:'', exGol:false, exRoja:false, exMin:false, minMin:45, abierto:null};
+const ME = {vista:'pos', orden:'val', sede:'', exGol:false, exRoja:false,
+            exMin:false, minMin:45, abierto:null, vender:false, jor:null};
 try { Object.assign(ME, JSON.parse(localStorage.getItem('miequipo') || '{}')); } catch(_){}
 const guardarME = () => { try {
   localStorage.setItem('miequipo', JSON.stringify(ME));
@@ -1044,6 +1045,13 @@ try { Object.assign(PAGADO, JSON.parse(localStorage.getItem('pagado') || '{}'));
 /* A qué escalón de cláusula tienes a cada uno (0 = ×1,5 … 5 = ×4) */
 const CLAU = {};
 try { Object.assign(CLAU, JSON.parse(localStorage.getItem('clausulas') || '{}')); } catch(_){}
+/* Los guardados con la escala vieja de seis podian apuntar a ×3,5 o ×4.
+   Se bajan al tope real en vez de dejarlos sealando a un hueco. */
+for(const k in CLAU){
+  const e = +CLAU[k];
+  if(!Number.isFinite(e) || e < 0) delete CLAU[k];
+  else if(e > 3) CLAU[k] = 3;
+}
 const guardarClau = () => { try {
   localStorage.setItem('clausulas', JSON.stringify(CLAU));
 } catch(_){} };
@@ -1098,11 +1106,74 @@ const meSigno = (k, r) => {
     ? (x > 0 ? ' sube' : ' baja') : '';
 };
 
-function pintarMiEquipo(){
+/* Lo que te costó subirle la cláusula a cada uno. Va aparte del escalón
+   a propósito: bajar una cláusula te devuelve la mitad de lo que pusiste,
+   así que saber en qué escalón está no dice cuánto llevas gastado en él.
+   Y muchas compras se apuntan a toro pasado, así que se puede escribir. */
+const GASTO = {};
+try { Object.assign(GASTO, JSON.parse(localStorage.getItem('gastoclau') || '{}')); } catch(_){}
+const guardarGasto = () => { try {
+  localStorage.setItem('gastoclau', JSON.stringify(GASTO));
+} catch(_){} };
+
+/* Los que estás pensando en soltar. */
+const VENDER = new Set();
+try { (JSON.parse(localStorage.getItem('vender') || '[]') || []).forEach(k => VENDER.add(k)); } catch(_){}
+const guardarVender = () => { try {
+  localStorage.setItem('vender', JSON.stringify([...VENDER]));
+} catch(_){} };
+
+/* Lo que propone Mister por subir la cláusula. Su ayuda dice "el 20 % del
+   valor máximo de la cláusula entre 3, por el número de la subida"; el
+   máximo es la base por 3, así que queda 0,20 × base × subida. Sus propios
+   ejemplos no cuadran entre sí (dan 4M donde esto da 4M, pero 3M donde
+   esto da 2M), así que la casilla se escribe a mano y esto es solo lo que
+   sugiere. En cuanto me digas lo que te pone la app, se ajusta aquí. */
+const costeClausula = (base, esc) => esc ? COSTE_ESC * base * esc : 0;
+
+/* Todo lo que hay que saber de un jugador de la plantilla, en un sitio,
+   porque lo usan las cuatro vistas. */
+function filasMias(){
   const js = DATOS.jugadores.filter(esMio);
+  return conFiltrosME(() => js.map(j => {
+    const k = clave(j);
+    const f = calcular(j);
+    const pr = (DATOS.prox[j.e] || []).filter(x => !x[4])[0];
+    const iPos = POS_IDX[j.pos];
+    const d = pr && iPos !== undefined ? durezaDe(pr[2], iPos) : null;
+    const pag = PAGADO[k] || null;
+    /* La cláusula se calcula sobre lo que pagaste, salvo que hoy valga
+       más: entonces sobre lo que vale. Por eso, si el valor te adelanta,
+       la cláusula sube sola sin que toques nada. */
+    const base = Math.max(pag || 0, j.val || 0);
+    const esc = CLAU[k];
+    const clau = clausulaDe(base, esc);
+    /* Lo gastado en la cláusula: lo que hayas escrito manda; si no has
+       escrito nada, lo que costaría hoy dejarlo en ese escalón. */
+    const gasto = GASTO[k] !== undefined ? GASTO[k] : costeClausula(base, esc || 0);
+    const puesto = (pag || 0) + gasto;
+    /* Si lo sueltas al mercado y le habías subido la cláusula, antes la
+       bajas y recuperas la mitad de lo que pusiste en ella. */
+    const rescate = gasto * (DEVUELVE_ESC / COSTE_ESC);
+    const sacaMer = (j.val || 0) + rescate;
+    const sacaClau = clau;
+    return {j, k, f, pr, t: d ? TRAMOS[d[0]] : 0, pag, base, esc, clau,
+            gasto, puesto, rescate, sacaMer, sacaClau,
+            benMer: pag ? sacaMer - puesto : null,
+            benClau: pag && clau !== null ? sacaClau - puesto : null,
+            gana: pag && j.val ? j.val - pag : null,
+            campc: j.val && j.cam ? j.cam / j.val * 100 : null};
+  }));
+}
+
+const ME_VISTAS = [['pos','Por puesto'], ['todos','Todos'],
+                   ['once','El once'], ['bal','Balance']];
+
+function pintarMiEquipo(){
   const cuerpo = document.getElementById('me-cuerpo');
   const pie = document.getElementById('me-pie');
   const mandos = document.getElementById('me-mandos');
+  const js = DATOS.jugadores.filter(esMio);
 
   if(!js.length){
     mandos.hidden = true;
@@ -1114,39 +1185,45 @@ function pintarMiEquipo(){
   }
   mandos.hidden = false;
 
-  const filas = conFiltrosME(() => js.map(j => {
-    const f = calcular(j);
-    const pr = (DATOS.prox[j.e] || []).filter(x => !x[4])[0];
-    const iPos = POS_IDX[j.pos];
-    const d = pr && iPos !== undefined ? durezaDe(pr[2], iPos) : null;
-    const pag = PAGADO[clave(j)] || null;
-    /* La cláusula se calcula sobre lo que pagaste, salvo que hoy valga
-       más: entonces sobre lo que vale. Por eso, si el valor te adelanta,
-       la cláusula sube sola sin que toques nada. */
-    const base = Math.max(pag || 0, j.val || 0);
-    const esc = CLAU[clave(j)];
-    return {j, f, pr, t: d ? TRAMOS[d[0]] : 0, pag, base, esc,
-            clau: esc === undefined ? null : base * MULT[esc],
-            gana: pag && j.val ? j.val - pag : null,
-            campc: j.val && j.cam ? j.cam / j.val * 100 : null};
-  }));
+  const filas = filasMias();
+  // los marcados para vender que ya no están en la plantilla no pintan nada
+  for(const k of [...VENDER]) if(!MIOS.has(k)) VENDER.delete(k);
 
+  mandos.innerHTML = meMandos(filas);
+  if(ME.vista === 'once')      cuerpo.innerHTML = meOnce(filas);
+  else if(ME.vista === 'bal')  cuerpo.innerHTML = meBalance(filas);
+  else if(ME.vista === 'todos')cuerpo.innerHTML = meLista(ordenadas(filas));
+  else                         cuerpo.innerHTML = mePorPuesto(filas);
+  pie.innerHTML = mePie(filas);
+}
+
+function ordenadas(filas){
   const col = ME_COLS.find(c => c[0] === ME.orden) || ME_COLS[0];
-  filas.sort((a, b) => {
+  return filas.slice().sort((a, b) => {
     const A = col[2](a.j, a), B = col[2](b.j, b);
     if(A === null || A === undefined) return 1;
     if(B === null || B === undefined) return -1;
     return B - A;
   });
+}
 
+function meMandos(filas){
   const nf = (ME.sede ? 1 : 0) + (ME.exGol ? 1 : 0) + (ME.exRoja ? 1 : 0) + (ME.exMin ? 1 : 0);
-  mandos.innerHTML = `
-    <button class="me-filtros${nf ? ' activo' : ''}" id="me-abrir-filtros"
-      aria-expanded="false">Filtros${nf ? ` <span class="pill">${nf}</span>` : ''}</button>
-    <div class="me-tira" id="me-tira">${ME_COLS.map(([k, t]) =>
+  const listas = ME.vista === 'pos' || ME.vista === 'todos';
+  return `
+    <div class="me-vistas" id="me-vistas">${ME_VISTAS.map(([k, t]) =>
+      `<button class="mv${k === ME.vista ? ' act' : ''}" data-vista="${k}"
+        aria-pressed="${k === ME.vista}">${t}</button>`).join('')}</div>
+    ${listas ? `<div class="me-barra">
+      <button class="me-filtros${nf ? ' activo' : ''}" id="me-abrir-filtros"
+        aria-expanded="false">Filtros${nf ? ` <span class="pill">${nf}</span>` : ''}</button>
+      <button class="me-filtros${ME.vender ? ' activo' : ''}" id="me-vender-btn"
+        aria-pressed="${!!ME.vender}">${ME.vender ? 'Dejar de elegir' : 'Elegir para vender'}</button>
+    </div>` : ''}
+    ${ME.vista === 'todos' ? `<div class="me-tira" id="me-tira">${ME_COLS.map(([k, t]) =>
       `<button class="mt${k === ME.orden ? ' act' : ''}" data-me="${k}"
-        aria-pressed="${k === ME.orden}">${t}${k === ME.orden ? '<i>↓</i>' : ''}</button>`).join('')}</div>
-    <div class="me-pop" id="me-pop" hidden>
+        aria-pressed="${k === ME.orden}">${t}${k === ME.orden ? '<i>↓</i>' : ''}</button>`).join('')}</div>` : ''}
+    ${listas ? `<div class="me-pop" id="me-pop" hidden>
       <div class="campo"><span>Qué partidos cuento</span>
         <div class="segmento chico" id="me-sede">
           <button data-v="" aria-pressed="${ME.sede === ''}">Todo</button>
@@ -1159,26 +1236,131 @@ function pintarMiEquipo(){
         <label class="casilla"><input type="checkbox" id="me-exmin"${ME.exMin ? ' checked' : ''}><span>los de menos de ${ME.minMin} minutos</span></label>
       </div>
       <button class="limpiar" id="me-limpiar">quitar los filtros</button>
-    </div>`;
+    </div>` : ''}`;
+}
 
-  cuerpo.innerHTML = `<ul class="me-l">${filas.map(r => {
-    const k = clave(r.j), abierto = ME.abierto === k;
-    return `<li class="me-f${abierto ? ' abierta' : ''}" data-k="${k}">
-      <button class="me-cab" data-abrir="${k}" aria-expanded="${abierto}">
+/* ---------- la lista, agrupada o del tirón ---------- */
+
+function filaMia(r, conPrecio){
+  const abierto = ME.abierto === r.k;
+  const marcado = VENDER.has(r.k);
+  return `<li class="me-f${abierto ? ' abierta' : ''}${marcado ? ' aVender' : ''}" data-k="${r.k}">
+    <div class="me-cab-caja">
+      ${ME.vender ? `<label class="me-chk"><input type="checkbox" data-vender="${r.k}"${
+        marcado ? ' checked' : ''}><span class="me-chk-v" aria-hidden="true"></span>
+        <span class="visu-oculto">Vender a ${r.j.n}</span></label>` : ''}
+      <button class="me-cab" data-abrir="${r.k}" aria-expanded="${abierto}">
         ${escudo(r.j.e, r.j.e)}
         <span class="me-nom">${r.j.n}</span>
-        <span class="me-dato${meSigno(ME.orden, r)}">${meValor(ME.orden, r)}</span>
+        ${conPrecio
+          ? `<span class="me-dato">${eur(r.j.val)}</span>`
+          : `<span class="me-dato${meSigno(ME.orden, r)}">${meValor(ME.orden, r)}</span>`}
         <i class="me-fl" aria-hidden="true"></i>
       </button>
-      ${abierto ? detalleMio(r) : ''}</li>`;
-  }).join('')}</ul>`;
+      ${conPrecio ? `<label class="me-pag-caja">
+        <span class="visu-oculto">Lo que pagaste por ${r.j.n}</span>
+        <input class="me-pag-mini" type="text" inputmode="decimal" autocomplete="off"
+          data-pag="${r.k}" placeholder="pagué"
+          value="${r.pag ? escribirDinero(r.pag) : ''}">
+      </label>` : ''}
+    </div>
+    ${abierto ? detalleMio(r) : ''}</li>`;
+}
 
+const meLista = (filas, conPrecio) =>
+  `<ul class="me-l">${filas.map(r => filaMia(r, conPrecio)).join('')}</ul>`;
+
+/* Porteros, defensas, medios y delanteros, en ese orden, que es como se
+   mira una plantilla. Dentro de cada puesto, por lo que valen. */
+function mePorPuesto(filas){
+  const PL = {Portero:'Porteros', Defensa:'Defensas',
+              Mediocampista:'Centrocampistas', Delantero:'Delanteros'};
+  let html = '';
+  for(const pos of DATOS.posiciones){
+    const g = filas.filter(r => r.j.pos === pos)
+                   .sort((a, b) => (b.j.val || 0) - (a.j.val || 0));
+    if(!g.length) continue;
+    const vale = g.reduce((x, r) => x + (r.j.val || 0), 0);
+    html += `<section class="me-g">
+      <h3 class="me-g-t">${PL[pos] || pos}
+        <span class="me-g-n">${g.length}</span>
+        <span class="me-g-v">${eur(vale)}</span></h3>
+      ${meLista(g, true)}</section>`;
+  }
+  return html;
+}
+
+/* ---------- el balance: lo puesto contra lo que sacarías ---------- */
+
+function meBalance(filas){
+  const con = filas.filter(r => r.pag);
+  if(!con.length) return `<p class="me-vacio">Apunta lo que pagaste por
+    alguno y aquí te sale cuánto llevas ganado con él, vendiéndolo al
+    mercado o si te lo clausulan.</p>`;
+
+  const orden = con.slice().sort((a, b) => (b.benMer || 0) - (a.benMer || 0));
+  const pts = orden.reduce((x, r) => x + r.puesto, 0);
+  const mer = orden.reduce((x, r) => x + r.sacaMer, 0);
+  const pc  = pts ? (mer - pts) / pts * 100 : 0;
+  const sin = filas.length - con.length;
+
+  return `<div class="me-bal-cab">
+      <div><span>Has puesto</span><b>${eur(pts)}</b></div>
+      <div><span>Sacarías</span><b>${eur(mer)}</b></div>
+      <div><span>Ganas</span><b class="${mer > pts ? 'sube' : mer < pts ? 'baja' : ''}">${
+        mer > pts ? '+' : ''}${eur(mer - pts)}</b></div>
+      <div><span>Sobre lo puesto</span><b class="${pc > 0 ? 'sube' : pc < 0 ? 'baja' : ''}">${
+        pc > 0 ? '+' : ''}${coma(pc.toFixed(1))}%</b></div>
+    </div>
+    ${sin ? `<p class="me-nota">Faltan ${sin} por apuntar lo que pagaste,
+      así que no cuentan aquí.</p>` : ''}
+    <ul class="me-bl">${orden.map(r => {
+      const p = r.puesto ? r.benMer / r.puesto * 100 : 0;
+      return `<li class="me-b">
+        <div class="me-b-1">${escudo(r.j.e, r.j.e)}
+          <span class="me-nom">${r.j.n}</span>
+          <span class="me-b-g ${r.benMer > 0 ? 'sube' : r.benMer < 0 ? 'baja' : ''}">${
+            r.benMer > 0 ? '+' : ''}${eur(r.benMer)}
+            <i>${p > 0 ? '+' : ''}${coma(p.toFixed(0))}%</i></span></div>
+        <div class="me-b-2">
+          <span>puso ${eur(r.puesto)}${r.gasto ? ` (${eur(r.pag)} + ${eur(r.gasto)} de cláusula)` : ''}</span>
+          <span>al mercado ${eur(r.sacaMer)}${r.rescate ? ` con los ${eur(r.rescate)} que te devuelven` : ''}</span>
+          ${r.benClau !== null ? `<span>si te lo clausulan ${eur(r.sacaClau)} · ${
+            r.benClau > 0 ? '+' : ''}${eur(r.benClau)}</span>` : ''}
+        </div></li>`;
+    }).join('')}</ul>
+    <p class="me-nota">Vender al mercado cuenta con que antes le bajas la
+      cláusula, que te devuelve la mitad de lo que pusiste en ella.</p>`;
+}
+
+/* ---------- el pie ---------- */
+
+function mePie(filas){
+  if(ME.vender){
+    const sel = filas.filter(r => VENDER.has(r.k));
+    const mer = sel.reduce((x, r) => x + r.sacaMer, 0);
+    const clau = sel.reduce((x, r) => x + (r.sacaClau || 0), 0);
+    const todosClau = sel.length && sel.every(r => r.sacaClau !== null);
+    return `<div class="me-tot">
+      <div><span>Elegidos</span><b>${sel.length}</b></div>
+      <div><span>Al mercado</span><b>${sel.length ? eur(mer) : '—'}</b></div>
+      ${todosClau ? `<div><span>Por cláusula</span><b>${eur(clau)}</b></div>` : ''}
+      ${sel.length ? `<button class="me-cod-btn" id="me-vaciar">Quitar la selección</button>` : ''}
+    </div>
+    ${sel.length ? `<p class="me-nota">Al mercado ya lleva lo que te devuelven
+      por bajarles la cláusula.</p>` : ''}`;
+  }
   const total = filas.reduce((x, r) => x + (r.j.val || 0), 0);
   const hoy = filas.reduce((x, r) => x + (r.j.cam || 0), 0);
-  const pagado = filas.reduce((x, r) => x + (r.pag || 0), 0);
-  const conPago = filas.filter(r => r.pag).length;
-  const dif = total - pagado;
-  pie.innerHTML = `<div class="me-tot">
+  /* Lo que llevas ganado solo puede contar a los que tienen precio
+     apuntado. Restar lo pagado por tres al valor de diecisiete daba un
+     +227M que no significaba nada. */
+  const con = filas.filter(r => r.pag);
+  const conPago = con.length;
+  const pagado = con.reduce((x, r) => x + r.pag, 0);
+  const valCon = con.reduce((x, r) => x + (r.j.val || 0), 0);
+  const dif = valCon - pagado;
+  return `<div class="me-tot">
       <div><span>Vale</span><b>${eur(total)}</b></div>
       <div><span>Hoy</span><b class="${hoy > 0 ? 'sube' : hoy < 0 ? 'baja' : ''}">${
         hoy > 0 ? '+' : ''}${(hoy / 1000).toFixed(0)}k</b></div>
@@ -1194,10 +1376,11 @@ function pintarMiEquipo(){
     </div>`;
 }
 
-/* La ficha de cada uno: lo que pagaste y a qué cláusula lo tienes. */
+/* La ficha de cada uno: lo que pagaste, a qué cláusula lo tienes y lo que
+   te costó ponerla ahí. */
 function detalleMio(r){
-  const k = clave(r.j);
-  const base = r.base;
+  const k = r.k;
+  const sug = costeClausula(r.base, r.esc || 0);
   return `<div class="me-det">
     <label class="me-par">
       <span>Pagaste</span>
@@ -1210,11 +1393,19 @@ function detalleMio(r){
       <select class="me-clau" data-clau="${k}">
         <option value=""${r.esc === undefined ? ' selected' : ''}>no la he tocado</option>
         ${MULT.map((m, n) => `<option value="${n}"${n === r.esc ? ' selected' : ''}
-          >×${coma(String(m))}</option>`).join('')}
+          >×${coma(String(m))}${n ? ` (subida ${n})` : ' (de serie)'}</option>`).join('')}
       </select>
     </label>
+    ${r.esc ? `<label class="me-par">
+      <span>Te costó</span>
+      <input class="me-pag" type="text" inputmode="decimal" autocomplete="off"
+        data-gasto="${k}" placeholder="${escribirDinero(sug)}"
+        value="${GASTO[k] !== undefined ? escribirDinero(GASTO[k]) : ''}">
+    </label>
+    <p class="me-clau-r tenue">Si lo dejas en blanco cuento ${eur(sug)}, que es
+      lo que dice la ayuda de Mister. Escribe lo que te cobró de verdad.</p>` : ''}
     ${r.clau !== null ? `<p class="me-clau-r">La tienes en <b>${eur(r.clau)}</b>,
-      que es ×${coma(String(MULT[r.esc]))} sobre ${eur(base)}${
+      que es ×${coma(String(MULT[r.esc]))} sobre ${eur(r.base)}${
       r.pag && r.j.val > r.pag
         ? ' — su valor de hoy, que ya pasó lo que pagaste'
         : r.pag ? ' — lo que pagaste' : ' — su valor de hoy'}.</p>`
@@ -1222,6 +1413,7 @@ function detalleMio(r){
     <dl class="me-mini">
       ${r.pag ? `<div><dt>Llevas</dt><dd class="${r.gana > 0 ? 'sube' : r.gana < 0 ? 'baja' : ''}">${
         r.gana > 0 ? '+' : ''}${eur(r.gana)}</dd></div>` : ''}
+      ${r.pag ? `<div><dt>Has puesto</dt><dd>${eur(r.puesto)}</dd></div>` : ''}
       <div><dt>Media</dt><dd>${r.f && r.f.medOk ? fmt(r.f.med, 2) : '·'}</dd></div>
       <div><dt>Mediana</dt><dd>${r.f ? fmt(r.f.mdn, 1) : '·'}</dd></div>
       <div><dt>Partidos</dt><dd>${r.f ? r.f.pj : '·'}</dd></div>
@@ -1237,10 +1429,147 @@ function detalleMio(r){
   </div>`;
 }
 
+/* ================================================================
+   EL ONCE DE UNA JORNADA QUE AUN NO HA LLEGADO
+
+   Mister no deja mirar mas alla de la jornada que viene. Aqui si, y eso
+   sirve para decidir a quien fichas hoy pensando en dos jornadas vista.
+
+   Lo que se sabe: contra quien juega cada uno, si en casa o fuera, lo que
+   ese rival le concede a esa posicion y lo que el jugador viene haciendo.
+   Lo que NO se sabe: lesiones, sanciones ni si el entrenador lo va a
+   poner. Asi que esto ordena, no adivina, y se dice en la pantalla.
+   ================================================================ */
+
+const ESQUEMAS = [[3,4,3], [3,5,2], [4,3,3], [4,4,2], [4,5,1], [5,3,2], [5,4,1]];
+
+/* Lo que concede de media toda la liga a cada puesto, para poder decir si
+   un rival es blando o duro comparado con el resto. */
+let MEDIA_PUESTO = null;
+function mediaPuesto(){
+  if(MEDIA_PUESTO) return MEDIA_PUESTO;
+  MEDIA_PUESTO = DATOS.posiciones.map((_, i) => {
+    let pts = 0, n = 0;
+    for(const eq in DATOS.dureza){
+      const d = DATOS.dureza[eq][String(i)];
+      if(d && d[2]){ pts += d[1] * d[2]; n += d[2]; }
+    }
+    return n ? pts / n : null;
+  });
+  return MEDIA_PUESTO;
+}
+
+/* Las jornadas de liga que quedan. Los partidos de Europa llevan marca en
+   la ultima casilla y reusan numeros bajos, asi que fuera. */
+function jornadasQueVienen(){
+  const c = {};
+  for(const eq in DATOS.prox)
+    for(const p of DATOS.prox[eq]) if(!p[4]) c[p[0]] = (c[p[0]] || 0) + 1;
+  return Object.keys(c).map(Number).sort((a, b) => a - b)
+    .map(n => ({n, eq: c[n]}));
+}
+
+/* Una jornada aplazada deja un numero suelto que juegan dos equipos: sale
+   en la lista, pero no es la que hay que abrir de entrada, que si no no
+   hay con quien montar un once. */
+const JOR_COMPLETA = 14;
+
+/* Que le toca a este jugador esa jornada y cuanto cabe esperar de el. */
+function esperaEn(r, jor){
+  const p = (DATOS.prox[r.j.e] || []).find(x => !x[4] && x[0] === jor);
+  if(!p) return null;                      // su equipo no juega esa jornada
+  const iPos = POS_IDX[r.j.pos];
+  const d = durezaDe(p[2], iPos);
+  const med = r.f && r.f.medOk ? r.f.med : (r.f ? r.f.mdn : null);
+  const mp = mediaPuesto()[iPos];
+  /* El rival vale lo que le concede a ese puesto comparado con la media de
+     la liga: por encima de 1 es blando, por debajo es duro. */
+  const fac = d && d[1] && mp ? d[1] / mp : 1;
+  return {p, d, med, fac, t: d ? TRAMOS[d[0]] : 0,
+          nota: med === null ? null : med * fac};
+}
+
+function meOnce(filas){
+  const jors = jornadasQueVienen();
+  if(!jors.length) return '<p class="me-vacio">Todavía no hay calendario por delante.</p>';
+  const llenas = jors.filter(x => x.eq >= JOR_COMPLETA);
+  const jor = jors.some(x => x.n === ME.jor) ? ME.jor
+            : (llenas[0] || jors[0]).n;
+
+  const con = filas.map(r => ({r, e: esperaEn(r, jor)}))
+                   .filter(x => x.e && x.e.nota !== null);
+  const sinDato = filas.length - con.length;
+
+  /* Por puesto y de mejor a peor, que es lo que necesitan los esquemas. */
+  const porPuesto = DATOS.posiciones.map(pos =>
+    con.filter(x => x.r.j.pos === pos).sort((a, b) => b.e.nota - a.e.nota));
+  const [por, def, med, del] = porPuesto;
+
+  /* Se prueban todos los esquemas y gana el que mas suma. Con siete
+     esquemas y once huecos esto es inmediato, no hace falta nada listo. */
+  let mejor = null;
+  for(const [nd, nm, nn] of ESQUEMAS){
+    if(!por.length || def.length < nd || med.length < nm || del.length < nn) continue;
+    const once = [por[0], ...def.slice(0, nd), ...med.slice(0, nm), ...del.slice(0, nn)];
+    const suma = once.reduce((x, o) => x + o.e.nota, 0);
+    if(!mejor || suma > mejor.suma) mejor = {esq:[nd, nm, nn], once, suma};
+  }
+
+  const opts = jors.map(x => `<option value="${x.n}"${x.n === jor ? ' selected' : ''}>Jornada ${
+    x.n}${x.eq < JOR_COMPLETA ? ` · solo ${x.eq} equipos` : ''}</option>`).join('');
+
+  if(!mejor) return `<div class="me-once-cab">
+      <select class="me-jor" id="me-jor">${opts}</select></div>
+    <p class="me-vacio">Con los que tienes no sale un once en esa jornada.
+      Te faltan jugadores de algún puesto, o sus equipos no juegan.</p>`;
+
+  const dentro = new Set(mejor.once.map(o => o.r.k));
+  const fuera = con.filter(x => !dentro.has(x.r.k)).sort((a, b) => b.e.nota - a.e.nota);
+  const PL = {Portero:'Portero', Defensa:'Defensas',
+              Mediocampista:'Centrocampistas', Delantero:'Delanteros'};
+
+  const pinta = o => {
+    const {r, e} = o;
+    return `<li class="me-o">
+      <button class="me-o-b" data-abre="${r.k}">
+        ${escudo(r.j.e, r.j.e)}
+        <span class="me-nom">${r.j.n}</span>
+        <span class="me-o-r">${escudo(e.p[2], e.p[2])} ${e.p[1] === 'C' ? 'casa' : 'fuera'}</span>
+        ${e.t ? `<span class="ce-d t${e.t}">${DUREZA[e.t]}</span>` : ''}
+        <span class="me-o-n">${fmt(e.nota, 1)}</span>
+      </button></li>`;
+  };
+
+  let html = `<div class="me-once-cab">
+      <select class="me-jor" id="me-jor">${opts}</select>
+      <span class="me-esq">1-${mejor.esq.join('-')}</span>
+    </div>`;
+  let i = 1;
+  const trozos = [[0, 1], [1, mejor.esq[0]], [2, mejor.esq[1]], [3, mejor.esq[2]]];
+  for(const [ip, n] of trozos){
+    const g = mejor.once.slice(i - 1, i - 1 + n); i += n;
+    html += `<section class="me-g"><h3 class="me-g-t">${PL[DATOS.posiciones[ip]]}
+      <span class="me-g-n">${n}</span></h3><ul class="me-ol">${g.map(pinta).join('')}</ul></section>`;
+  }
+  if(fuera.length) html += `<section class="me-g"><h3 class="me-g-t">Se quedan fuera
+    <span class="me-g-n">${fuera.length}</span></h3>
+    <ul class="me-ol apagada">${fuera.map(pinta).join('')}</ul></section>`;
+
+  html += `<p class="me-nota">El número es lo que viene haciendo cada uno,
+    corregido por lo que ese rival le concede a su puesto. No sabe de
+    lesiones, sanciones ni de a quién va a poner el entrenador:
+    ordena, no adivina.${sinDato ? ` Quedan ${sinDato} fuera de la cuenta
+    por no tener partido esa jornada o no tener aún partidos suyos.` : ''}</p>`;
+  return html;
+}
+
 function codigoEquipo(){
-  const pag = {};
-  for(const k of MIOS) if(PAGADO[k]) pag[k] = PAGADO[k];
-  const payload = JSON.stringify({m:[...MIOS], p:pag});
+  /* Todo lo que has ido apuntando, que ya no es solo quien es tuyo: lo que
+     pagaste, a que clausula lo tienes y lo que te costo ponerla ahi. Si el
+     codigo se dejara algo, cambiar de movil te borraria la contabilidad. */
+  const sub = o => { const x = {}; for(const k of MIOS) if(o[k] !== undefined) x[k] = o[k]; return x; };
+  const payload = JSON.stringify({m:[...MIOS], p:sub(PAGADO), c:sub(CLAU), g:sub(GASTO),
+                                  v:[...VENDER].filter(k => MIOS.has(k))});
   return btoa(unescape(encodeURIComponent(payload))).replace(/=+$/, '');
 }
 
@@ -1250,9 +1579,16 @@ function leerCodigoEquipo(txt){
   const lista = Array.isArray(bruto) ? bruto : bruto.m;
   if(!Array.isArray(lista)) throw new Error('no es una lista');
   MIOS.clear(); lista.forEach(x => MIOS.add(x));
-  for(const k in PAGADO) delete PAGADO[k];
-  if(!Array.isArray(bruto) && bruto.p) Object.assign(PAGADO, bruto.p);
-  guardarMios(); guardarPagado();
+  for(const o of [PAGADO, CLAU, GASTO]) for(const k in o) delete o[k];
+  VENDER.clear();
+  if(!Array.isArray(bruto)){
+    // los codigos viejos solo traen jugadores y precio: lo que falte, vacio
+    if(bruto.p) Object.assign(PAGADO, bruto.p);
+    if(bruto.c) Object.assign(CLAU, bruto.c);
+    if(bruto.g) Object.assign(GASTO, bruto.g);
+    if(Array.isArray(bruto.v)) bruto.v.forEach(k => VENDER.add(k));
+  }
+  guardarMios(); guardarPagado(); guardarClau(); guardarGasto(); guardarVender();
 }
 
 function abrirMiEquipo(){
@@ -2284,7 +2620,24 @@ const VENTANAS = [
   {k:'mes',  t:'Mes',       acum:true,  dias:30},
 ];
 
-const MULT = [1.5, 2.0, 2.5, 3.0, 3.5, 4.0];
+/* Los escalones de cláusula que existen de verdad en Mister: la de serie
+   es ×1,5 y solo se puede subir tres veces, a ×2, ×2,5 y ×3. Aquí llegaron
+   a estar ×3,5 y ×4, que me inventé: no existen. El indice es ademas el
+   numero de subida, asi que COSTE_ESC * esc * base da lo que cuesta. */
+const MULT = [1.5, 2.0, 2.5, 3.0];
+const MULT_TOPE = MULT.length - 1;
+
+/* Por abajo hay un suelo: si vale 666.666 o menos, la cláusula es 1M y no
+   se calcula sobre nada. */
+const CLAU_VAL_MIN = 666666, CLAU_SUELO = 1e6;
+
+/* La cláusula de un jugador: sobre lo que pagaste, o sobre lo que vale hoy
+   si ya lo pasó. Un solo sitio para no tener dos versiones de la cuenta. */
+function clausulaDe(base, esc){
+  if(esc === undefined || esc === null) return null;
+  if(base <= CLAU_VAL_MIN) return CLAU_SUELO;
+  return base * MULT[Math.min(MULT_TOPE, Math.max(0, esc))];
+}
 
 /* ================================================================
    PROYECCION POR PARTIDOS
@@ -3309,6 +3662,18 @@ function arrancarBalance(){
       else CLAU[cl.dataset.clau] = +cl.value;
       guardarClau(); pintarMiEquipo(); return;
     }
+    const vd = t.closest('[data-vender]');
+    if(vd){
+      if(t.checked) VENDER.add(vd.dataset.vender); else VENDER.delete(vd.dataset.vender);
+      guardarVender();
+      /* Solo se repinta el pie: repintar la lista entera por marcar una
+         casilla devuelve el scroll arriba y pierdes de vista lo que
+         estabas eligiendo. */
+      document.getElementById('me-pie').innerHTML = mePie(filasMias());
+      vd.closest('.me-f').classList.toggle('aVender', t.checked);
+      return;
+    }
+    if(t.id === 'me-jor'){ ME.jor = +t.value; guardarME(); pintarMiEquipo(); return; }
     const cas = {'me-exgol':'exGol', 'me-exroja':'exRoja', 'me-exmin':'exMin'}[t.id];
     if(cas){ ME[cas] = t.checked; guardarME(); pintarMiEquipo(); }
   });
@@ -3316,6 +3681,13 @@ function arrancarBalance(){
   /* Lo que pagaste. Mientras escribes no se repinta la tabla: eso te
      sacaria de la casilla a cada tecla. Solo se apunta el numero. */
   document.getElementById('miequipo').addEventListener('input', e => {
+    const g = e.target.closest('[data-gasto]');
+    if(g){
+      const x = leerDinero(g.value);
+      // en blanco vuelve a valer lo que propone Mister, no cero
+      if(x === null) delete GASTO[g.dataset.gasto]; else GASTO[g.dataset.gasto] = x;
+      guardarGasto(); return;
+    }
     const c = e.target.closest('[data-pag]');
     if(!c) return;
     const v = leerDinero(c.value);
@@ -3326,7 +3698,7 @@ function arrancarBalance(){
   document.getElementById('miequipo').addEventListener('focusout', e => {
     // repintar recalcula la cláusula con la base nueva, y el desplegable
     // sigue abierto porque ME.abierto no se toca
-    if(e.target.closest('[data-pag]')) pintarMiEquipo();
+    if(e.target.closest('[data-pag]') || e.target.closest('[data-gasto]')) pintarMiEquipo();
   });
 
   document.getElementById('miequipo').addEventListener('click', e => {
@@ -3355,6 +3727,16 @@ function arrancarBalance(){
         alert('Ese código no vale. Tiene que ser el que sale en "Mi equipo" del otro navegador.');
       }
     }
+    const vi = e.target.closest('[data-vista]');
+    if(vi){ ME.vista = vi.dataset.vista; ME.abierto = null; guardarME(); pintarMiEquipo(); return; }
+
+    if(e.target.closest('#me-vender-btn')){
+      ME.vender = !ME.vender; guardarME(); pintarMiEquipo(); return;
+    }
+    if(e.target.id === 'me-vaciar'){
+      VENDER.clear(); guardarVender(); pintarMiEquipo(); return;
+    }
+
     const sb = e.target.closest('#me-sede button');
     if(sb){ ME.sede = sb.dataset.v; guardarME(); pintarMiEquipo(); return; }
 
