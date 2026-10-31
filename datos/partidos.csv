@@ -104,9 +104,9 @@ id,jornada,local,visitante,terminado,resultado,cuando,url
 22525,11,Elche,Valencia,0,,Dom 01/11 18:30h,https://www.futbolfantasy.com/partidos/22525-elche-valencia
 22526,11,Barcelona,Alavés,0,,Sab 31/10 21:00h,https://www.futbolfantasy.com/partidos/22526-barcelona-alaves
 22527,11,Getafe,Sevilla,0,,Dom 01/11 14:00h,https://www.futbolfantasy.com/partidos/22527-getafe-sevilla
-22528,11,Levante,Atlético,0,,Sab 31/10 14:00h,https://www.futbolfantasy.com/partidos/22528-levante-atletico
-22529,11,Rayo,Celta,0,,Sab 31/10 16:15h,https://www.futbolfantasy.com/partidos/22529-rayo-celta
-22530,11,Betis,Málaga,0,,Sab 31/10 18:30h,https://www.futbolfantasy.com/partidos/22530-betis-malaga
+22528,11,Levante,Atlético,1,0-2,,https://www.futbolfantasy.com/partidos/22528-levante-atletico
+22529,11,Rayo,Celta,1,3-0,,https://www.futbolfantasy.com/partidos/22529-rayo-celta
+22530,11,Betis,Málaga,1,0-0,,https://www.futbolfantasy.com/partidos/22530-betis-malaga
 22531,11,Racing,Real Madrid,0,,Dom 01/11 16:15h,https://www.futbolfantasy.com/partidos/22531-racing-real-madrid
 22532,11,Villarreal,Espanyol,1,0-1,,https://www.futbolfantasy.com/partidos/22532-villarreal-espanyol
 22533,12,Atlético,Barcelona,0,,Dom 08/11 21:00h,https://www.futbolfantasy.com/partidos/22533-atletico-barcelona
