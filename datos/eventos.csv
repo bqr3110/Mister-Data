@@ -15833,3 +15833,78 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad,v
 22526,11,2026-10-31 21:00,Alavés,visitante,Aitor Mañas,aitor-manas,Delantero,nota_cronista,5.0,5
 22526,11,2026-10-31 21:00,Alavés,visitante,Aitor Mañas,aitor-manas,Delantero,nota_sofascore,6.3,5
 22526,11,2026-10-31 21:00,Alavés,visitante,Aitor Mañas,aitor-manas,Delantero,min,35.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Soria,david-soria,Portero,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Soria,david-soria,Portero,nota_sofascore,6.2,5
+22527,11,2026-11-01 14:00,Getafe,local,Carvajal,daniel-carvajal,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Carvajal,daniel-carvajal,Defensa,nota_sofascore,6.2,5
+22527,11,2026-11-01 14:00,Getafe,local,Djené,dakonam-djene,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Djené,dakonam-djene,Defensa,nota_sofascore,7.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Gudelj,nemanja-gudelj,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Gudelj,nemanja-gudelj,Defensa,nota_sofascore,6.6,5
+22527,11,2026-11-01 14:00,Getafe,local,Andrés García,andres-garcia,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Andrés García,andres-garcia,Defensa,nota_sofascore,6.6,5
+22527,11,2026-11-01 14:00,Getafe,local,Valou,jean-ives-valou,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Valou,jean-ives-valou,Defensa,nota_sofascore,6.5,5
+22527,11,2026-11-01 14:00,Getafe,local,Boselli,sebastian-boselli,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Boselli,sebastian-boselli,Defensa,nota_sofascore,7.9,5
+22527,11,2026-11-01 14:00,Getafe,local,Francho,francho-serrano,Mediocampista,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Francho,francho-serrano,Mediocampista,nota_sofascore,6.6,5
+22527,11,2026-11-01 14:00,Getafe,local,Terrats,terrats,Mediocampista,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Terrats,terrats,Mediocampista,nota_sofascore,6.9,5
+22527,11,2026-11-01 14:00,Getafe,local,Enes Ünal,enes-unal,Delantero,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Enes Ünal,enes-unal,Delantero,nota_sofascore,6.4,5
+22527,11,2026-11-01 14:00,Getafe,local,Satriano,martin-satriano,Delantero,titular,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Satriano,martin-satriano,Delantero,nota_sofascore,6.2,5
+22527,11,2026-11-01 14:00,Getafe,local,Ferrer,diego-ferrer,Portero,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Letácek,jiri-letacek,Portero,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Femenia,kiko-femenia,Defensa,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Abqar,abdel-abqar,Defensa,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Sazonov,saba-sazonov,Defensa,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Davinchi,davinchi,Defensa,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Davinchi,davinchi,Defensa,nota_sofascore,6.4,5
+22527,11,2026-11-01 14:00,Getafe,local,Davinchi,davinchi,Defensa,amarillas,1.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Mangala,orel-mangala,Mediocampista,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Mangala,orel-mangala,Mediocampista,nota_sofascore,6.6,5
+22527,11,2026-11-01 14:00,Getafe,local,Risco,alberto-risco,Mediocampista,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Mayoral,borja-mayoral,Delantero,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Iván Azón,ivan-azon,Delantero,titular,0.0,5
+22527,11,2026-11-01 14:00,Getafe,local,Danfakha,ibrahima-danfakha-,Delantero,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Vlachodimos,odysseas-vlachodimos,Portero,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Vlachodimos,odysseas-vlachodimos,Portero,nota_sofascore,6.9,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Iglesias,juan-iglesias,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Iglesias,juan-iglesias,Defensa,nota_sofascore,6.8,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Kike Salas,kike-salas,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Kike Salas,kike-salas,Defensa,nota_sofascore,8.1,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Kike Salas,kike-salas,Defensa,goles,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Suazo,gabriel-suazo,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Suazo,gabriel-suazo,Defensa,nota_sofascore,7.3,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Suazo,gabriel-suazo,Defensa,amarillas,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Castrín,andres-castrin,Defensa,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Castrín,andres-castrin,Defensa,nota_sofascore,6.5,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Agoume,lucien-agoume,Mediocampista,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Agoume,lucien-agoume,Mediocampista,nota_sofascore,6.9,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Félix Correia,felix-correia,Mediocampista,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Félix Correia,felix-correia,Mediocampista,nota_sofascore,7.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Félix Correia,felix-correia,Mediocampista,asis,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Fofana,youssouf-fofana,Mediocampista,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Fofana,youssouf-fofana,Mediocampista,nota_sofascore,6.4,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Ejuke,chidera-ejuke,Mediocampista,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Ejuke,chidera-ejuke,Mediocampista,nota_sofascore,6.7,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Romero,isaac-romero,Delantero,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Romero,isaac-romero,Delantero,nota_sofascore,6.6,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Stassin,lucas-stassin,Delantero,titular,1.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Stassin,lucas-stassin,Delantero,nota_sofascore,6.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Fran González,fran-gonzalez-2,Portero,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Loren,loren-luchino,Portero,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Carmona,jose-ngel-carmona,Defensa,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Cardoso,fabio-cardoso,Defensa,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Julio Díaz,julio-diaz,Defensa,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Sangante,arouna-sangante,Defensa,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Guridi,jon-guridi,Mediocampista,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Kochorashvili,giorgi-kochorashvili-1,Mediocampista,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Alfon,alfonso-gonzalez,Mediocampista,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Manu Bueno,manu-bueno,Mediocampista,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Manu Bueno,manu-bueno,Mediocampista,nota_sofascore,6.5,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Vargas,ruben-vargas,Delantero,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Peque,peque,Delantero,titular,0.0,5
+22527,11,2026-11-01 14:00,Sevilla,visitante,Ure,robbie-ure,Delantero,titular,0.0,5
