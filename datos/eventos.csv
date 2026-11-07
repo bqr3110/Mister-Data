@@ -16493,3 +16493,148 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad,v
 22524,11,2026-11-02 21:00,Osasuna,visitante,Raúl García,raul-garcia-1,Delantero,nota_cronista,5.0,5
 22524,11,2026-11-02 21:00,Osasuna,visitante,Raúl García,raul-garcia-1,Delantero,nota_sofascore,6.5,5
 22524,11,2026-11-02 21:00,Osasuna,visitante,Raúl García,raul-garcia-1,Delantero,min,12.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Vlachodimos,odysseas-vlachodimos,Portero,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Vlachodimos,odysseas-vlachodimos,Portero,nota_cronista,6.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Vlachodimos,odysseas-vlachodimos,Portero,nota_sofascore,7.3,5
+22540,12,2026-11-06 21:00,Sevilla,local,Vlachodimos,odysseas-vlachodimos,Portero,min,90.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Iglesias,juan-iglesias,Defensa,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Iglesias,juan-iglesias,Defensa,nota_cronista,7.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Iglesias,juan-iglesias,Defensa,nota_sofascore,7.1,5
+22540,12,2026-11-06 21:00,Sevilla,local,Iglesias,juan-iglesias,Defensa,min,90.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Iglesias,juan-iglesias,Defensa,tiros,2.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Kike Salas,kike-salas,Defensa,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Kike Salas,kike-salas,Defensa,nota_cronista,7.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Kike Salas,kike-salas,Defensa,nota_sofascore,7.2,5
+22540,12,2026-11-06 21:00,Sevilla,local,Kike Salas,kike-salas,Defensa,min,90.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Suazo,gabriel-suazo,Defensa,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Suazo,gabriel-suazo,Defensa,nota_cronista,7.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Suazo,gabriel-suazo,Defensa,nota_sofascore,8.1,5
+22540,12,2026-11-06 21:00,Sevilla,local,Suazo,gabriel-suazo,Defensa,min,90.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Sangante,arouna-sangante,Defensa,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Sangante,arouna-sangante,Defensa,nota_cronista,3.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Sangante,arouna-sangante,Defensa,nota_sofascore,6.3,5
+22540,12,2026-11-06 21:00,Sevilla,local,Sangante,arouna-sangante,Defensa,min,74.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Sangante,arouna-sangante,Defensa,amarillas,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Agoume,lucien-agoume,Mediocampista,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Agoume,lucien-agoume,Mediocampista,nota_cronista,5.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Agoume,lucien-agoume,Mediocampista,nota_sofascore,7.7,5
+22540,12,2026-11-06 21:00,Sevilla,local,Agoume,lucien-agoume,Mediocampista,min,90.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Félix Correia,felix-correia,Mediocampista,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Félix Correia,felix-correia,Mediocampista,nota_cronista,6.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Félix Correia,felix-correia,Mediocampista,nota_sofascore,8.1,5
+22540,12,2026-11-06 21:00,Sevilla,local,Félix Correia,felix-correia,Mediocampista,min,85.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Fofana,youssouf-fofana,Mediocampista,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Fofana,youssouf-fofana,Mediocampista,nota_cronista,5.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Fofana,youssouf-fofana,Mediocampista,nota_sofascore,6.4,5
+22540,12,2026-11-06 21:00,Sevilla,local,Fofana,youssouf-fofana,Mediocampista,min,90.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Vargas,ruben-vargas,Mediocampista,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Vargas,ruben-vargas,Mediocampista,nota_cronista,3.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Vargas,ruben-vargas,Mediocampista,nota_sofascore,7.1,5
+22540,12,2026-11-06 21:00,Sevilla,local,Vargas,ruben-vargas,Mediocampista,min,59.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Romero,isaac-romero,Delantero,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Romero,isaac-romero,Delantero,nota_cronista,5.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Romero,isaac-romero,Delantero,nota_sofascore,6.5,5
+22540,12,2026-11-06 21:00,Sevilla,local,Romero,isaac-romero,Delantero,min,74.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Stassin,lucas-stassin,Delantero,titular,1.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Stassin,lucas-stassin,Delantero,nota_cronista,3.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Stassin,lucas-stassin,Delantero,nota_sofascore,6.1,5
+22540,12,2026-11-06 21:00,Sevilla,local,Stassin,lucas-stassin,Delantero,min,90.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Rafa,rafael-romero,Portero,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Fran González,fran-gonzalez-2,Portero,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Carmona,jose-ngel-carmona,Defensa,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Cardoso,fabio-cardoso,Defensa,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Castrín,andres-castrin,Defensa,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Castrín,andres-castrin,Defensa,nota_cronista,5.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Castrín,andres-castrin,Defensa,nota_sofascore,7.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Castrín,andres-castrin,Defensa,min,16.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Iker Muñoz,iker-munoz-1,Defensa,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Julio Díaz,julio-diaz,Defensa,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Guridi,jon-guridi,Mediocampista,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Kochorashvili,giorgi-kochorashvili-1,Mediocampista,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Alfon,alfonso-gonzalez,Delantero,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Alfon,alfonso-gonzalez,Delantero,nota_cronista,4.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Alfon,alfonso-gonzalez,Delantero,nota_sofascore,6.4,5
+22540,12,2026-11-06 21:00,Sevilla,local,Alfon,alfonso-gonzalez,Delantero,min,5.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Ejuke,chidera-ejuke,Mediocampista,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Ejuke,chidera-ejuke,Mediocampista,nota_cronista,4.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Ejuke,chidera-ejuke,Mediocampista,nota_sofascore,6.9,5
+22540,12,2026-11-06 21:00,Sevilla,local,Ejuke,chidera-ejuke,Mediocampista,min,31.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Guillén,nico-guillen,Mediocampista,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Ure,robbie-ure,Delantero,titular,0.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Ure,robbie-ure,Delantero,nota_cronista,4.0,5
+22540,12,2026-11-06 21:00,Sevilla,local,Ure,robbie-ure,Delantero,nota_sofascore,6.4,5
+22540,12,2026-11-06 21:00,Sevilla,local,Ure,robbie-ure,Delantero,min,16.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Sivera,antonio-sivera,Portero,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Sivera,antonio-sivera,Portero,nota_cronista,8.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Sivera,antonio-sivera,Portero,nota_sofascore,7.9,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Sivera,antonio-sivera,Portero,min,90.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Tenaglia,nahuel-tenaglia,Defensa,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Tenaglia,nahuel-tenaglia,Defensa,nota_cronista,6.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Tenaglia,nahuel-tenaglia,Defensa,nota_sofascore,7.3,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Tenaglia,nahuel-tenaglia,Defensa,min,90.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Youssef,youssef-enriquez,Defensa,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Youssef,youssef-enriquez,Defensa,nota_cronista,6.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Youssef,youssef-enriquez,Defensa,nota_sofascore,7.1,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Youssef,youssef-enriquez,Defensa,min,85.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Valentini,nicolas-valentini,Defensa,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Valentini,nicolas-valentini,Defensa,nota_cronista,6.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Valentini,nicolas-valentini,Defensa,nota_sofascore,7.9,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Valentini,nicolas-valentini,Defensa,min,90.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Valentini,nicolas-valentini,Defensa,asis_sg,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Valentini,nicolas-valentini,Defensa,amarillas,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Ángel Pérez,angel-perez-1,Mediocampista,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Ángel Pérez,angel-perez-1,Mediocampista,nota_cronista,5.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Ángel Pérez,angel-perez-1,Mediocampista,nota_sofascore,6.4,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Ángel Pérez,angel-perez-1,Mediocampista,min,60.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Koski,ville-koski,Defensa,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Koski,ville-koski,Defensa,nota_cronista,7.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Koski,ville-koski,Defensa,nota_sofascore,6.9,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Koski,ville-koski,Defensa,min,90.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Guevara,ander-guevara,Mediocampista,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Guevara,ander-guevara,Mediocampista,nota_cronista,5.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Guevara,ander-guevara,Mediocampista,nota_sofascore,6.9,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Guevara,ander-guevara,Mediocampista,min,60.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Blanco,antonio-blanco,Mediocampista,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Blanco,antonio-blanco,Mediocampista,nota_cronista,6.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Blanco,antonio-blanco,Mediocampista,nota_sofascore,7.1,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Blanco,antonio-blanco,Mediocampista,min,90.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Ibáñez,pablo-ibanez,Mediocampista,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Ibáñez,pablo-ibanez,Mediocampista,nota_cronista,6.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Ibáñez,pablo-ibanez,Mediocampista,nota_sofascore,7.2,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Ibáñez,pablo-ibanez,Mediocampista,min,90.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Ibáñez,pablo-ibanez,Mediocampista,amarillas,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Toni Martinez,antonio-martinez,Delantero,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Toni Martinez,antonio-martinez,Delantero,nota_cronista,4.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Toni Martinez,antonio-martinez,Delantero,nota_sofascore,6.5,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Toni Martinez,antonio-martinez,Delantero,min,74.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Toni Martinez,antonio-martinez,Delantero,amarillas,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Boyé,lucas-boye,Delantero,titular,1.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Boyé,lucas-boye,Delantero,nota_cronista,5.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Boyé,lucas-boye,Delantero,nota_sofascore,6.5,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Boyé,lucas-boye,Delantero,min,85.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Adrián,adrian-rodriguez,Portero,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Swiderski,gregoire-swiderski-1,Portero,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Jonny,jonny-castro,Defensa,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Jonny,jonny-castro,Defensa,nota_sofascore,6.7,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Jonny,jonny-castro,Defensa,min,5.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Novoa,hugo-novoa,Defensa,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Oláiz,xanet-olaiz,Defensa,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Denis Suárez,denis-suarez,Mediocampista,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Aleñá,carles-alena,Mediocampista,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Protesoni,carlos-benavidez,Mediocampista,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Protesoni,carlos-benavidez,Mediocampista,nota_cronista,5.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Protesoni,carlos-benavidez,Mediocampista,nota_sofascore,6.4,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Protesoni,carlos-benavidez,Mediocampista,min,30.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Rebbach,abde-rebbach,Mediocampista,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Rebbach,abde-rebbach,Mediocampista,nota_cronista,5.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Rebbach,abde-rebbach,Mediocampista,nota_sofascore,6.6,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Rebbach,abde-rebbach,Mediocampista,min,30.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Diallo,selu-diallo,Mediocampista,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Mariano,mariano-diaz,Delantero,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Mariano,mariano-diaz,Delantero,nota_cronista,4.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Mariano,mariano-diaz,Delantero,nota_sofascore,6.4,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Mariano,mariano-diaz,Delantero,min,16.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Miguel,miguel-rodriguez-1,Delantero,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Aitor Mañas,aitor-manas,Delantero,titular,0.0,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Aitor Mañas,aitor-manas,Delantero,nota_sofascore,6.4,5
+22540,12,2026-11-06 21:00,Alavés,visitante,Aitor Mañas,aitor-manas,Delantero,min,5.0,5

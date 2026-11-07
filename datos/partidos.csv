@@ -116,7 +116,7 @@ id,jornada,local,visitante,terminado,resultado,cuando,url
 22537,12,Málaga,Racing,0,,Sab 07/11 14:00h,https://www.futbolfantasy.com/partidos/22537-malaga-racing
 22538,12,Osasuna,Athletic,0,,Sab 07/11 18:30h,https://www.futbolfantasy.com/partidos/22538-osasuna-athletic
 22539,12,Real Sociedad,Rayo,0,,Dom 08/11 16:15h,https://www.futbolfantasy.com/partidos/22539-real-sociedad-rayo
-22540,12,Sevilla,Alavés,0,,Vie 06/11 21:00h,https://www.futbolfantasy.com/partidos/22540-sevilla-alaves
+22540,12,Sevilla,Alavés,1,0-0,,https://www.futbolfantasy.com/partidos/22540-sevilla-alaves
 22541,12,Valencia,Real Madrid,0,,Sab 07/11 21:00h,https://www.futbolfantasy.com/partidos/22541-valencia-real-madrid
 22542,12,Villarreal,Getafe,0,,Dom 08/11 18:30h,https://www.futbolfantasy.com/partidos/22542-villarreal-getafe
 22543,13,Athletic,Espanyol,0,,Vie 20/11 21:00h,https://www.futbolfantasy.com/partidos/22543-athletic-espanyol
@@ -129,16 +129,16 @@ id,jornada,local,visitante,terminado,resultado,cuando,url
 22550,13,Real Madrid,Celta,0,,Sab 21/11 21:00h,https://www.futbolfantasy.com/partidos/22550-real-madrid-celta
 22551,13,Racing,Real Sociedad,0,,Dom 22/11 16:15h,https://www.futbolfantasy.com/partidos/22551-racing-real-sociedad
 22552,13,Sevilla,Betis,0,,Sab 21/11 18:30h,https://www.futbolfantasy.com/partidos/22552-sevilla-betis
-22553,14,Celta,Villarreal,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22553-celta-villarreal
-22554,14,Deportivo,Barcelona,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22554-deportivo-barcelona
-22555,14,Elche,Atlético,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22555-elche-atletico
-22556,14,Espanyol,Getafe,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22556-espanyol-getafe
-22557,14,Levante,Racing,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22557-levante-racing
-22558,14,Málaga,Athletic,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22558-malaga-athletic
-22559,14,Betis,Rayo,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22559-betis-rayo
-22560,14,Real Madrid,Alavés,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22560-real-madrid-alaves
-22588,14,Real Sociedad,Sevilla,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22588-real-sociedad-sevilla
-22589,14,Valencia,Osasuna,0,,Dom 29/11 20:00h,https://www.futbolfantasy.com/partidos/22589-valencia-osasuna
+22553,14,Celta,Villarreal,0,,Dom 29/11 18:30h,https://www.futbolfantasy.com/partidos/22553-celta-villarreal
+22554,14,Deportivo,Barcelona,0,,Dom 29/11 16:15h,https://www.futbolfantasy.com/partidos/22554-deportivo-barcelona
+22555,14,Elche,Atlético,0,,Sab 28/11 18:30h,https://www.futbolfantasy.com/partidos/22555-elche-atletico
+22556,14,Espanyol,Getafe,0,,Lun 30/11 21:00h,https://www.futbolfantasy.com/partidos/22556-espanyol-getafe
+22557,14,Levante,Racing,0,,Vie 27/11 21:00h,https://www.futbolfantasy.com/partidos/22557-levante-racing
+22558,14,Málaga,Athletic,0,,Sab 28/11 16:15h,https://www.futbolfantasy.com/partidos/22558-malaga-athletic
+22559,14,Betis,Rayo,0,,Sab 28/11 14:00h,https://www.futbolfantasy.com/partidos/22559-betis-rayo
+22560,14,Real Madrid,Alavés,0,,Sab 28/11 21:00h,https://www.futbolfantasy.com/partidos/22560-real-madrid-alaves
+22588,14,Real Sociedad,Sevilla,0,,Dom 29/11 21:00h,https://www.futbolfantasy.com/partidos/22588-real-sociedad-sevilla
+22589,14,Valencia,Osasuna,0,,Dom 29/11 14:00h,https://www.futbolfantasy.com/partidos/22589-valencia-osasuna
 22590,15,Athletic,Real Madrid,0,,Dom 06/12 20:00h,https://www.futbolfantasy.com/partidos/22590-athletic-real-madrid
 22591,15,Atlético,Betis,0,,Dom 06/12 20:00h,https://www.futbolfantasy.com/partidos/22591-atletico-betis
 22592,15,Alavés,Espanyol,0,,Dom 06/12 20:00h,https://www.futbolfantasy.com/partidos/22592-alaves-espanyol
