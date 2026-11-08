@@ -17254,3 +17254,125 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad,v
 22541,12,2026-11-07 21:00,Real Madrid,visitante,Endrick,endrick,Delantero,nota_cronista,5.0,5
 22541,12,2026-11-07 21:00,Real Madrid,visitante,Endrick,endrick,Delantero,nota_sofascore,6.9,5
 22541,12,2026-11-07 21:00,Real Madrid,visitante,Endrick,endrick,Delantero,min,6.0,5
+22535,12,2026-11-08 14:00,Elche,local,Dituro,matias-dituro,Portero,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Dituro,matias-dituro,Portero,nota_sofascore,8.9,5
+22535,12,2026-11-08 14:00,Elche,local,Dituro,matias-dituro,Portero,min,90.0,5
+22535,12,2026-11-08 14:00,Elche,local,Chust,victor-chust,Defensa,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Chust,victor-chust,Defensa,nota_sofascore,6.8,5
+22535,12,2026-11-08 14:00,Elche,local,Chust,victor-chust,Defensa,min,90.0,5
+22535,12,2026-11-08 14:00,Elche,local,Rubén Sánchez,ruben-sanchez-1,Defensa,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Rubén Sánchez,ruben-sanchez-1,Defensa,nota_sofascore,6.9,5
+22535,12,2026-11-08 14:00,Elche,local,Rubén Sánchez,ruben-sanchez-1,Defensa,min,90.0,5
+22535,12,2026-11-08 14:00,Elche,local,Revivo,roy-revivo,Defensa,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Revivo,roy-revivo,Defensa,nota_sofascore,7.1,5
+22535,12,2026-11-08 14:00,Elche,local,Revivo,roy-revivo,Defensa,min,77.0,5
+22535,12,2026-11-08 14:00,Elche,local,Valera,german-valera,Mediocampista,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Valera,german-valera,Mediocampista,nota_sofascore,6.7,5
+22535,12,2026-11-08 14:00,Elche,local,Valera,german-valera,Mediocampista,min,69.0,5
+22535,12,2026-11-08 14:00,Elche,local,Martim Neto,martim-neto,Mediocampista,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Martim Neto,martim-neto,Mediocampista,nota_sofascore,6.8,5
+22535,12,2026-11-08 14:00,Elche,local,Martim Neto,martim-neto,Mediocampista,min,90.0,5
+22535,12,2026-11-08 14:00,Elche,local,Martim Neto,martim-neto,Mediocampista,asis_sg,2.0,5
+22535,12,2026-11-08 14:00,Elche,local,Martim Neto,martim-neto,Mediocampista,amarillas,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Ali Houary,,Mediocampista,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Ali Houary,,Mediocampista,nota_sofascore,6.9,5
+22535,12,2026-11-08 14:00,Elche,local,Ali Houary,,Mediocampista,min,45.0,5
+22535,12,2026-11-08 14:00,Elche,local,Redondo,federico-redondo,Mediocampista,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Redondo,federico-redondo,Mediocampista,nota_sofascore,6.3,5
+22535,12,2026-11-08 14:00,Elche,local,Redondo,federico-redondo,Mediocampista,min,90.0,5
+22535,12,2026-11-08 14:00,Elche,local,Redondo,federico-redondo,Mediocampista,amarillas,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Cepeda,lucas-cepeda,Delantero,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Cepeda,lucas-cepeda,Delantero,nota_sofascore,7.1,5
+22535,12,2026-11-08 14:00,Elche,local,Cepeda,lucas-cepeda,Delantero,min,70.0,5
+22535,12,2026-11-08 14:00,Elche,local,Morcillo,javi-morcillo,Mediocampista,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Morcillo,javi-morcillo,Mediocampista,nota_sofascore,7.0,5
+22535,12,2026-11-08 14:00,Elche,local,Morcillo,javi-morcillo,Mediocampista,min,90.0,5
+22535,12,2026-11-08 14:00,Elche,local,Morcillo,javi-morcillo,Mediocampista,amarillas,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Fer Niño,fernando-nino,Delantero,titular,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Fer Niño,fernando-nino,Delantero,nota_sofascore,6.5,5
+22535,12,2026-11-08 14:00,Elche,local,Fer Niño,fernando-nino,Delantero,min,69.0,5
+22535,12,2026-11-08 14:00,Elche,local,Iturbe,alejandro-iturbe,Portero,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Bigas,pedro-bigas,Defensa,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Bigas,pedro-bigas,Defensa,nota_sofascore,5.9,5
+22535,12,2026-11-08 14:00,Elche,local,Bigas,pedro-bigas,Defensa,min,13.0,5
+22535,12,2026-11-08 14:00,Elche,local,Bambo,bambo-diaby,Defensa,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Barzic,matia-barzic,Defensa,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Lomónaco,kevin-lomonaco,Defensa,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Josan,josan,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Diangana,grady-diangana,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Diangana,grady-diangana,Mediocampista,nota_sofascore,7.0,5
+22535,12,2026-11-08 14:00,Elche,local,Diangana,grady-diangana,Mediocampista,min,45.0,5
+22535,12,2026-11-08 14:00,Elche,local,Diangana,grady-diangana,Mediocampista,amarillas,1.0,5
+22535,12,2026-11-08 14:00,Elche,local,Tete Morente,tete-morente,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Tete Morente,tete-morente,Mediocampista,nota_sofascore,6.5,5
+22535,12,2026-11-08 14:00,Elche,local,Tete Morente,tete-morente,Mediocampista,min,21.0,5
+22535,12,2026-11-08 14:00,Elche,local,Buonanotte,facundo-buonanotte,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Buonanotte,facundo-buonanotte,Mediocampista,nota_sofascore,6.7,5
+22535,12,2026-11-08 14:00,Elche,local,Buonanotte,facundo-buonanotte,Mediocampista,min,20.0,5
+22535,12,2026-11-08 14:00,Elche,local,Padilla,alvaro-padilla,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Ponce,ezequiel-ponce,Delantero,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Osorio,abiel-osorio,Delantero,titular,0.0,5
+22535,12,2026-11-08 14:00,Elche,local,Osorio,abiel-osorio,Delantero,nota_sofascore,6.5,5
+22535,12,2026-11-08 14:00,Elche,local,Osorio,abiel-osorio,Delantero,min,21.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Valles,alvaro-valles,Portero,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Valles,alvaro-valles,Portero,nota_sofascore,7.2,5
+22535,12,2026-11-08 14:00,Betis,visitante,Valles,alvaro-valles,Portero,min,90.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Bartra,marc-bartra,Defensa,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Bartra,marc-bartra,Defensa,nota_sofascore,8.1,5
+22535,12,2026-11-08 14:00,Betis,visitante,Bartra,marc-bartra,Defensa,min,90.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Bartra,marc-bartra,Defensa,goles,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Bellerín,hector-bellerin,Defensa,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Bellerín,hector-bellerin,Defensa,nota_sofascore,7.9,5
+22535,12,2026-11-08 14:00,Betis,visitante,Bellerín,hector-bellerin,Defensa,min,90.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Fran García,fran-garcia,Defensa,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Fran García,fran-garcia,Defensa,nota_sofascore,7.5,5
+22535,12,2026-11-08 14:00,Betis,visitante,Fran García,fran-garcia,Defensa,min,90.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Natan,natan,Defensa,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Natan,natan,Defensa,nota_sofascore,7.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Natan,natan,Defensa,min,90.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Isco,isco-alarcon,Mediocampista,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Isco,isco-alarcon,Mediocampista,nota_sofascore,8.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Isco,isco-alarcon,Mediocampista,min,83.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Isco,isco-alarcon,Mediocampista,asis_sg,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Isco,isco-alarcon,Mediocampista,tiros,2.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Fornals,pablo-fornals,Mediocampista,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Fornals,pablo-fornals,Mediocampista,nota_sofascore,7.6,5
+22535,12,2026-11-08 14:00,Betis,visitante,Fornals,pablo-fornals,Mediocampista,min,69.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Marc Roca,marc-roca,Mediocampista,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Marc Roca,marc-roca,Mediocampista,nota_sofascore,6.7,5
+22535,12,2026-11-08 14:00,Betis,visitante,Marc Roca,marc-roca,Mediocampista,min,90.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Parrott,troy-parrott,Delantero,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Parrott,troy-parrott,Delantero,nota_sofascore,6.3,5
+22535,12,2026-11-08 14:00,Betis,visitante,Parrott,troy-parrott,Delantero,min,78.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Antony,antony,Delantero,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Antony,antony,Delantero,nota_sofascore,6.9,5
+22535,12,2026-11-08 14:00,Betis,visitante,Antony,antony,Delantero,min,69.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Abde,abde-ezzalzouli,Delantero,titular,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Abde,abde-ezzalzouli,Delantero,nota_sofascore,6.9,5
+22535,12,2026-11-08 14:00,Betis,visitante,Abde,abde-ezzalzouli,Delantero,min,78.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Conde,diego-conde,Portero,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Manu González,manu-gonzalez,Portero,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,D. Llorente,diego-javier-llorente,Defensa,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Junior,junior-firpo,Defensa,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Ortiz,ngel-ortiz,Defensa,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Valentín Gómez,valentin-gomez,Defensa,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Ceballos,dani-ceballos,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Ceballos,dani-ceballos,Mediocampista,nota_sofascore,7.7,5
+22535,12,2026-11-08 14:00,Betis,visitante,Ceballos,dani-ceballos,Mediocampista,min,21.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Ceballos,dani-ceballos,Mediocampista,asis,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Ceballos,dani-ceballos,Mediocampista,asis_sg,2.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Ruibal,aitor-ruibal,Defensa,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Ruibal,aitor-ruibal,Defensa,nota_sofascore,7.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Ruibal,aitor-ruibal,Defensa,min,21.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Fidalgo,lvaro-fidalgo,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Riquelme,rodrigo-riquelme,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Riquelme,rodrigo-riquelme,Mediocampista,nota_sofascore,7.2,5
+22535,12,2026-11-08 14:00,Betis,visitante,Riquelme,rodrigo-riquelme,Mediocampista,min,12.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Riquelme,rodrigo-riquelme,Mediocampista,goles,1.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Losada,iker-losada,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Deossa,nelson-deossa,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Deossa,nelson-deossa,Mediocampista,nota_sofascore,6.7,5
+22535,12,2026-11-08 14:00,Betis,visitante,Deossa,nelson-deossa,Mediocampista,min,7.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Morante,jose-antonio-morante,Mediocampista,titular,0.0,5
+22535,12,2026-11-08 14:00,Betis,visitante,Morante,jose-antonio-morante,Mediocampista,nota_sofascore,6.5,5
+22535,12,2026-11-08 14:00,Betis,visitante,Morante,jose-antonio-morante,Mediocampista,min,12.0,5
