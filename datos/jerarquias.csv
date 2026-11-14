@@ -18542,3 +18542,518 @@ fecha,equipo,slug,jugador,nivel,orden
 2026-11-13,Villarreal,luiz-junior,Luiz Junior Portero,reservas,2
 2026-11-13,Villarreal,logan-costa,Logan Costa Defensa central,reservas,2
 2026-11-13,Villarreal,alassane-diatta,Alassane Diatta Mediocentro,reservas,2
+2026-11-14,Alavés,antonio-sivera,Antonio Sivera Portero,clave,6
+2026-11-14,Alavés,nahuel-tenaglia,Nahuel Tenaglia Lateral derecho,clave,6
+2026-11-14,Alavés,angel-perez-1,Ángel Pérez Mediapunta derecho,clave,6
+2026-11-14,Alavés,ville-koski,Ville Koski Defensa central,clave,6
+2026-11-14,Alavés,pablo-ibanez,Pablo Ibáñez Mediocentro,clave,6
+2026-11-14,Alavés,antonio-blanco,Antonio Blanco Pivote defensivo,clave,6
+2026-11-14,Alavés,lucas-boye,Lucas Boyé Delantero centro,clave,6
+2026-11-14,Alavés,jonny-castro,Jonny Castro Lateral derecho,importantes,5
+2026-11-14,Alavés,abde-rebbach,Abde Rebbach Mediapunta izquierdo,importantes,5
+2026-11-14,Alavés,antonio-martinez,Toni Martinez Delantero centro,importantes,5
+2026-11-14,Alavés,nicolas-valentini,Nicolás Valentini Defensa central,rotacion,4
+2026-11-14,Alavés,youssef-enriquez,Youssef Enríquez Lateral izquierdo,rotacion,4
+2026-11-14,Alavés,denis-suarez,Denis Suárez Mediapunta centro,rotacion,4
+2026-11-14,Alavés,ander-guevara,Ander Guevara Mediocentro,rotacion,4
+2026-11-14,Alavés,carles-alena,Carles Aleñá Mediocentro,rotacion,4
+2026-11-14,Alavés,hugo-novoa,Hugo Novoa Lateral derecho,revulsivos,3
+2026-11-14,Alavés,mariano-diaz,Mariano Díaz Delantero centro,revulsivos,3
+2026-11-14,Alavés,aitor-manas,Aitor Mañas Delantero centro,revulsivos,3
+2026-11-14,Alavés,adrian-rodriguez,Adrián Rodríguez Portero,reservas,2
+2026-11-14,Alavés,facundo-garces,Facundo Garcés Defensa central,reservas,2
+2026-11-14,Alavés,carlos-benavidez,Carlos Benavidez Pivote defensivo,reservas,2
+2026-11-14,Alavés,mikel-rodriguez,Mikel Rodriguez Mediocentro,reservas,2
+2026-11-14,Alavés,miguel-rodriguez-1,Miguel Rodríguez Mediapunta derecho,reservas,2
+2026-11-14,Athletic,unai-simon,Unai Simón Guardameta absolutamente indiscutible y primera e,clave,6
+2026-11-14,Athletic,aymeric-laporte,Aymeric Laporte Central de máxima jerarquía y principal refe,clave,6
+2026-11-14,Athletic,yuri-berchiche,Yuri Berchiche Lateral izquierdo indiscutible y referencia d,clave,6
+2026-11-14,Athletic,nico-williams,Nico Williams Extremo izquierdo indiscutible y principal ref,clave,6
+2026-11-14,Athletic,inaki-williams,Iñaki Williams Atacante imprescindible y primera opción para,clave,6
+2026-11-14,Athletic,dani-vivian,Dani Vivian Central de gran jerarquía que compite directamen,importantes,5
+2026-11-14,Athletic,hugo-rincon,Hugo Rincón Lateral derecho que ha tomado ventaja sobre Ares,importantes,5
+2026-11-14,Athletic,alex-berenguer,Álex Berenguer Atacante con gran peso en el once por su vers,importantes,5
+2026-11-14,Athletic,peio-canales,Peio Canales Centrocampista consolidado en los planes de Ter,importantes,5
+2026-11-14,Athletic,oihan-sancet,Oihan Sancet Mediapunta de máxima calidad y una de las princ,importantes,5
+2026-11-14,Athletic,aitor-paredes,Aitor Paredes Central con opciones frecuentes de titularidad,rotacion,4
+2026-11-14,Athletic,yeray-alvarez,Yeray Álvarez Central experimentado que compite con Vivian y,rotacion,4
+2026-11-14,Athletic,inigo-ruiz-de-galarreta,Íñigo Ruiz de Galarreta Centrocampista de gran capacidad org,rotacion,4
+2026-11-14,Athletic,benat-gerenabarrena,Beñat Gerenabarrena Centrocampista con un papel creciente y ,rotacion,4
+2026-11-14,Athletic,robert-navarro,Robert Navarro Atacante con un papel importante en el once p,rotacion,4
+2026-11-14,Athletic,benat-prados,Beñat Prados Centrocampista utilizado principalmente como al,revulsivos,3
+2026-11-14,Athletic,alejandro-rego,Alejandro Rego Centrocampista de segunda unidad con oportuni,revulsivos,3
+2026-11-14,Athletic,alex-padilla,Alex Padilla Segundo guardameta de la plantilla y suplente h,reservas,2
+2026-11-14,Athletic,johaneko-louis-jean,Johaneko Louis-Jean Defensor polivalente capaz de actuar en ,reservas,2
+2026-11-14,Athletic,jesus-areso,Jesús Areso Lateral derecho que ha perdido ventaja frente a ,reservas,2
+2026-11-14,Athletic,unai-egiluz,Unai Egiluz Central condicionado por una grave lesión de rod,reservas,2
+2026-11-14,Athletic,mikel-jauregizar,Mikel Jauregizar Centrocampista que ha perdido protagonismo ,reservas,2
+2026-11-14,Athletic,nico-serrano,Nico Serrano Extremo con escasa participación ante la compet,reservas,2
+2026-11-14,Athletic,gorka-guruzeta,Gorka Guruzeta Delantero apartado por una grave lesión de ro,reservas,2
+2026-11-14,Athletic,lvaro-djalo,Álvaro Djaló Atacante sin protagonismo estable en los planes,reservas,2
+2026-11-14,Athletic,maroan-sannadi,Maroan Sannadi Delantero que había ganado protagonismo como ,reservas,2
+2026-11-14,Atlético,jan-oblak,Jan Oblak Guardameta absolutamente indiscutible y primera el,clave,6
+2026-11-14,Atlético,cristian-romero,Cristian Romero Central de máxima jerarquía y principal refe,clave,6
+2026-11-14,Atlético,david-hancko,David Hancko Defensor imprescindible por su fiabilidad y pol,clave,6
+2026-11-14,Atlético,marcos-llorente,Marcos Llorente Pieza indispensable por su despliegue y poli,clave,6
+2026-11-14,Atlético,alex-grimaldo,Álex Grimaldo Lateral izquierdo prácticamente indiscutible y,clave,6
+2026-11-14,Atlético,pablo-barrios,"Pablo Barrios Centrocampista fundamental por su despliegue, ",clave,6
+2026-11-14,Atlético,lex-baena,Álex Baena Principal generador de juego ofensivo y titular p,clave,6
+2026-11-14,Atlético,giuliano-simeone,Giuliano Simeone Extremo derecho preferido por Simeone por s,clave,6
+2026-11-14,Atlético,marc-pubill,Marc Pubill Defensor consolidado en el once por su fortaleza,importantes,5
+2026-11-14,Atlético,lee-kang-in,Kang-In Lee Atacante de gran peso en los planes de Simeone p,importantes,5
+2026-11-14,Atlético,julian-lvarez,Julián Álvarez Delantero de máxima consideración para Simeon,importantes,5
+2026-11-14,Atlético,robin-le-normand,Robin Le Normand Central de garantías y alternativa habitual,rotacion,4
+2026-11-14,Atlético,morten-hjulmand,Morten Hjulmand Mediocentro de equilibrio con oportunidades ,rotacion,4
+2026-11-14,Atlético,koke-resurreccion,Koke Resurrección Centrocampista de máxima confianza para Si,rotacion,4
+2026-11-14,Atlético,johnny-cardoso,Johnny Cardoso Mediocentro con opciones reales de asentarse ,rotacion,4
+2026-11-14,Atlético,ademola-lookman,Ademola Lookman Atacante versátil con opciones de titularida,rotacion,4
+2026-11-14,Atlético,jonathan-david,Jonathan David Delantero con opciones frecuentes de titulari,rotacion,4
+2026-11-14,Atlético,alexander-sorloth,"Alexander Sorloth Delantero de características diferentes, u",revulsivos,3
+2026-11-14,Atlético,salvi-esquivel,"Salvi Esquivel Tercer guardameta de la plantilla, sin opcion",reservas,2
+2026-11-14,Atlético,juan-musso,Juan Musso Segundo guardameta y suplente directo de Oblak. S,reservas,2
+2026-11-14,Atlético,rodrigo-mendoza,Rodrigo Mendoza Centrocampista joven con oportunidades limit,reservas,2
+2026-11-14,Atlético,obed-vargas,Obed Vargas Centrocampista con escasa participación y numero,reservas,2
+2026-11-14,Atlético,arnau-ortiz,Arnau Ortiz Extremo utilizado principalmente para aportar ve,reservas,2
+2026-11-14,Barcelona,lamine-yamal,Lamine Yamal Extremo derecho absolutamente indiscutible y pr,dios,7
+2026-11-14,Barcelona,raphinha,"Raphinha Delantero centro indiscutible, capitán y principal ",dios,7
+2026-11-14,Barcelona,joan-garcia,Joan Garcia Guardameta indiscutible y uno de los pilares def,clave,6
+2026-11-14,Barcelona,pau-cubarsi,Pau Cubarsí Central absolutamente consolidado y principal re,clave,6
+2026-11-14,Barcelona,eric-garcia,"Eric Garcia Lateral derecho preferido por Flick, por delante",clave,6
+2026-11-14,Barcelona,pedri-gonzalez,Pedri González Organizador imprescindible y titular indiscut,clave,6
+2026-11-14,Barcelona,rodri-hernandez,Rodri Hernández Mediocentro indiscutible y principal referen,clave,6
+2026-11-14,Barcelona,gerard-martin,"Gerard Martín Central zurdo consolidado junto a Cubarsí, aun",importantes,5
+2026-11-14,Barcelona,anthony-gordon,Anthony Gordon Extremo izquierdo favorito de Flick y titular,importantes,5
+2026-11-14,Barcelona,jules-kounde,"Jules Koundé Alternativa importante en el lateral derecho, p",rotacion,4
+2026-11-14,Barcelona,joao-cancelo,Joao Cancelo Lateral izquierdo habitual por su aportación of,rotacion,4
+2026-11-14,Barcelona,andreas-christensen,Andreas Christensen Central recuperado de su lesión y nuevam,rotacion,4
+2026-11-14,Barcelona,xavi-espart,Xavi Espart Lateral derecho que había ganado protagonismo in,rotacion,4
+2026-11-14,Barcelona,dani-olmo,Dani Olmo Mediapunta de rotación frecuente. Fermín ha fortal,rotacion,4
+2026-11-14,Barcelona,fermin-lopez,Fermín López Mediapunta titular y cada vez más imprescindibl,rotacion,4
+2026-11-14,Barcelona,brian-farinas,Brian Fariñas Reconvertido en lateral derecho por las lesion,rotacion,4
+2026-11-14,Barcelona,marc-bernal,"Marc Bernal Sustituto elegido para cubrir la baja de Rodri, ",rotacion,4
+2026-11-14,Barcelona,karim-adeyemi,Karim Adeyemi Principal alternativa a Gordon en la izquierda,rotacion,4
+2026-11-14,Barcelona,frenkie-de-jong,Frenkie de Jong Recuperado y nuevamente integrado en la rota,revulsivos,3
+2026-11-14,Barcelona,gabriel-jesus,Gabriel Jesus Principal alternativa a Raphinha como delanter,revulsivos,3
+2026-11-14,Barcelona,dominik-livakovic,Dominik Livakovic Segundo guardameta y principal alternativa,reservas,2
+2026-11-14,Barcelona,wojciech-szczesny,"Wojciech Szczesny Tercer guardameta de la plantilla, clarame",reservas,2
+2026-11-14,Barcelona,alejandro-balde,Alejandro Balde Lateral izquierdo relegado por decisión técn,reservas,2
+2026-11-14,Barcelona,pablo-gavi,Pablo Gavi Centrocampista de rotación secundaria que busca r,reservas,2
+2026-11-14,Barcelona,hamza-abdelkarim,Hamza Abdelkarim Delantero joven con presencia ocasional en ,reservas,2
+2026-11-14,Barcelona,roony-bardghji,Roony Bardghji Extremo apartado por una grave lesión de rodi,reservas,2
+2026-11-14,Betis,alvaro-valles,Álvaro Valles Guardameta absolutamente indiscutible y primer,clave,6
+2026-11-14,Betis,natan,Natan Central de máxima confianza y titular preferente en el,clave,6
+2026-11-14,Betis,pablo-fornals,Pablo Fornals Centrocampista imprescindible por su capacidad,clave,6
+2026-11-14,Betis,isco-alarcon,Isco Alarcón Principal referencia creativa del equipo y medi,clave,6
+2026-11-14,Betis,antony,Antony Extremo derecho de máxima confianza para Pellegrini p,clave,6
+2026-11-14,Betis,abde-ezzalzouli,Abde Ezzalzouli Extremo izquierdo prácticamente indiscutible,clave,6
+2026-11-14,Betis,fran-garcia,Fran García Lateral izquierdo titular y primera elección de ,importantes,5
+2026-11-14,Betis,marc-bartra,Marc Bartra Central de gran jerarquía y pareja habitual de N,importantes,5
+2026-11-14,Betis,hector-bellerin,Héctor Bellerín Lateral derecho preferido por Pellegrini por,importantes,5
+2026-11-14,Betis,marc-roca,Marc Roca Mediocentro de referencia por su equilibrio y capa,importantes,5
+2026-11-14,Betis,cucho-hernandez,Cucho Hernández Delantero centro preferido por Pellegrini po,importantes,5
+2026-11-14,Betis,diego-javier-llorente,Diego Javier Llorente Central de garantías con opciones frec,rotacion,4
+2026-11-14,Betis,valentin-gomez,Valentín Gómez Central zurdo con oportunidades habituales en,rotacion,4
+2026-11-14,Betis,ngel-ortiz,Ángel Ortiz Lateral derecho con opciones frecuentes de titul,rotacion,4
+2026-11-14,Betis,facundo-bernal,Facundo Bernal Mediocentro de perfil defensivo con opciones ,rotacion,4
+2026-11-14,Betis,rodrigo-riquelme,Rodrigo Riquelme Atacante polivalente con opciones de titula,rotacion,4
+2026-11-14,Betis,dani-ceballos,Dani Ceballos Centrocampista de rotación habitual por su cal,rotacion,4
+2026-11-14,Betis,troy-parrott,Troy Parrott Delantero con oportunidades frecuentes de titul,rotacion,4
+2026-11-14,Betis,nelson-deossa,Nelson Deossa Centrocampista de recorrido y potencia física ,revulsivos,3
+2026-11-14,Betis,aitor-ruibal,Aitor Ruibal Futbolista polivalente de máxima confianza para,revulsivos,3
+2026-11-14,Betis,diego-conde,Diego Conde Guardameta suplente que compite con Manu Gonzále,reservas,2
+2026-11-14,Betis,junior-firpo,Junior Firpo Lateral izquierdo que parte por detrás de Fran ,reservas,2
+2026-11-14,Betis,giovani-lo-celso,Giovani Lo Celso Centrocampista ofensivo relegado ante la co,reservas,2
+2026-11-14,Betis,jose-antonio-morante,José Antonio Morante Joven atacante que comienza a recibir o,reservas,2
+2026-11-14,Betis,iker-losada,Iker Losada Atacante sin protagonismo estable en los planes ,reservas,2
+2026-11-14,Betis,lvaro-fidalgo,Álvaro Fidalgo Centrocampista relegado por la competencia de,reservas,2
+2026-11-14,Celta,andrei-radu,Ionut Radu Guardameta absolutamente indiscutible y una de la,clave,6
+2026-11-14,Celta,javi-rodriguez,Javi Rodríguez Central derecho preferido por Giráldez por su,importantes,5
+2026-11-14,Celta,marcos-alonso,Marcos Alonso Central zurdo de gran jerarquía por su experie,importantes,5
+2026-11-14,Celta,yoel-lago,Yoel Lago Central consolidado como uno de los pilares defens,importantes,5
+2026-11-14,Celta,ilaix-moriba,Ilaix Moriba Centrocampista fundamental por su despliegue fí,importantes,5
+2026-11-14,Celta,carl-starfelt,Carl Starfelt Central experimentado con opciones de recupera,rotacion,4
+2026-11-14,Celta,lvaro-nunez,Álvaro Núñez Defensor polivalente con opciones de titularida,rotacion,4
+2026-11-14,Celta,javi-galan,Javi Galán Carrilero izquierdo con opciones frecuentes de ti,rotacion,4
+2026-11-14,Celta,javi-rueda,Javi Rueda Carrilero derecho con un papel importante por su ,rotacion,4
+2026-11-14,Celta,sebastian-caceres,Sebastián Cáceres Central con protagonismo creciente y opcio,rotacion,4
+2026-11-14,Celta,sergio-carreira,Sergio Carreira Carrilero de gran confianza para Giráldez po,rotacion,4
+2026-11-14,Celta,hugo-burcio,Hugo Burcio Centrocampista joven integrado en la dinámica de,rotacion,4
+2026-11-14,Celta,hugo-gonzalez,Hugo González Extremo con opciones frecuentes de titularidad,rotacion,4
+2026-11-14,Celta,couhaib-driouech,Couhaib Driouech Extremo de perfil vertical que compite por ,rotacion,4
+2026-11-14,Celta,williot-swedberg,Williot Swedberg Atacante versátil con oportunidades de titu,rotacion,4
+2026-11-14,Celta,miguel-roman,Miguel Román Centrocampista de gran consideración por su vis,rotacion,4
+2026-11-14,Celta,aleix-febas,Aleix Febas Centrocampista organizador con opciones elevadas,rotacion,4
+2026-11-14,Celta,hugo-lvarez-,Hugo Álvarez Atacante polivalente con oportunidades frecuent,rotacion,4
+2026-11-14,Celta,borja-iglesias,Borja Iglesias Delantero de referencia que busca recuperar p,rotacion,4
+2026-11-14,Celta,iago-aspas,"Iago Aspas Atacante de enorme jerarquía técnica y liderazgo,",rotacion,4
+2026-11-14,Celta,ferran-jutgla,Ferran Jutglà Delantero con numerosas opciones de titularida,rotacion,4
+2026-11-14,Celta,pablo-duran,Pablo Durán Atacante muy valorado por Giráldez por su veloci,rotacion,4
+2026-11-14,Celta,altay-bayindir,Altay Bayindir Segundo guardameta y principal alternativa a ,reservas,2
+2026-11-14,Celta,ivan-villar,"Iván Villar Tercer guardameta de la plantilla, claramente po",reservas,2
+2026-11-14,Celta,abdoulaye-faye,Abdoulaye Faye Central de segunda unidad con escasas oportun,reservas,2
+2026-11-14,Celta,jones-el-abdellaoui,Jones El-Abdellaoui Extremo joven condicionado por su recupe,reservas,2
+2026-11-14,Celta,andres-antanon,Andrés Antañón Centrocampista joven integrado progresivament,reservas,2
+2026-11-14,Deportivo,leo-roman,Leo Román Guardameta indiscutible y primera elección de Hida,clave,6
+2026-11-14,Deportivo,jose-maria-gimenez,José María Giménez Central de máxima confianza y principal r,clave,6
+2026-11-14,Deportivo,giacomo-quagliata,"Giacomo Quagliata Lateral izquierdo preferido por Hidalgo, d",clave,6
+2026-11-14,Deportivo,mario-soriano,Mario Soriano Centrocampista imprescindible para Antonio Hid,clave,6
+2026-11-14,Deportivo,lorenzo-amatucci,Lorenzo Amatucci Mediocentro de gran consideración por su eq,clave,6
+2026-11-14,Deportivo,pierre-emerick-aubameyang,Pierre-Emerick Aubameyang Delantero de máxima jerarquía y pr,clave,6
+2026-11-14,Deportivo,yeremay-hernandez,Yeremay Hernández Extremo de máxima jerarquía y principal re,clave,6
+2026-11-14,Deportivo,miguel-loureiro,Miguel Loureiro Central habitual y principal candidato a aco,importantes,5
+2026-11-14,Deportivo,adria-altimira,Adrià Altimira Lateral derecho preferente por su recorrido y,importantes,5
+2026-11-14,Deportivo,marc-casado,Marc Casadó Mediocentro con argumentos para asentarse en el ,importantes,5
+2026-11-14,Deportivo,luismi-cruz,Luismi Cruz Atacante polivalente con opciones frecuentes de ,importantes,5
+2026-11-14,Deportivo,bil-nsongo,Bil Nsongo Delantero con opciones muy elevadas de titularida,importantes,5
+2026-11-14,Deportivo,ximo-navarro,Ximo Navarro Defensor polivalente con capacidad para actuar ,rotacion,4
+2026-11-14,Deportivo,bright-ede,Bright Ede Central con opciones reales de titularidad por su,rotacion,4
+2026-11-14,Deportivo,diego-villares,Diego Villares Centrocampista de confianza por su despliegue,rotacion,4
+2026-11-14,Deportivo,david-mella,"David Mella Extremo habitual en los planes de Hidalgo, valor",rotacion,4
+2026-11-14,Deportivo,riki-rodriguez,Riki Rodríguez Centrocampista de segunda unidad que aporta o,revulsivos,3
+2026-11-14,Deportivo,jonathan-asp-jensen,Jonathan Asp Jensen Mediocampista ofensivo con calidad para ,revulsivos,3
+2026-11-14,Deportivo,zakaria-eddahchouri,Zakaria Eddahchouri Delantero utilizado para reforzar el ata,revulsivos,3
+2026-11-14,Deportivo,adama-traore-cachas,"Adama Traoré Extremo de gran potencia y desborde, utilizado ",revulsivos,3
+2026-11-14,Deportivo,german-parreno,Germán Parreño Guardameta experimentado sin opciones habitua,reservas,2
+2026-11-14,Deportivo,alvaro-fernandez,Álvaro Fernández Guardameta que compite con Germán Parreño p,reservas,2
+2026-11-14,Deportivo,angelino,Angeliño Lateral izquierdo ofensivo que parte por detrás de ,reservas,2
+2026-11-14,Deportivo,lucas-noubi,Lucas Noubi Central joven con participación limitada ante la,reservas,2
+2026-11-14,Deportivo,dani-barcia,Dani Barcia Central de segunda unidad relegado por la compet,reservas,2
+2026-11-14,Deportivo,arnau-comas,Arnau Comas Defensa central con papel secundario ante la com,reservas,2
+2026-11-14,Deportivo,noe-carrillo,Noé Carrillo Centrocampista joven integrado ocasionalmente e,reservas,2
+2026-11-14,Deportivo,yayo-gonzalez,Yayo González Mediocentro,descartes,1
+2026-11-14,Elche,victor-chust,Víctor Chust Central de máxima confianza y principal referen,clave,6
+2026-11-14,Elche,roy-revivo,Roy Revivo Lateral o carrilero izquierdo de máxima confianza,clave,6
+2026-11-14,Elche,german-valera,Germán Valera Atacante imprescindible por su capacidad de de,clave,6
+2026-11-14,Elche,gonzalo-villar,Gonzalo Villar Centrocampista imprescindible por su visión d,clave,6
+2026-11-14,Elche,fernando-nino,Fernando Niño Delantero centro preferido por su movilidad y ,clave,6
+2026-11-14,Elche,matias-dituro,Matías Dituro Guardameta de máxima confianza y primera opció,importantes,5
+2026-11-14,Elche,buba-sangare,"Buba Sangaré Lateral derecho con gran peso por su recorrido,",importantes,5
+2026-11-14,Elche,thomas-lemar,Thomas Lemar Centrocampista ofensivo con calidad para actuar,importantes,5
+2026-11-14,Elche,javi-morcillo,Javi Morcillo Centrocampista polivalente de confianza por su,importantes,5
+2026-11-14,Elche,lucas-cepeda,Lucas Cepeda Extremo con desequilibrio y capacidad para gene,importantes,5
+2026-11-14,Elche,federico-redondo,Federico Redondo Futbolista de gran peso por su capacidad pa,importantes,5
+2026-11-14,Elche,pedro-bigas,Pedro Bigas Central experimentado y alternativa de garantías,rotacion,4
+2026-11-14,Elche,marc-aguado,Marc Aguado Mediocentro organizador con oportunidades de tit,rotacion,4
+2026-11-14,Elche,tete-morente,Tete Morente Atacante polivalente que puede actuar como carr,rotacion,4
+2026-11-14,Elche,ruben-sanchez-1,Rubén Sánchez Lateral derecho utilizado principalmente como ,revulsivos,3
+2026-11-14,Elche,facundo-buonanotte,Facundo Buonanotte Mediapunta de talento creativo utilizado ,revulsivos,3
+2026-11-14,Elche,martim-neto,Martim Neto Centrocampista con calidad asociativa y llegada ,revulsivos,3
+2026-11-14,Elche,abiel-osorio,Abiel Osorio Delantero de segunda unidad con movilidad y cap,revulsivos,3
+2026-11-14,Elche,alejandro-iturbe,Alejandro Iturbe Segundo guardameta y suplente habitual de M,reservas,2
+2026-11-14,Elche,matia-barzic,Matia Barzic Central joven que busca afianzarse entre las al,reservas,2
+2026-11-14,Elche,kevin-lomonaco,Kevin Lomónaco Central que necesita ganar protagonismo en un,reservas,2
+2026-11-14,Elche,bambo-diaby,"Bambo Diaby Central relegado en la competencia interna, con ",reservas,2
+2026-11-14,Elche,adam-boayar,Adam Boayar Centrocampista joven de proyección con participa,reservas,2
+2026-11-14,Elche,josan,Josan Ferrández Extremo veterano utilizado para aportar prof,reservas,2
+2026-11-14,Elche,-ali-houary,Ali Houary Atacante joven capaz de jugar por dentro o en ban,reservas,2
+2026-11-14,Elche,grady-diangana,Grady Diangana Extremo de velocidad y desborde que busca gan,reservas,2
+2026-11-14,Elche,yago-santiago,Yago Santiago Atacante cuya recuperación física condiciona s,reservas,2
+2026-11-14,Elche,ezequiel-ponce,Ezequiel Ponce Delantero de área que compite con Fernando Ni,reservas,2
+2026-11-14,Espanyol,leandro-cabrera,Leandro Cabrera Central de máxima confianza y principal refe,clave,6
+2026-11-14,Espanyol,omar-el-hilali,Omar El Hilali Defensor prácticamente indiscutible por su re,clave,6
+2026-11-14,Espanyol,edu-exposito,Edu Expósito Centrocampista imprescindible por su capacidad ,clave,6
+2026-11-14,Espanyol,roberto-fernandez-1,Roberto Fernández Delantero centro indiscutible y principal ,clave,6
+2026-11-14,Espanyol,ngel-fortuno,Ángel Fortuño Guardameta preferido por Sarabia y primera opc,importantes,5
+2026-11-14,Espanyol,javier-hernandez,Javier Hernández Centrocampista ofensivo con un papel import,importantes,5
+2026-11-14,Espanyol,roger-hinojo,Roger Hinojo Lateral izquierdo con opciones importantes de t,rotacion,4
+2026-11-14,Espanyol,quilindschy-hartman,Quilindschy Hartman Lateral izquierdo con opciones reales de,rotacion,4
+2026-11-14,Espanyol,lex-calatrava,Álex Calatrava Mediapunta con opciones frecuentes de titular,rotacion,4
+2026-11-14,Espanyol,urko-gonzalez-de-zarate,Urko González de Zarate Mediocentro de gran consideración po,rotacion,4
+2026-11-14,Espanyol,pol-lozano,Pol Lozano Centrocampista de confianza por su capacidad orga,rotacion,4
+2026-11-14,Espanyol,bryan-zaragoza,Bryan Zaragoza Extremo de gran desequilibrio y capacidad par,rotacion,4
+2026-11-14,Espanyol,pere-milla,"Pere Milla Atacante experimentado y polivalente, con opcione",rotacion,4
+2026-11-14,Espanyol,tyrhys-dolan,"Tyrhys Dolan Extremo con opciones frecuentes de titularidad,",rotacion,4
+2026-11-14,Espanyol,gabriel-moscardo,Gabriel Moscardo Mediocentro joven con capacidad para aporta,revulsivos,3
+2026-11-14,Espanyol,marcos-fernandez-1,Marcos Fernández Delantero joven utilizado principalmente pa,revulsivos,3
+2026-11-14,Espanyol,javi-puado,Javi Puado Atacante de gran jerarquía técnica y capacidad go,revulsivos,3
+2026-11-14,Espanyol,marko-dmitrovic,Marko Dmitrovic Guardameta experimentado que ha perdido la t,reservas,2
+2026-11-14,Espanyol,andoni-gorosabel,Andoni Gorosabel Lateral derecho que parte por detrás de Oma,reservas,2
+2026-11-14,Espanyol,clemens-riedel,Clemens Riedel Central joven con opciones de participar en l,reservas,2
+2026-11-14,Espanyol,unai-nunez,Unai Núñez Central experimentado con opciones de titularidad,reservas,2
+2026-11-14,Espanyol,vanja-drkusic,Vanja Drkusic Central con opciones de participar en diferent,reservas,2
+2026-11-14,Espanyol,jofre-carreras,Jofre Carreras Extremo que busca recuperar continuidad tras ,reservas,2
+2026-11-14,Espanyol,rafel-bauza,Rafel Bauzà Centrocampista joven con oportunidades limitadas,reservas,2
+2026-11-14,Espanyol,kike-garcia,Kike García Delantero experimentado que busca recuperar prot,reservas,2
+2026-11-14,Getafe,david-soria,David Soria Guardameta absolutamente indiscutible y primera ,clave,6
+2026-11-14,Getafe,zaid-romero,"Zaid Romero Central de máxima confianza por su contundencia,",clave,6
+2026-11-14,Getafe,nemanja-gudelj,"Nemanja Gudelj Futbolista imprescindible por su experiencia,",clave,6
+2026-11-14,Getafe,johan-mojica,Johan Mojica Lateral izquierdo prácticamente indiscutible po,clave,6
+2026-11-14,Getafe,dakonam-djene,Dakonam Djené Capitán y principal referencia defensiva del e,clave,6
+2026-11-14,Getafe,enes-unal,Enes Ünal Delantero de máxima jerarquía y principal referenc,clave,6
+2026-11-14,Getafe,martin-satriano,Martín Satriano Atacante de máxima confianza por su movilida,clave,6
+2026-11-14,Getafe,daniel-carvajal,Daniel Carvajal Lateral derecho preferido por Bordalás por s,importantes,5
+2026-11-14,Getafe,andres-garcia,Andrés García Futbolista polivalente con opciones importante,importantes,5
+2026-11-14,Getafe,orel-mangala,Orel Mangala Mediocentro con gran peso en los planes de Bord,importantes,5
+2026-11-14,Getafe,terrats,Ramón Terrats Centrocampista creativo con opciones elevadas ,importantes,5
+2026-11-14,Getafe,mario-martin,"Mario Martín Centrocampista de confianza por su intensidad, ",importantes,5
+2026-11-14,Getafe,kiko-femenia,Kiko Femenia Lateral derecho experimentado que ha perdido ve,rotacion,4
+2026-11-14,Getafe,sebastian-boselli,Sebastián Boselli Central con opciones frecuentes de titular,rotacion,4
+2026-11-14,Getafe,francho-serrano,Francho Serrano Centrocampista de recorrido y trabajo defens,rotacion,4
+2026-11-14,Getafe,ivan-azon,Iván Azón Delantero con opciones de titularidad y participac,rotacion,4
+2026-11-14,Getafe,davinchi,Davinchi Lateral izquierdo joven utilizado como alternativa ,revulsivos,3
+2026-11-14,Getafe,borja-mayoral,Borja Mayoral Delantero de gran experiencia y capacidad gole,revulsivos,3
+2026-11-14,Getafe,jiri-letacek,Jiri Letácek Segundo guardameta de la plantilla y suplente d,reservas,2
+2026-11-14,Getafe,jean-ives-valou,Jean Ives Valou Defensor joven con oportunidades limitadas a,reservas,2
+2026-11-14,Getafe,saba-sazonov,Saba Sazonov Central de segunda unidad con oportunidades pun,reservas,2
+2026-11-14,Getafe,abdel-abqar,Abdel Abqar Central con experiencia que busca recuperar prot,reservas,2
+2026-11-14,Getafe,chrisantus-uche,Christantus Uche Centrocampista polivalente apartado por una,reservas,2
+2026-11-14,Getafe,juanmi-jimenez,Juanmi Jiménez Atacante condicionado por sus problemas físic,reservas,2
+2026-11-14,Levante,mat-ryan,Mathew Ryan Guardameta indiscutible y primera elección de Lu,clave,6
+2026-11-14,Levante,manu-sanchez,Manu Sánchez Lateral izquierdo de máxima consideración por s,clave,6
+2026-11-14,Levante,jon-ander-olasagasti,Jon Ander Olasagasti Centrocampista imprescindible por su re,clave,6
+2026-11-14,Levante,roger-brugue,Roger Brugué Atacante de máxima confianza y principal refere,clave,6
+2026-11-14,Levante,ivan-romero,"Iván Romero Delantero de gran jerarquía por su movilidad, pr",clave,6
+2026-11-14,Levante,adrian-de-la-fuente,Adrián de la Fuente Central de gran confianza para Luís Cast,importantes,5
+2026-11-14,Levante,dani-requena,Dani Requena Centrocampista con gran peso en los planes de C,importantes,5
+2026-11-14,Levante,thiago-fernandez,Thiago Fernández Extremo con opciones muy elevadas de titula,importantes,5
+2026-11-14,Levante,nacho-perez-1,Nacho Pérez Lateral polivalente con opciones frecuentes de t,rotacion,4
+2026-11-14,Levante,aissa-mandi,"Aissa Mandi Central experimentado que aporta contundencia, c",rotacion,4
+2026-11-14,Levante,ifeanyi-ndukwe,Ifeanyi Ndukwe Central joven con un papel creciente y opcion,rotacion,4
+2026-11-14,Levante,jeremy-toljan,Jeremy Toljan Lateral derecho de experiencia y recorrido ofe,rotacion,4
+2026-11-14,Levante,enzo-bardelli,Enzo Bardelli Centrocampista creativo con opciones reales de,rotacion,4
+2026-11-14,Levante,oriol-rey,Oriol Rey Mediocentro de equilibrio con oportunidades frecue,rotacion,4
+2026-11-14,Levante,etta-eyong,Karl Etta Eyong Delantero con opciones frecuentes de titular,rotacion,4
+2026-11-14,Levante,victor-garcia-1,Víctor García Lateral o carrilero derecho utilizado principa,revulsivos,3
+2026-11-14,Levante,hugo-sotelo,Hugo Sotelo Centrocampista organizador con capacidad para ap,revulsivos,3
+2026-11-14,Levante,petar-ratkov,Petar Ratkov Delantero de referencia con capacidad para fija,revulsivos,3
+2026-11-14,Levante,alejandro-primo,Alejandro Primo Guardameta joven integrado en las convocator,reservas,2
+2026-11-14,Levante,pablo-campos,Pablo Campos Guardameta de segunda unidad que compite con Cu,reservas,2
+2026-11-14,Levante,marc-santos,Marc Santos Lateral joven que comienza a recibir oportunidad,reservas,2
+2026-11-14,Levante,jorge-cabello,Jorge Cabello Central de segunda unidad con opciones de part,reservas,2
+2026-11-14,Levante,axel-tape,Axel Tape Centrocampista defensivo con capacidad para actuar,reservas,2
+2026-11-14,Levante,paco-cortes,Paco Cortés Atacante joven utilizado como alternativa para a,reservas,2
+2026-11-14,Levante,yanis-musuayi,Yanis Musuayi Delantero joven con capacidad para aportar vel,reservas,2
+2026-11-14,Málaga,alfonso-herrero,Alfonso Herrero Guardameta absolutamente indiscutible y prim,clave,6
+2026-11-14,Málaga,rafa-garrido,Rafa Garrido Defensor de máxima confianza para Funes por su ,clave,6
+2026-11-14,Málaga,angel-recio,Angel Recio Central de máxima jerarquía y principal referenc,clave,6
+2026-11-14,Málaga,david-larrubia,David Larrubia Mediapunta imprescindible y principal referen,clave,6
+2026-11-14,Málaga,carlos-dotor,"Carlos Dotor Centrocampista fundamental por su recorrido, ca",clave,6
+2026-11-14,Málaga,einar-galilea,Einar Galilea Central de gran confianza para Funes por su co,importantes,5
+2026-11-14,Málaga,pablo-martinez,Pablo Martínez Centrocampista de gran consideración por su c,importantes,5
+2026-11-14,Málaga,dani-lorenzo-1,Dani Lorenzo Centrocampista habitual en los planes de Funes ,importantes,5
+2026-11-14,Málaga,adrian-nino,Adrián Niño Delantero con opciones muy elevadas de titularid,importantes,5
+2026-11-14,Málaga,fernando-calero,Fernando Calero Central experimentado con opciones frecuente,rotacion,4
+2026-11-14,Málaga,carlos-puga,Carlos Puga Lateral derecho con opciones reales de titularid,rotacion,4
+2026-11-14,Málaga,adam-aznou,Adam Aznou Lateral o carrilero izquierdo de perfil ofensivo ,rotacion,4
+2026-11-14,Málaga,jose-salinas,José Salinas Lateral izquierdo con opciones frecuentes de ti,rotacion,4
+2026-11-14,Málaga,joaquin-munoz,Joaquín Muñoz Extremo de experiencia y desequilibrio con opc,rotacion,4
+2026-11-14,Málaga,ramon-enriquez,Ramón Enríquez Centrocampista organizador con opciones reale,rotacion,4
+2026-11-14,Málaga,chupete,Chupete Delantero de referencia con capacidad goleadora y pr,rotacion,4
+2026-11-14,Málaga,rafa-rodriguez,Rafa Rodríguez Centrocampista joven utilizado como alternati,revulsivos,3
+2026-11-14,Málaga,carlos-lopez,Carlos López Segundo guardameta y suplente directo de Alfons,reservas,2
+2026-11-14,Málaga,juan-berrocal,Juan Berrocal Central con opciones de participar en las rota,reservas,2
+2026-11-14,Málaga,diego-murillo,Diego Murillo Defensor que busca recuperar continuidad tras ,reservas,2
+2026-11-14,Málaga,lex-pastor,Álex Pastor Central de segunda unidad con opciones de partic,reservas,2
+2026-11-14,Málaga,aaron-ochoa,Aarón Ochoa Mediapunta joven cuya progresión está condiciona,reservas,2
+2026-11-14,Málaga,jens-cajuste,Jens Cajuste Mediocentro con experiencia y capacidad física ,reservas,2
+2026-11-14,Málaga,izan-merino,Izan Merino Centrocampista joven con capacidad para aportar ,reservas,2
+2026-11-14,Málaga,juan-cruz-2,"Juan Cruz Extremo con capacidad para aportar velocidad, desb",reservas,2
+2026-11-14,Málaga,eneko-jauregi,Eneko Jauregi Delantero de perfil físico utilizado principal,reservas,2
+2026-11-14,Málaga,haitam-abaida,Haitam Abaida Extremo con capacidad para aportar velocidad y,reservas,2
+2026-11-14,Málaga,julen-lobete,Julen Lobete Atacante apartado por una grave lesión de rodil,reservas,2
+2026-11-14,Osasuna,alejandro-catena,Alejandro Catena Central de máxima confianza y principal ref,clave,6
+2026-11-14,Osasuna,jon-moncayola,Jon Moncayola Centrocampista imprescindible por su recorrido,clave,6
+2026-11-14,Osasuna,ante-budimir,Ante Budimir Delantero centro indiscutible y principal refer,clave,6
+2026-11-14,Osasuna,sergio-herrera,Sergio Herrera Guardameta de gran jerarquía y experiencia qu,importantes,5
+2026-11-14,Osasuna,valentin-rosier,Valentin Rosier Lateral derecho preferido por Arrasate por s,importantes,5
+2026-11-14,Osasuna,boyomo,"Boyomo Central de gran confianza por su fortaleza física, ve",importantes,5
+2026-11-14,Osasuna,abel-bretones,"Abel Bretones Lateral izquierdo habitual por su recorrido, i",importantes,5
+2026-11-14,Osasuna,ruben-garcia,Rubén García Atacante de gran confianza para Arrasate por su,importantes,5
+2026-11-14,Osasuna,moi-gomez,Moi Gómez Centrocampista de gran consideración por su calida,importantes,5
+2026-11-14,Osasuna,aimar-oroz,"Aimar Oroz Mediapunta de gran jerarquía por su creatividad, ",importantes,5
+2026-11-14,Osasuna,aitor-fernandez,Aitor Fernández Guardameta que disputa directamente la titul,rotacion,4
+2026-11-14,Osasuna,lucas-torro,Lucas Torró Mediocentro de equilibrio con numerosas opciones,rotacion,4
+2026-11-14,Osasuna,iker-munoz,Iker Muñoz Centrocampista con opciones frecuentes de titular,rotacion,4
+2026-11-14,Osasuna,raul-moro,Raul Moro Extremo de gran velocidad y desequilibrio con opci,rotacion,4
+2026-11-14,Osasuna,jonathan-dubasin,Jonathan Dubasin Atacante polivalente con opciones de titula,rotacion,4
+2026-11-14,Osasuna,inigo-arguibide,Iñigo Arguibide Lateral derecho joven con proyección y capac,revulsivos,3
+2026-11-14,Osasuna,asier-osambela,Asier Osambela Centrocampista joven de gran despliegue físic,revulsivos,3
+2026-11-14,Osasuna,kike-barja,Kike Barja Extremo experimentado utilizado principalmente pa,revulsivos,3
+2026-11-14,Osasuna,raul-garcia-1,Raúl García Delantero centro y principal alternativa a Budim,revulsivos,3
+2026-11-14,Osasuna,rockson-yeboah,Rockson Yeboah Defensor joven con oportunidades limitadas an,reservas,2
+2026-11-14,Osasuna,unai-santos,Unai Santos Defensor joven que comienza a entrar en los plan,reservas,2
+2026-11-14,Osasuna,jorge-herrando,Jorge Herrando Central que busca recuperar protagonismo en u,reservas,2
+2026-11-14,Osasuna,diego-rico,Diego Rico Lateral izquierdo experimentado que compite direc,reservas,2
+2026-11-14,Osasuna,mauro-echegoyen,Mauro Echegoyen Centrocampista joven con participación secun,reservas,2
+2026-11-14,Osasuna,romain-del-castillo,Romain Del Castillo Atacante de calidad técnica y capacidad ,reservas,2
+2026-11-14,Racing,julen-agirrezabala,Julen Agirrezabala Guardameta indiscutible y primera elecció,clave,6
+2026-11-14,Racing,pablo-ramon,Pablo Ramón Central de máxima confianza por su contundencia ,clave,6
+2026-11-14,Racing,jorge-salinas,Jorge Salinas Lateral izquierdo de máxima confianza por su r,clave,6
+2026-11-14,Racing,sergio-canales,Sergio Canales Mediapunta de máxima jerarquía y principal re,clave,6
+2026-11-14,Racing,inigo-vicente,Iñigo Vicente Extremo o mediapunta imprescindible por su cap,clave,6
+2026-11-14,Racing,ivan-martin,Iván Martín Centrocampista fundamental por su capacidad asoc,clave,6
+2026-11-14,Racing,yassir-zabiri,"Yassir Zabiri Delantero centro preferido por su movilidad, p",clave,6
+2026-11-14,Racing,jeanul-belocian,Jeanuël Belocian Central zurdo de gran consideración por su ,importantes,5
+2026-11-14,Racing,matteo-prati,Matteo Prati Mediocentro importante por su capacidad organiz,importantes,5
+2026-11-14,Racing,andres-martin,"Andrés Martín Atacante de gran jerarquía por su desborde, mo",importantes,5
+2026-11-14,Racing,pedro-felipe,Pedro Felipe Central con opciones reales de titularidad y co,rotacion,4
+2026-11-14,Racing,iker-luque,Iker Luque Centrocampista polivalente con opciones de titula,rotacion,4
+2026-11-14,Racing,aaron-martin,Aarón Martín Lateral izquierdo experimentado que parte por d,revulsivos,3
+2026-11-14,Racing,andre-almeida-1,André Almeida Centrocampista de calidad asociativa utilizado,revulsivos,3
+2026-11-14,Racing,pablo-garcia-1,"Pablo García Atacante joven que aporta velocidad, desborde y",revulsivos,3
+2026-11-14,Racing,giorgi-guliashvili,Giorgi Guliashvili Atacante polivalente que puede actuar en ,revulsivos,3
+2026-11-14,Racing,simon-eriksson,Simon Eriksson Segundo guardameta y suplente directo de Jule,reservas,2
+2026-11-14,Racing,manu-hernando,Manu Hernando Central con opciones de participar en las rota,reservas,2
+2026-11-14,Racing,lvaro-mantilla,Álvaro Mantilla Lateral derecho de gran utilidad por su expe,reservas,2
+2026-11-14,Racing,facundo-gonzalez,Facundo González Central de garantías que compite con Beloci,reservas,2
+2026-11-14,Racing,nigo-sainz-maza,Íñigo Sainz-Maza Centrocampista de experiencia que tiene num,reservas,2
+2026-11-14,Racing,maguette-gueye,Maguette Gueye Mediocentro físico de segunda unidad que apor,reservas,2
+2026-11-14,Racing,asier-villalibre,Asier Villalibre Delantero centro que aporta presencia físic,reservas,2
+2026-11-14,Racing,juan-carlos-arana,Juan Carlos Arana Delantero con capacidad para atacar espaci,reservas,2
+2026-11-14,Rayo,florian-lejeune,Florian Lejeune Central imprescindible y principal referenci,clave,6
+2026-11-14,Rayo,andrei-florin,Andrei Ratiu Lateral derecho indiscutible y pieza fundamenta,clave,6
+2026-11-14,Rayo,pathe-ciss,Pathé Ciss Mediocentro imprescindible por su despliegue físi,clave,6
+2026-11-14,Rayo,unai-lopez,Unai López Centrocampista imprescindible y principal organiz,clave,6
+2026-11-14,Rayo,alvaro-garcia,Álvaro García Extremo izquierdo de máxima confianza por su v,clave,6
+2026-11-14,Rayo,jorge-de-frutos,"Jorge de Frutos Atacante imprescindible por su velocidad, mo",clave,6
+2026-11-14,Rayo,sergio-camello,Sergio Camello Delantero centro preferido por Beñat San José,clave,6
+2026-11-14,Rayo,emil-audero,Emil Audero Guardameta preferido por Beñat y primera opción ,importantes,5
+2026-11-14,Rayo,adria-pedrosa,Adrià Pedrosa Lateral izquierdo preferido por Beñat por su r,importantes,5
+2026-11-14,Rayo,mujaid-sadick,Mujaid Sadick Central con opciones importantes de titularida,importantes,5
+2026-11-14,Rayo,pedro-diaz,Pedro Díaz Centrocampista ofensivo con opciones muy elevadas,importantes,5
+2026-11-14,Rayo,isi-palazon,Isi Palazón Atacante de gran jerarquía técnica y una de las ,rotacion,4
+2026-11-14,Rayo,scar-valentin,Óscar Valentín Mediocentro de confianza por su capacidad def,rotacion,4
+2026-11-14,Rayo,jozhua-vertrouwd,Jozhua Vertrouwd Defensor polivalente que puede actuar como ,revulsivos,3
+2026-11-14,Rayo,georgiy-tsitaishvili,Georgiy Tsitaishvili Extremo de gran velocidad y desborde ut,revulsivos,3
+2026-11-14,Rayo,gnangoro-bouare,Gnangoro Bouare Centrocampista físico y polivalente utilizad,revulsivos,3
+2026-11-14,Rayo,alemo,Alemão Delantero de perfil físico utilizado principalmente p,revulsivos,3
+2026-11-14,Rayo,dani-cardenas,Dani Cárdenas Guardameta que ha perdido protagonismo frente ,reservas,2
+2026-11-14,Rayo,augusto-batalla,Augusto Batalla Guardameta de gran jerarquía que continúa re,reservas,2
+2026-11-14,Rayo,luiz-felipe,Luiz Felipe Central apartado por una grave lesión de rodilla,reservas,2
+2026-11-14,Rayo,ivan-balliu,Iván Balliu Lateral derecho experimentado que parte claramen,reservas,2
+2026-11-14,Rayo,pelayo-fernandez,Pelayo Fernández Central joven con opciones limitadas ante l,reservas,2
+2026-11-14,Rayo,marash-kumbulla,Marash Kumbulla Central con opciones de recuperar protagonis,reservas,2
+2026-11-14,Rayo,fran-perez,"Fran Pérez Extremo con capacidad para aportar velocidad, des",reservas,2
+2026-11-14,Rayo,rayane-belaid,Rayane Belaid Atacante joven con capacidad para jugar en amb,reservas,2
+2026-11-14,Rayo,randy-nteka,Randy Nteka Delantero polivalente utilizado como alternativa,reservas,2
+2026-11-14,Rayo,raul-de-tomas,Raúl De Tomás Se debate entre la pintura y la tauromaquia.,descartes,1
+2026-11-14,Real Madrid,kylian-mbappe,"Kylian Mbappé Delantero centro absolutamente indiscutible, c",dios,7
+2026-11-14,Real Madrid,thibaut-courtois,Thibaut Courtois Guardameta absolutamente indiscutible y pri,clave,6
+2026-11-14,Real Madrid,marc-cucurella,"Marc Cucurella Lateral izquierdo preferido por Mourinho, con",clave,6
+2026-11-14,Real Madrid,dean-huijsen,Dean Huijsen Central titular y referencia en la construcción,clave,6
+2026-11-14,Real Madrid,federico-valverde,Federico Valverde Futbolista imprescindible para Mourinho po,clave,6
+2026-11-14,Real Madrid,jude-bellingham,Jude Bellingham Mediapunta indiscutible y pieza fundamental ,clave,6
+2026-11-14,Real Madrid,aurelien-tchouameni,Aurélien Tchouaméni Mediocentro de referencia por su capacid,clave,6
+2026-11-14,Real Madrid,arda-gler,Arda Güler Centrocampista ofensivo con una posición relevant,clave,6
+2026-11-14,Real Madrid,ibrahima-konate,Ibrahima Konaté Central de máxima confianza y pareja habitua,importantes,5
+2026-11-14,Real Madrid,bernardo-silva,Bernardo Silva Centrocampista consolidado en los planes de M,importantes,5
+2026-11-14,Real Madrid,vinicius-junior,"Vinicius Junior Extremo izquierdo de máxima jerarquía, aunqu",importantes,5
+2026-11-14,Real Madrid,antonio-rudiger,Antonio Rüdiger Central de garantías y alternativa habitual ,rotacion,4
+2026-11-14,Real Madrid,denzel-dumfries,Denzel Dumfries Lateral derecho de perfil ofensivo que compi,rotacion,4
+2026-11-14,Real Madrid,lvaro-fernandez-1,Álvaro F. Carreras Alternativa principal a Cucurella en el l,rotacion,4
+2026-11-14,Real Madrid,eduardo-camavinga,Eduardo Camavinga Centrocampista polivalente con opciones de,rotacion,4
+2026-11-14,Real Madrid,yan-diomande,Yan Diomande Extremo con opciones importantes de titularidad,rotacion,4
+2026-11-14,Real Madrid,brahim-diaz,Brahim Díaz Atacante de segunda unidad con capacidad para ju,revulsivos,3
+2026-11-14,Real Madrid,carlos-espi,Carlos Espí Delantero utilizado principalmente para reforzar,revulsivos,3
+2026-11-14,Real Madrid,andriy-lunin,"Andriy Lunin Segundo guardameta de la plantilla, sin opcione",reservas,2
+2026-11-14,Real Madrid,der-milito,Éder Militão Central que busca recuperar continuidad tras su,reservas,2
+2026-11-14,Real Madrid,trent-alexander-arnold,"Trent Alexander-Arnold Lateral derecho de rotación, con comp",reservas,2
+2026-11-14,Real Madrid,ferland-mendy,Ferland Mendy Lateral izquierdo sin protagonismo competitivo,reservas,2
+2026-11-14,Real Madrid,raul-asencio-1,Raúl Asencio Central relegado en una defensa con numerosos e,reservas,2
+2026-11-14,Real Madrid,thiago-pitarch,Thiago Pitarch Centrocampista joven que comienza a entrar en,reservas,2
+2026-11-14,Real Madrid,endrick,Endrick Atacante joven con oportunidades limitadas de inicio,reservas,2
+2026-11-14,Real Madrid,rodrygo-goes,Rodrygo Goes Extremo apartado por una lesión de larga duraci,reservas,2
+2026-11-14,Real Sociedad,alex-remiro,Álex Remiro Guardameta absolutamente indiscutible y primera ,clave,6
+2026-11-14,Real Sociedad,jon-martin,Jon Martín Central de máxima confianza para Matarazzo por su,clave,6
+2026-11-14,Real Sociedad,jon-aramburu,"Jon Aramburu Lateral derecho indiscutible por su recorrido, ",clave,6
+2026-11-14,Real Sociedad,sergio-gomez,Sergio Gómez Lateral izquierdo preferido por Matarazzo por s,clave,6
+2026-11-14,Real Sociedad,luka-sucic,Luka Sucic Centrocampista ofensivo de máxima confianza por s,clave,6
+2026-11-14,Real Sociedad,mikel-oyarzabal,Mikel Oyarzabal Capitán y principal referencia ofensiva del ,clave,6
+2026-11-14,Real Sociedad,mamadou-sarr,Mamadou Sarr Central de gran confianza por su fortaleza físi,importantes,5
+2026-11-14,Real Sociedad,carlos-soler,Carlos Soler Centrocampista de gran consideración por su exp,importantes,5
+2026-11-14,Real Sociedad,goncalo-guedes,Gonçalo Guedes Atacante de gran peso en los planes de Matara,importantes,5
+2026-11-14,Real Sociedad,igor-zubeldia,Igor Zubeldia Central experimentado y de máxima confianza po,rotacion,4
+2026-11-14,Real Sociedad,yangel-herrera,"Yangel Herrera Centrocampista de recorrido, fortaleza física",rotacion,4
+2026-11-14,Real Sociedad,takefusa-kubo,Takefusa Kubo Extremo derecho de gran calidad y desequilibri,rotacion,4
+2026-11-14,Real Sociedad,jon-gorrotxategi,Jon Gorrotxategi Mediocentro de equilibrio con opciones frec,rotacion,4
+2026-11-14,Real Sociedad,benat-turrientes,Beñat Turrientes Centrocampista de gran capacidad asociativa,rotacion,4
+2026-11-14,Real Sociedad,orri-steinn-skarsson,Orri Steinn Óskarsson Delantero centro con opciones importan,rotacion,4
+2026-11-14,Real Sociedad,hector-fort,Héctor Fort Lateral derecho joven utilizado principalmente c,revulsivos,3
+2026-11-14,Real Sociedad,job-ochieng,Job Ochieng Extremo de gran velocidad y capacidad de desbord,revulsivos,3
+2026-11-14,Real Sociedad,unai-marrero,Unai Marrero Segundo guardameta de la plantilla y suplente d,reservas,2
+2026-11-14,Real Sociedad,aihen-munoz,Aihen Muñoz Lateral izquierdo experimentado que parte por de,reservas,2
+2026-11-14,Real Sociedad,luken-beitia,Luken Beitia Central joven integrado ocasionalmente en la di,reservas,2
+2026-11-14,Real Sociedad,jon-pacheco,Jon Pacheco Central zurdo con oportunidades limitadas ante l,reservas,2
+2026-11-14,Real Sociedad,alvaro-odriozola,Álvaro Odriozola Lateral derecho condicionado por una lesión,reservas,2
+2026-11-14,Real Sociedad,pablo-marin,Pablo Marín Centrocampista ofensivo con capacidad para aport,reservas,2
+2026-11-14,Real Sociedad,alex-marchal,Alex Marchal Centrocampista joven que comienza a entrar en l,reservas,2
+2026-11-14,Real Sociedad,arsen-zakharyan,Arsen Zakharyan Mediapunta de gran calidad técnica que busca,reservas,2
+2026-11-14,Real Sociedad,ander-barrenetxea,Ander Barrenetxea Extremo de gran desequilibrio y profundida,reservas,2
+2026-11-14,Sevilla,odysseas-vlachodimos,Odysseas Vlachodimos Portero indiscutible y primera elección,clave,6
+2026-11-14,Sevilla,kike-salas,"Kike Salas Central zurdo de máxima confianza, importante por",clave,6
+2026-11-14,Sevilla,juan-iglesias,Juan Iglesias Lateral derecho preferido por su fiabilidad y ,clave,6
+2026-11-14,Sevilla,gabriel-suazo,Gabriel Suazo Lateral izquierdo de máxima confianza por su i,clave,6
+2026-11-14,Sevilla,lucien-agoume,"Lucien Agoume Mediocentro imprescindible por su despliegue, ",clave,6
+2026-11-14,Sevilla,youssouf-fofana,"Youssouf Fofana Centrocampista fundamental por su potencia, ",clave,6
+2026-11-14,Sevilla,felix-correia,Félix Correia Extremo de gran consideración por su velocidad,importantes,5
+2026-11-14,Sevilla,lucas-stassin,Lucas Stassin Delantero centro con ventaja para liderar el a,importantes,5
+2026-11-14,Sevilla,andres-castrin,Andrés Castrín Central joven con opciones frecuentes de titu,rotacion,4
+2026-11-14,Sevilla,arouna-sangante,Arouna Sangante Defensor con opciones importantes de titular,rotacion,4
+2026-11-14,Sevilla,jon-guridi,Jon Guridi Interior de recorrido y llegada con opciones real,rotacion,4
+2026-11-14,Sevilla,giorgi-kochorashvili-1,Giorgi Kochorashvili Centrocampista de intensidad y capacida,rotacion,4
+2026-11-14,Sevilla,chidera-ejuke,Chidera Ejuke Extremo vertical utilizado para aportar desbor,rotacion,4
+2026-11-14,Sevilla,isaac-romero,Isaac Romero Delantero de movilidad y presión con opciones p,rotacion,4
+2026-11-14,Sevilla,ruben-vargas,Rubén Vargas Atacante de gran desequilibrio y capacidad para,rotacion,4
+2026-11-14,Sevilla,alfonso-gonzalez,Alfonso González Extremo de segunda unidad capaz de aportar ,revulsivos,3
+2026-11-14,Sevilla,manu-bueno,Manu Bueno Centrocampista de rotación secundaria que aporta ,revulsivos,3
+2026-11-14,Sevilla,robbie-ure,Robbie Ure Delantero con presencia física y capacidad remata,revulsivos,3
+2026-11-14,Sevilla,fran-gonzalez-2,Fran González Segundo guardameta y suplente directo de Vlach,reservas,2
+2026-11-14,Sevilla,julio-diaz,Julio Díaz Lateral izquierdo joven que parte por detrás de G,reservas,2
+2026-11-14,Sevilla,jose-ngel-carmona,José Ángel Carmona Defensor polivalente con capacidad para a,reservas,2
+2026-11-14,Sevilla,fabio-cardoso,Fábio Cardoso Central de segunda unidad con escaso protagoni,reservas,2
+2026-11-14,Sevilla,marcao,Marcão Central condicionado por su situación física y por la,reservas,2
+2026-11-14,Sevilla,miguel-sierra,Miguel Sierra Atacante de banda con velocidad y capacidad pa,reservas,2
+2026-11-14,Sevilla,peque,Peque Atacante versátil capaz de actuar entre líneas y en ba,reservas,2
+2026-11-14,Valencia,stole-dimitrievski,Stole Dimitrievski Portero,clave,6
+2026-11-14,Valencia,jose-gaya,José Gayà Lateral izquierdo,clave,6
+2026-11-14,Valencia,guido-rodriguez,Guido Rodríguez Pivote defensivo,clave,6
+2026-11-14,Valencia,javi-guerra-1,Javi Guerra Mediocentro,clave,6
+2026-11-14,Valencia,pepelu,Pepelu Pivote defensivo,clave,6
+2026-11-14,Valencia,pablo-maffeo,Pablo Maffeo Lateral derecho,importantes,5
+2026-11-14,Valencia,cesar-tarrega,César Tárrega Defensa central,importantes,5
+2026-11-14,Valencia,arnaut-danjuma,Arnaut Danjuma Mediapunta izquierdo,importantes,5
+2026-11-14,Valencia,justin-de-haas,Justin de Haas Defensa central,rotacion,4
+2026-11-14,Valencia,luis-rioja,Luis Rioja Mediapunta derecho,rotacion,4
+2026-11-14,Valencia,aaron-ndive-mayol,Aaron Ndive Mayol Mediocentro,rotacion,4
+2026-11-14,Valencia,hugo-duro,Hugo Duro Delantero centro,rotacion,4
+2026-11-14,Valencia,umar-sadiq,Umar Sadiq Delantero centro,rotacion,4
+2026-11-14,Valencia,arnau-martinez,Arnau Martínez Lateral derecho,revulsivos,3
+2026-11-14,Valencia,jesus-vazquez-1,Jesús Vázquez Lateral izquierdo,revulsivos,3
+2026-11-14,Valencia,david-otorbi,David Otorbi Mediapunta derecho,revulsivos,3
+2026-11-14,Valencia,filip-ugrinic,Filip Ugrinic Mediocentro,revulsivos,3
+2026-11-14,Valencia,harvey-elliott,Harvey Elliott Mediapunta centro,revulsivos,3
+2026-11-14,Valencia,cristian-rivero,Cristian Rivero Portero,reservas,2
+2026-11-14,Valencia,kayne-van-oevelen,Kayne van Oevelen Portero,reservas,2
+2026-11-14,Valencia,iker-cordoba,Iker Córdoba Defensa central,reservas,2
+2026-11-14,Valencia,mouctar-diakhaby,Mouctar Diakhaby Defensa central,reservas,2
+2026-11-14,Valencia,dimitri-foulquier,Dimitri Foulquier Lateral derecho,reservas,2
+2026-11-14,Valencia,jose-manuel-copete,José Manuel Copete Defensa central,reservas,2
+2026-11-14,Valencia,aliou-dieng,Aliou Dieng Pivote defensivo,reservas,2
+2026-11-14,Valencia,ryunosuke-sato,Ryunosuke Sato Mediocampista izquierdo,reservas,2
+2026-11-14,Valencia,sergi-canos,Sergi Canós Mediapunta izquierdo,reservas,2
+2026-11-14,Valencia,daniel-raba,Daniel Raba Mediapunta centro,reservas,2
+2026-11-14,Valencia,diego-lopez-1,Diego López Mediapunta derecho,reservas,2
+2026-11-14,Villarreal,renato-veiga,Renato Veiga Defensa central,clave,6
+2026-11-14,Villarreal,peter-gulacsi,Péter Gulácsi Portero,importantes,5
+2026-11-14,Villarreal,alberto-moleiro,Alberto Moleiro Mediapunta izquierdo,importantes,5
+2026-11-14,Villarreal,pape-gueye,Pape Gueye Pivote defensivo,importantes,5
+2026-11-14,Villarreal,santi-comesana,Santi Comesaña Mediocentro,importantes,5
+2026-11-14,Villarreal,tajon-buchanan,Tajon Buchanan Mediapunta derecho,importantes,5
+2026-11-14,Villarreal,alex-freeman,Alex Freeman Lateral derecho,rotacion,4
+2026-11-14,Villarreal,santiago-mourino,Santiago Mouriño Lateral derecho,rotacion,4
+2026-11-14,Villarreal,pau-navarro,Pau Navarro Defensa central,rotacion,4
+2026-11-14,Villarreal,carlos-romero,Carlos Romero Lateral izquierdo,rotacion,4
+2026-11-14,Villarreal,sergi-cardona,Sergi Cardona Lateral izquierdo,rotacion,4
+2026-11-14,Villarreal,juan-foyth,Juan Foyth Defensa central,rotacion,4
+2026-11-14,Villarreal,nathan-dylan-saliba,Nathan-Dylan Saliba Mediocentro,rotacion,4
+2026-11-14,Villarreal,ilias-akhomach,Ilias Akhomach Mediapunta derecho,rotacion,4
+2026-11-14,Villarreal,carlos-macia,Carlos Macià Mediocentro,rotacion,4
+2026-11-14,Villarreal,georges-mikautadze,Georges Mikautadze Delantero centro,rotacion,4
+2026-11-14,Villarreal,ayoze-perez,Ayoze Pérez Delantero centro,rotacion,4
+2026-11-14,Villarreal,nicolas-pepe,Nicolas Pépé Mediapunta derecho,rotacion,4
+2026-11-14,Villarreal,gerard-moreno,Gerard Moreno Delantero centro,revulsivos,3
+2026-11-14,Villarreal,tani-oluwaseyi,Tani Oluwaseyi Delantero centro,revulsivos,3
+2026-11-14,Villarreal,ruben-gomez-1,Rubén Gómez Portero,reservas,2
+2026-11-14,Villarreal,luiz-junior,Luiz Junior Portero,reservas,2
+2026-11-14,Villarreal,logan-costa,Logan Costa Defensa central,reservas,2
+2026-11-14,Villarreal,alassane-diatta,Alassane Diatta Mediocentro,reservas,2
