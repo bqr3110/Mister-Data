@@ -18130,3 +18130,391 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad,v
 22543,13,2026-11-20 21:00,Espanyol,visitante,Dolan,tyrhys-dolan,Mediocampista,asis,1.0,5
 22543,13,2026-11-20 21:00,Espanyol,visitante,Dolan,tyrhys-dolan,Mediocampista,asis_sg,1.0,5
 22543,13,2026-11-20 21:00,Espanyol,visitante,Makar,makar-vladislavovich-kotovshchikov,Delantero,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Sivera,antonio-sivera,Portero,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Sivera,antonio-sivera,Portero,nota_cronista,6.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Sivera,antonio-sivera,Portero,nota_sofascore,6.9,5
+22544,13,2026-11-21 14:00,Alavés,local,Sivera,antonio-sivera,Portero,min,90.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Jonny,jonny-castro,Defensa,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Jonny,jonny-castro,Defensa,nota_cronista,7.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Jonny,jonny-castro,Defensa,nota_sofascore,7.5,5
+22544,13,2026-11-21 14:00,Alavés,local,Jonny,jonny-castro,Defensa,min,90.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Tenaglia,nahuel-tenaglia,Defensa,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Tenaglia,nahuel-tenaglia,Defensa,nota_cronista,7.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Tenaglia,nahuel-tenaglia,Defensa,nota_sofascore,5.8,5
+22544,13,2026-11-21 14:00,Alavés,local,Tenaglia,nahuel-tenaglia,Defensa,min,90.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,nota_cronista,9.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,nota_sofascore,9.3,5
+22544,13,2026-11-21 14:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,min,68.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,goles,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,asis,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,asis_sg,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,amarillas,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ángel Pérez,angel-perez-1,Mediocampista,tiros,3.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Koski,ville-koski,Defensa,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Koski,ville-koski,Defensa,nota_cronista,6.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Koski,ville-koski,Defensa,nota_sofascore,6.5,5
+22544,13,2026-11-21 14:00,Alavés,local,Koski,ville-koski,Defensa,min,90.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Denis Suárez,denis-suarez,Mediocampista,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Denis Suárez,denis-suarez,Mediocampista,nota_cronista,8.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Denis Suárez,denis-suarez,Mediocampista,nota_sofascore,7.6,5
+22544,13,2026-11-21 14:00,Alavés,local,Denis Suárez,denis-suarez,Mediocampista,min,90.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Denis Suárez,denis-suarez,Mediocampista,goles,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,nota_cronista,8.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,nota_sofascore,7.6,5
+22544,13,2026-11-21 14:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,min,90.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,asis,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Blanco,antonio-blanco,Mediocampista,asis_sg,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ibáñez,pablo-ibanez,Mediocampista,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ibáñez,pablo-ibanez,Mediocampista,nota_cronista,6.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ibáñez,pablo-ibanez,Mediocampista,nota_sofascore,6.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Ibáñez,pablo-ibanez,Mediocampista,min,76.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Rebbach,abde-rebbach,Mediocampista,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Rebbach,abde-rebbach,Mediocampista,nota_cronista,7.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Rebbach,abde-rebbach,Mediocampista,nota_sofascore,6.8,5
+22544,13,2026-11-21 14:00,Alavés,local,Rebbach,abde-rebbach,Mediocampista,min,67.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Rebbach,abde-rebbach,Mediocampista,amarillas,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Toni Martinez,antonio-martinez,Delantero,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Toni Martinez,antonio-martinez,Delantero,nota_cronista,7.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Toni Martinez,antonio-martinez,Delantero,nota_sofascore,6.4,5
+22544,13,2026-11-21 14:00,Alavés,local,Toni Martinez,antonio-martinez,Delantero,min,76.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Boyé,lucas-boye,Delantero,titular,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Boyé,lucas-boye,Delantero,nota_cronista,10.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Boyé,lucas-boye,Delantero,nota_sofascore,8.8,5
+22544,13,2026-11-21 14:00,Alavés,local,Boyé,lucas-boye,Delantero,min,90.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Boyé,lucas-boye,Delantero,goles,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Boyé,lucas-boye,Delantero,asis,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Boyé,lucas-boye,Delantero,asis_sg,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Boyé,lucas-boye,Delantero,amarillas,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Boyé,lucas-boye,Delantero,tiros,4.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Adrián,adrian-rodriguez,Portero,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Novoa,hugo-novoa,Defensa,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Novoa,hugo-novoa,Defensa,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Novoa,hugo-novoa,Defensa,nota_sofascore,6.6,5
+22544,13,2026-11-21 14:00,Alavés,local,Novoa,hugo-novoa,Defensa,min,12.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Youssef,youssef-enriquez,Defensa,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Youssef,youssef-enriquez,Defensa,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Youssef,youssef-enriquez,Defensa,nota_sofascore,6.8,5
+22544,13,2026-11-21 14:00,Alavés,local,Youssef,youssef-enriquez,Defensa,min,23.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Valentini,nicolas-valentini,Defensa,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Oláiz,xanet-olaiz,Defensa,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Oláiz,xanet-olaiz,Defensa,nota_sofascore,6.7,5
+22544,13,2026-11-21 14:00,Alavés,local,Oláiz,xanet-olaiz,Defensa,min,10.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Aleñá,carles-alena,Mediocampista,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Guevara,ander-guevara,Mediocampista,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Guevara,ander-guevara,Mediocampista,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Guevara,ander-guevara,Mediocampista,nota_sofascore,6.3,5
+22544,13,2026-11-21 14:00,Alavés,local,Guevara,ander-guevara,Mediocampista,min,14.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Guevara,ander-guevara,Mediocampista,amarillas,1.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Protesoni,carlos-benavidez,Mediocampista,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Diallo,selu-diallo,Mediocampista,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Mariano,mariano-diaz,Delantero,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Mariano,mariano-diaz,Delantero,nota_cronista,6.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Mariano,mariano-diaz,Delantero,nota_sofascore,6.5,5
+22544,13,2026-11-21 14:00,Alavés,local,Mariano,mariano-diaz,Delantero,min,14.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Miguel,miguel-rodriguez-1,Delantero,titular,0.0,5
+22544,13,2026-11-21 14:00,Alavés,local,Aitor Mañas,aitor-manas,Delantero,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Leo Román,leo-roman,Portero,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Leo Román,leo-roman,Portero,nota_cronista,7.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Leo Román,leo-roman,Portero,nota_sofascore,7.3,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Leo Román,leo-roman,Portero,min,90.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Ximo,ximo-navarro,Defensa,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Ximo,ximo-navarro,Defensa,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Ximo,ximo-navarro,Defensa,nota_sofascore,6.3,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Ximo,ximo-navarro,Defensa,min,45.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Ximo,ximo-navarro,Defensa,amarillas,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Quagliata,giacomo-quagliata,Defensa,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Quagliata,giacomo-quagliata,Defensa,nota_cronista,3.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Quagliata,giacomo-quagliata,Defensa,nota_sofascore,6.3,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Quagliata,giacomo-quagliata,Defensa,min,90.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Quagliata,giacomo-quagliata,Defensa,amarillas,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Loureiro,miguel-loureiro,Defensa,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Loureiro,miguel-loureiro,Defensa,nota_cronista,6.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Loureiro,miguel-loureiro,Defensa,nota_sofascore,6.5,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Loureiro,miguel-loureiro,Defensa,min,90.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Loureiro,miguel-loureiro,Defensa,amarillas,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Noubi,lucas-noubi,Defensa,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Noubi,lucas-noubi,Defensa,nota_cronista,3.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Noubi,lucas-noubi,Defensa,nota_sofascore,5.7,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Noubi,lucas-noubi,Defensa,min,90.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Riki,riki-rodriguez,Mediocampista,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Riki,riki-rodriguez,Mediocampista,nota_cronista,4.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Riki,riki-rodriguez,Mediocampista,nota_sofascore,6.5,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Riki,riki-rodriguez,Mediocampista,min,45.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Mario,mario-soriano,Mediocampista,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Mario,mario-soriano,Mediocampista,nota_cronista,4.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Mario,mario-soriano,Mediocampista,nota_sofascore,7.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Mario,mario-soriano,Mediocampista,min,60.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Luismi,luismi-cruz,Mediocampista,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Luismi,luismi-cruz,Mediocampista,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Luismi,luismi-cruz,Mediocampista,nota_sofascore,6.5,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Luismi,luismi-cruz,Mediocampista,min,66.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Casadó,marc-casado,Mediocampista,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Casadó,marc-casado,Mediocampista,nota_cronista,4.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Casadó,marc-casado,Mediocampista,nota_sofascore,6.8,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Casadó,marc-casado,Mediocampista,min,90.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,Delantero,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,Delantero,nota_cronista,6.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,Delantero,nota_sofascore,6.3,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Aubameyang,pierre-emerick-aubameyang,Delantero,min,90.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Yeremay,yeremay-hernandez,Delantero,titular,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Yeremay,yeremay-hernandez,Delantero,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Yeremay,yeremay-hernandez,Delantero,nota_sofascore,6.4,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Yeremay,yeremay-hernandez,Delantero,min,66.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Germán Parreño,german-parreno,Portero,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Álvaro,alvaro-fernandez,Portero,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Giménez,jose-maria-gimenez,Defensa,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Giménez,jose-maria-gimenez,Defensa,nota_cronista,6.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Giménez,jose-maria-gimenez,Defensa,nota_sofascore,6.7,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Giménez,jose-maria-gimenez,Defensa,min,45.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Angeliño,angelino,Defensa,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Altimira,adria-altimira,Defensa,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Amatucci,lorenzo-amatucci,Mediocampista,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Amatucci,lorenzo-amatucci,Mediocampista,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Amatucci,lorenzo-amatucci,Mediocampista,nota_sofascore,6.4,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Amatucci,lorenzo-amatucci,Mediocampista,min,30.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Villares,diego-villares,Mediocampista,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Asp Jensen,jonathan-asp-jensen,Mediocampista,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Asp Jensen,jonathan-asp-jensen,Mediocampista,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Asp Jensen,jonathan-asp-jensen,Mediocampista,nota_sofascore,6.5,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Asp Jensen,jonathan-asp-jensen,Mediocampista,min,24.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Noé Carrillo,noe-carrillo,Mediocampista,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,A. Traoré,adama-traore-cachas,Delantero,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,A. Traoré,adama-traore-cachas,Delantero,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,A. Traoré,adama-traore-cachas,Delantero,nota_sofascore,6.7,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,A. Traoré,adama-traore-cachas,Delantero,min,45.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,A. Traoré,adama-traore-cachas,Delantero,amarillas,1.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Mella,david-mella,Delantero,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Bil Nsongo,bil-nsongo,Delantero,titular,0.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Bil Nsongo,bil-nsongo,Delantero,nota_cronista,5.0,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Bil Nsongo,bil-nsongo,Delantero,nota_sofascore,6.6,5
+22544,13,2026-11-21 14:00,Deportivo,visitante,Bil Nsongo,bil-nsongo,Delantero,min,24.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Audero,emil-audero,Portero,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Audero,emil-audero,Portero,nota_cronista,4.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Audero,emil-audero,Portero,nota_sofascore,7.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Audero,emil-audero,Portero,min,90.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Lejeune,florian-lejeune,Defensa,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Lejeune,florian-lejeune,Defensa,nota_cronista,5.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Lejeune,florian-lejeune,Defensa,nota_sofascore,7.6,5
+22549,13,2026-11-21 16:15,Rayo,local,Lejeune,florian-lejeune,Defensa,min,90.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Mujaid,mujaid-sadick,Defensa,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Mujaid,mujaid-sadick,Defensa,nota_cronista,4.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Mujaid,mujaid-sadick,Defensa,nota_sofascore,7.1,5
+22549,13,2026-11-21 16:15,Rayo,local,Mujaid,mujaid-sadick,Defensa,min,70.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Ratiu,andrei-florin,Defensa,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Ratiu,andrei-florin,Defensa,nota_cronista,5.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Ratiu,andrei-florin,Defensa,nota_sofascore,6.6,5
+22549,13,2026-11-21 16:15,Rayo,local,Ratiu,andrei-florin,Defensa,min,90.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Unai López,unai-lopez,Mediocampista,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Unai López,unai-lopez,Mediocampista,nota_cronista,5.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Unai López,unai-lopez,Mediocampista,nota_sofascore,7.3,5
+22549,13,2026-11-21 16:15,Rayo,local,Unai López,unai-lopez,Mediocampista,min,80.0,5
+22549,13,2026-11-21 16:15,Rayo,local,De Frutos,jorge-de-frutos,Mediocampista,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,De Frutos,jorge-de-frutos,Mediocampista,nota_cronista,5.0,5
+22549,13,2026-11-21 16:15,Rayo,local,De Frutos,jorge-de-frutos,Mediocampista,nota_sofascore,6.8,5
+22549,13,2026-11-21 16:15,Rayo,local,De Frutos,jorge-de-frutos,Mediocampista,min,90.0,5
+22549,13,2026-11-21 16:15,Rayo,local,De Frutos,jorge-de-frutos,Mediocampista,amarillas,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,De Frutos,jorge-de-frutos,Mediocampista,tiros,2.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Isi,isi-palazon,Mediocampista,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Isi,isi-palazon,Mediocampista,nota_cronista,5.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Isi,isi-palazon,Mediocampista,nota_sofascore,6.3,5
+22549,13,2026-11-21 16:15,Rayo,local,Isi,isi-palazon,Mediocampista,min,70.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pathé Ciss,pathe-ciss,Mediocampista,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pathé Ciss,pathe-ciss,Mediocampista,nota_cronista,4.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pathé Ciss,pathe-ciss,Mediocampista,nota_sofascore,7.5,5
+22549,13,2026-11-21 16:15,Rayo,local,Pathé Ciss,pathe-ciss,Mediocampista,min,90.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Tsitaishvili,georgiy-tsitaishvili,Mediocampista,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Tsitaishvili,georgiy-tsitaishvili,Mediocampista,nota_cronista,3.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Tsitaishvili,georgiy-tsitaishvili,Mediocampista,nota_sofascore,6.7,5
+22549,13,2026-11-21 16:15,Rayo,local,Tsitaishvili,georgiy-tsitaishvili,Mediocampista,min,61.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Camello,sergio-camello,Delantero,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Camello,sergio-camello,Delantero,nota_cronista,4.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Camello,sergio-camello,Delantero,nota_sofascore,6.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Camello,sergio-camello,Delantero,min,90.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Camello,sergio-camello,Delantero,amarillas,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Nteka,randy-nteka,Delantero,titular,1.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Nteka,randy-nteka,Delantero,nota_cronista,4.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Nteka,randy-nteka,Delantero,nota_sofascore,6.4,5
+22549,13,2026-11-21 16:15,Rayo,local,Nteka,randy-nteka,Delantero,min,62.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Cárdenas,dani-cardenas,Portero,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pedrosa,adria-pedrosa,Defensa,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pedrosa,adria-pedrosa,Defensa,nota_cronista,4.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pedrosa,adria-pedrosa,Defensa,nota_sofascore,6.7,5
+22549,13,2026-11-21 16:15,Rayo,local,Pedrosa,adria-pedrosa,Defensa,min,29.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Kumbulla,marash-kumbulla,Defensa,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Balliu,ivan-balliu,Defensa,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pelayo,pelayo-fernandez,Defensa,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Vertrouwd,jozhua-vertrouwd,Defensa,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Álvaro García,alvaro-garcia,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Álvaro García,alvaro-garcia,Mediocampista,nota_cronista,5.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Álvaro García,alvaro-garcia,Mediocampista,nota_sofascore,6.5,5
+22549,13,2026-11-21 16:15,Rayo,local,Álvaro García,alvaro-garcia,Mediocampista,min,20.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pedro Díaz,pedro-diaz,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pedro Díaz,pedro-diaz,Mediocampista,nota_cronista,4.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Pedro Díaz,pedro-diaz,Mediocampista,nota_sofascore,6.9,5
+22549,13,2026-11-21 16:15,Rayo,local,Pedro Díaz,pedro-diaz,Mediocampista,min,28.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Fran Pérez,fran-perez,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Rayane,rayane-belaid,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Bouare,gnangoro-bouare,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Bouare,gnangoro-bouare,Mediocampista,nota_cronista,4.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Bouare,gnangoro-bouare,Mediocampista,nota_sofascore,6.8,5
+22549,13,2026-11-21 16:15,Rayo,local,Bouare,gnangoro-bouare,Mediocampista,min,10.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Alemão,alemo,Delantero,titular,0.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Alemão,alemo,Delantero,nota_cronista,4.0,5
+22549,13,2026-11-21 16:15,Rayo,local,Alemão,alemo,Delantero,nota_sofascore,6.4,5
+22549,13,2026-11-21 16:15,Rayo,local,Alemão,alemo,Delantero,min,20.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Dimitrievski,stole-dimitrievski,Portero,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Dimitrievski,stole-dimitrievski,Portero,nota_cronista,9.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Dimitrievski,stole-dimitrievski,Portero,nota_sofascore,7.5,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Dimitrievski,stole-dimitrievski,Portero,min,90.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Maffeo,pablo-maffeo,Defensa,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Maffeo,pablo-maffeo,Defensa,nota_cronista,8.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Maffeo,pablo-maffeo,Defensa,nota_sofascore,7.3,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Maffeo,pablo-maffeo,Defensa,min,90.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Arnau,arnau-martinez,Defensa,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Arnau,arnau-martinez,Defensa,nota_cronista,8.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Arnau,arnau-martinez,Defensa,nota_sofascore,7.7,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Arnau,arnau-martinez,Defensa,min,90.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Copete,jose-manuel-copete,Defensa,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Copete,jose-manuel-copete,Defensa,nota_cronista,10.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Copete,jose-manuel-copete,Defensa,nota_sofascore,8.3,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Copete,jose-manuel-copete,Defensa,min,73.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Copete,jose-manuel-copete,Defensa,goles,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Tárrega,cesar-tarrega,Defensa,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Tárrega,cesar-tarrega,Defensa,nota_cronista,9.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Tárrega,cesar-tarrega,Defensa,nota_sofascore,8.3,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Tárrega,cesar-tarrega,Defensa,min,90.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Pepelu,pepelu,Mediocampista,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Pepelu,pepelu,Mediocampista,nota_cronista,7.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Pepelu,pepelu,Mediocampista,nota_sofascore,7.2,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Pepelu,pepelu,Mediocampista,min,90.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Rioja,luis-rioja,Mediocampista,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Rioja,luis-rioja,Mediocampista,nota_cronista,8.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Rioja,luis-rioja,Mediocampista,nota_sofascore,6.8,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Rioja,luis-rioja,Mediocampista,min,90.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Guido,guido-rodriguez,Mediocampista,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Guido,guido-rodriguez,Mediocampista,nota_cronista,8.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Guido,guido-rodriguez,Mediocampista,nota_sofascore,7.2,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Guido,guido-rodriguez,Mediocampista,min,83.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Javi Guerra,javi-guerra-1,Mediocampista,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Javi Guerra,javi-guerra-1,Mediocampista,nota_cronista,8.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Javi Guerra,javi-guerra-1,Mediocampista,nota_sofascore,6.9,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Javi Guerra,javi-guerra-1,Mediocampista,min,83.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Javi Guerra,javi-guerra-1,Mediocampista,asis,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Javi Guerra,javi-guerra-1,Mediocampista,amarillas,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Raba,daniel-raba,Delantero,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Raba,daniel-raba,Delantero,nota_cronista,8.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Raba,daniel-raba,Delantero,nota_sofascore,6.5,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Raba,daniel-raba,Delantero,min,69.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Sadiq,umar-sadiq,Delantero,titular,1.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Sadiq,umar-sadiq,Delantero,nota_cronista,7.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Sadiq,umar-sadiq,Delantero,nota_sofascore,5.5,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Sadiq,umar-sadiq,Delantero,min,83.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Rivero,cristian-rivero,Portero,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Van Oevelen,kayne-van-oevelen,Portero,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Foulquier,dimitri-foulquier,Defensa,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Diakhaby,mouctar-diakhaby,Defensa,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Diakhaby,mouctar-diakhaby,Defensa,nota_cronista,7.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Diakhaby,mouctar-diakhaby,Defensa,nota_sofascore,7.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Diakhaby,mouctar-diakhaby,Defensa,min,17.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Córdoba,iker-cordoba,Defensa,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,De Haas,justin-de-haas,Defensa,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Elliott,harvey-elliott,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Ugrinic,filip-ugrinic,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Ugrinic,filip-ugrinic,Mediocampista,nota_cronista,6.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Ugrinic,filip-ugrinic,Mediocampista,nota_sofascore,6.7,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Ugrinic,filip-ugrinic,Mediocampista,min,21.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Otorbi,david-otorbi,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Dieng,aliou-dieng,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Dieng,aliou-dieng,Mediocampista,nota_cronista,6.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Dieng,aliou-dieng,Mediocampista,nota_sofascore,6.6,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Dieng,aliou-dieng,Mediocampista,min,7.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Mayol,aaron-ndive-mayol,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Mayol,aaron-ndive-mayol,Mediocampista,nota_cronista,6.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Mayol,aaron-ndive-mayol,Mediocampista,nota_sofascore,6.5,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Mayol,aaron-ndive-mayol,Mediocampista,min,7.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Sato,ryunosuke-sato,Mediocampista,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Duro,hugo-duro,Delantero,titular,0.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Duro,hugo-duro,Delantero,nota_cronista,7.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Duro,hugo-duro,Delantero,nota_sofascore,6.5,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Duro,hugo-duro,Delantero,min,7.0,5
+22549,13,2026-11-21 16:15,Valencia,visitante,Blázquez,aimar-blazquez,Delantero,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Vlachodimos,odysseas-vlachodimos,Portero,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Vlachodimos,odysseas-vlachodimos,Portero,nota_sofascore,6.8,5
+22552,13,2026-11-21 18:30,Sevilla,local,Iglesias,juan-iglesias,Defensa,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Iglesias,juan-iglesias,Defensa,nota_sofascore,6.9,5
+22552,13,2026-11-21 18:30,Sevilla,local,Kike Salas,kike-salas,Defensa,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Kike Salas,kike-salas,Defensa,nota_sofascore,7.7,5
+22552,13,2026-11-21 18:30,Sevilla,local,Kike Salas,kike-salas,Defensa,amarillas,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Suazo,gabriel-suazo,Defensa,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Suazo,gabriel-suazo,Defensa,nota_sofascore,6.5,5
+22552,13,2026-11-21 18:30,Sevilla,local,Castrín,andres-castrin,Defensa,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Castrín,andres-castrin,Defensa,nota_sofascore,7.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Guridi,jon-guridi,Mediocampista,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Guridi,jon-guridi,Mediocampista,nota_sofascore,6.7,5
+22552,13,2026-11-21 18:30,Sevilla,local,Agoume,lucien-agoume,Mediocampista,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Agoume,lucien-agoume,Mediocampista,nota_sofascore,7.2,5
+22552,13,2026-11-21 18:30,Sevilla,local,Agoume,lucien-agoume,Mediocampista,amarillas,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Félix Correia,felix-correia,Mediocampista,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Félix Correia,felix-correia,Mediocampista,nota_sofascore,6.7,5
+22552,13,2026-11-21 18:30,Sevilla,local,Fofana,youssouf-fofana,Mediocampista,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Fofana,youssouf-fofana,Mediocampista,nota_sofascore,6.8,5
+22552,13,2026-11-21 18:30,Sevilla,local,Vargas,ruben-vargas,Mediocampista,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Vargas,ruben-vargas,Mediocampista,nota_sofascore,6.6,5
+22552,13,2026-11-21 18:30,Sevilla,local,Vargas,ruben-vargas,Mediocampista,tiros,2.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Stassin,lucas-stassin,Delantero,titular,1.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Stassin,lucas-stassin,Delantero,nota_sofascore,6.4,5
+22552,13,2026-11-21 18:30,Sevilla,local,Fran González,fran-gonzalez-2,Portero,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Toscano,carlos-toscano,Portero,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Cardoso,fabio-cardoso,Defensa,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Julio Díaz,julio-diaz,Defensa,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Sangante,arouna-sangante,Defensa,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Kpebane,tamiou-kpebane,Defensa,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Kochorashvili,giorgi-kochorashvili-1,Mediocampista,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Manu Bueno,manu-bueno,Mediocampista,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Ejuke,chidera-ejuke,Mediocampista,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Scuri,marc-scuri,Mediocampista,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Peque,peque,Delantero,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Romero,isaac-romero,Delantero,titular,0.0,5
+22552,13,2026-11-21 18:30,Sevilla,local,Ure,robbie-ure,Delantero,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Valles,alvaro-valles,Portero,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Valles,alvaro-valles,Portero,nota_sofascore,6.7,5
+22552,13,2026-11-21 18:30,Betis,visitante,Bartra,marc-bartra,Defensa,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Bartra,marc-bartra,Defensa,nota_sofascore,6.7,5
+22552,13,2026-11-21 18:30,Betis,visitante,Bellerín,hector-bellerin,Defensa,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Bellerín,hector-bellerin,Defensa,nota_sofascore,6.5,5
+22552,13,2026-11-21 18:30,Betis,visitante,Fran García,fran-garcia,Defensa,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Fran García,fran-garcia,Defensa,nota_sofascore,6.5,5
+22552,13,2026-11-21 18:30,Betis,visitante,Natan,natan,Defensa,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Natan,natan,Defensa,nota_sofascore,6.8,5
+22552,13,2026-11-21 18:30,Betis,visitante,Isco,isco-alarcon,Mediocampista,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Isco,isco-alarcon,Mediocampista,nota_sofascore,7.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Isco,isco-alarcon,Mediocampista,asis,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Fornals,pablo-fornals,Mediocampista,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Fornals,pablo-fornals,Mediocampista,nota_sofascore,7.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Marc Roca,marc-roca,Mediocampista,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Marc Roca,marc-roca,Mediocampista,nota_sofascore,6.6,5
+22552,13,2026-11-21 18:30,Betis,visitante,Ruibal,aitor-ruibal,Defensa,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Ruibal,aitor-ruibal,Defensa,nota_sofascore,6.5,5
+22552,13,2026-11-21 18:30,Betis,visitante,Antony,antony,Delantero,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Antony,antony,Delantero,nota_sofascore,7.2,5
+22552,13,2026-11-21 18:30,Betis,visitante,Antony,antony,Delantero,goles,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Antony,antony,Delantero,tiros,2.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Abde,abde-ezzalzouli,Delantero,titular,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Abde,abde-ezzalzouli,Delantero,nota_sofascore,6.5,5
+22552,13,2026-11-21 18:30,Betis,visitante,Abde,abde-ezzalzouli,Delantero,asis_sg,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Conde,diego-conde,Portero,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,D. Llorente,diego-javier-llorente,Defensa,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Junior,junior-firpo,Defensa,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Junior,junior-firpo,Defensa,amarillas,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Ortiz,ngel-ortiz,Defensa,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Valentín Gómez,valentin-gomez,Defensa,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Lo Celso,giovani-lo-celso,Mediocampista,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Fidalgo,lvaro-fidalgo,Mediocampista,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Riquelme,rodrigo-riquelme,Mediocampista,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Deossa,nelson-deossa,Mediocampista,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Bernal,facundo-bernal,Mediocampista,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Cucho,cucho-hernandez,Delantero,titular,0.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Cucho,cucho-hernandez,Delantero,amarillas,1.0,5
+22552,13,2026-11-21 18:30,Betis,visitante,Parrott,troy-parrott,Delantero,titular,0.0,5
