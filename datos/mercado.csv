@@ -322,7 +322,7 @@ fecha,jugador,equipo,valor,fecha_ayer,valor_ayer,cambio,cambio_web
 2026-11-23,Roony Bardghji Bardghji,Barcelona,189000,2026-11-22,198000,-9000,-9000
 2026-11-23,Valentín Gómez Valentín Gómez,Betis,2815000,2026-11-22,2907000,-92000,-92000
 2026-11-23,Martim Neto Martim Neto,Elche,196000,2026-11-22,205000,-9000,-9000
-2026-11-23,Pablo Campos Cuñat Campos,Levante,160000,2026-11-22,160000,0,0
+2026-11-23,Pablo Cuñat Campos Cuñat Campos,Levante,160000,,,,0
 2026-11-23,Nelson Deossa Deossa,Betis,2258000,2026-11-22,2362000,-104000,-104000
 2026-11-23,Ángel Fortuño Fortuño,Espanyol,3742000,2026-11-22,3569000,173000,173000
 2026-11-23,Filip Ugrinic Ugrinic,Valencia,160000,2026-11-22,165000,-5000,-5000
@@ -550,7 +550,6 @@ fecha,jugador,equipo,valor,fecha_ayer,valor_ayer,cambio,cambio_web
 2026-11-23,Arkaitz Mariezkurrena Mariezkurrena,Real Sociedad,160000,2026-11-22,160000,0,0
 2026-11-23,Lander Pinillos Pinillos,Alavés,160000,2026-11-22,160000,0,0
 2026-11-23,Antal Yaakobishvili Yaakobishvili,Atlético,292000,2026-11-22,292000,0,8000
-2026-11-23,Pablo Cuñat Cuñat,Levante,692000,2026-11-22,692000,0,50000
 2026-11-23,Alberto Risco Risco,Getafe,160000,2026-11-22,160000,0,0
 2026-11-23,Dani Díaz Dani Díaz,Real Sociedad,160000,2026-11-22,160000,0,0
 2026-11-23,Stefan Bajcetic Bajcetic,Celta,165000,2026-11-22,165000,0,5000
