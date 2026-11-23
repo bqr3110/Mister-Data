@@ -19284,3 +19284,153 @@ partido,jornada,fecha,equipo,lado,jugador,slug,posicion,evento,cantidad,v
 22551,13,2026-11-22 16:15,Real Sociedad,visitante,Marín,pablo-marin,Mediocampista,titular,0.0,5
 22551,13,2026-11-22 16:15,Real Sociedad,visitante,Lebarbier,alex-lebarbier,Mediocampista,titular,0.0,5
 22551,13,2026-11-22 16:15,Real Sociedad,visitante,Ochieng,job-ochieng,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Ryan,mat-ryan,Portero,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Ryan,mat-ryan,Portero,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Levante,local,Ryan,mat-ryan,Portero,nota_sofascore,6.7,5
+22547,13,2026-11-23 21:00,Levante,local,Ryan,mat-ryan,Portero,min,90.0,5
+22547,13,2026-11-23 21:00,Levante,local,Mandi,aissa-mandi,Defensa,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Mandi,aissa-mandi,Defensa,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Levante,local,Mandi,aissa-mandi,Defensa,nota_sofascore,7.1,5
+22547,13,2026-11-23 21:00,Levante,local,Mandi,aissa-mandi,Defensa,min,90.0,5
+22547,13,2026-11-23 21:00,Levante,local,Mandi,aissa-mandi,Defensa,amarillas,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Toljan,jeremy-toljan,Defensa,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Toljan,jeremy-toljan,Defensa,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Levante,local,Toljan,jeremy-toljan,Defensa,nota_sofascore,6.9,5
+22547,13,2026-11-23 21:00,Levante,local,Toljan,jeremy-toljan,Defensa,min,22.0,5
+22547,13,2026-11-23 21:00,Levante,local,De la Fuente,adrian-de-la-fuente,Defensa,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,De la Fuente,adrian-de-la-fuente,Defensa,nota_cronista,7.0,5
+22547,13,2026-11-23 21:00,Levante,local,De la Fuente,adrian-de-la-fuente,Defensa,nota_sofascore,7.4,5
+22547,13,2026-11-23 21:00,Levante,local,De la Fuente,adrian-de-la-fuente,Defensa,min,90.0,5
+22547,13,2026-11-23 21:00,Levante,local,Manu Sánchez,manu-sanchez,Defensa,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Manu Sánchez,manu-sanchez,Defensa,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Levante,local,Manu Sánchez,manu-sanchez,Defensa,nota_sofascore,6.8,5
+22547,13,2026-11-23 21:00,Levante,local,Manu Sánchez,manu-sanchez,Defensa,min,56.0,5
+22547,13,2026-11-23 21:00,Levante,local,Oriol Rey,oriol-rey,Mediocampista,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Oriol Rey,oriol-rey,Mediocampista,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Levante,local,Oriol Rey,oriol-rey,Mediocampista,nota_sofascore,6.6,5
+22547,13,2026-11-23 21:00,Levante,local,Oriol Rey,oriol-rey,Mediocampista,min,78.0,5
+22547,13,2026-11-23 21:00,Levante,local,Oriol Rey,oriol-rey,Mediocampista,amarillas,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Olasagasti,jon-ander-olasagasti,Mediocampista,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Olasagasti,jon-ander-olasagasti,Mediocampista,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Levante,local,Olasagasti,jon-ander-olasagasti,Mediocampista,nota_sofascore,6.8,5
+22547,13,2026-11-23 21:00,Levante,local,Olasagasti,jon-ander-olasagasti,Mediocampista,min,90.0,5
+22547,13,2026-11-23 21:00,Levante,local,Olasagasti,jon-ander-olasagasti,Mediocampista,asis,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Olasagasti,jon-ander-olasagasti,Mediocampista,asis_sg,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Requena,dani-requena,Mediocampista,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Requena,dani-requena,Mediocampista,nota_cronista,7.0,5
+22547,13,2026-11-23 21:00,Levante,local,Requena,dani-requena,Mediocampista,nota_sofascore,7.8,5
+22547,13,2026-11-23 21:00,Levante,local,Requena,dani-requena,Mediocampista,min,90.0,5
+22547,13,2026-11-23 21:00,Levante,local,Requena,dani-requena,Mediocampista,goles,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Requena,dani-requena,Mediocampista,amarillas,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Thiago,thiago-fernandez,Mediocampista,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Thiago,thiago-fernandez,Mediocampista,nota_cronista,7.0,5
+22547,13,2026-11-23 21:00,Levante,local,Thiago,thiago-fernandez,Mediocampista,nota_sofascore,6.3,5
+22547,13,2026-11-23 21:00,Levante,local,Thiago,thiago-fernandez,Mediocampista,min,90.0,5
+22547,13,2026-11-23 21:00,Levante,local,Thiago,thiago-fernandez,Mediocampista,amarillas,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Iván Romero,ivan-romero,Delantero,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Iván Romero,ivan-romero,Delantero,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Levante,local,Iván Romero,ivan-romero,Delantero,nota_sofascore,7.1,5
+22547,13,2026-11-23 21:00,Levante,local,Iván Romero,ivan-romero,Delantero,min,78.0,5
+22547,13,2026-11-23 21:00,Levante,local,Brugui,roger-brugue,Mediocampista,titular,1.0,5
+22547,13,2026-11-23 21:00,Levante,local,Brugui,roger-brugue,Mediocampista,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Levante,local,Brugui,roger-brugue,Mediocampista,nota_sofascore,6.4,5
+22547,13,2026-11-23 21:00,Levante,local,Brugui,roger-brugue,Mediocampista,min,90.0,5
+22547,13,2026-11-23 21:00,Levante,local,Primo,alejandro-primo,Portero,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Cuñat Campos,pablo-campos,Portero,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Víctor García,victor-garcia-1,Defensa,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Jorge Cabello,jorge-cabello,Defensa,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Nacho Pérez,nacho-perez-1,Defensa,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Nacho Pérez,nacho-perez-1,Defensa,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Levante,local,Nacho Pérez,nacho-perez-1,Defensa,nota_sofascore,6.2,5
+22547,13,2026-11-23 21:00,Levante,local,Nacho Pérez,nacho-perez-1,Defensa,min,68.0,5
+22547,13,2026-11-23 21:00,Levante,local,Marc Santos,marc-santos,Defensa,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Marc Santos,marc-santos,Defensa,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Levante,local,Marc Santos,marc-santos,Defensa,nota_sofascore,6.2,5
+22547,13,2026-11-23 21:00,Levante,local,Marc Santos,marc-santos,Defensa,min,34.0,5
+22547,13,2026-11-23 21:00,Levante,local,Ndukwe,ifeanyi-ndukwe,Defensa,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Sotelo,hugo-sotelo,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Cortés,paco-cortes,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Bardeli,enzo-bardelli,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Etta Eyong,etta-eyong,Delantero,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Etta Eyong,etta-eyong,Delantero,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Levante,local,Etta Eyong,etta-eyong,Delantero,nota_sofascore,6.5,5
+22547,13,2026-11-23 21:00,Levante,local,Etta Eyong,etta-eyong,Delantero,min,12.0,5
+22547,13,2026-11-23 21:00,Levante,local,Ratkov,petar-ratkov,Delantero,titular,0.0,5
+22547,13,2026-11-23 21:00,Levante,local,Ratkov,petar-ratkov,Delantero,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Levante,local,Ratkov,petar-ratkov,Delantero,nota_sofascore,6.5,5
+22547,13,2026-11-23 21:00,Levante,local,Ratkov,petar-ratkov,Delantero,min,12.0,5
+22547,13,2026-11-23 21:00,Levante,local,Musuayi,yanis-musuayi,Delantero,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Dituro,matias-dituro,Portero,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Dituro,matias-dituro,Portero,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Dituro,matias-dituro,Portero,nota_sofascore,6.6,5
+22547,13,2026-11-23 21:00,Elche,visitante,Dituro,matias-dituro,Portero,min,90.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Chust,victor-chust,Defensa,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Chust,victor-chust,Defensa,nota_cronista,7.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Chust,victor-chust,Defensa,nota_sofascore,7.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Chust,victor-chust,Defensa,min,90.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Sangaré,buba-sangare,Defensa,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Sangaré,buba-sangare,Defensa,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Sangaré,buba-sangare,Defensa,nota_sofascore,6.9,5
+22547,13,2026-11-23 21:00,Elche,visitante,Sangaré,buba-sangare,Defensa,min,90.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Revivo,roy-revivo,Defensa,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Revivo,roy-revivo,Defensa,nota_cronista,8.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Revivo,roy-revivo,Defensa,nota_sofascore,8.3,5
+22547,13,2026-11-23 21:00,Elche,visitante,Revivo,roy-revivo,Defensa,min,81.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Revivo,roy-revivo,Defensa,goles,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Villar,gonzalo-villar,Mediocampista,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Villar,gonzalo-villar,Mediocampista,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Villar,gonzalo-villar,Mediocampista,nota_sofascore,6.7,5
+22547,13,2026-11-23 21:00,Elche,visitante,Villar,gonzalo-villar,Mediocampista,min,66.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Valera,german-valera,Mediocampista,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Valera,german-valera,Mediocampista,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Valera,german-valera,Mediocampista,nota_sofascore,6.7,5
+22547,13,2026-11-23 21:00,Elche,visitante,Valera,german-valera,Mediocampista,min,90.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Valera,german-valera,Mediocampista,asis,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Redondo,federico-redondo,Mediocampista,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Redondo,federico-redondo,Mediocampista,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Redondo,federico-redondo,Mediocampista,nota_sofascore,7.7,5
+22547,13,2026-11-23 21:00,Elche,visitante,Redondo,federico-redondo,Mediocampista,min,90.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Redondo,federico-redondo,Mediocampista,amarillas,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Cepeda,lucas-cepeda,Delantero,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Cepeda,lucas-cepeda,Delantero,nota_cronista,7.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Cepeda,lucas-cepeda,Delantero,nota_sofascore,6.6,5
+22547,13,2026-11-23 21:00,Elche,visitante,Cepeda,lucas-cepeda,Delantero,min,81.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Morcillo,javi-morcillo,Mediocampista,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Morcillo,javi-morcillo,Mediocampista,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Morcillo,javi-morcillo,Mediocampista,nota_sofascore,7.1,5
+22547,13,2026-11-23 21:00,Elche,visitante,Morcillo,javi-morcillo,Mediocampista,min,90.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Fer Niño,fernando-nino,Delantero,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Fer Niño,fernando-nino,Delantero,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Fer Niño,fernando-nino,Delantero,nota_sofascore,6.7,5
+22547,13,2026-11-23 21:00,Elche,visitante,Fer Niño,fernando-nino,Delantero,min,90.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Osorio,abiel-osorio,Delantero,titular,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Osorio,abiel-osorio,Delantero,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Osorio,abiel-osorio,Delantero,nota_sofascore,6.6,5
+22547,13,2026-11-23 21:00,Elche,visitante,Osorio,abiel-osorio,Delantero,min,45.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Iturbe,alejandro-iturbe,Portero,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Bigas,pedro-bigas,Defensa,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Barzic,matia-barzic,Defensa,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Barzic,matia-barzic,Defensa,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Barzic,matia-barzic,Defensa,nota_sofascore,6.4,5
+22547,13,2026-11-23 21:00,Elche,visitante,Barzic,matia-barzic,Defensa,min,9.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Lomónaco,kevin-lomonaco,Defensa,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Josan,josan,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Lemar,thomas-lemar,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Lemar,thomas-lemar,Mediocampista,nota_cronista,6.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Lemar,thomas-lemar,Mediocampista,nota_sofascore,6.6,5
+22547,13,2026-11-23 21:00,Elche,visitante,Lemar,thomas-lemar,Mediocampista,min,44.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Diangana,grady-diangana,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Diangana,grady-diangana,Mediocampista,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Diangana,grady-diangana,Mediocampista,min,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Diangana,grady-diangana,Mediocampista,asis_sg,1.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Tete Morente,tete-morente,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Tete Morente,tete-morente,Mediocampista,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Tete Morente,tete-morente,Mediocampista,nota_sofascore,6.4,5
+22547,13,2026-11-23 21:00,Elche,visitante,Tete Morente,tete-morente,Mediocampista,min,9.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Buonanotte,facundo-buonanotte,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Martim Neto,martim-neto,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Martim Neto,martim-neto,Mediocampista,nota_cronista,5.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Martim Neto,martim-neto,Mediocampista,nota_sofascore,6.7,5
+22547,13,2026-11-23 21:00,Elche,visitante,Martim Neto,martim-neto,Mediocampista,min,24.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Padilla,alvaro-padilla,Mediocampista,titular,0.0,5
+22547,13,2026-11-23 21:00,Elche,visitante,Ponce,ezequiel-ponce,Delantero,titular,0.0,5
